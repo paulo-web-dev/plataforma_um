@@ -21,7 +21,7 @@
                 @endforeach
 
                 <div class="grid grid-cols-12 gap-x-5">
-
+ 
                     @csrf
                     <input type="hidden" name="id" value="{{$mapeamento->id}}">
                     <div class="col-span-12 xl:col-span-6">
