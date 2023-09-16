@@ -1,0 +1,203 @@
+<?php
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\AudioController;
+use App\Http\Controllers\SetoresController;
+use App\Http\Controllers\SubSetoresController;
+use App\Http\Controllers\CargosController;
+use App\Http\Controllers\DadosOrganizacionaisController;
+use App\Http\Controllers\CaracteristicasController;
+use App\Http\Controllers\PreDiagnosticoController;
+use App\Http\Controllers\RelatorioController;
+use App\Http\Controllers\MooreGargController;
+use App\Http\Controllers\RulaController;
+use App\Http\Controllers\OwasController;
+use App\Http\Controllers\SueRodgersController;
+use App\Http\Controllers\NioshController;
+use App\Http\Controllers\PopulacaoController;
+use App\Http\Controllers\FotoController;
+use App\Http\Controllers\IntroducaoController;
+use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\ObjetivosController;
+use App\Http\Controllers\RecomendacaoController;
+use App\Http\Controllers\DisposicoesController;
+use App\Http\Controllers\MapeamentoController;
+use App\Http\Controllers\PlanoDeAcaoController;
+use App\Http\Controllers\FotosAtividadesController;
+use App\Http\Controllers\PopulacaoSubSetorController;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/upload/audio', [AudioController::class, 'uploadAudio'])->name('upload-audio');
+
+//Rotas Perinentes a cadastro de empresas
+Route::get('/empresas', [EmpresaController::class, 'show'])->name('show-empresas');
+Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('formempresa');
+Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
+Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
+Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
+
+//Rotas Pertitentes aos setores
+Route::get('/setores', [SetoresController::class, 'show'])->name('show-setores');
+Route::get('/form/setores/{idempresa}', [SetoresController::class, 'formSetores'])->name('form-setores');
+Route::get('/info/setor/{id}', [SetoresController::class, 'infoSetores'])->name('info-setor'); 
+Route::post('/cadastrar/setor', [SetoresController::class, 'cadSetor'])->name('cad-setor');
+Route::post('/update/setor', [SetoresController::class, 'updSetor'])->name('upd-setor');
+
+//Rotas Pèrtinentes ao subsetores
+Route::get('/subsetores', [SubSetoresController::class, 'show'])->name('show-subsetor');
+Route::get('/form/subsetores/{idsetor}', [SubSetoresController::class, 'formSubSetores'])->name('form-subsetores');
+Route::get('/info/subsetor/{id}', [SubSetoresController::class, 'infoSubSetores'])->name('info-subsetor'); 
+Route::post('/cadastrar/subsetor', [SubSetoresController::class, 'cadSubSetor'])->name('cad-subsetor');
+Route::post('/update/subsetor', [SubSetoresController::class, 'updSubSetor'])->name('upd-subsetor');
+
+//Rotas Pertinentes aos cargos
+Route::get('/cargos', [CargosController::class, 'show'])->name('show-cargos');
+Route::get('/form/cargos/{idsubsetor}', [CargosController::class, 'formCargos'])->name('form-cargos');
+Route::get('/info/cargo/{id}', [CargosController::class, 'infoCargos'])->name('info-cargo'); 
+Route::post('/cadastrar/cargo', [CargosController::class, 'cadCargo'])->name('cad-cargo');
+Route::post('/update/cargo', [CargosController::class, 'updCargo'])->name('upd-cargo');
+
+//Rotas Pertinentes aos Dados Organizacionais
+Route::get('/dadosorganizacionais', [DadosOrganizacionaisController::class, 'show'])->name('show-dadosorganizacionais');
+Route::get('/form/dadosorganizacionais/{idsubsetor}', [DadosOrganizacionaisController::class, 'formDadosOrganizacionais'])->name('form-dadosorganizacionais');
+Route::get('/info/dadosorganizacionais/{id}', [DadosOrganizacionaisController::class, 'infoDadosOrganizacionais'])->name('info-dadosorganizacionais'); 
+Route::post('/cadastrar/dadosorganizacionais', [DadosOrganizacionaisController::class, 'cadDadosOrganizacionais'])->name('cad-dadosorganizacionais');
+Route::post('/update/dadosorganizacionais', [DadosOrganizacionaisController::class, 'updDadosOrganizacionais'])->name('upd-dadosorganizacionais');
+
+//Rotas Pèrtinentes as Caracteristicas Do Ambiente De Trabalho
+Route::get('/caracteristicas', [CaracteristicasController::class, 'show'])->name('show-caracteristicas');
+Route::get('/form/caracteristicas/{idsubsetor}', [CaracteristicasController::class, 'formCaracteristicas'])->name('form-caracteristicas');
+Route::get('/info/caracteristicas/{id}', [CaracteristicasController::class, 'infoCaracteristicas'])->name('info-caracteristicas'); 
+Route::post('/cadastrar/caracteristicas', [CaracteristicasController::class, 'cadCaracteristicas'])->name('cad-caracteristicas');
+Route::post('/update/caracteristicas', [CaracteristicasController::class, 'updCaracteristicas'])->name('upd-caracteristicas');
+
+//Rotas Pèrtinentes aos Pré diagnosticos
+Route::get('/pre-diagnosticos', [PreDiagnosticoController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/pre-diagnosticos/{idsubsetor}', [PreDiagnosticoController::class, 'formPreDiagnostico'])->name('form-pre-diagnosticos');
+Route::get('/info/pre-diagnosticos/{id}', [PreDiagnosticoController::class, 'infoPreDiagnostico'])->name('info-pre-diagnosticos'); 
+Route::post('/cadastrar/pre-diagnosticos', [PreDiagnosticoController::class, 'cadPreDiagnostico'])->name('cad-pre-diagnosticos');
+Route::post('/update/pre-diagnosticos', [PreDiagnosticoController::class, 'updPreDiagnostico'])->name('upd-pre-diagnosticos');
+
+//Rotas Pertinentes ao cadastro de Moore e Garg
+Route::get('/moore', [MooreGargController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/moore/{idsubsetor}', [MooreGargController::class, 'formMoore'])->name('form-moore');
+Route::get('/info/moore/{id}', [MooreGargController::class, 'infoMoore'])->name('info-moore'); 
+Route::post('/cadastrar/moore', [MooreGargController::class, 'cadMoore'])->name('cad-moore');
+Route::post('/update/moore', [MooreGargController::class, 'updMoore'])->name('upd-moore');
+
+//Rotas Pertinentes ao cadastro de Rula
+Route::get('/rula', [RulaController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/rula/{idsubsetor}', [RulaController::class, 'formRula'])->name('form-rula');
+Route::get('/info/rula/{id}', [RulaController::class, 'infoRula'])->name('info-rula'); 
+Route::post('/cadastrar/rula', [RulaController::class, 'cadRula'])->name('cad-rula');
+Route::post('/update/rula', [RulaController::class, 'updRula'])->name('upd-rula');
+
+//Rotas Pertinentes ao cadastro de OWAS
+Route::get('/owas', [OwasController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/owas/{idsubsetor}', [OwasController::class, 'formOwas'])->name('form-owas');
+Route::get('/info/owas/{id}', [OwasController::class, 'infoOwas'])->name('info-owas'); 
+Route::post('/cadastrar/owas', [OwasController::class, 'cadOwas'])->name('cad-owas');
+Route::post('/update/owas', [OwasController::class, 'updOwas'])->name('upd-owas');
+
+
+//Rotas Pertinentes ao cadastro de Sue Rodgers
+Route::get('/suerodgers', [SueRodgersController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/suerodgers/{idsubsetor}', [SueRodgersController::class, 'formSueRodgers'])->name('form-suerodgers');
+Route::get('/info/suerodgers/{id}', [SueRodgersController::class, 'infoSueRodgers'])->name('info-suerodgers'); 
+Route::post('/cadastrar/suerodgers', [SueRodgersController::class, 'cadSueRodgers'])->name('cad-suerodgers');
+Route::post('/update/suerodgers', [SueRodgersController::class, 'updSueRodgers'])->name('upd-suerodgers');
+
+//Rotas Pertinentes ao cadatros de Niosh
+Route::get('/niosh', [NioshController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/niosh/{idsubsetor}', [NioshController::class, 'formNiosh'])->name('form-niosh');
+Route::get('/info/niosh/{id}', [NioshController::class, 'infoNiosh'])->name('info-niosh'); 
+Route::post('/cadastrar/niosh', [NioshController::class, 'cadNiosh'])->name('cad-niosh');
+Route::post('/update/niosh', [NioshController::class, 'updNiosh'])->name('upd-niosh');
+
+//Rotas Pertinentes ao cadatros de Introdução
+Route::get('/introducao', [IntroducaoController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/introducao/{empresa}', [IntroducaoController::class, 'formIntroducao'])->name('form-introducao');
+Route::get('/info/introducao/{id}', [IntroducaoController::class, 'infoIntroducao'])->name('info-introducao'); 
+Route::post('/cadastrar/introducao', [IntroducaoController::class, 'cadIntroducao'])->name('cad-introducao');
+Route::post('/update/introducao', [IntroducaoController::class, 'updIntroducao'])->name('upd-introducao');
+
+
+//Rotas Pertinentes ao cadatros de Equipe Técnica
+Route::get('/equipe', [EquipeController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/equipe/{empresa}', [EquipeController::class, 'formEquipe'])->name('form-equipe');
+Route::get('/info/equipe/{id}', [EquipeController::class, 'infoEquipe'])->name('info-equipe'); 
+Route::post('/cadastrar/equipe', [EquipeController::class, 'cadEquipe'])->name('cad-equipe');
+Route::post('/update/equipe', [EquipeController::class, 'updEquipe'])->name('upd-equipe');
+
+//Rotas Pertinentes ao cadatros de Objetivos
+Route::get('/objetivo', [ObjetivosController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/objetivo/{empresa}', [ObjetivosController::class, 'formObjetivo'])->name('form-objetivo');
+Route::get('/info/objetivo/{id}', [ObjetivosController::class, 'infoObjetivo'])->name('info-objetivo'); 
+Route::post('/cadastrar/objetivo', [ObjetivosController::class, 'cadObjetivo'])->name('cad-objetivo');
+Route::post('/update/objetivo', [ObjetivosController::class, 'updObjetivo'])->name('upd-objetivo');
+
+//Rotas Pertinentes ao cadatros de Recomendações Técnicas
+Route::get('/recomendacao', [RecomendacaoController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/recomendacao/{id_subsetor}', [RecomendacaoController::class, 'formRecomendacao'])->name('form-recomendacao');
+Route::get('/info/recomendacao/{id}', [RecomendacaoController::class, 'infoRecomendacao'])->name('info-recomendacao'); 
+Route::post('/cadastrar/recomendacao', [RecomendacaoController::class, 'cadRecomendacao'])->name('cad-recomendacao');
+Route::post('/update/recomendacao', [RecomendacaoController::class, 'updRecomendacao'])->name('upd-recomendacao');
+
+//Rotas Pertinentes ao cadatros de Disposições Finais
+Route::get('/disposicao', [DisposicoesController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/disposicao/{empresa}', [DisposicoesController::class, 'formDisposicao'])->name('form-disposicao');
+Route::get('/info/disposicao/{id}', [DisposicoesController::class, 'infoDisposicao'])->name('info-disposicao'); 
+Route::post('/cadastrar/disposicao', [DisposicoesController::class, 'cadDisposicao'])->name('cad-disposicao');
+Route::post('/update/disposicao', [DisposicoesController::class, 'updDisposicao'])->name('upd-disposicao');
+
+
+//Rotas referente a upload de população 
+Route::get('/form/populacao/{empresa}', [PopulacaoController::class, 'formPopulacao'])->name('form-populacao');
+Route::post('/upload/populacao', [PopulacaoController::class, 'uploadPopulacao'])->name('upload-populacao');
+
+//Rotas referente a upload de população de subsetor
+Route::get('/form/subsetor/populacao/{id_subsetor}', [PopulacaoSubSetorController::class, 'formPopulacao'])->name('form-populacao-subsetor');
+Route::get('/info/subsetor/populacao/{id}', [PopulacaoSubSetorController::class, 'infoPopulacao'])->name('info-populacao-subsetor');
+Route::post('/upload/subsetor/populacao', [PopulacaoSubSetorController::class, 'uploadPopulacao'])->name('upload-populacao-subsetor');
+Route::post('/update/subsetor/populacao', [PopulacaoSubSetorController::class, 'updPopulacao'])->name('update-populacao-subsetor');
+
+//Rotas referente a upload de mapeamento ergonômico 
+Route::get('/form/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamento'])->name('form-mapeamento');
+Route::get('/info/mapeamento/{id}', [MapeamentoController::class, 'infoMapeamento'])->name('info-mapeamento');
+Route::post('/update/mapeamento', [MapeamentoController::class, 'updMapeamento'])->name('upd-mapeamento');
+Route::post('/upload/mapeamento', [MapeamentoController::class, 'uploadMapeamento'])->name('upload-mapeamento');
+
+//Rotas referente a upload de plano de ação 
+Route::get('/form/plano-de-acao/{empresa}', [PlanoDeAcaoController::class, 'formPlanoDeAcao'])->name('form-plano-de-acao');
+Route::post('/upload/plano-de-acao', [PlanoDeAcaoController::class, 'uploadPlanoDeAcao'])->name('upload-plano-de-acao');
+
+//Rotas referente a upload de fotos 
+Route::get('/form/foto/{id_subsetor}', [FotosAtividadesController::class, 'formFoto'])->name('form-foto');
+Route::post('/upload/foto', [FotosAtividadesController::class, 'uploadFoto'])->name('upload-foto');
+Route::get('/delete/foto/{foto}', [FotosAtividadesController::class, 'deleteFoto'])->name('delete-foto');
+ 
+//Rotas referentes ao relatório
+
+Route::get('/relatorio/{id}', [RelatorioController::class, 'gerarRelatorio'])->name('gera-relatorio');
+
+require __DIR__.'/auth.php';

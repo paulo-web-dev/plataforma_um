@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{url('/dist/css/relatorio.css')}}" rel="stylesheet">
+		<script src="{{url('/dist/js/calculo_ferramentas.js')}}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<title>AET</title>
+	</head>
+	<body>
+		{{-- Capa --}}
+		<div class="homepage">
+			<img src="/logo_plataforma_um.JPEG" class="img-home">
+			<div class="titulo-documento">
+				<div class="text">
+					<div class="title">
+						<p class="text-center">ANÁLISE ERGONÔMICA DO TRABALHO</p>
+					</div>
+					<div class="subtitle">
+						<br><br><br>
+						<p class="text-center">{{$empresa->nome}}</p>
+						<p class="text-center"> 2023</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{-- Contra capa com informações da empresa --}}
+		<div class="page">
+			<div class="cabecalho">
+				<img src="/logo_plataforma_um.JPEG" class="img-cabecalho">
+				<div class="cabecalhotext">
+					<h2>
+						<p class="text-center">AET</p>
+					</h2>
+					<p class="text-center">Análise Ergonômica do Trabalho</p>
+					<p class="text-center">2023</p>
+				</div>
+				<center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa "></center>
+				<div class="subcabecalho" style="margin-top: 100px;">
+					<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Informações Complementares da Obra</p>
+				</div>
+				<div class="infobox">
+					<p class="text-center"><b>Endereço: {{$empresa->rua}}</b></p>
+					<p class="text-center"><b>Cidade: {{$empresa->cidade}}</b></p>
+					<p class="text-center"><b>CEP: {{$empresa->cep}}</b></p>
+					<p class="text-center"><b>CNPJ: {{$empresa->cnpj}}</b></p>
+					<p class="text-center"><b>N° Empregados: {{$empresa->num_funcionarios}}</b></p>
+				</div>
+			</div>
+		</div>
+		{{-- Introdução --}}
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Introdução</p>
+			</div>
+			<p>{{$empresa->introducao->introducao}}</p>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Equipe Técnica --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Equipe Técnica</p>
+			</div>
+			<p style="font-size: 25px;">{{$empresa->equipe->equipe}}</p>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Objetivos --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Objetivos: </p>
+			</div>
+			<ul>
+				@foreach ($empresa->objetivos as $objetivo)
+				<li style="font-size: 25px;">{{$objetivo->objetivo}}</li>
+				@endforeach
+			</ul>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Postos/Subsetores/Cargos que foram avaliados --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DOS POSTOS DE TRABALHO</p>
+			</div>
+			<p style="font-size: 25px;">As avaliações ocorreram nos seguintes setores da empresa:</p>
+			<ul>
+				@foreach ($empresa->setores as $setor)
+				<li style="font-size: 25px;">{{$setor->nome}}</li>
+				@endforeach
+			</ul>
+		</div>
+		{{-- Loop Setores --}}
+		@foreach ($empresa->setores as $setor)
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$setor->nome}}</p>
+			</div>
+			<p style="font-size: 25px;">No setor {{$setor->nome}}, foram avaliado os seguintes setores</p>
+			<ul>
+				@foreach ($setor->subsetores as $subsetor)
+				<li style="font-size: 25px;">{{$subsetor->nome}}</li>
+				@endforeach
+			</ul>
+		</div>
+		{{-- Começo de descrição geral subsetores --}}
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$setor->nome}}</p>
+			</div>
+			<table style="margin-left:10px; margin-right:10px">
+				<tr>
+					<td><b>Área:</b></td>
+					<td>{{$setor->nome}}</td>
+				</tr>
+				<tr>
+					<td><b>Setor:</b></td>
+					<td>{{$setor->nome}}</td>
+				</tr>
+				<tr>
+					<td><b>Cargos:</b></td>
+					<td>
+						@foreach($setor->subsetores as $subsetor)
+						{{$subsetor->nome}},
+						@endforeach
+					</td>
+				</tr>
+				<!-- Adicione mais linhas conforme necessário -->
+			</table>
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>
+			</div>
+			@foreach($setor->subsetores as $subsetor)
+			<p class="text-cargo" ><b>{{$subsetor->nome}}:</b>{{$subsetor->descricao}}. </p>
+           
+			@endforeach
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Dados organizacionais --}}
+		<div class="page">
+			<div class="subcabecalho2" style="margin-top:35px">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Dados Organizacionais</p>
+			</div>
+			<ul>
+				@foreach($setor->subsetores as $subsetor)
+				@foreach ($subsetor->dadosOrganizacionais as $dados)    
+				<li>{{$dados->dado}}</li>
+				@endforeach
+				@endforeach
+			</ul>
+			{{-- Caracteristicas do ambiente de trabalho --}}
+			<div class="subcabecalho2" style="margin-top:35px">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Ambiente de Trabalho</p>
+			</div>
+			<ul>
+				@foreach($setor->subsetores as $subsetor)
+				@foreach ($subsetor->caracteristicas as $caracteristica)  
+				<li>{{$caracteristica->titulo}}: {{$caracteristica->descricao}}</li>
+				@endforeach
+				@endforeach
+			</ul>
+			{{-- Pré diagnosticos --}}
+			<div class="subcabecalho2" style="margin-top:35px">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Pré Diagnóstico</p>
+			</div>
+			<ul>
+				@foreach($setor->subsetores as $subsetor)
+				@foreach ($subsetor->preDiagnostico as $diagnostico)  
+				<li>{{$diagnostico->titulo}}: {{$diagnostico->descricao}}</li>
+				@endforeach
+				@endforeach
+			</ul>
+		</div>
+		@foreach($setor->subsetores as $subsetor)
+
+	    <div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Fotos: {{$subsetor->nome}} </p>
+            </div>
+            <div class="imagem-container">
+                @foreach ($subsetor->fotosatividade as $foto)
+                <div class="imagem">
+                    <img src="/fotos-atividades/{{$foto->photo}}" alt="Imagem">
+                </div>
+                @endforeach
+            </div>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnostico: {{$subsetor->nome}} </p>
+			</div>
+			{{-- Tabela com Resultados de ferramentas --}}
+			<div class="container mt-5">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Ferramentas</th>
+							<th>Resultado</th>
+							<th>Região Corpórea</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach ($subsetor->moore as $moore)
+						<tr>
+							<td>MOORE E GARG
+								<br>(Análise de risco para punhos e mãos)
+								<br> Atividade: {{$moore->atividade}}.
+							</td>
+							<td id="conclusaomoore{{$loop->index}}"></td>
+							<td>Punhos, Mãos e Dedos</td>
+						</tr>
+						<script>
+							mooregarg({{$moore->fit}},{{$moore->fde}},{{$moore->ffe}},{{$moore->fpmp}},{{$moore->fri}},{{$moore->fdt}}, {{$loop->index}});
+						</script>       
+						@endforeach
+						@foreach ($subsetor->rula as $rula)
+						<tr>
+							<td>RULA
+								<br>(Avaliação de fatores de risco para distÚrbios músculo-esqueléticos dos membros superiores)
+								<br> Atividade: {{$rula->atividade}}.
+							</td>
+							<td id="conclusaorula{{$loop->index}}"></td>
+							<td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
+						</tr>
+						<script>
+							rula({{$rula->braco}},{{$rula->braco_desvio}},{{$rula->antebraco}},{{$rula->antebraco_desvio}}, {{$rula->punho}}, {{$rula->punho_desvio}}, {{$rula->pescoco}},{{$rula->pescoco_desvio}},{{$rula->tronco}},{{$rula->tronco_desvio}}, {{$rula->perna}}, {{$loop->index}}); 
+						</script>       
+						@endforeach
+						@foreach ($subsetor->owas as $owas)
+						<tr>
+							<td>OWAS
+								<br>(Detecção de posturas inadequadas)
+								<br> Atividade: {{$owas->atividade}}.
+							</td>
+							<td id="conclusaoowas{{$loop->index}}"></td>
+							<td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
+						</tr>
+						<script>
+							owas({{$owas->dorso}},{{$owas->braco}}, {{$owas->pernas}}, {{$owas->carga}}, {{$loop->index}});
+						</script>       
+						@endforeach
+						@foreach ($subsetor->suerodgers as $sue)
+						<tr>
+							<td>Sue Rodgers
+								<br>(análise de esforço para segmentos corpóreos)
+								<br> Atividade: {{$sue->atividade}}.
+							</td>
+							<td id="conclusaosue{{$loop->index}}"></td>
+							<td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
+						</tr>
+						<script>
+							suerodgers(['Pescoço -{{$sue->pescoco}}', 'Ombros -{{$sue->ombro}}', 'Tronco -{{$sue->tronco}}', 'Braco -{{$sue->braco}}', 'Mãos -{{$sue->mao_punho_dedo}}', 'Pernas -{{$sue->perna_pe_dedo}}' ], {{$loop->index}} );
+						</script>       
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		@endforeach
+		{{-- Recomendações Técnicas --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">RECOMENDAÇÕES TÉCNICAS E SUGESTÕES DE ADEQUAÇÕES</p>
+			</div>
+			<ul>
+				@foreach ($subsetor->recomendacao as $recomendacao)
+				<li>{{$recomendacao->recomendacao}}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endforeach
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Mapeamento Ergonomico --}}
+		@php
+		$mapeamentos = $empresa->mapeamento;
+		@endphp
+		@while(count($mapeamentos) > 0)
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">Mapeamento Ergonômico</p>
+			</div>
+			<table>
+				<thead>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Postura</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Exigência da Atividade</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sobrecarga</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
+				</thead>
+				<tbody>
+					@foreach ($mapeamentos->take(8) as $mapeamento)
+					<tr class="hover:bg-gray-200">
+						<td class="border">{{$mapeamento->area}}</td>
+						<td class="border">{{$mapeamento->setor}}</td>
+						<td class="border">{{$mapeamento->posto_trabalho}}</td>
+						<td class="border">{{substr($mapeamento->funcao, 0, 50)}}...</td>
+						<td class="border">{{$mapeamento->postura}}</td>
+						<td class="border">{{$mapeamento->atividade}}...</td>
+						<td class="border">{{$mapeamento->exigencia}}</td>
+						<td class="border">{{$mapeamento->sobrecarga}}</td>
+						<td class="border" id="classificacao{{$mapeamento->id}}">{{$mapeamento->classificacao}}</td>
+					</tr>
+					<script> classificacao('{{$mapeamento->classificacao}}', '{{$mapeamento->id}}'); </script>
+					@endforeach 
+				</tbody>
+			</table>
+			@php
+			$mapeamentos = $mapeamentos->slice(8); // Remove os primeiros 8 elementos
+			@endphp
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		@endwhile
+		{{-- Plano de ação --}}
+		@php
+		$planos = $empresa->planodeacao;
+		@endphp
+		@while(count($planos) > 0)
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">Plano de Ação</p>
+			</div>
+			<table>
+				<thead>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Exigência da Atividade</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Recomendação de Melhora</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Viabilidade</th>
+					<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Prazo</th>
+					<!-- Cabeçalho da tabela -->
+				</thead>
+				<tbody>
+					@foreach ($planos->take(8) as $plano)
+					<tr class="hover:bg-gray-200">
+						<td class="border">{{$plano->area}}</td>
+						<td class="border">{{$plano->setor}}</td>
+						<td class="border">{{$plano->posto_trabalho}}</td>
+						<td class="border">{{substr($plano->funcao, 0, 50)}}...</td>
+						<td class="border">{{$plano->exigencia}}</td>
+						<td class="border">{{$plano->recomendacao}}</td>
+						<td class="border">{{$plano->viabilidade}}</td>
+						<td class="border">{{$plano->prazo}}</td>
+					</tr>
+					@endforeach 
+				</tbody>
+			</table>
+			@php
+			$planos = $planos->slice(8); // Remove os primeiros 8 elementos
+			@endphp
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		@endwhile
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Disposições Finais --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DISPOSIÇÕES FINAIS</p>
+			</div>
+			<ul>
+				@if(isset($empresa->disposicao))
+				<li>{{$empresa->disposicao->disposicao}}</li>
+				@endif
+			</ul>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Gráficos Populacionais --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Gráficos Populacionais</p>
+			</div>
+			{{-- Gráfico Genero --}}
+			<canvas id="genero" width="400" height="200"></canvas>
+			<br><br>
+			{{-- Gráfico Faixa Etária --}}
+			<canvas id="faixaetaria" width="400" height="200"></canvas>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Gráficos Populacionais</p>
+			</div>
+			{{-- Gráfico Tempo de admissão --}}
+			<canvas id="tempoadimissao" width="400" height="200"></canvas>
+			<br><br>
+			{{-- Gráfico de Escolaridade --}}
+			<canvas id="escolaridade" width="400" height="200"></canvas>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			//Gráfico Genêro
+			  var ctx = document.getElementById('genero').getContext('2d');
+			  var data = @json($genero); // Converte os dados PHP em JSON
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Gênero',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  });
+			//Gráfico Faixa Etaria
+			
+			var ctx = document.getElementById('faixaetaria').getContext('2d');
+			  var data = @json($faixaetaria); // Converte os dados PHP em JSON
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Faixa Etária',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  }); 
+			//Gráfico tempo Admissão
+			
+			var ctx = document.getElementById('tempoadimissao').getContext('2d');
+			  var data = @json($faixaetaria); // Converte os dados PHP em JSON
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Tempo de Admissão',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  });
+			
+			//Gráfico Escolaridade
+			var ctx = document.getElementById('escolaridade').getContext('2d');
+			  var data = @json($escolaridade); // Converte os dados PHP em JSON
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Escolaridade',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  });
+		</script>
+	</body>
+</html>
