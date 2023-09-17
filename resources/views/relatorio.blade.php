@@ -51,6 +51,29 @@
 				</div>
 			</div>
 		</div>
+		{{-- Súmario --}}
+	
+		{{-- Objetivos --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Súmario</p>
+			</div>
+				<div class="sumario">
+        
+            <ul>
+                <li><span class="titulo">Introdução</span> <span class="pagina">3</span></li>
+				<li><span class="titulo">Equipe Técnica</span> <span class="pagina">4</span></li>
+				<li><span class="titulo">Objetivos</span> <span class="pagina">5</span></li>
+				<li><span class="titulo">Análise dos postos de trabalho</span> <span class="pagina">6</span></li>
+				<li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
+				<li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li>
+				<li><span class="titulo">Disposições Finais</span> <span class="pagina" id="disposicoes"></span></li>
+				<li><span class="titulo">Encerramento</span> <span class="pagina" id="encerramento"></span></li>
+				<li><span class="titulo">Anexos</span> <span class="pagina" id="anexos"></span></li>
+
+            </ul>
+        </div>	
+		</div>
 		{{-- Introdução --}}
 		<div class="paginacao">
 			<script>paginacao()</script>
@@ -123,7 +146,7 @@
 		<div class="page">
 			<div class="subcabecalho2">
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$setor->nome}}</p>
-			</div>
+			</div> 
 			<table style="margin-left:10px; margin-right:10px">
 				<tr>
 					<td><b>Área:</b></td>
@@ -213,6 +236,7 @@
 			<div class="subcabecalho2">
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnostico: {{$subsetor->nome}} </p>
 			</div>
+		
 			{{-- Tabela com Resultados de ferramentas --}}
 			<div class="container mt-5">
 				<table class="table table-bordered">
@@ -280,9 +304,129 @@
 				</table>
 			</div>
 		</div>
+{{-- POPULAÇÃO --}}
+				{{-- Pegar dados Populacionais --}}
+					@php $populacaoSubsetor = $subsetor->populacaosubsetor; @endphp
+		
+						<script>
+						var populacaoSubsetor = @json($populacaoSubsetor);
+						var graficos = calcularEstatisticas(populacaoSubsetor, {{$subsetor->id}});
+						console.log(graficos.index);
+						</script>
+	<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Gráficos Populacionais --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Gráficos Populacionais</p>
+			</div>
+				<div class="grafico-container">
+					<canvas id="genero{{$subsetor->id}}" class="grafico"></canvas>
+				</div>
+
+				<div class="grafico-container">
+					<canvas id="faixaetaria{{$subsetor->id}}" class="grafico"></canvas>
+				</div>
+				
+				<div class="grafico-container">
+					<canvas id="tempoadimissao{{$subsetor->id}}" class="grafico"></canvas>
+				</div>
+
+				<div class="grafico-container">
+					<canvas id="escolaridade{{$subsetor->id}}" class="grafico"></canvas>
+				</div>
+		</div>
+
+
 		<div class="paginacao">
 			<script>paginacao()</script>
 		</div>
+<script>
+			//Gráfico Genêro
+			  var ctx = document.getElementById('genero'+graficos.index).getContext('2d');
+			  var data =graficos.genero; 
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Gênero',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  });
+			//Gráfico Faixa Etaria
+			
+			var ctx = document.getElementById('faixaetaria'+graficos.index).getContext('2d');
+			  var data = graficos.faixaetaria; 
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Faixa Etária',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  }); 
+			//Gráfico tempo Admissão
+			
+			var ctx = document.getElementById('tempoadimissao'+graficos.index).getContext('2d');
+			  var data = graficos.tempoadmissao; 
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Tempo de Admissão',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  });
+			
+			//Gráfico Escolaridade
+			var ctx = document.getElementById('escolaridade'+graficos.index).getContext('2d');
+			  var data =  graficos.escolaridade; 
+			
+			  var chart = new Chart(ctx, {
+			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
+			      data: {
+			          labels: data.labels, // Rótulos para o eixo X
+			          datasets: [{
+			              label: 'Escolaridade',
+			              data: data.data, // Dados para o eixo Y
+			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
+			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              borderWidth: 1 // Largura das bordas das barras
+			          }]
+			      },
+			      options: {
+			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+			      }
+			  });
+		</script>
 		@endforeach
 		{{-- Recomendações Técnicas --}}
 		<div class="page">
@@ -342,7 +486,10 @@
 			@endphp
 		</div>
 		<div class="paginacao">
-			<script>paginacao()</script>
+			<script>
+			var mapeamento = document.getElementById('mapeamento'); 
+			mapeamento.innerHTML = paginacao() -1;
+			</script>
 		</div>
 		@endwhile
 		{{-- Plano de ação --}}
@@ -386,7 +533,10 @@
 			@endphp
 		</div>
 		<div class="paginacao">
-			<script>paginacao()</script>
+			<script>
+			var plano = document.getElementById('plano_de_acao'); 
+			plano.innerHTML = paginacao() -1;
+			</script>
 		</div>
 		@endwhile
 		<div class="paginacao">
@@ -403,121 +553,15 @@
 				@endif
 			</ul>
 		</div>
+	
+
 		<div class="paginacao">
-			<script>paginacao()</script>
-		</div>
-		{{-- Gráficos Populacionais --}}
-		<div class="page">
-			<div class="subcabecalho2">
-				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Gráficos Populacionais</p>
-			</div>
-			{{-- Gráfico Genero --}}
-			<canvas id="genero" width="400" height="200"></canvas>
-			<br><br>
-			{{-- Gráfico Faixa Etária --}}
-			<canvas id="faixaetaria" width="400" height="200"></canvas>
-		</div>
-		<div class="paginacao">
-			<script>paginacao()</script>
-		</div>
-		<div class="page">
-			<div class="subcabecalho2">
-				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Gráficos Populacionais</p>
-			</div>
-			{{-- Gráfico Tempo de admissão --}}
-			<canvas id="tempoadimissao" width="400" height="200"></canvas>
-			<br><br>
-			{{-- Gráfico de Escolaridade --}}
-			<canvas id="escolaridade" width="400" height="200"></canvas>
-		</div>
-		<div class="paginacao">
-			<script>paginacao()</script>
+			<script>
+				var disposicoes = document.getElementById('disposicoes'); 
+				disposicoes.innerHTML = paginacao();
+			</script>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-		<script>
-			//Gráfico Genêro
-			  var ctx = document.getElementById('genero').getContext('2d');
-			  var data = @json($genero); // Converte os dados PHP em JSON
-			
-			  var chart = new Chart(ctx, {
-			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
-			      data: {
-			          labels: data.labels, // Rótulos para o eixo X
-			          datasets: [{
-			              label: 'Gênero',
-			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
-			              borderWidth: 1 // Largura das bordas das barras
-			          }]
-			      },
-			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
-			      }
-			  });
-			//Gráfico Faixa Etaria
-			
-			var ctx = document.getElementById('faixaetaria').getContext('2d');
-			  var data = @json($faixaetaria); // Converte os dados PHP em JSON
-			
-			  var chart = new Chart(ctx, {
-			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
-			      data: {
-			          labels: data.labels, // Rótulos para o eixo X
-			          datasets: [{
-			              label: 'Faixa Etária',
-			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
-			              borderWidth: 1 // Largura das bordas das barras
-			          }]
-			      },
-			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
-			      }
-			  }); 
-			//Gráfico tempo Admissão
-			
-			var ctx = document.getElementById('tempoadimissao').getContext('2d');
-			  var data = @json($faixaetaria); // Converte os dados PHP em JSON
-			
-			  var chart = new Chart(ctx, {
-			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
-			      data: {
-			          labels: data.labels, // Rótulos para o eixo X
-			          datasets: [{
-			              label: 'Tempo de Admissão',
-			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
-			              borderWidth: 1 // Largura das bordas das barras
-			          }]
-			      },
-			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
-			      }
-			  });
-			
-			//Gráfico Escolaridade
-			var ctx = document.getElementById('escolaridade').getContext('2d');
-			  var data = @json($escolaridade); // Converte os dados PHP em JSON
-			
-			  var chart = new Chart(ctx, {
-			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
-			      data: {
-			          labels: data.labels, // Rótulos para o eixo X
-			          datasets: [{
-			              label: 'Escolaridade',
-			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
-			              borderWidth: 1 // Largura das bordas das barras
-			          }]
-			      },
-			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
-			      }
-			  });
-		</script>
+		
 	</body>
 </html>

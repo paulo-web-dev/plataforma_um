@@ -254,7 +254,7 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
         var classeAlvo = "page";
         var elementos = document.getElementsByClassName(classeAlvo);
         document.write(elementos.length);
-        
+        return elementos.length;
         }
 
     function classificacao(classificacao, index){
@@ -282,5 +282,112 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
         }
   
     }
+
+    //Gráficos 
+    function calcularEstatisticas(subsetor, index) {
+        let faixaetaria20a29 = 0;
+        let faixaetaria30a39 = 0;
+        let faixaetaria40a49 = 0;
+        let faixaetaria50a59 = 0;
+        let tempoadmissao0a5 = 0;
+        let tempoadmissao6a10 = 0;
+        let tempoadmissao10a20 = 0;
+        let sexom = 0;
+        let sexof = 0;
+        let escolaridadesg = 0;
+        let escolaridadepg = 0;
+        let escolaridadetg = 0;
+    
+        subsetor.forEach((populacao) => {
+            if (populacao.sexo === 'MASC.') {
+                sexom += 1;
+            } else {
+                sexof += 1;
+            }
+    
+            switch (true) {
+                case populacao.idade <= 29:
+                    faixaetaria20a29 += 1;
+                    break;
+    
+                case populacao.idade >= 30 && populacao.idade <= 39:
+                    faixaetaria30a39 += 1;
+                    break;
+    
+                case populacao.idade >= 40 && populacao.idade <= 49:
+                    faixaetaria40a49 += 1;
+                    break;
+    
+                case populacao.idade > 49:
+                    faixaetaria50a59 += 1;
+                    break;
+            }
+    
+            switch (true) {
+                case populacao.tempo_empresa <= 5:
+                    tempoadmissao0a5 += 1;
+                    break;
+    
+                case populacao.tempo_empresa >= 6 && populacao.tempo_empresa <= 10:
+                    tempoadmissao6a10 += 1;
+                    break;
+    
+                case populacao.tempo_empresa > 10:
+                    tempoadmissao10a20 += 1;
+                    break;
+            }
+    
+            if (populacao.escolaridade === 'SEGUNDO GRAU (COLEGIAL) COMPLETO                  ') {
+                escolaridadesg += 1;
+            } else if (populacao.escolaridade === 'TERCEIRO GRAU (FACULDADE) COMPLETO                  ') {
+                escolaridadetg += 1;
+            } else {
+                escolaridadepg += 1;
+            }
+        });
+    
+        const key = empresa.populacao.length;
+        const porcentagemmasculino = (sexom / key) * 100;
+        const porcentagemfeminino = 100 - porcentagemmasculino;
+
+        var genero = {
+            'labels': ['Feminino', 'Masculino'],
+            'data': [sexof, sexom],
+        };
+    
+        var faixaetaria = {
+            'labels': ['20 á 29 anos', '30 á 39 anos', '40 á 49 anos', '50 á 59 anos'],
+            'data': [faixaetaria20a29, faixaetaria30a39, faixaetaria40a49, faixaetaria50a59],
+        };
+    
+        var tempoadmissao = {
+            'labels': ['0 á 5 anos', '6 á 10 anos', '10 á 20 anos'],
+            'data': [tempoadmissao0a5, tempoadmissao6a10, tempoadmissao10a20],
+        };
+    
+        var escolaridade = {
+            'labels': ['Primeiro Grau', 'Segundo Grau', 'Terceiro Grau'],
+            'data': [escolaridadepg, escolaridadesg, escolaridadetg],
+        };
+    
+        return {
+            genero: genero,
+            faixaetaria: faixaetaria,
+            tempoadmissao: tempoadmissao,
+            escolaridade: escolaridade,
+            index
+
+        };
+    }
+    
+    // Exemplo de uso:
+    const empresa = {
+        populacao: [
+            // Insira aqui os dados da população da empresa
+        ],
+    };
+    
+
+    
 
     
