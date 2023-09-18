@@ -88,7 +88,9 @@ class EmpresaController extends Controller
         ->with('disposicao')
         ->with('mapeamento')
         ->with('planodeacao')
+        ->with('responsaveis')
         ->first();
+   
         if(count($empresa->populacao) > 0){
          
         $idade= 0;

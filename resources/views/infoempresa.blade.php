@@ -513,6 +513,55 @@
                 <a href="{{route('form-objetivo', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Setor</a>
             </div>    
         </div>
+     <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Lista de Responsáveis
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Nome</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Cargo</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                @foreach ($empresa->responsaveis as $responsavel) 
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$responsavel->id}}</td>
+                                        <td class="border">{{$responsavel->nome}}</td>
+                                        <td class="border">{{$responsavel->cargo}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-responsaveis', ['id' => $responsavel->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                @endforeach 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-responsaveis', ['id_empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Responsável</a>
+            </div>    
+        </div>
 
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">

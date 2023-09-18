@@ -27,6 +27,7 @@ use App\Http\Controllers\MapeamentoController;
 use App\Http\Controllers\PlanoDeAcaoController;
 use App\Http\Controllers\FotosAtividadesController;
 use App\Http\Controllers\PopulacaoSubSetorController;
+use App\Http\Controllers\ReponsaveisController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -196,6 +197,14 @@ Route::get('/form/foto/{id_subsetor}', [FotosAtividadesController::class, 'formF
 Route::post('/upload/foto', [FotosAtividadesController::class, 'uploadFoto'])->name('upload-foto');
 Route::get('/delete/foto/{foto}', [FotosAtividadesController::class, 'deleteFoto'])->name('delete-foto');
  
+//Rotas referentes ao controle de responsáveis 
+
+Route::get('/responsaveis', [ReponsaveisController::class, 'show'])->name('show-setores');
+Route::get('/form/responsaveis/{id_empresa}', [ReponsaveisController::class, 'formResponsaveis'])->name('form-responsaveis');
+Route::get('/info/responsaveis/{id}', [ReponsaveisController::class, 'infoResponsaveis'])->name('info-responsaveis'); 
+Route::post('/cadastrar/responsaveis', [ReponsaveisController::class, 'cadResponsaveis'])->name('cad-responsaveis');
+Route::post('/update/responsaveis', [ReponsaveisController::class, 'updResponsaveis'])->name('upd-responsaveis');
+
 //Rotas referentes ao relatório
 
 Route::get('/relatorio/{id}', [RelatorioController::class, 'gerarRelatorio'])->name('gera-relatorio');

@@ -568,6 +568,7 @@
 			<div class="subcabecalho2">
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Encerramento: {{$empresa->nome}}</p>
 			</div>
+			
 			<p style="font-size: 25px;">
 				Este documento é composto de <span id="paginas">55</span> páginas impressas somente no anverso,
 				devidamente rubricadas. <br><br>
@@ -575,7 +576,18 @@
 				assim que houver qualquer alteração dos postos de trabalho ou atividade.
 				<br><br>
 				Jundiaí, {{date('d')}} de <script>document.write(mes('{{date("m")}}'))</script> de {{date('Y')}}
-				</p>
+				</p><br>
+				<center><br><br>
+					<h3>Responsabilidade pela elaboração</h3>
+					<div class="responsaveis">
+					@foreach ($empresa->responsaveis as $responsavel)
+						<div class="linha-assinatura">
+						</div>
+						<p>{{$responsavel->nome}}</p>
+						<p>{{$responsavel->cargo}}</p>
+						<p>{{$responsavel->identidade_trabalho}}</p><br><br><br>
+					@endforeach
+					</div>
 				</center>
 		</div>
 	

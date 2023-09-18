@@ -76,4 +76,12 @@ class Empresas extends Model
         return $this->hasMany(PlanoDeAcao::class, 'id_empresa', 'id');
 
     }
+
+    public function responsaveis()
+
+    {
+
+        return $this->hasMany(Responsaveis::class, 'id_empresa', 'id');
+
+    }
 }

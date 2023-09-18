@@ -194,3 +194,12 @@ body {
   float: right;
   margin-right: 30px;
 }
+
+.responsaveis {
+  margin-top: 100px;
+}
+
+.linha-assinatura {
+  border-top: 2px solid #000; 
+  max-width: 300px;
+}
