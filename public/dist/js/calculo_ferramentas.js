@@ -389,5 +389,14 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
     
 
     
+    function mes(numero) {
+        const meses = [
+            'Janeiro', 'Fevereiro', 'Março', 'Abril',
+            'Maio', 'Junho', 'Julho', 'Agosto',
+            'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+        ];
 
+        return meses[numero -1];
+
+    }
     

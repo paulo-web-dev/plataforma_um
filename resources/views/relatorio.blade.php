@@ -563,6 +563,30 @@
 		</div>
 
 
+		{{-- Encerramento --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Encerramento: {{$empresa->nome}}</p>
+			</div>
+			<p style="font-size: 25px;">
+				Este documento é composto de <span id="paginas">55</span> páginas impressas somente no anverso,
+				devidamente rubricadas. <br><br>
+				A reavaliação da ANÁLISE ERGONÔMICA DO TRABALHO, deverá ser realizada
+				assim que houver qualquer alteração dos postos de trabalho ou atividade.
+				<br><br>
+				Jundiaí, {{date('d')}} de <script>document.write(mes('{{date("m")}}'))</script> de {{date('Y')}}
+				</p>
+				</center>
+		</div>
+	
+
+		<div class="paginacao">
+			<script>
+				var encerramento = document.getElementById('encerramento'); 
+				encerramento.innerHTML = paginacao();
+			</script>
+		</div>
+
 		<div class="page">
 			<div class="subcabecalho2">
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Moore & Garg</p>
@@ -638,7 +662,10 @@
 
 		
 		<div class="paginacao">
-			<script> paginacao();</script>
+			<script>
+				var paginas = document.getElementById('paginas'); 
+				paginas.innerHTML = paginacao();
+			</script>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 		
