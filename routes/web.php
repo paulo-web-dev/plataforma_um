@@ -44,7 +44,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
@@ -208,5 +208,8 @@ Route::post('/update/responsaveis', [ReponsaveisController::class, 'updResponsav
 //Rotas referentes ao relatório
 
 Route::get('/relatorio/{id}', [RelatorioController::class, 'gerarRelatorio'])->name('gera-relatorio');
-
+Route::get('/laravel-version', function() {
+    $laravel = app();
+    return "Your Laravel version is ".$laravel::VERSION;
+});
 require __DIR__.'/auth.php';

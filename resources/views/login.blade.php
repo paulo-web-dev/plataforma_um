@@ -23,7 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="keywords"
         content="admin template, Rubick Admin Template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="LEFT4CODE">
-    <title>Plataforma Um </title>
+    <title> Um </title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="{{ url('dist/css/app.css') }}" />
     <!-- END: CSS Assets-->
@@ -38,13 +38,13 @@ License: You must have a valid license purchased only from themeforest(the above
                 <a href="" class="-intro-x flex items-center pt-5">
                     <img alt="Rubick Tailwind HTML Admin Template" class="w-6"
                         src="{{ url('dist/images/logo.svg') }}">
-                    <span class="text-white text-lg ml-3"> Plataforma<span class="font-medium">Um</span> </span>
+                    <span class="text-white text-lg ml-3"> <span class="font-medium">Um</span> </span>
                 </a>
                 <div class="my-auto">
                     <img alt="Rubick Tailwind HTML Admin Template" class="-intro-x w-1/2 -mt-16"
                         src="{{ url('dist/images/illustration.svg') }}">
                     <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
-                       Plataforma Administrativa
+                        Administrativa
                     </div>
                     <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-gray-500">controle e relatórios</div>
                 </div>
