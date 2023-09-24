@@ -1,4 +1,6 @@
 function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
+            var metodologia = document.getElementById('metodologia_moor');
+            metodologia.innerHTML = '<b>MOORE E GARG</b> para analisar índice de esforço musculoesquelético da  parte distal dos membros superiores (punhos, mãos e dedos);';
             var resultado = fit * fde * ffe * fpmp * fri * fdt;
             var conclusao = document.getElementById('conclusaomoore'+index);
             conclusao.style.color = "white"; 
@@ -19,7 +21,8 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
         }
 
         function rula(braco, braco_desvio, antebraco, antebraco_desvio, punho, punho_desvio, pescoco, pescoco_desvio, tronco, tronco_desvio, perna, index){
-            
+            var metodologia = document.getElementById('metodologia_rula');
+            metodologia.innerHTML = "<b>RULA (Rapid Upper Limb Assessment)</b> para avaliação do risco de distúrbios osteomusculares relacionados ao trabalho (DORT);";
             var braco = braco + braco_desvio;
             var conclusaorula = document.getElementById('conclusaorula'+index);
             conclusaorula.style.color = "white"; 
@@ -108,7 +111,8 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
 
 
         function owas(dorso, braco, perna, carga, index){
-             
+          var metodologia = document.getElementById('metodologia_owas');
+          metodologia.innerHTML = "<b>RULA (Rapid Upper Limb Assessment)</b> para a detecção de posturas inadequadas;";
           var conclusaoowas = document.getElementById('conclusaoowas'+index);
           var coluna = ((dorso - 1) * 3 + braco) - 1;
           var linha = ((perna - 1) * 3 + carga) - 1;
@@ -164,6 +168,9 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
 
 
        function suerodgers(dados, index){
+
+                var metodologia = document.getElementById('metodologia_sue');
+                metodologia.innerHTML = "<b>SUZANE RODGERS</b> para avaliar as exigências biomecânicas do sistema osteomuscular;";
                 var conclusaosue = document.getElementById('conclusaosue' + index);
 
                 const arraysAmarelo = [

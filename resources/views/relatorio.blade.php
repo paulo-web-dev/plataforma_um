@@ -64,7 +64,8 @@
                 <li><span class="titulo">Introdução</span> <span class="pagina">3</span></li>
 				<li><span class="titulo">Equipe Técnica</span> <span class="pagina">4</span></li>
 				<li><span class="titulo">Objetivos</span> <span class="pagina">5</span></li>
-				<li><span class="titulo">Análise dos postos de trabalho</span> <span class="pagina">6</span></li>
+				<li><span class="titulo">Metodologia</span> <span class="pagina">6</span></li>
+				<li><span class="titulo">Análise dos postos de trabalho</span> <span class="pagina">8</span></li>
 				<li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
 				<li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li>
 				<li><span class="titulo">Disposições Finais</span> <span class="pagina" id="disposicoes"></span></li>
@@ -113,6 +114,81 @@
 				<li style="font-size: 25px;">{{$objetivo->objetivo}}</li>
 				@endforeach
 			</ul>
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Metodologia --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia: </p>
+			</div>
+		
+				<p>Este estudo foi realizado através de coleta de dados por meio de avaliações e
+				observações dos postos de trabalho existentes na empresa, em dias normais de
+				atividade, onde o colaborador exercia suas funções ao longo da jornada de
+				trabalho, com a finalidade de atender a legislação vigente e melhorar a qualidade
+				de vida dos colaboradores.
+				</p>
+
+				<p style="font-size: 25px;" class="text-center"><b>MÉTODOS UTILIZADOS:</b></p>
+				<p style="font-size: 18px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS – ANÁLISE DA ATIVIDADE</p>
+				<p>A fim de se obter informações complementares e a confirmação dos dados
+				obtidos até o momento registrados, foi realizada a observação dos trabalhadores
+				em seus próprios postos de trabalho, de forma aleatória e durante um dia normal
+				de trabalho. Foram observados os modos operatórios, o conteúdo das tarefas, o
+				ritmo de trabalho, as exigências cognitivas.<br><br>
+				MODO OPERATÓRIO – Observa neste item quais movimentos são realizados para
+				completar o ciclo do trabalho (no início, meio e no fim da tarefa). Como na
+				empresa existem tarefas diversificadas fizemos uma análise por setor e por
+				atividade.<br><br>
+				<b>CONTEÚDO DAS TAREFAS</b> – Designa o modo como o trabalhador percebe as
+				condições de seu trabalho: estimulante, monótono, aquém de suas capacidades,
+				socialmente importante e outros. Na empresa alguns consideraram o trabalho
+				monótono principalmente os que geram repetitividade, com grau leve de
+				dificuldade e boa colaboração entre os funcionários.<br><br>
+				<b>RITMO DE TRABALHO</b> – Existe uma distinção entre ritmo e cadência. A cadência
+				tem um aspecto quantitativo, o ritmo qualitativo. A cadência refere-se à
+				velocidade dos movimentos quase repete em uma dada unidade de tempo, o
+				ritmo é a maneira como as cadências são ajustadas ou arranjadas: pode ser livre
+				(quando o indivíduo tem autonomia para determinar sua própria cadência) ou
+				imposto (por uma máquina, pela
+				esteira da linha de montagem e até por incentivos à Operação) - Teiger, 1985. Na
+				empresa encontramos: o trabalho livre.<br><br>
+				<b>EXIGÊNCIAS COGNITIVAS</b> – Detectamos que quanto ao conhecimento, à
+				percepção para a realização das atividades, a maioria dos colaboradores tinha
+				um bom preparo para a efetivação do trabalho</p><br><br>
+
+		</div>
+		<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Metodologia2 --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia: </p>
+			</div>
+
+			
+				<p style="font-size: 18px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS - FERRAMENTAS ERGONÔMICAS</p>
+				<p>Inicialmente foram realizadas as observações referentes à ergonomia dos postos
+				de trabalho (condições dos mobiliários, das ferramentas, dos equipamentos, das
+				posturas de trabalho, da iluminação, do ruído).<br><br>
+
+				Utilizamos questionários para entrevista com funcionários para identificar os
+				problemas no posto de trabalho, para posteriormente aplicar as ferramentas
+				validadas pertinentes.<br><br>
+				
+				Foram utilizadas as seguintes ferramentas ergonômicas:<br><br>
+
+				<p id="metodologia_moor" class="ferramenta"></p>
+				<p id="metodologia_rula" class="ferramenta"></p>
+				<p id="metodologia_owas" class="ferramenta"></p>
+				<p id="metodologia_sue" class="ferramenta"></p>
+				<p id="metodologia_niosh" class="ferramenta"></p>
+
+				
+
 		</div>
 		<div class="paginacao">
 			<script>paginacao()</script>
@@ -683,6 +759,9 @@
 			<script>
 				var paginas = document.getElementById('paginas'); 
 				paginas.innerHTML = paginacao();
+				window.onload = function () {
+				window.print();
+			}
 			</script>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

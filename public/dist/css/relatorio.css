@@ -203,3 +203,7 @@ body {
   border-top: 2px solid #000; 
   max-width: 300px;
 }
+
+.ferramenta{
+  font-size: 18px;
+}
