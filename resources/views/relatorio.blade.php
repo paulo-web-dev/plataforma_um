@@ -13,7 +13,7 @@
 	<body>
 		{{-- Capa --}}
 		<div class="homepage">
-			<img src="/logo_plataforma_um.JPEG" class="img-home">
+			<img src="/logo_plataforma_um.jpeg" class="img-home">
 			<div class="titulo-documento">
 				<div class="text">
 					<div class="title">
