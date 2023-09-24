@@ -30,7 +30,7 @@
 		{{-- Contra capa com informações da empresa --}}
 		<div class="page">
 			<div class="cabecalho">
-				<img src="/logo_plataforma_um.JPEG" class="img-cabecalho">
+				<img src="/logo_plataforma_um.jpeg" class="img-cabecalho">
 				<div class="cabecalhotext">
 					<h2>
 						<p class="text-center">AET</p>
