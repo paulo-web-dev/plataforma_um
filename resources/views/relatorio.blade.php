@@ -93,6 +93,12 @@
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Equipe Técnica</p>
 			</div>
 			<p style="font-size: 25px;">{{$empresa->equipe->equipe}}</p>
+			<br>
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Ramo de Atividade</p>
+			</div>
+			<p style="font-size: 25px;">Ramo De Atividade:</p>
+			<p style="font-size: 25px;" id="atividade"><script>atividade({{$empresa->cnpj}})</script></p>
 		</div>
 		<div class="paginacao">
 			<script>paginacao()</script>

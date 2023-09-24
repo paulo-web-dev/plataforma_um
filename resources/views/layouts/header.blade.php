@@ -12,6 +12,14 @@
     <meta name="author" content="LEFT4CODE">
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://johnny.github.io/jquery-sortable/jquery-sortable.js"></script>
     <script src="{{url('/dist/js/calculo_ferramentas.js')}}"></script> 
     <title>PlataformaUm</title>
     <!-- BEGIN: CSS Assets-->
@@ -45,122 +53,12 @@
             <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2"
                     class="w-8 h-8 text-white transform -rotate-90"></i> </a>
         </div>
-        <ul class="border-t border-white/[0.08] py-5 hidden">
+        <ul class="border-t border-white/[0.08] py-5 ">
             <li>
-                <a href="javascript:;" class="menu">
+                <a href="{{route('show-empresas')}}" class="menu">
                     <div class="menu__icon"> <i data-feather="user-check"></i> </div>
-                    <div class="menu__title"> Biometria <i data-feather="chevron-down"
-                            class="menu__sub-icon "></i> </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"> </div>
-                            <div class="menu__title"> Registrar Biometria </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"></div>
-                            <div class="menu__title"> Homologação </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="phone-forwarded"></i> </div>
-                    <div class="menu__title"> Atividades <i data-feather="chevron-down"
-                            class="menu__sub-icon "></i> </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"></i> </div>
-                            <div class="menu__title"> Adicionar Atividades </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"></i> </div>
-                            <div class="menu__title"> Pesquisar Atividades</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"></i> </div>
-                            <div class="menu__title"> Atividades Geral</div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="users"></i> </div>
-                    <div class="menu__title"> Alunos <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"> </div>
-                            <div class="menu__title"> Todos os Alunos </div>
-                        </a>
-                    </li>
-                    <!-- Other menu items... -->
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"><i data-feather="dollar-sign"></i></div>
-                    <div class="menu__title"> Financeiro <i data-feather="chevron-down"
-                            class="menu__sub-icon "></i> </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"> </div>
-                            <div class="menu__title"> Caixa </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"> </div>
-                            <div class="menu__title"> Faturamento X Despesas </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"> </div>
-                            <div class="menu__title"> Relatório Cancelamento </div>
-                        </a>
-                    </li>
-                
-                       <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="user-check"></i> </div>
-                    <div class="menu__title"> Biometria <i data-feather="chevron-down"
-                            class="menu__sub-icon "></i> </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"> </div>
-                            <div class="menu__title"> Registrar Biometria </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu">
-                            <div class="menu__icon"></div>
-                            <div class="menu__title"> Homologação </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- Other menu items... -->
-            <li>
-                
-                       
+                    <div class="menu__title"> Empresas  </div>
+                </a>        
                 
         </ul>
     </div>
@@ -178,35 +76,14 @@
             <!-- END: Breadcrumb -->
             <!-- BEGIN: Search -->
             <div class="intro-x relative mr-3 sm:mr-6">
-                <a class="notification notification--light sm:hidden" href=""> <i data-feather="search"
-                        class="notification__icon dark:text-gray-300"></i> </a>
           
             <!-- END: Search -->
           
             <!-- END: Notifications -->
             <!-- BEGIN: Account Menu -->
             <div class="intro-x dropdown w-8 h-8">
-                <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in scale-110"
-                    role="button" aria-expanded="false">
-                   
-                        <img class="rounded-full"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtMMQfcoo0WJoDcZowrVhrmhuL9Kguv_hkVNaPYmq-kDpHiW1P9lpvESWKjfGjNpCdkMM&usqp=CAU">
-                    
-                </div>
-                <div class="dropdown-menu w-56">
-                    <div class="dropdown-menu__content box bg-theme-26 dark:bg-dark-6 text-white">
-                        <div class="p-4 border-b border-theme-27 dark:border-dark-3">
-                            <div class="font-medium">{{ Auth::user()->name }}</div>
-                            <div class="text-xs text-theme-28 mt-0.5 dark:text-gray-600">{{ Auth::user()->funcao }}
-                            </div>
-                        </div>
-                        <div class="p-2 border-t border-theme-27 dark:border-dark-3">
-                            <a href="">
-                                Sair
-                            </a>
-                        </div>
-                    </div>
-                </div>
+           
+     
             </div>
             <!-- END: Account Menu -->
         </div>
@@ -275,13 +152,6 @@
                     chevronIcon.classList.toggle('rotated');
                 });
             });
-
-        //Função calcular moore e gar
-
-        function mooregarg(fit, fde, ffe, fpmp, fri, fdt){
-            var resultado = fit * fde * ffe * fpmp * fri * fdt;
-            alert(resultado);
-        }
         </script>
 
         <style>

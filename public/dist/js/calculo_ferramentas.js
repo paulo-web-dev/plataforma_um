@@ -399,4 +399,35 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
         return meses[numero -1];
 
     }
+
+    function atividade(cnpj){
+
+        
+      
+        // Faz uma requisição GET para a API
+        fetch('https://unyflex.com.br/ajaxcnpcompleto/'+cnpj)
+        .then(response => {
+        // Verifica se a resposta da API foi bem-sucedida (código de status 200)
+        if (!response.ok) {
+            throw new Error('Não foi possível obter os dados da API');
+        }
+        // Converte a resposta para JSON
+        return response.json();
+        })
+        .then(data => {
+        var atividade = document.getElementById('atividade');
+        
+        atividade_principal = data.atividade_principal[0];
+        atividades_secundarias = data.atividades_secundarias[0];
+        console.log(data);
+        atividade.innerHTML += atividade_principal.code + ' - ' + atividade_principal.text + '<br><br>';
+        atividade.innerHTML += atividades_secundarias.code + ' - ' + atividades_secundarias.text;
+       
+        })
+        .catch(error => {
+        console.error('Ocorreu um erro:', error);
+        });
+
+        
+    }
     
