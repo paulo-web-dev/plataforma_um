@@ -30,7 +30,7 @@
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Recomendação</strong></label>
-                            <input type="text" class="form-control editor" name="recomendacao" placeholder="Recomendação">
+                            <input type="text" class="form-control editor" name="recomendacao" placeholder="Recomendação" required>
                         </div>
                     
                 <div class="flex justify-end mt-4">

@@ -38,7 +38,7 @@
                                     <img id="previewImage" src="" alt="Adicionar Planilha">
                                 </div>
                                 <input type="file" id="file" name="file"
-                                    class="w-full h-full top-0 left-0 absolute opacity-0">
+                                    class="w-full h-full top-0 left-0 absolute opacity-0" required>
                             </div>
                         </div>
                     </div>

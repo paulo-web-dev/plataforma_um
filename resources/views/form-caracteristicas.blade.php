@@ -28,12 +28,12 @@
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
                             <input id="update-profile-form-7" type="text" name="titulo" class="form-control"
-                                placeholder="Titulo da Caracteristica" value="">
+                                placeholder="Titulo da Caracteristica" value="" required>
                         </div>
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
-                            <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15"></textarea>
+                            <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15" required></textarea>
                         </div>
                     
                 <div class="flex justify-end mt-4">

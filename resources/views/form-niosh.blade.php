@@ -29,18 +29,18 @@
                        
                         <div class="mt-3">
                             <label for="fit" class="form-label"><strong>FDH (H): Força de Destino Horizontal.</strong></label>
-                              <input type="Number" placeholder="FDH (H): Força de Destino Horizontal." class="form-control" name="fdh" id="fdh">
+                              <input type="Number" placeholder="FDH (H): Força de Destino Horizontal." class="form-control" required name="fdh" id="fdh">
                         </div>
 
                         <div class="mt-3">
                             <label for="fit" class="form-label"><strong>FAV (Vc): Força de Alavanca Vertical de Compressão.</strong></label>
-                           <input type="Number" placeholder="FAV (Vc): Força de Alavanca Vertical de Compressão." class="form-control" name="fav" id="fav">
+                           <input type="Number" placeholder="FAV (Vc): Força de Alavanca Vertical de Compressão." class="form-control" required name="fav" id="fav">
                            
                         </div>
                             
                         <div class="mt-3">
                             <label for="fit" class="form-label"><strong>FDC (Dc): Força de Compressão Diagonal.</strong></label>
-                              <input type="Number" placeholder="FDC (Dc): Força de Compressão Diagonal" class="form-control" name="fdc" id="fdc">
+                              <input type="Number" placeholder="FDC (Dc): Força de Compressão Diagonal" class="form-control" required name="fdc" id="fdc">
                                  
                         </div>
                      </div>  
@@ -49,25 +49,25 @@
                        
                         <div class="mt-3">
                             <label for="fit" class="form-label"><strong>FRLT (A): Força Relativa de Torção.</strong></label>
-                            <input type="Number" placeholder="FRLT (A): Força Relativa de Torção." class="form-control" name="frlt" id="frlt">
+                            <input type="Number" placeholder="FRLT (A): Força Relativa de Torção." class="form-control" required name="frlt" id="frlt">
                     
                         </div>
 
                         <div class="mt-3">
                             <label for="fit" class="form-label"><strong>FFL: Força de Fricção Lateral.</strong></label>
-                              <input type="Number" placeholder="FFL: Força de Fricção Lateral." class="form-control" name="ffl" id="ffl">
+                              <input type="Number" placeholder="FFL: Força de Fricção Lateral." class="form-control" required name="ffl" id="ffl">
                              
                         </div>
                             
                         <div class="mt-3">
                             <label for="fit" class="form-label"><strong>FQPC: Força de Qualificação para Postura Correta.</strong></label>
-                              <input type="Number" class="form-control"  placeholder="FQPC: Força de Qualificação para Postura Correta." name="fqpc" id="fqpc">
+                              <input type="Number" class="form-control" required  placeholder="FQPC: Força de Qualificação para Postura Correta." name="fqpc" id="fqpc">
                                 
                         </div>
 
                         <div class="mt-3">
                             <label for="fit" class="form-label"><strong>Peso (kg).</strong></label>
-                              <input type="Number"  class="form-control"  placeholder="Peso KG" class="form-control" name="peso" id="peso">
+                              <input type="Number"  class="form-control" required  placeholder="Peso KG" class="form-control" required name="peso" id="peso">
                                 
                         </div>
                      </div>  
@@ -78,7 +78,7 @@
                      <div class="col-span-12 xl:col-span-6">
                           <div class="mt-3">
                                     <label for="atividade" class="form-label"><strong>Atividade</strong></label>
-                                    <input id="atividade" type="text" name="atividade" class="form-control"
+                                    <input id="atividade" type="text" name="atividade" class="form-control" required
                                         placeholder="Atividade avaliada" required>
                                 </div>
                 <div class="flex justify-end mt-4">
