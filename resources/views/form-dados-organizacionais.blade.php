@@ -6,7 +6,9 @@
         <h2 class="text-lg font-medium mr-auto">
             Cadastrar Dados Organizacionais
         </h2>
+         <a href="{{ route('info-subsetor',  ['id' => $idsubsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
     </div>
+    
     <div class="grid grid-cols-12 gap-6 mt-5">
         <!-- BEGIN: Profile Menu -->
 

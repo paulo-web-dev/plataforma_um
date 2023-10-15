@@ -7,6 +7,7 @@
             <h2 class="font-medium text-base mr-auto">
                 Cadastro de Pré Diagnostico
             </h2>
+        <a href="{{ route('info-subsetor',  ['id' => $id_subsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
         </div>
 
         <form action="{{ route('cad-pre-diagnosticos') }}" enctype="multipart/form-data" data-single="true" method="post">

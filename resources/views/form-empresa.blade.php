@@ -24,7 +24,7 @@
         <div class="col-span-12 lg:col-span-12 xxl:col-span-12 tab-content">
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger alert-dismissible show flex items-center mb-2" role="alert">
-                    <i data-feather="alert-octagon" class="w-6 h-6 mr-2"></i> {{ $error }}
+                    {{ $error }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         <i data-feather="x" class="w-4 h-4"></i>
                     </button>
@@ -40,26 +40,13 @@
                         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
                             <h2 class="font-medium text-base mr-auto">
                                Informações da Empresa
-                            </h2>
+                            </h2><br>
+                             <a href="{{ route('show-empresas') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
                         </div>
-                        <div class="flex flex-1 px-5 items-center justify-center lg:justify-start">
-                            <div class="w-20 h-20 sm:w-24 sm:h-24 flex-none lg:w-24 lg:h-24 image-fit relative">
-                                <img alt="Rubick Tailwind HTML Admin Template" class="rounded-full"
-                                    src="{{ url('dist/images/profile-11.jpg') }}">
-                                <div
-                                    class="absolute mb-1 mr-1 flex items-center justify-center bottom-0 right-0 bg-theme-1 rounded-full p-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-camera w-4 h-4 text-white">
-                                        <path
-                                            d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
-                                        </path>
-                                        <circle cx="12" cy="13" r="4"></circle>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+
+                              
+                                
+                        
                     </div> 
                     <div class="intro-y box col-span-12 xxl:col-span-12 p-5">
                         <div class="grid grid-cols-12 gap-x-5">
@@ -86,18 +73,18 @@
                             <div class="col-span-12 xl:col-span-6">
                                 <div class="mt-3">
                                     <label for="num_funcionarios" class="form-label"><strong>Número de Funcionarios</strong></label>
-                                    <input id="num_funcionarios" type="number" name="num_funcionarios" class="form-control"
+                                    <input id="num_funcionarios" type="number" name="num_funcionarios" class="form-control" required
                                         placeholder="Número de Funcionarios">
                                 </div>
                                 <div class="mt-3 ">
                                     <label for="responsavel" class="form-label"><strong>Responsavel</strong></label>
                                     <input id="responsavel" type="text" name="responsavel" class="form-control"
-                                        placeholder="Responsavel">
+                                      required  placeholder="Responsavel">
                                 </div>
                                 <div class="mt-3 ">
                                     <label for="setor" class="form-label"><strong>Setor</strong></label>
                                     <input id="setor" type="text" name="setor" class="form-control"
-                                        placeholder="setor">
+                                      required  placeholder="setor">
                                 </div>
                                 
                             </div>

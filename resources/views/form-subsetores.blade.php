@@ -7,6 +7,7 @@
             <h2 class="font-medium text-base mr-auto">
                 Cadastro de Setor
             </h2>
+             <a href="{{ route('info-setor',  ['id' => $idsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
         </div>
 
         <form action="{{ route('cad-subsetor') }}" enctype="multipart/form-data" data-single="true" method="post">

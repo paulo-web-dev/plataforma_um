@@ -8,7 +8,7 @@ use App\Models\Introducao;
 use App\Models\Equipe;
 use App\Models\Objetivos;
 use App\Models\Disposicoes;
-
+use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
 {
 
@@ -29,6 +29,31 @@ class EmpresaController extends Controller
 
     public function cadempresa(Request $request){
     //insere emrpresa
+    $validator = Validator::make($request->all(), [
+
+        'responsavel' => 'required',
+        'nome' => 'required',
+        'cnpj' => 'required',
+        'telefone' => 'required',
+        'num_funcionarios' => 'required',
+        'setor' => 'required',
+        'rua' => 'required',
+        'cidade' => 'required',
+        'uf' => 'required',
+        'num' => 'required',
+        'cep' => 'required',
+
+
+    ],[
+        'required' => 'O campo :attribute é obrigatório',
+    ]);
+
+    if ($validator->fails()) {
+
+        return redirect()->route('formempresa')->withErrors($validator);
+
+    }
+
         $empresa = new Empresas(); 
         $empresa->nome = $request->nome;
         $empresa->cnpj = $request->cnpj;

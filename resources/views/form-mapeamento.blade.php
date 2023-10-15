@@ -8,6 +8,7 @@
             <h2 class="font-medium text-base mr-auto">
                Upload Planilha de Mapeamento Ergonômico CSV
             </h2> 
+            <a href="{{ route('infoempresa',  ['id' => $empresa]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
         </div> 
 
 
