@@ -83,7 +83,7 @@ class EmpresaController extends Controller
     //Insere Equipe
         $equipe = new Equipe();
         $equipe->id_empresa = $empresa->id;
-        $equipe->equipe = 'O trabalho de levantamento físico e a elaboração deste documento foram realizados pela equipe técnica formada pela Sr.ª. Camila Rodrigues Silva, Fisioterapeuta – CREFITO 3/131278-F e Sr. Rafael Martins Surian, Engenheiro de Segurança do Trabalho - CREA n° 5070084625.';
+        $equipe->equipe = 'O trabalho de levantamento físico e a elaboração deste documento foram realizados pela equipe técnica formada pela Sr.ª. Camila Rodrigues Silva, Fisioterapeuta – CREFITO 3/131278-F';
         $equipe->save();
     //Insere Disposição Final
 

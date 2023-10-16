@@ -111,7 +111,7 @@
                                     <strong>CEP</strong>
                                 </label>
                                 <input class="form-control" id="cep" name="cep" type="text"
-                                    placeholder="Cep do Aluno" onblur="pesquisacep(this.value);">
+                                    placeholder="Cep da empresa" onblur="pesquisacep(this.value);" required>
                             </div>
 
                         </div>
@@ -119,18 +119,18 @@
                             <div class="w-full md:w-2/3 px-3 mb-6 md:mb-0">
                                 <label for="rua" class="form-label"><strong>Rua</strong></label>
                                 <input id="rua" type="text" name="rua" class="form-control"
-                                    placeholder="Rua do aluno">
+                                    placeholder="Rua da empresa" required>
                             </div>
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                 <label for="numero" class="form-label"><strong>Número</strong></label>
                                 <input id="numero" type="text" name="num" class="form-control"
-                                    placeholder="Núm do aluno">
+                                    placeholder="Núm da empresa" required>
                             </div>
                         </div>
                         <div class="mt-3 ml-3">
                             <label for="bairro" class="form-label"><strong>Bairro</strong></label>
                             <input id="bairro" type="text" name="bairro" class="form-control"
-                                placeholder="Bairro do aluno">
+                                placeholder="Bairro da empresa" required>
                         </div>
 
                         <div class="p-5 mt-3 flex flex-wrap -mx-3 mb-6">
@@ -175,7 +175,7 @@
                             <div class="w-full md:w-2/3 px-3 mb-6 md:mb-0">
                                 <label for="cidade" class="form-label"><strong>cidade</strong></label>
                                 <input id="cidade" type="text" name="cidade" class="form-control"
-                                    placeholder="cidade da empresa">
+                                    placeholder="cidade da empresa" required>
                             </div>
                         </div>
                  
