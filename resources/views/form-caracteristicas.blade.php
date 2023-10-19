@@ -33,7 +33,7 @@
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
-                            <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15" required></textarea>
+                            <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15"></textarea>
                         </div>
                     
                 <div class="flex justify-end mt-4">
