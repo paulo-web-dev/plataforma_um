@@ -94,7 +94,7 @@ class RelatorioController extends Controller
                 $escolaridadepg += 1;
             }
         }
-        if(isset($empresa->populacao)){
+        
         $key += 1;
         $porcentagemmasculino = porcentagem($sexom, $key);
         $porcentagemfeminino = 100 - $porcentagemmasculino;
@@ -121,9 +121,6 @@ class RelatorioController extends Controller
         return view('relatorio',[
             'empresa' => $empresa,
         ], compact('genero', 'faixaetaria', 'tempoadimissao', 'escolaridade'));
-        }else{
-             return view('relatorio',[
-            'empresa' => $empresa,
-        ]);
+
     }
 }
