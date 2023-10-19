@@ -82,6 +82,11 @@
                                       required  placeholder="Responsavel">
                                 </div>
                                 <div class="mt-3 ">
+                                    <label for="responsavel" class="form-label"><strong>Grau de Risco</strong></label>
+                                    <input id="responsavel" type="text" name="grau_de_risco" class="form-control"
+                                        placeholder="Grau de Risco">
+                                </div>
+                                <div class="mt-3 ">
                                     <label for="setor" class="form-label"><strong>Setor</strong></label>
                                     <input id="setor" type="text" name="setor" class="form-control"
                                       required  placeholder="setor">

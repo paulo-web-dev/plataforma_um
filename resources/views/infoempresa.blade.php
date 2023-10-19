@@ -100,6 +100,12 @@
                                     <input id="responsavel" type="text" name="responsavel" class="form-control"
                                       value="{{$empresa->responsavel}}"  placeholder="Responsavel">
                                 </div>
+                                   <div class="mt-3 ">
+                                    <label for="responsavel" class="form-label"><strong>Grau de Risco</strong></label>
+                                    <input id="responsavel" type="text" name="grau_de_risco" class="form-control"
+                                      value="{{$empresa->grau_de_risco}}""  placeholder="Grau de Risco">
+                                </div>
+
                                 <div class="mt-3 ">
                                     <label for="setor" class="form-label"><strong>Setor</strong></label>
                                     <input id="setor" type="text" name="setor" class="form-control"
@@ -416,7 +422,57 @@
         </div>
     </div>
 
-        
+
+  <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+               Metodologia
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Metodologia</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(isset($empresa->metodologia))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">1</td>
+                                        <td class="border"><?= substr($empresa->metodologia->metodologia, 0, 200)?>... </td>
+                         
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-metodologia', ['id' => $empresa->metodologia->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                             @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-metodologia', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Metodologia</a>
+            </div>    
+        </div>
+    </div>
+
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">

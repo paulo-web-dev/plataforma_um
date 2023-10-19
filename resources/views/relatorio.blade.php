@@ -124,41 +124,7 @@
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia: </p>
 			</div>
 		
-				<p>Este estudo foi realizado através de coleta de dados por meio de avaliações e
-				observações dos postos de trabalho existentes na empresa, em dias normais de
-				atividade, onde o colaborador exercia suas funções ao longo da jornada de
-				trabalho, com a finalidade de atender a legislação vigente e melhorar a qualidade
-				de vida dos colaboradores.
-				</p>
-
-				<p style="font-size: 25px;" class="text-center"><b>MÉTODOS UTILIZADOS:</b></p>
-				<p style="font-size: 18px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS – ANÁLISE DA ATIVIDADE</p>
-				<p>A fim de se obter informações complementares e a confirmação dos dados
-				obtidos até o momento registrados, foi realizada a observação dos trabalhadores
-				em seus próprios postos de trabalho, de forma aleatória e durante um dia normal
-				de trabalho. Foram observados os modos operatórios, o conteúdo das tarefas, o
-				ritmo de trabalho, as exigências cognitivas.<br><br>
-				MODO OPERATÓRIO – Observa neste item quais movimentos são realizados para
-				completar o ciclo do trabalho (no início, meio e no fim da tarefa). Como na
-				empresa existem tarefas diversificadas fizemos uma análise por setor e por
-				atividade.<br><br>
-				<b>CONTEÚDO DAS TAREFAS</b> – Designa o modo como o trabalhador percebe as
-				condições de seu trabalho: estimulante, monótono, aquém de suas capacidades,
-				socialmente importante e outros. Na empresa alguns consideraram o trabalho
-				monótono principalmente os que geram repetitividade, com grau leve de
-				dificuldade e boa colaboração entre os funcionários.<br><br>
-				<b>RITMO DE TRABALHO</b> – Existe uma distinção entre ritmo e cadência. A cadência
-				tem um aspecto quantitativo, o ritmo qualitativo. A cadência refere-se à
-				velocidade dos movimentos quase repete em uma dada unidade de tempo, o
-				ritmo é a maneira como as cadências são ajustadas ou arranjadas: pode ser livre
-				(quando o indivíduo tem autonomia para determinar sua própria cadência) ou
-				imposto (por uma máquina, pela
-				esteira da linha de montagem e até por incentivos à Operação) - Teiger, 1985. Na
-				empresa encontramos: o trabalho livre.<br><br>
-				<b>EXIGÊNCIAS COGNITIVAS</b> – Detectamos que quanto ao conhecimento, à
-				percepção para a realização das atividades, a maioria dos colaboradores tinha
-				um bom preparo para a efetivação do trabalho</p><br><br>
-
+				<?= $empresa->metodologia->metodologia ?>
 		</div>
 		<div class="paginacao">
 			<script>paginacao()</script>
@@ -760,7 +726,7 @@
 				var paginas = document.getElementById('paginas'); 
 				paginas.innerHTML = paginacao();
 				window.onload = function () {
-				window.print();
+				//window.print();
 			}
 			</script>
 		</div>

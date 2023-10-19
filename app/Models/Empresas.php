@@ -37,6 +37,16 @@ class Empresas extends Model
 
     }
 
+    
+     
+    public function metodologia()
+
+    {
+
+        return $this->hasOne(Metodologia::class, 'id_empresa', 'id');
+
+    }
+
     public function equipe()
 
     {

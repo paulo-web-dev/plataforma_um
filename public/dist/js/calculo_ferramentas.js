@@ -77,9 +77,9 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
             var restultadoB = tabelaB[linhaB][colunaB];
             var resultadoFinal =  tabelaC[resultadoA -1][restultadoB - 1];
          
-            switch(true){
+            switch(true){ 
                 case resultadoFinal < 3:
-               
+                
                 conclusaorula.innerHTML = 'aceitável se não é mantida ou repetida por longos períodos';
                 conclusaorula.style.backgroundColor = "green";
                 break;

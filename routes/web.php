@@ -28,6 +28,7 @@ use App\Http\Controllers\PlanoDeAcaoController;
 use App\Http\Controllers\FotosAtividadesController;
 use App\Http\Controllers\PopulacaoSubSetorController;
 use App\Http\Controllers\ReponsaveisController;
+use App\Http\Controllers\MetodologiaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -141,6 +142,13 @@ Route::get('/form/introducao/{empresa}', [IntroducaoController::class, 'formIntr
 Route::get('/info/introducao/{id}', [IntroducaoController::class, 'infoIntroducao'])->name('info-introducao'); 
 Route::post('/cadastrar/introducao', [IntroducaoController::class, 'cadIntroducao'])->name('cad-introducao');
 Route::post('/update/introducao', [IntroducaoController::class, 'updIntroducao'])->name('upd-introducao');
+
+//Rotas Pertinentes ao cadatros de Metodologia
+Route::get('/metodologia', [MetodologiaController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/metodologia/{empresa}', [MetodologiaController::class, 'formMetodologia'])->name('form-metodologia');
+Route::get('/info/metodologia/{id}', [MetodologiaController::class, 'infoMetodologia'])->name('info-metodologia'); 
+Route::post('/cadastrar/metodologia', [MetodologiaController::class, 'cadMetodologia'])->name('cad-metodologia');
+Route::post('/update/metodologia', [MetodologiaController::class, 'updMetodologia'])->name('upd-metodologia');
 
 
 //Rotas Pertinentes ao cadatros de Equipe Técnica

@@ -8,6 +8,7 @@ use App\Models\Introducao;
 use App\Models\Equipe;
 use App\Models\Objetivos;
 use App\Models\Disposicoes;
+use App\Models\Metodologia;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
 {
@@ -67,6 +68,7 @@ class EmpresaController extends Controller
         $empresa->estado = $request->uf;
         $empresa->bairro = $request->bairro;
         $empresa->cep = $request->cep;
+        $empresa->grau_de_risco = $request->grau_de_risco;
         if(isset($request->file)){
          $photoname = $request->file->getClientOriginalName();
          $empresa->photo = $photoname;
@@ -92,6 +94,12 @@ class EmpresaController extends Controller
         $disposicao->disposicao = 'As considerações técnicas descritas nesta Análise Ergonômica do Trabalho retratam a situação do momento em que foram feitas as etapas de reconhecimento dos riscos ergonômicos. As etapas posteriores a serem realizadas devem ser juntadas a esta análise ergonômica base na forma de complementação deste trabalho. Todos os pontos levantados são frutos das observações feitas pelos profissionais durante sua visita nos postos de trabalho ou através de informações obtidas junto aos funcionários dos setores avaliados. As recomendações e sugestões, apresentadas nesta avaliação, tem por objetivo melhorar as condições de trabalho, proporcionando, qualidade de vida, segurança e prevenção de doenças ocupacionais dos funcionários da empresa. Os pontos emitidos, de modo algum, devem ser encarados como uma solução definitiva para os riscos ergonômicos existentes, pois pode haver alternativas que aplicadas simultaneamente implementarão uma melhor equação do problema.';
         $disposicao->save();
 
+    //Insere Metodologia
+        
+        $metodologia = new Metodologia();
+        $metodologia->id_empresa = $empresa->id;
+        $metodologia->metodologia = '<p>Este estudo foi realizado através de coleta de dados por meio de avaliações e observações dos postos de trabalho existentes na empresa, em dias normais de atividade, onde o colaborador exercia suas funções ao longo da jornada de trabalho, com a finalidade de atender a legislação vigente e melhorar a qualidade de vida dos colaboradores.</p><p><strong>MÉTODOS UTILIZADOS:</strong></p><p>OBSERVAÇÕES IN LOCO E FOTOS – ANÁLISE DA ATIVIDADE</p><p>A fim de se obter informações complementares e a confirmação dos dados obtidos até o momento registrados, foi realizada a observação dos trabalhadores em seus próprios postos de trabalho, de forma aleatória e durante um dia normal de trabalho. Foram observados os modos operatórios, o conteúdo das tarefas, o ritmo de trabalho, as exigências cognitivas.<br><br>MODO OPERATÓRIO – Observa neste item quais movimentos são realizados para completar o ciclo do trabalho (no início, meio e no fim da tarefa). Como na empresa existem tarefas diversificadas fizemos uma análise por setor e por atividade.<br><br><strong>CONTEÚDO DAS TAREFAS</strong> – Designa o modo como o trabalhador percebe as condições de seu trabalho: estimulante, monótono, aquém de suas capacidades, socialmente importante e outros. Na empresa alguns consideraram o trabalho monótono principalmente os que geram repetitividade, com grau leve de dificuldade e boa colaboração entre os funcionários.<br><br><strong>RITMO DE TRABALHO</strong> – Existe uma distinção entre ritmo e cadência. A cadência tem um aspecto quantitativo, o ritmo qualitativo. A cadência refere-se à velocidade dos movimentos quase repete em uma dada unidade de tempo, o ritmo é a maneira como as cadências são ajustadas ou arranjadas: pode ser livre (quando o indivíduo tem autonomia para determinar sua própria cadência) ou imposto (por uma máquina, pela esteira da linha de montagem e até por incentivos à Operação) - Teiger, 1985. Na empresa encontramos: o trabalho livre.<br><br><strong>EXIGÊNCIAS COGNITIVAS</strong> – Detectamos que quanto ao conhecimento, à percepção para a realização das atividades, a maioria dos colaboradores tinha um bom preparo para a efetivação do trabalho</p>';
+        $metodologia->save();
         return redirect()->route('infoempresa', ['id' => $empresa->id]);
     }
 
@@ -176,6 +184,7 @@ class EmpresaController extends Controller
         $empresa->estado = $request->uf;
         $empresa->bairro = $request->bairro;
         $empresa->cep = $request->cep;
+        $empresa->grau_de_risco = $request->grau_de_risco;
         if(isset($request->file)){
             $photoname = $request->file->getClientOriginalName();
             $empresa->photo = $photoname;
