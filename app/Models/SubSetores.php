@@ -116,4 +116,16 @@ class SubSetores extends Model
         return $this->hasMany(PopulacaoSubsetor::class, 'id_subsetor', 'id');
 
     }
+
+    public function conclusoes(){
+        
+      return $this->hasMany(Conclusoes::class, 'id_subsetor', 'id');
+
+    }
+
+    public function dadossaude(){
+        
+        return $this->hasMany(DadosSaude::class, 'id_subsetor', 'id');
+  
+      }
 }

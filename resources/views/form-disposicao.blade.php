@@ -29,7 +29,7 @@
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Disposição FInal</strong></label>
-                            <textarea class="form-control editor" name="disposicao" id="disposicao" cols="30" rows="15">
+                            <textarea class="form-control editor" name="disposicao" id="editor" cols="30" rows="15">
 As considerações técnicas descritas nesta Análise Ergonômica do Trabalho
 retratam a situação do momento em que foram feitas as etapas de
 reconhecimento dos riscos ergonômicos.
@@ -62,7 +62,17 @@ problema.
 @push('custom-scripts')
 
 
-
+    
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script> 
 
 
 @endpush

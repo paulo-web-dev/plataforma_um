@@ -11,6 +11,7 @@ use App\Models\DadosOrganizacionais;
 use App\Models\Caracteristicas;
 use App\Models\PreDiagnostico;
 use App\Models\MooreGarg;
+use App\Models\Conclusoes;
 
 
 class MooreGargController extends Controller
@@ -19,6 +20,13 @@ class MooreGargController extends Controller
     public function formMoore($idsubsetor){
         
         return view('form-moore',[
+            'id_subsetor' => $idsubsetor,
+    ]);
+    }
+
+    public function formMooreSimplificado($idsubsetor){
+        
+        return view('form-moore-simplificado',[
             'id_subsetor' => $idsubsetor,
     ]);
     }
@@ -40,6 +48,8 @@ class MooreGargController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $moore->id_subsetor]); 
     } 
+
+
 
     public function infoMoore($id){
         

@@ -107,11 +107,32 @@
                                 </div>
 
                                 <div class="mt-3 ">
-                                    <label for="setor" class="form-label"><strong>Setor</strong></label>
+                                    <label for="setor" class="form-label"><strong>Ramo de Atividade</strong></label>
                                     <input id="setor" type="text" name="setor" class="form-control"
                                      value="{{$empresa->setor}}"   placeholder="setor">
                                 </div>
                                                            </div>
+                    @if (isset($empresa->photo))
+                     
+                    <div class="col-span-12 xl:col-span-6"> 
+                        <label for="setor" class="form-label"><strong>Imagem da Empresa</strong></label>
+                        <img src="/fotos-empresas/{{$empresa->photo}}" alt="Imagem">
+                    </div>
+                      <div class="col-span-12 xl:col-span-6"> 
+                        <label class="form-label"><strong>Alterar  Imagem</strong></label>
+                        <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
+                            <div class="px-4 pt-24 pb-24 flex items-center justify-center cursor-pointer relative">
+                                <div id="areaArquivo">
+                                    <i data-feather="image" class="w-4 h-4 mr-2"></i>
+                                    <span class="mr-1 font-bold">Adicionar Imagem</span>
+                                </div>
+                                <input type="file" id="file" name="file"
+                                    class="w-full h-full top-0 left-0 absolute opacity-0">
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                    
                        <div class="col-span-12 xl:col-span-6"> 
                         <label class="form-label"><strong>Upload de Imagem</strong></label>
                         <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
@@ -125,6 +146,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                         </div>
                     </div>
                     <div class="intro-y box col-span-12 xxl:col-span-6">

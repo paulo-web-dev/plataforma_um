@@ -18,7 +18,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                             <i data-feather="x" class="w-4 h-4"></i>
                         </button>
-                    </div>
+                    </div> 
                 @endforeach
 
                 <div class="grid grid-cols-12 gap-x-5">

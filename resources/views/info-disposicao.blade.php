@@ -29,7 +29,7 @@
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Disposição FInal</strong></label>
-                            <textarea class="form-control editor" name="disposicao" id="disposicao" cols="30" rows="15">
+                            <textarea class="form-control editor" name="disposicao" id="editor" cols="30" rows="15">
 {{$disposicao->disposicao}}
                             </textarea>
                         </div>
@@ -43,11 +43,21 @@
     <!-- END: Personal Information -->
     <!-- END: Users Layout -->
     </div>
-@endsection
+@endsection 
+    
 
 @push('custom-scripts')
 
-
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script> 
 
 
 

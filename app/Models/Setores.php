@@ -28,6 +28,8 @@ class Setores extends Model
         ->with('niosh')
         ->with('fotosatividade')
         ->with('populacaosubsetor')
+        ->with('conclusoes')
+        ->with('dadossaude')
         ->with('recomendacao');
         
 

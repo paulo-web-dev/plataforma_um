@@ -29,6 +29,8 @@ use App\Http\Controllers\FotosAtividadesController;
 use App\Http\Controllers\PopulacaoSubSetorController;
 use App\Http\Controllers\ReponsaveisController;
 use App\Http\Controllers\MetodologiaController;
+use App\Http\Controllers\ConclusaoController;
+use App\Http\Controllers\DadosSaudeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -100,11 +102,18 @@ Route::get('/info/pre-diagnosticos/{id}', [PreDiagnosticoController::class, 'inf
 Route::post('/cadastrar/pre-diagnosticos', [PreDiagnosticoController::class, 'cadPreDiagnostico'])->name('cad-pre-diagnosticos');
 Route::post('/update/pre-diagnosticos', [PreDiagnosticoController::class, 'updPreDiagnostico'])->name('upd-pre-diagnosticos');
 
+//Rotas pertinentes a conclusões idependentes
+Route::get('/form/conlusao/{idsubsetor}/{ferramenta}', [ConclusaoController::class, 'formConclusao'])->name('form-conclusao');
+Route::get('/info/conlusao/{conclusao}', [ConclusaoController::class, 'infoConclusao'])->name('info-conclusao');
+Route::post('/cadastrar/conclusao', [ConclusaoController::class, 'cadConclusao'])->name('cad-conclusao');
+Route::post('/upd/conclusao', [ConclusaoController::class, 'updConclusao'])->name('upd-conclusao');
+
 //Rotas Pertinentes ao cadastro de Moore e Garg
 Route::get('/moore', [MooreGargController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/moore/{idsubsetor}', [MooreGargController::class, 'formMoore'])->name('form-moore');
+Route::get('/form/simplificado/moore/{idsubsetor}', [MooreGargController::class, 'formMooreSimplificado'])->name('form-moore-simplificado');
 Route::get('/info/moore/{id}', [MooreGargController::class, 'infoMoore'])->name('info-moore'); 
-Route::post('/cadastrar/moore', [MooreGargController::class, 'cadMoore'])->name('cad-moore');
+Route::post('/cadastrar/simplificado/moore', [MooreGargController::class, 'cadMooreSimplificado'])->name('cad-moore-simplificado');
 Route::post('/update/moore', [MooreGargController::class, 'updMoore'])->name('upd-moore');
 
 //Rotas Pertinentes ao cadastro de Rula
@@ -135,6 +144,14 @@ Route::get('/form/niosh/{idsubsetor}', [NioshController::class, 'formNiosh'])->n
 Route::get('/info/niosh/{id}', [NioshController::class, 'infoNiosh'])->name('info-niosh'); 
 Route::post('/cadastrar/niosh', [NioshController::class, 'cadNiosh'])->name('cad-niosh');
 Route::post('/update/niosh', [NioshController::class, 'updNiosh'])->name('upd-niosh');
+
+//Rotas Pertinentes ao cadatros de Dados de Saúde
+Route::get('/dados-de-saude', [DadosSaudeController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/dados-de-saude/{idsubsetor}', [DadosSaudeController::class, 'formDadosDeSaude'])->name('form-dados-de-saude');
+Route::get('/info/dados-de-saude/{dado}', [DadosSaudeController::class, 'infoDadosDeSaude'])->name('info-dados-de-saude'); 
+Route::post('/cadastrar/dados-de-saude', [DadosSaudeController::class, 'cadDadosDeSaude'])->name('cad-dados-de-saude');
+Route::post('/update/dados-de-saude', [DadosSaudeController::class, 'updDadosDeSaude'])->name('upd-dados-de-saude');
+
 
 //Rotas Pertinentes ao cadatros de Introdução
 Route::get('/introducao', [IntroducaoController::class, 'show'])->name('show-pre-diagnosticos');

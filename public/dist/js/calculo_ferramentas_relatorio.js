@@ -301,6 +301,7 @@ let tempoadmissao6a10 = 0;
 let tempoadmissao10a20 = 0;
 let sexom = 0;
 let sexof = 0;
+let key = 0;
 let escolaridadesg = 0;
 let escolaridadepg = 0;
 let escolaridadetg = 0;
@@ -308,8 +309,10 @@ let escolaridadetg = 0;
 subsetor.forEach((populacao) => {
     if (populacao.sexo === 'MASC.') {
         sexom += 1;
+        key++;
     } else {
         sexof += 1;
+        key++;
     }
 
     switch (true) {
@@ -353,28 +356,38 @@ subsetor.forEach((populacao) => {
     }
 });
 
-const key = empresa.populacao.length;
+
 const porcentagemmasculino = (sexom / key) * 100;
 const porcentagemfeminino = 100 - porcentagemmasculino;
+const porcentagem20a29 = (faixaetaria20a29 / key) * 100;
+const porcentagem30a39 = (faixaetaria30a39 / key) * 100;
+const porcentagem40a49 = (faixaetaria40a49 / key) * 100;
+const porcentagem50a59 = (faixaetaria50a59 / key) * 100;
+const porcentagem0a5 = (tempoadmissao0a5 / key) * 100;
+const porcentagem6a10 = (tempoadmissao6a10 / key) * 100;
+const porcentagem10a20 = (tempoadmissao10a20 / key) * 100;
+const porcentagempg = (escolaridadepg / key) * 100;
+const porcentagemsg = (escolaridadesg / key) * 100;
+const porcentagemtg = (escolaridadetg / key) * 100;
 
 var genero = {
     'labels': ['Feminino', 'Masculino'],
-    'data': [sexof, sexom],
+    'data': [porcentagemfeminino, porcentagemmasculino],
 };
 
 var faixaetaria = {
     'labels': ['20 á 29 anos', '30 á 39 anos', '40 á 49 anos', '50 á 59 anos'],
-    'data': [faixaetaria20a29, faixaetaria30a39, faixaetaria40a49, faixaetaria50a59],
+    'data': [porcentagem20a29, porcentagem30a39, porcentagem40a49, porcentagem50a59],
 };
 
 var tempoadmissao = {
     'labels': ['0 á 5 anos', '6 á 10 anos', '10 á 20 anos'],
-    'data': [tempoadmissao0a5, tempoadmissao6a10, tempoadmissao10a20],
+    'data': [porcentagem0a5, porcentagem6a10, porcentagem10a20],
 };
 
 var escolaridade = {
     'labels': ['Primeiro Grau', 'Segundo Grau', 'Terceiro Grau'],
-    'data': [escolaridadepg, escolaridadesg, escolaridadetg],
+    'data': [porcentagempg, porcentagemsg, porcentagemtg],
 };
 
 return {
@@ -437,4 +450,35 @@ console.error('Ocorreu um erro:', error);
 
 
 }
+
+function atividadecapa(cnpj){
+
+
+
+    // Faz uma requisição GET para a API
+    fetch('https://unyflex.com.br/ajaxcnpcompleto/'+cnpj)
+    .then(response => {
+    // Verifica se a resposta da API foi bem-sucedida (código de status 200)
+    if (!response.ok) {
+        throw new Error('Não foi possível obter os dados da API');
+    }
+    // Converte a resposta para JSON
+    return response.json();
+    })
+    .then(data => {
+        var atividade = document.getElementById('atividadecapa');
+        
+        atividade_principal = data.atividade_principal[0];
+        atividades_secundarias = data.atividades_secundarias[0];
+       
+        atividade.innerHTML += atividade_principal.code;
+     
+    
+    })
+    .catch(error => {
+    console.error('Ocorreu um erro:', error);
+    });
+    
+    
+    }
 

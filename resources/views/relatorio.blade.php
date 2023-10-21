@@ -10,6 +10,12 @@
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<title>AET</title>
 	</head>
+	    <style>
+        body {
+            text-align: justify;
+        }
+    </style>
+
 	<body>
 		{{-- Capa --}}
 		<div class="homepage">
@@ -40,14 +46,17 @@
 				</div>
 				<center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa "></center>
 				<div class="subcabecalho" style="margin-top: 100px;">
-					<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Informações Complementares da Obra</p>
+					<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Identificação da Empresa</p>
 				</div>
 				<div class="infobox">
-					<p class="text-center"><b>Endereço: {{$empresa->rua}}</b></p>
-					<p class="text-center"><b>Cidade: {{$empresa->cidade}}</b></p>
+					<p class="text-center"><b>Endereço: {{$empresa->rua}}, {{$empresa->numero}}</b></p>
+					<p class="text-center"><b>Cidade/Estado: {{$empresa->cidade}} - {{$empresa->estado}}</b></p>
 					<p class="text-center"><b>CEP: {{$empresa->cep}}</b></p>
 					<p class="text-center"><b>CNPJ: {{$empresa->cnpj}}</b></p>
-					<p class="text-center"><b>N° Empregados: {{$empresa->num_funcionarios}}</b></p>
+					<p class="text-center"><b>N° de funcionários: {{$empresa->num_funcionarios}}</b></p>
+					<p class="text-center"><b id="atividadecapa">CNAE: <script>atividadecapa({{$empresa->cnpj}})</script></b></p>
+					<p class="text-center"><b>Ramo de Atividade: {{$empresa->setor}}</b></p>
+					
 				</div>
 			</div>
 		</div>
@@ -83,7 +92,7 @@
 			<div class="subcabecalho2">
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Introdução</p>
 			</div>
-			<p>{{$empresa->introducao->introducao}}</p>
+			<p><?= $empresa->introducao->introducao?></p>
 		</div>
 		<div class="paginacao">
 			<script>paginacao()</script>
@@ -180,7 +189,7 @@
 			<div class="subcabecalho2">
 				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$setor->nome}}</p>
 			</div>
-			<p style="font-size: 25px;">No setor {{$setor->nome}}, foram avaliado os seguintes setores</p>
+			<p style="font-size: 25px;">No setor {{$setor->nome}}, foram avaliado os seguintes postos de trabalho</p>
 			<ul>
 				@foreach ($setor->subsetores as $subsetor)
 				<li style="font-size: 25px;">{{$subsetor->nome}}</li>
@@ -225,10 +234,10 @@
 		<div class="paginacao">
 			<script>paginacao()</script>
 		</div>
-		{{-- Dados organizacionais --}}
+		{{-- Características do Trabalho  --}}
 		<div class="page">
 			<div class="subcabecalho2" style="margin-top:35px">
-				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Dados Organizacionais</p>
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Trabalho </p>
 			</div>
 			<ul>
 				@foreach($setor->subsetores as $subsetor)
@@ -394,7 +403,7 @@
 			//Gráfico Genêro
 			  var ctx = document.getElementById('genero'+graficos.index).getContext('2d');
 			  var data =graficos.genero; 
-			
+			  var colors = ['rgba(2, 125, 195, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(255, 205, 86, 0.5)', 'rgba(139, 69, 19, 0.5)', 'rgba(255, 165, 0, 0.5)'];
 			  var chart = new Chart(ctx, {
 			      type: 'bar', // Tipo de gráfico (por exemplo, barra)
 			      data: {
@@ -402,13 +411,28 @@
 			          datasets: [{
 			              label: 'Gênero',
 			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              backgroundColor: colors, // Cor de fundo das barras
+			              borderColor: colors, // Cor das bordas das barras
 			              borderWidth: 1 // Largura das bordas das barras
 			          }]
 			      },
 			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+					  scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value, index, values) {
+                        return value + '%';
+                    }
+                }
+            }
+					  },
+			       plugins: {
+						legend: {
+							display: false,
+							
+						}
+					}
 			      }
 			  });
 			//Gráfico Faixa Etaria
@@ -423,13 +447,28 @@
 			          datasets: [{
 			              label: 'Faixa Etária',
 			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              backgroundColor: colors, // Cor de fundo das barras
+			              borderColor: colors, // Cor das bordas das barras
 			              borderWidth: 1 // Largura das bordas das barras
 			          }]
 			      },
 			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+										  scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value, index, values) {
+                        return value + '%';
+                    }
+                }
+            }
+					  },
+			       plugins: {
+						legend: {
+							display: false,
+							
+						}
+					}
 			      }
 			  }); 
 			//Gráfico tempo Admissão
@@ -442,16 +481,31 @@
 			      data: {
 			          labels: data.labels, // Rótulos para o eixo X
 			          datasets: [{
-			              label: 'Tempo de Admissão',
+			              label: '',
 			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              backgroundColor: colors, // Cor de fundo das barras
+			              borderColor: colors, // Cor das bordas das barras
 			              borderWidth: 1 // Largura das bordas das barras
 			          }]
 			      },
-			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
-			      }
+			    options: {
+										  scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value, index, values) {
+                        return value + '%';
+                    }
+                }
+            }
+					  },
+					plugins: {
+						legend: {
+							display: false,
+							
+						}
+					}
+				}
 			  });
 			
 			//Gráfico Escolaridade
@@ -465,13 +519,28 @@
 			          datasets: [{
 			              label: 'Escolaridade',
 			              data: data.data, // Dados para o eixo Y
-			              backgroundColor: 'rgba(2, 125, 195, 0.5)', // Cor de fundo das barras
-			              borderColor: 'rgba(2, 125, 195, 1)', // Cor das bordas das barras
+			              backgroundColor: colors, // Cor de fundo das barras
+			              borderColor: colors, // Cor das bordas das barras
 			              borderWidth: 1 // Largura das bordas das barras
 			          }]
 			      },
 			      options: {
-			          // Opções de personalização do gráfico (exemplo: título, legenda, etc.)
+										  scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    callback: function(value, index, values) {
+                        return value + '%';
+                    }
+                }
+            }
+					  },
+			        plugins: {
+						legend: {
+							display: false,
+							
+						}
+					}
 			      }
 			  });
 		</script>
@@ -597,7 +666,7 @@
 			</div>
 			<ul>
 				@if(isset($empresa->disposicao))
-				<li>{{$empresa->disposicao->disposicao}}</li>
+				<?= $empresa->disposicao->disposicao?>
 				@endif
 			</ul>
 		</div>

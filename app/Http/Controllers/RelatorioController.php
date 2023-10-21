@@ -100,9 +100,9 @@ class RelatorioController extends Controller
         $porcentagemfeminino = 100 - $porcentagemmasculino;
         $genero = [
             'labels' => ['Feminino', 'Masculino'],
-            'data' => [$sexof, $sexom,],
+            'data' => [$porcentagemfeminino, $porcentagemmasculino,],
         ];
-
+  
         $faixaetaria = [
             'labels' => ['20 á 29 anos', '30 á 39 anos', '40 á 49 anos', '50 á 59 anos'],
             'data' => [$faixaetaria20a29, $faixaetaria30a39, $faixaetaria40a49, $faixaetaria50a59],

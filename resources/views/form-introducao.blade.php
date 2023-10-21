@@ -30,7 +30,7 @@
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Introdução</strong></label>
-                            <textarea class="form-control editor" name="introducao" id="introducao" cols="30" rows="15">
+                            <textarea class="form-control editor" name="introducao" id="editor" cols="30" rows="15">
 Podemos definir ergonomia como o estudo científico das relações entre homem e
 máquina, visando uma segurança e eficiência ideal no modo como um e outro
 interagem. Também pode ser definida como o trabalho multidisciplinar que,
@@ -88,6 +88,18 @@ preocupando-se com a interface.
     <!-- END: Personal Information -->
     <!-- END: Users Layout -->
     </div>
+
+    
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script> 
 @endsection
 
 @push('custom-scripts')

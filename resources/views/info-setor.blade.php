@@ -51,7 +51,7 @@
          <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Lista de SubSetores
+                Lista de Postos De Trabalho
             </h2>
         </div>
         <div class="p-5">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="flex justify-end mt-4">
-                <a href="{{route('form-subsetores', ['idsetor' => $setor->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar SubSetor</a>
+                <a href="{{route('form-subsetores', ['idsetor' => $setor->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Posto de Trabalho</a>
             </div>    
         </div>
     </div>

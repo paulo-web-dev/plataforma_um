@@ -21,6 +21,7 @@ class RulaController extends Controller
     ]);
     }
 
+    
     public function cadRula(Request $request){
 
         function ison($switch){
@@ -60,6 +61,8 @@ class RulaController extends Controller
         ]);
 
     }
+
+    
 
     
     public function updRula(Request $request){

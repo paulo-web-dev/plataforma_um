@@ -4,7 +4,7 @@
 
  <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Cadastrar Dados Organizacionais
+            Cadastrar Características do Trabalho
         </h2>
          <a href="{{ route('info-subsetor',  ['id' => $dado->id_subsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
     </div>
@@ -43,7 +43,7 @@
                         <div class="grid grid-cols-12 gap-x-5">
                             <div class="col-span-12 xl:col-span-6">
                                 <div class="mt-3">
-                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <label for="nome" class="form-label"><strong>Características do Trabalho:</strong></label>
                                     <input id="num_funcionarios" type="text" name="dado" class="form-control"
                                         placeholder="Dado Organizacional" value="{{$dado->dado}}" required>
                                 </div>
@@ -57,7 +57,7 @@
                         <div class="intro-y box col-span-12 xxl:col-span-12">
                             <button type="submit" class="btn btn-primary w-full  mr-2 mb-2"> <i data-feather="activity"
                                     class="w-4 h-4 mr-2"></i>
-                                Atualizar Dados Organizacionais </button>
+                                Atualizar Características do Trabalho </button>
                         </div>
                     </div>
             </form>

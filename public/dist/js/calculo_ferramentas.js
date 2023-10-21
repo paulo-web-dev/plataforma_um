@@ -98,7 +98,7 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
                 break;
 
                 case resultadoFinal > 6:
-                conclusaorula.innerHTML = 'o necessárias pesquisas e mudanças imediatamente';
+                conclusaorula.innerHTML = 'são necessárias pesquisas e mudanças imediatamente';
                 conclusaorula.style.backgroundColor = "black";
                
                 break;

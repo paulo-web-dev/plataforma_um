@@ -87,7 +87,7 @@
                                         placeholder="Grau de Risco">
                                 </div>
                                 <div class="mt-3 ">
-                                    <label for="setor" class="form-label"><strong>Setor</strong></label>
+                                    <label for="setor" class="form-label"><strong>Ramo de Atividade</strong></label>
                                     <input id="setor" type="text" name="setor" class="form-control"
                                       required  placeholder="setor">
                                 </div>
