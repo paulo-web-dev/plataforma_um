@@ -656,7 +656,7 @@
             </div>    
         </div>
     </div>
-      <!-- Lista de OCRA -->
+      <!-- Lista de Dados de Saúde -->
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
@@ -679,16 +679,16 @@
                             </thead>
                             <tbody> 
 
-                                  @foreach ($subsetor->dadossaude as $dado) 
+                                  @if(isset($subsetor->dadossaude)) 
                                   
                                     <tr class="hover:bg-gray-200">
-                                        <td class="border">{{$dado->id}}</td>
-                                        <td class="border">{{$dado->sim}}</td>
-                                        <td class="border">{{$dado->nao}}</td>
+                                        <td class="border">{{$subsetor->dadossaude->id}}</td>
+                                        <td class="border">{{$subsetor->dadossaude->sim}}</td>
+                                        <td class="border">{{$subsetor->dadossaude->nao}}</td>
                                         <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-dados-de-saude', ['dado' => $dado->id])}}">
+                                                    href="{{route('info-dados-de-saude', ['dado' => $subsetor->dadossaude->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
                                                 </a>
                                               
@@ -697,7 +697,7 @@
                                         </td>
                                     </tr>
                                 
-                                @endforeach 
+                                @endif 
                             </tbody>
                         </table>
                     </div>
