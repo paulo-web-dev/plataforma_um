@@ -19,7 +19,52 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
 
    
 }
+function conclusao(conclusao, ferramenta, index){
 
+    var conclusaobg = document.getElementById('conclusao'+index);
+    var textomembros = document.getElementById('textomemrbos'+index);
+    var membros = document.getElementById('membros'+index);
+    console.log(conclusao)
+    if(conclusao == 'Baixo Risco' || conclusao == 'RISCO BAIXO' || conclusao == 'Faixa Segura' || conclusao == 'Ausente ou Aceitável' || conclusao == 'aceitável se não é mantida ou repetida por longos períodos' || conclusao == 'Sem ações corretivas, postura adequada' || conclusao == 'Baixo'){
+        colorbg = "green";
+        colorfont = "white";
+  
+    } else if(conclusao == 'Duvidoso' || conclusao == 'RISCO MODERADO' || conclusao == 'Faixa é considerada de risco moderado' || conclusao == 'Limite' ||conclusao == 'Médio' ||conclusao == 'são necessários mais estudos e que serão necessárias mudanças' ||conclusao == 'são necessárias pesquisas e mudanças em um futuro próximo' || conclusao == 'Ações corretivas são requeridas em um futuro próximo' || conclusao == 'Ações corretivas são necessária a curto prazo'){
+        colorbg = "yellow";
+        colorfont = "black";
+
+    } else{
+        colorbg = "red";
+        colorfont = "black";
+    }
+    
+    if (ferramenta === 'Moore e Garg') {
+        txt = '(Análise de risco para punhos e mãos)';
+        membro = 'Punhos, Mãos e Dedos';
+    } else if (ferramenta === 'Rula') {
+        txt = '(Avaliação de fatores de risco para distúrbios músculo-esqueléticos dos membros superiores)';
+        membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+    } else if (ferramenta === 'OWAS') {
+        txt = '(Detecção de posturas inadequadas)';
+        membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+    } else if (ferramenta === 'Sue Rodgers') {
+        txt = '(Análise de esforço para segmentos corpóreos)';
+        membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+    } else if (ferramenta === 'NIOSH') {
+        txt = ''; 
+        membro = ''; 
+    }else if (ferramenta === 'OCRA') {
+        txt = '(Análise de esforço para segmentos corpóreos)';
+        membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+    } else {
+        txt = ''; 
+        membro = '';  
+    }
+    conclusaobg.style.backgroundColor = colorbg;
+    conclusaobg.style.color = colorfont;
+    textomembros.innerHTML = txt;
+    membros.innerHTML = membro;
+}
 function rula(braco, braco_desvio, antebraco, antebraco_desvio, punho, punho_desvio, pescoco, pescoco_desvio, tronco, tronco_desvio, perna, index){
     var metodologia = document.getElementById('metodologia_rula');
     metodologia.innerHTML = "<b>RULA (Rapid Upper Limb Assessment)</b> para avaliação do risco de distúrbios osteomusculares relacionados ao trabalho (DORT);";

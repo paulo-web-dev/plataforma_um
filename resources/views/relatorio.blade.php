@@ -10,11 +10,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<title>AET</title>
 	</head>
-	    <style>
-        body {
-            text-align: justify;
-        }
-    </style>
+
 
 	<body>
 		{{-- Capa --}}
@@ -318,6 +314,20 @@
 							mooregarg({{$moore->fit}},{{$moore->fde}},{{$moore->ffe}},{{$moore->fpmp}},{{$moore->fri}},{{$moore->fdt}}, {{$loop->index}});
 						</script>       
 						@endforeach
+					@foreach ($subsetor->conclusoes as $conclusao)
+						<tr>
+							<td>{{$conclusao->ferramenta}}
+								<p id="textomemrbos{{$loop->index}}"><p>
+								<br> Atividade: {{$conclusao->atividade}}.
+							</td>
+							<td id="conclusao{{$loop->index}}">{{$conclusao->conclusao}}</td>
+							<td id="membros{{$loop->index}}"></td>
+						</tr>
+						<script>
+					
+							conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$loop->index}});
+						</script>       
+						@endforeach
 						@foreach ($subsetor->rula as $rula)
 						<tr>
 							<td>RULA
@@ -359,6 +369,75 @@
 						@endforeach
 					</tbody>
 				</table>
+			</div>
+		</div>
+
+			<div class="paginacao">
+			<script>paginacao()</script>
+		</div>
+		{{-- Dados de Saúde --}}
+		<div class="page">
+			<div class="subcabecalho2">
+				<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Dados de Saúde: {{$subsetor->nome}} </p>
+			</div>
+			<p style="font-size: 21px;">Por meio de uma entrevista individualizada (com participação de 100% dos trabalhadores do setor) foi aplicado um questionário com questões abertas com a finalidade de identificar os principais desconfortos referidos pelos
+
+trabalhadores e que podem influenciar o seu desempenho durante o processo de trabalho.</li>
+			<p>
+@php
+$sim = $subsetor->dadossaude->sim;
+$nao = $subsetor->dadossaude->nao;
+$total = $sim + $nao;
+
+$porcentagemSim = ($sim / $total) * 100;
+$porcentagemNao = ($nao / $total) * 100;
+
+$dataSaude = [
+    'labels' => ['Sim', 'Não'],
+    'data' => [$porcentagemSim, $porcentagemNao],
+];
+@endphp
+				<div style="margin-left: 10%; margin-top: 50px">
+					<canvas id="dadosaude{{$subsetor->id}}" class="grafico"></canvas>
+				</div>
+			
+<script>
+    // Gráfico Dados Saúde
+    var ctx = document.getElementById('dadosaude{{$subsetor->id}}').getContext('2d');
+    var data = @json($dataSaude);
+    var colors = ['rgba(2, 125, 195, 0.5)', 'rgba(75, 192, 192, 0.5)'];
+
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: 'Dados Saúde',
+                data: data.data,
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value, index, values) {
+                            return value + '%';
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+        }
+    });
+</script>
 			</div>
 		</div>
 {{-- POPULAÇÃO --}}

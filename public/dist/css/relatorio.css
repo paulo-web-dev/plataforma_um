@@ -1,5 +1,7 @@
 body {
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif !important; 
+    text-align: justify;
+  
   }
   table {
     border-collapse: collapse;
