@@ -168,7 +168,7 @@
          </ul>
       </div>
       {{-- Loop Setores --}}
-      @foreach ($empresa->setores as $setor)
+    @foreach ($empresa->setores as $setor)
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -184,38 +184,32 @@
          </ul>
       </div>
       {{-- Começo de descrição geral subsetores --}}
+	 @foreach ($setor->subsetores as $subsetor)
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$setor->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$subsetor->nome}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
-            <tr>
-               <td><b>Área:</b></td>
-               <td>{{$setor->nome}}</td>
-            </tr>
             <tr>
                <td><b>Setor:</b></td>
                <td>{{$setor->nome}}</td>
             </tr>
             <tr>
-               <td><b>Cargos:</b></td>
-               <td>
-                  @foreach($setor->subsetores as $subsetor)
-                  {{$subsetor->nome}},
-                  @endforeach
-               </td>
+               <td><b>Posto de Trabalho:</b></td>
+               <td>{{$subsetor->nome}}</td>
             </tr>
+            
             <!-- Adicione mais linhas conforme necessário -->
          </table>
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>
          </div>
-         @foreach($setor->subsetores as $subsetor)
-         <p class="text-cargo" ><b>{{$subsetor->nome}}:</b>{{$subsetor->descricao}}. </p>
-         @endforeach
+     
+         <p class="text-cargo" ><b>{{$subsetor->nome}}: </b>{{$subsetor->descricao}}. </p>
+     
       </div>
       <div class="paginacao">
          <script>paginacao()</script>
@@ -226,36 +220,43 @@
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Trabalho </p>
          </div>
          <ul>
-            @foreach($setor->subsetores as $subsetor)
+        
             @foreach ($subsetor->dadosOrganizacionais as $dados)    
             <li>{{$dados->dado}}</li>
             @endforeach
-            @endforeach
+         
          </ul>
          {{-- Caracteristicas do ambiente de trabalho --}}
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Ambiente de Trabalho</p>
          </div>
          <ul>
-            @foreach($setor->subsetores as $subsetor)
+           
             @foreach ($subsetor->caracteristicas as $caracteristica)  
             <li>{{$caracteristica->titulo}}: {{$caracteristica->descricao}}</li>
             @endforeach
-            @endforeach
+     
          </ul>
+
+      </div>
+
+	    <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+    <div class="page">
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Pré Diagnóstico</p>
          </div>
          <ul>
-            @foreach($setor->subsetores as $subsetor)
+           
             @foreach ($subsetor->preDiagnostico as $diagnostico)  
             <li>{{$diagnostico->titulo}}: {{$diagnostico->descricao}}</li>
             @endforeach
-            @endforeach
+          
          </ul>
       </div>
-      @foreach($setor->subsetores as $subsetor)
+   
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -274,13 +275,18 @@
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
+
+ 
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnostico: {{$subsetor->nome}} </p>
          </div>
          {{-- Tabela com Resultados de ferramentas --}}
+		 	@php
+			$i = 0;
+			@endphp
          <div class="container mt-5">
-            <table class="table table-bordered">
+            <table class="table table-bordered" >
                <thead>
                   <tr>
                      <th>Ferramentas</th>
@@ -300,22 +306,28 @@
                   </tr>
                   <script>
                      mooregarg({{$moore->fit}},{{$moore->fde}},{{$moore->ffe}},{{$moore->fpmp}},{{$moore->fri}},{{$moore->fdt}}, {{$loop->index}});
-                  </script>       
+                  </script>   
+				  	@php
+					$i++;
+					@endphp    
                   @endforeach
                   @foreach ($subsetor->conclusoes as $conclusao)
                   <tr>
                      <td>
                         {{$conclusao->ferramenta}}
-                        <p id="textomemrbos{{$loop->index}}">
-                        <p>
-                           <br> Atividade: {{$conclusao->atividade}}.
+                        <p id="textomemrbos{{$conclusao->id}}">
+                        </p>
+                          Atividade: {{$conclusao->atividade}}.
                      </td>
-                     <td id="conclusao{{$loop->index}}">{{$conclusao->conclusao}}</td>
-                     <td id="membros{{$loop->index}}"></td>
+                     <td id="conclusao{{$conclusao->id}}">{{$conclusao->conclusao}}</td>
+                     <td id="membros{{$conclusao->id}}"></td>
                   </tr>
                   <script>
-                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$loop->index}});
-                  </script>       
+                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$conclusao->id}});
+                  </script>   
+				  	@php
+					$i++;
+					@endphp    
                   @endforeach
                   @foreach ($subsetor->rula as $rula)
                   <tr>
@@ -328,7 +340,10 @@
                   </tr>
                   <script>
                      rula({{$rula->braco}},{{$rula->braco_desvio}},{{$rula->antebraco}},{{$rula->antebraco_desvio}}, {{$rula->punho}}, {{$rula->punho_desvio}}, {{$rula->pescoco}},{{$rula->pescoco_desvio}},{{$rula->tronco}},{{$rula->tronco_desvio}}, {{$rula->perna}}, {{$loop->index}}); 
-                  </script>       
+                  </script>  
+				  	@php
+					$i++;
+					@endphp     
                   @endforeach
                   @foreach ($subsetor->owas as $owas)
                   <tr>
@@ -341,7 +356,10 @@
                   </tr>
                   <script>
                      owas({{$owas->dorso}},{{$owas->braco}}, {{$owas->pernas}}, {{$owas->carga}}, {{$loop->index}});
-                  </script>       
+                  </script>   
+				  	@php
+					$i++;
+					@endphp    
                   @endforeach
                   @foreach ($subsetor->suerodgers as $sue)
                   <tr>
@@ -354,13 +372,19 @@
                   </tr>
                   <script>
                      suerodgers(['Pescoço -{{$sue->pescoco}}', 'Ombros -{{$sue->ombro}}', 'Tronco -{{$sue->tronco}}', 'Braco -{{$sue->braco}}', 'Mãos -{{$sue->mao_punho_dedo}}', 'Pernas -{{$sue->perna_pe_dedo}}' ], {{$loop->index}} );
-                  </script>       
+                  </script>    
+				  	@php
+					$i++;
+					@endphp   
                   @endforeach
                </tbody>
             </table>
          </div>
       </div>
+
+
       <div class="paginacao">
+
          <script>paginacao()</script>
       </div>
       {{-- Dados de Saúde --}}

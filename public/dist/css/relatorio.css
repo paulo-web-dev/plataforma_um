@@ -15,7 +15,8 @@ body {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
-   border-radius: 10px; /* Bordas arredondadas */
+   border-radius: 10px;
+   font-size:14px;
   }
     
   th {
@@ -191,6 +192,9 @@ body {
 }
 .titulo {
   font-weight: bold;
+}
+ul{
+  margin-right:25px;
 }
 .pagina {
   float: right;

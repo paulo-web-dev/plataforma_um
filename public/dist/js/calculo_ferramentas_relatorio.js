@@ -62,7 +62,7 @@ function conclusao(conclusao, ferramenta, index){
     }
     conclusaobg.style.backgroundColor = colorbg;
     conclusaobg.style.color = colorfont;
-    textomembros.innerHTML = txt;
+   // textomembros.innerHTML = txt;
     membros.innerHTML = membro;
 }
 function rula(braco, braco_desvio, antebraco, antebraco_desvio, punho, punho_desvio, pescoco, pescoco_desvio, tronco, tronco_desvio, perna, index){
