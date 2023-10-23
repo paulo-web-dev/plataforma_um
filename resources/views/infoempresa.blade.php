@@ -103,7 +103,7 @@
                                    <div class="mt-3 ">
                                     <label for="responsavel" class="form-label"><strong>Grau de Risco</strong></label>
                                     <input id="responsavel" type="text" name="grau_de_risco" class="form-control"
-                                      value="{{$empresa->grau_de_risco}}""  placeholder="Grau de Risco">
+                                      value="{{$empresa->grau_de_risco}}"  placeholder="Grau de Risco">
                                 </div>
 
                                 <div class="mt-3 ">

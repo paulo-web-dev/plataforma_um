@@ -48,6 +48,7 @@
                <p class="text-center"><b>CEP: {{$empresa->cep}}</b></p>
                <p class="text-center"><b>CNPJ: {{$empresa->cnpj}}</b></p>
                <p class="text-center"><b>N° de funcionários: {{$empresa->num_funcionarios}}</b></p>
+			   <p class="text-center"><b>Grau de Risco: {{$empresa->grau_de_risco}}</b></p>
                <p class="text-center">
                   <b id="atividadecapa">
                      CNAE: <script>atividadecapa({{$empresa->cnpj}})</script>
