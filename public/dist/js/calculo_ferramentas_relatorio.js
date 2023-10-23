@@ -41,21 +41,31 @@ function conclusao(conclusao, ferramenta, index){
     if (ferramenta === 'Moore e Garg') {
         txt = '(Análise de risco para punhos e mãos)';
         membro = 'Punhos, Mãos e Dedos';
+        var metodologia = document.getElementById('metodologia_moor');
+        metodologia.innerHTML = '<b>MOORE & GARG</b> para analisar índice de esforço musculoesquelético da  parte distal dos membros superiores (punhos, mãos e dedos);';
     } else if (ferramenta === 'Rula') {
         txt = '(Avaliação de fatores de risco para distúrbios músculo-esqueléticos dos membros superiores)';
         membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+        var metodologia = document.getElementById('metodologia_rula');
+        metodologia.innerHTML = "<b>RULA (Rapid Upper Limb Assessment)</b> para avaliação do risco de distúrbios osteomusculares relacionados ao trabalho (DORT);";
     } else if (ferramenta === 'OWAS') {
         txt = '(Detecção de posturas inadequadas)';
         membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+        var metodologia = document.getElementById('metodologia_owas');
+        metodologia.innerHTML = "<b>OWAS</b> identificação da postura de trabalho;";
     } else if (ferramenta === 'Sue Rodgers') {
         txt = '(Análise de esforço para segmentos corpóreos)';
         membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+        var metodologia = document.getElementById('metodologia_sue');
+        metodologia.innerHTML = "<b>SUZANE RODGERS</b> para avaliar as exigências biomecânicas do sistema osteomuscular;";
     } else if (ferramenta === 'NIOSH') {
         txt = ''; 
         membro = ''; 
     }else if (ferramenta === 'OCRA') {
         txt = '(Análise de esforço para segmentos corpóreos)';
         membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+        var metodologia = document.getElementById('metodologia_ocra');
+        metodologia.innerHTML = "<b>OCRA</b>  mapeamento dos riscos por sobrecarga dos membros superiores;";
     } else {
         txt = ''; 
         membro = '';  

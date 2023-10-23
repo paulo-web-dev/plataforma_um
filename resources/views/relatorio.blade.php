@@ -152,6 +152,7 @@
          <p id="metodologia_owas" class="ferramenta"></p>
          <p id="metodologia_sue" class="ferramenta"></p>
          <p id="metodologia_niosh" class="ferramenta"></p>
+		 <p id="metodologia_ocra" class="ferramenta"></p>
       </div>
       <div class="paginacao">
          <script>paginacao()</script>
