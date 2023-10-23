@@ -325,7 +325,7 @@
                      <td id="membros{{$conclusao->id}}"></td>
                   </tr>
                   <script>
-                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$conclusao->id}});
+                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$conclusao->id}}, '{{$conclusao->membro}}');
                   </script>   
 				  	@php
 					$i++;

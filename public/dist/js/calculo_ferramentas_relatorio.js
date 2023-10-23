@@ -12,14 +12,14 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
     conclusao.innerHTML = resultado + ' Risco';
     conclusao.style.backgroundColor = "red"; 
     }else if(resultado <= 3){
-         conclusao.innerHTML = resultado + ' Baixo Risco';
+         conclusao.innerHTML = ' Baixo Risco';
          conclusao.style.backgroundColor = "green";
     }
     
 
    
 }
-function conclusao(conclusao, ferramenta, index){
+function conclusao(conclusao, ferramenta, index, member){
 
     var conclusaobg = document.getElementById('conclusao'+index);
     var textomembros = document.getElementById('textomemrbos'+index);
@@ -55,7 +55,7 @@ function conclusao(conclusao, ferramenta, index){
         metodologia.innerHTML = "<b>OWAS</b> identificação da postura de trabalho;";
     } else if (ferramenta === 'Sue Rodgers') {
         txt = '(Análise de esforço para segmentos corpóreos)';
-        membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
+        membro = member;
         var metodologia = document.getElementById('metodologia_sue');
         metodologia.innerHTML = "<b>SUZANE RODGERS</b> para avaliar as exigências biomecânicas do sistema osteomuscular;";
     } else if (ferramenta === 'NIOSH') {
