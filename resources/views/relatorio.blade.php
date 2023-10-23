@@ -409,6 +409,7 @@
             ];
             @endphp
          <div style="margin-left: 10%; margin-top: 50px">
+		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">Desconforto Osteomioarticular</p>
             <canvas id="dadosaude{{$subsetor->id}}" class="grafico"></canvas>
          </div>
          <script>
@@ -467,15 +468,19 @@
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Gráficos Populacionais</p>
          </div>
          <div class="grafico-container">
+		 	<p class="text-center legenda-grafico">Gênero</p>
             <canvas id="genero{{$subsetor->id}}" class="grafico"></canvas>
          </div>
          <div class="grafico-container">
+		 <p class="text-center legenda-grafico">Faixa Etária</p>
             <canvas id="faixaetaria{{$subsetor->id}}" class="grafico"></canvas>
          </div>
          <div class="grafico-container">
+		  <p class="text-center legenda-grafico">Tempo de Admissão</p>
             <canvas id="tempoadimissao{{$subsetor->id}}" class="grafico"></canvas>
          </div>
          <div class="grafico-container">
+		 	<p class="text-center legenda-grafico">Escolaridade</p>
             <canvas id="escolaridade{{$subsetor->id}}" class="grafico"></canvas>
          </div>
       </div>

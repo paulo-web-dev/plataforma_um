@@ -43,6 +43,10 @@ body {
   .text{
     margin:15px;
   }
+  .legenda-grafico{
+    font-weight: bold; 
+    font-size:18px;
+  }
   .homepage{
     border: 15px solid #00253b;
     width: 800px ;
