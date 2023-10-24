@@ -31,6 +31,8 @@ use App\Http\Controllers\ReponsaveisController;
 use App\Http\Controllers\MetodologiaController;
 use App\Http\Controllers\ConclusaoController;
 use App\Http\Controllers\DadosSaudeController;
+use App\Http\Controllers\DemandaController;
+use App\Http\Controllers\AnaliseGlobalController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -159,6 +161,21 @@ Route::get('/form/introducao/{empresa}', [IntroducaoController::class, 'formIntr
 Route::get('/info/introducao/{id}', [IntroducaoController::class, 'infoIntroducao'])->name('info-introducao'); 
 Route::post('/cadastrar/introducao', [IntroducaoController::class, 'cadIntroducao'])->name('cad-introducao');
 Route::post('/update/introducao', [IntroducaoController::class, 'updIntroducao'])->name('upd-introducao');
+
+//Rotas Pertinentes ao cadatros de Demanda
+Route::get('/demanda', [DemandaController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/demanda/{empresa}', [DemandaController::class, 'formDemanda'])->name('form-demanda');
+Route::get('/info/demanda/{demanda}', [DemandaController::class, 'infoDemanda'])->name('info-demanda'); 
+Route::post('/cadastrar/demanda', [DemandaController::class, 'cadDemanda'])->name('cad-demanda');
+Route::post('/update/demanda', [DemandaController::class, 'updDemanda'])->name('upd-demanda');
+
+
+//Rotas Pertinentes ao cadatros de Analise Global
+Route::get('/analise-global', [AnaliseGlobalController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/analise-global/{empresa}', [AnaliseGlobalController::class, 'formAnaliseGlobal'])->name('form-analise-global');
+Route::get('/info/analise-global/{analise}', [AnaliseGlobalController::class, 'infoAnaliseGlobal'])->name('info-analise-global'); 
+Route::post('/cadastrar/analise-global', [AnaliseGlobalController::class, 'cadAnaliseGlobal'])->name('cad-analise-global');
+Route::post('/update/analise-global', [AnaliseGlobalController::class, 'updAnaliseGlobal'])->name('upd-analise-global');
 
 //Rotas Pertinentes ao cadatros de Metodologia
 Route::get('/metodologia', [MetodologiaController::class, 'show'])->name('show-pre-diagnosticos');

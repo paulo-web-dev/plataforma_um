@@ -94,4 +94,20 @@ class Empresas extends Model
         return $this->hasMany(Responsaveis::class, 'id_empresa', 'id');
 
     }
+
+    public function demanda()
+
+    {
+
+        return $this->hasOne(Demanda::class, 'id_empresa', 'id');
+
+    }
+
+    public function analise()
+
+    {
+
+        return $this->hasOne(AnaliseGlobal::class, 'id_empresa', 'id');
+
+    }
 }

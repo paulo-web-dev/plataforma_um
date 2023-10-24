@@ -72,7 +72,10 @@
                {{-- <li><span class="titulo">Equipe Técnica</span> <span class="pagina">5</span></li> --}}
                <li><span class="titulo">Objetivo</span> <span class="pagina">6</span></li>
                <li><span class="titulo">Metodologia Empregada</span> <span class="pagina">7</span></li>
-               <li><span class="titulo">Análise dos postos de trabalho</span> <span class="pagina">9</span></li>
+               <li><span class="titulo">Demanda</span> <span class="pagina">8</span></li>
+               <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">8</span></li>
+               <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">10</span></li>
+               <div id="postos" style="margin-left:20px"></div>
                <li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
                <li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li>
                <li><span class="titulo">Disposições Finais</span> <span class="pagina" id="disposicoes"></span></li>
@@ -200,6 +203,30 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
+
+      {{-- Demanda --}}
+      <div class="page">
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Demanda: </p>
+         </div>
+         <ul>
+            @if(isset($empresa->demanda))
+            <p><?= $empresa->demanda->demanda ?></p>
+            @endif
+         </ul> <br>
+{{-- Ánalise GLobal --}}
+      <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Ánalise Global da Empresa: </p>
+         </div>
+         <ul>
+            @if(isset($empresa->analise))
+            <p><?= $empresa->analise->analise ?></p>
+            @endif
+         </ul>
+      </div>
+      <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
       {{-- Postos/Subsetores/Cargos que foram avaliados --}}
       <div class="page">
          <div class="subcabecalho2">
@@ -245,6 +272,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             <tr>
                <td><b>Posto de Trabalho:</b></td>
                <td>{{$subsetor->nome}}</td>
+            <script>
+            var postos = document.getElementById('postos'); 
+            var pagina = document.getElementsByClassName('page').length;
+            postos.innerHTML +=  '<li><span class="titulo">{{$subsetor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
+         </script>
             </tr>
             
             <!-- Adicione mais linhas conforme necessário -->

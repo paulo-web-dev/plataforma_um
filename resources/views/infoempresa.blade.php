@@ -367,7 +367,7 @@
                              @if(isset($empresa->introducao))
                                     <tr class="hover:bg-gray-200">
                                         <td class="border">1</td>
-                                        <td class="border">{{substr($empresa->introducao->introducao, 0, 200)}}... </td>
+                                        <td class="border"><?=substr($empresa->introducao->introducao, 0, 200)?> </td>
                          
                                         <td class="border">
                                             <div class="flex justify-center">
@@ -389,6 +389,109 @@
             </div>
             <div class="flex justify-end mt-4">
                 <a href="{{route('form-introducao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Introdução</a>
+            </div>    
+        </div>
+    </div>
+
+    
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Demanda
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Demanda</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(isset($empresa->demanda))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">1</td>
+                                        <td class="border"><?= substr($empresa->demanda->demanda, 0, 200)?>... </td>
+                         
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-demanda', ['demanda' => $empresa->demanda->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                             @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-demanda', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Demanda</a>
+            </div>    
+        </div>
+    </div>
+
+
+    
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Ánalise Global
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Ánalise</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(isset($empresa->analise))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">1</td>
+                                        <td class="border"><?= substr($empresa->analise->analise, 0, 200)?>... </td>
+                         
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-analise-global', ['analise' => $empresa->analise->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                             @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-analise-global', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Ánalise</a>
             </div>    
         </div>
     </div>
