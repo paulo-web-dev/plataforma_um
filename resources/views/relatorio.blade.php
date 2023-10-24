@@ -66,11 +66,13 @@
          </div>
          <div class="sumario">
             <ul>
+               <li><span class="titulo">Identificação da Empresa</span> <span class="pagina">1</span></li>
                <li><span class="titulo">Introdução</span> <span class="pagina">3</span></li>
-               <li><span class="titulo">Equipe Técnica</span> <span class="pagina">4</span></li>
-               <li><span class="titulo">Objetivos</span> <span class="pagina">5</span></li>
-               <li><span class="titulo">Metodologia</span> <span class="pagina">6</span></li>
-               <li><span class="titulo">Análise dos postos de trabalho</span> <span class="pagina">8</span></li>
+               <li><span class="titulo">Análise Ergônomica Do Trabalho.</span> <span class="pagina">4</span></li>
+               {{-- <li><span class="titulo">Equipe Técnica</span> <span class="pagina">5</span></li> --}}
+               <li><span class="titulo">Objetivo</span> <span class="pagina">6</span></li>
+               <li><span class="titulo">Metodologia Empregada</span> <span class="pagina">7</span></li>
+               <li><span class="titulo">Análise dos postos de trabalho</span> <span class="pagina">9</span></li>
                <li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
                <li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li>
                <li><span class="titulo">Disposições Finais</span> <span class="pagina" id="disposicoes"></span></li>
@@ -79,6 +81,7 @@
             </ul>
          </div>
       </div>
+
       {{-- Introdução --}}
       <div class="paginacao">
          <script>paginacao()</script>
@@ -89,11 +92,51 @@
          </div>
          <p><?= $empresa->introducao->introducao?></p>
       </div>
+      {{-- AET (Análise Ergonomica do Trabalho) --}}
+       <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+     
+      <div class="page">
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE ERGONÔMICA DO TRABALHO: </p>
+         </div>
+     <p>
+          Método que envolve um conjunto de etapas e ações que mantêm uma coerência interna, principalmente quanto a possibilidade de se questionar os
+
+resultados obtidos durante a coleta de dados, validando-os ao longo do processo e aproximando-os mais da realidade pesquisada. Na AET as hipóteses são construídas, validadas e/ou refutadas ao longo do processo. Essa abordagem permite revelar a complexidade do trabalhar. Pressupõe a utilização de distintas técnicas, cuja importância para a análise depende da problemática e da configuração da demanda.
+
+Assim, uma ação ergonômica comporta as seguintes fases:
+</p>
+<ul>
+  <li>Análise da demanda</li>
+  <li>Coleta de informações sobre a empresa</li>
+  <li>Levantamento das características da população</li>
+  <li>Escolha das situações de análise</li>
+  <li>Análise do processo técnico e da tarefa</li>
+  <li>Observações globais e abertas da atividade</li>
+  <li>Elaboração de um pré – diagnóstico</li>
+  <li>Observações globais sistemáticas – análise dos dados</li>
+  <li>Validação</li>
+  <li>Diagnóstico</li>
+  <li>Recomendações e transformação</li>
+</ul>
+<p>
+
+Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõe:
+</p>
+<ul>
+  <li>Estudo centrado na atividade real de trabalho</li>
+  <li>Globalidade da situação de trabalho</li>
+  <li>Consideração da variabilidade, tanto decorrente da tecnologia e da produção quanto a dos trabalhadores</li>
+</ul>
+      </div>
+  
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       {{-- Equipe Técnica --}}
-      <div class="page">
+      {{-- <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Equipe Técnica</p>
          </div>
@@ -109,11 +152,11 @@
       </div>
       <div class="paginacao">
          <script>paginacao()</script>
-      </div>
+      </div> --}}
       {{-- Objetivos --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Objetivos: </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Objetivo: </p>
          </div>
          <ul>
             @foreach ($empresa->objetivos as $objetivo)
@@ -127,7 +170,7 @@
       {{-- Metodologia --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia: </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia Empregada: </p>
          </div>
          <?= $empresa->metodologia->metodologia ?>
       </div>
@@ -272,6 +315,7 @@
                <img src="/fotos-atividades/{{$foto->photo}}" alt="Imagem">
             </div>
             @endforeach
+            <p>Fotos - Funcionário executando atividade: {{$subsetor->nome}}</p>
          </div>
       </div>
       <div class="paginacao">
