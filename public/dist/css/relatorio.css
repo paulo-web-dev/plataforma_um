@@ -169,7 +169,7 @@ body {
 .imagem {
   width: calc(50% - 10px); /* Defina a largura para ocupar metade da largura da imagem-container com algum espaço à direita e à esquerda */
   margin-bottom: 20px; /* Espaço entre as imagens na coluna de baixo */
-  max-width: 250px; /* Largura máxima para as imagens */
+  max-width: 200px; /* Largura máxima para as imagens */
 }
 
 .imagem img {
