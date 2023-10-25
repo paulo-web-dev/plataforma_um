@@ -328,7 +328,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <ul>
            
             @foreach ($subsetor->preDiagnostico as $diagnostico)  
-            <li>{{$diagnostico->titulo}}: {{$diagnostico->descricao}}</li>
+            <li>{{$diagnostico->titulo}} {{$diagnostico->descricao}}</li>
             @endforeach
           
          </ul>
