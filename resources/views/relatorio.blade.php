@@ -344,7 +344,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <div class="imagem-container">
             @foreach ($subsetor->fotosatividade as $foto)
             <div class="imagem">
-               <img src="/fotos-atividades/{{$foto->photo}}" alt="Imagem" style=" max-height: 50px ;">
+               <img src="/fotos-atividades/{{$foto->photo}}" alt="Imagem" style=" max-height: 250px ;">
             </div>
             @endforeach
             <p>Fotos - Funcionário executando atividade: {{$subsetor->nome}}</p>
