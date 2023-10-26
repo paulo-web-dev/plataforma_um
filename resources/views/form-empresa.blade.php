@@ -67,8 +67,18 @@
                                     <input id="CNPJ" type="number" name="cnpj" required class="form-control"
                                         placeholder="CNPJ da empresa">
                                 </div>
+
+                                 <div class="mt-3">
+                                    <label for="Inscrição" class="form-label"><strong>Inscrição Estudal</strong></label>
+                                    <input id="Inscrição" type="text" name="inscricao_estadual" required class="form-control"
+                                        placeholder="Inscrição Estadual">
+                                </div>
                                 
-                           
+                                <div class="mt-3">
+                                    <label for="Inscrição" class="form-label"><strong>Período de Inspeção</strong></label>
+                                    <input id="Inscrição" type="text" name="periodo_inspecao" required class="form-control"
+                                        placeholder="Período Inspeção" value="">
+                                </div>
                                 <div class="mt-3">
                                     <label for="telefone" class="form-label"><strong>Telefone</strong></label>
                                     <input id="telefone" type="number" name="telefone" required class="form-control"

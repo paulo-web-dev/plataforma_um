@@ -86,15 +86,19 @@
          <li><b>Endereço: {{$empresa->rua}}, {{$empresa->numero}}</b></li><br>
                <li><b>Cidade/Estado: {{$empresa->cidade}} - {{$empresa->estado}}</b></li><br>
                <li><b>CEP: {{$empresa->cep}}</b></li><br>
+               <li><b>TELEFONE: {{$empresa->telefone}}</b></li><br>
                <li><b>CNPJ: {{$empresa->cnpj}}</b></li><br>
-               <li><b>N° de funcionários: {{$empresa->num_funcionarios}}</b></li><br>
-			   <li><b>Grau de Risco: {{$empresa->grau_de_risco}}</b></li><br>
-               <li>
+               <li><b>INSCRIÇÃO ESTADUAL: {{$empresa->cnpj}}</b></li><br>
+               <li><b>Grau de Risco: {{$empresa->grau_de_risco}}</b></li><br>
+                <li>
                   <b id="atividadecapa">
                      CNAE: <script>atividadecapa({{$empresa->cnpj}})</script>
                   </b>
                </li><br>
-               <li><b>Ramo de Atividade: {{$empresa->setor}}</b></li><br>
+                <li><b>Ramo de Atividade: {{$empresa->setor}}</b></li><br>
+               <li><b>Período de Inspeção: {{$empresa->periodo_inspecao}}</b></li><br>
+              
+              
             </ul>
       </div>
       {{-- Introdução --}}

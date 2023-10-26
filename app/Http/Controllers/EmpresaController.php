@@ -58,10 +58,12 @@ class EmpresaController extends Controller
         $empresa = new Empresas(); 
         $empresa->nome = $request->nome;
         $empresa->titulo = $request->titulo;
+        $empresa->periodo_inspecao = $request->periodo_inspecao;
         $empresa->cnpj = $request->cnpj;
         $empresa->telefone = $request->telefone;
         $empresa->responsavel =	$request->responsavel;
         $empresa->num_funcionarios = $request->num_funcionarios;
+        $empresa->inscricao_estadual = $request->inscricao_estadual;
         $empresa->setor	= $request->setor;
         $empresa->rua = $request->rua;
         $empresa->cidade = $request->cidade;
@@ -187,6 +189,8 @@ class EmpresaController extends Controller
         $empresa->estado = $request->uf;
         $empresa->bairro = $request->bairro;
         $empresa->cep = $request->cep;
+        $empresa->inscricao_estadual = $request->inscricao_estadual;
+        $empresa->periodo_inspecao = $request->periodo_inspecao;
         $empresa->grau_de_risco = $request->grau_de_risco;
         if(isset($request->file)){
             $photoname = $request->file->getClientOriginalName();

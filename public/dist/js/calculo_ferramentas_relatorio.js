@@ -522,7 +522,7 @@ function atividadecapa(cnpj){
     })
     .then(data => {
         var atividade = document.getElementById('atividadecapa');
-        
+    
         atividade_principal = data.atividade_principal[0];
         atividades_secundarias = data.atividades_secundarias[0];
        

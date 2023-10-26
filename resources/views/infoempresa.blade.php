@@ -82,6 +82,17 @@
                                         placeholder="Título da AET" value="{{$empresa->titulo}}" >
                                 </div>
                         
+                                <div class="mt-3">
+                                    <label for="Inscrição" class="form-label"><strong>Inscrição Estudal</strong></label>
+                                    <input id="Inscrição" type="text" name="inscricao_estadual" required class="form-control"
+                                        placeholder="Inscrição Estadual" value="{{$empresa->inscricao_estadual}}">
+                                </div>
+
+                                 <div class="mt-3">
+                                    <label for="Inscrição" class="form-label"><strong>Período de Inspeção</strong></label>
+                                    <input id="Inscrição" type="text" name="periodo_inspecao" required class="form-control"
+                                        placeholder="Período Inspeção" value="{{$empresa->periodo_inspecao}}">
+                                </div>
                         
                                 <div class="mt-3">
                                     <label for="CNPJ" class="form-label"><strong>CNPJ</strong></label>
