@@ -128,4 +128,23 @@ class SubSetores extends Model
         return $this->hasOne(DadosSaude::class, 'id_subsetor', 'id');
   
       }
+
+      public function analiseAtividade(){
+        
+        return $this->hasOne(AnaliseAtividade::class, 'id_subsetor', 'id');
+  
+      }
+
+
+      public function tarefa(){
+        
+        return $this->hasOne(Tarefa::class, 'id_subsetor', 'id');
+  
+      }
+
+      public function funcao(){
+        
+        return $this->hasOne(Funcao::class, 'id_subsetor', 'id');
+  
+      }
 }

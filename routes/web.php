@@ -33,6 +33,10 @@ use App\Http\Controllers\ConclusaoController;
 use App\Http\Controllers\DadosSaudeController;
 use App\Http\Controllers\DemandaController;
 use App\Http\Controllers\AnaliseGlobalController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\TarefaController;
+use App\Http\Controllers\FuncaoController;
+use App\Http\Controllers\AnaliseAtividadeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -62,6 +66,14 @@ Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->nam
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
 
+//Rotas Pertitentes a Áreas da empresa
+Route::get('/areas', [AreaController::class, 'show'])->name('show-areas');
+Route::get('/form/areas/{idempresa}', [AreaController::class, 'formAreas'])->name('form-areas');
+Route::get('/info/areas/{id}', [AreaController::class, 'infoAreas'])->name('info-areas'); 
+Route::post('/cadastrar/areas', [AreaController::class, 'cadAreas'])->name('cad-areas');
+Route::post('/update/areas', [AreaController::class, 'updAreas'])->name('upd-areas');
+
+
 //Rotas Pertitentes aos setores
 Route::get('/setores', [SetoresController::class, 'show'])->name('show-setores');
 Route::get('/form/setores/{idempresa}', [SetoresController::class, 'formSetores'])->name('form-setores');
@@ -82,6 +94,27 @@ Route::get('/form/cargos/{idsubsetor}', [CargosController::class, 'formCargos'])
 Route::get('/info/cargo/{id}', [CargosController::class, 'infoCargos'])->name('info-cargo'); 
 Route::post('/cadastrar/cargo', [CargosController::class, 'cadCargo'])->name('cad-cargo');
 Route::post('/update/cargo', [CargosController::class, 'updCargo'])->name('upd-cargo');
+
+//Rotas Pertitentes as Funções
+Route::get('/funcao', [FuncaoController::class, 'show'])->name('show-areas');
+Route::get('/form/funcao/{id_subsetor}', [FuncaoController::class, 'formFuncao'])->name('form-funcao');
+Route::get('/info/funcao/{id}', [FuncaoController::class, 'infoFuncao'])->name('info-funcao'); 
+Route::post('/cadastrar/funcao', [FuncaoController::class, 'cadFuncao'])->name('cad-funcao');
+Route::post('/update/funcao', [FuncaoController::class, 'updFuncao'])->name('upd-funcao');
+
+//Rotas Pertitentes as Tarefas
+Route::get('/tarefas', [TarefaController::class, 'show'])->name('show-areas');
+Route::get('/form/tarefas/{id_subsetor}', [TarefaController::class, 'formTarefa'])->name('form-tarefa');
+Route::get('/info/tarefas/{id}', [TarefaController::class, 'infoTarefa'])->name('info-tarefa'); 
+Route::post('/cadastrar/tarefas', [TarefaController::class, 'cadTarefa'])->name('cad-tarefa');
+Route::post('/update/tarefas', [TarefaController::class, 'updTarefa'])->name('upd-tarefa');
+
+//Rotas Pertitentes a Ánalise de Atividade
+Route::get('/analise-de-atividade', [AnaliseAtividadeController::class, 'show'])->name('show-areas');
+Route::get('/form/analise-de-atividade/{id_subsetor}', [AnaliseAtividadeController::class, 'formAnaliseAtividade'])->name('form-analise-de-atividade');
+Route::get('/info/analise-de-atividade/{id}', [AnaliseAtividadeController::class, 'infoAnaliseAtividade'])->name('info-analise-de-atividade'); 
+Route::post('/cadastrar/analise-de-atividade', [AnaliseAtividadeController::class, 'cadAnaliseAtividade'])->name('cad-analise-de-atividade');
+Route::post('/update/analise-de-atividade', [AnaliseAtividadeController::class, 'updAnaliseAtividade'])->name('upd-analise-de-atividade');
 
 //Rotas Pertinentes aos Dados Organizacionais
 Route::get('/dadosorganizacionais', [DadosOrganizacionaisController::class, 'show'])->name('show-dadosorganizacionais');

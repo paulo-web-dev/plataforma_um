@@ -57,6 +57,7 @@ class EmpresaController extends Controller
 
         $empresa = new Empresas(); 
         $empresa->nome = $request->nome;
+        $empresa->titulo = $request->titulo;
         $empresa->cnpj = $request->cnpj;
         $empresa->telefone = $request->telefone;
         $empresa->responsavel =	$request->responsavel;
@@ -122,6 +123,7 @@ class EmpresaController extends Controller
         ->with('mapeamento')
         ->with('planodeacao')
         ->with('responsaveis')
+        ->with('area')
         ->first();
    
         if(count($empresa->populacao) > 0){
@@ -173,6 +175,7 @@ class EmpresaController extends Controller
 
         $empresa = Empresas::where('id', $request->id)->first();
         $empresa->nome = $request->nome;
+        $empresa->titulo = $request->titulo;
         $empresa->cnpj = $request->cnpj;
         $empresa->telefone = $request->telefone;
         $empresa->responsavel =	$request->responsavel;

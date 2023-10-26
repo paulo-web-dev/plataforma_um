@@ -33,8 +33,9 @@ class RelatorioController extends Controller
         ->with('metodologia')
         ->with('demanda')
         ->with('analise')
+        ->with('area')
         ->first();
-     
+        
         $faixaetaria20a29 = 0;
         $faixaetaria30a39 = 0;
         $faixaetaria40a49 = 0;

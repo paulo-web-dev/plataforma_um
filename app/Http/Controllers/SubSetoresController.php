@@ -46,6 +46,9 @@ class SubSetoresController extends Controller
         ->with('fotosatividade')
         ->with('populacaosubsetor')
         ->with('dadossaude')
+        ->with('analiseAtividade')
+        ->with('tarefa')
+        ->with('funcao')
         ->first();  
   
         return view('info-subsetores',[

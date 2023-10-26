@@ -110,4 +110,12 @@ class Empresas extends Model
         return $this->hasOne(AnaliseGlobal::class, 'id_empresa', 'id');
 
     }
+
+    public function area()
+
+    {
+
+        return $this->hasMany(Area::class, 'id_empresa', 'id');
+
+    }
 }

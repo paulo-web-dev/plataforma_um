@@ -30,8 +30,17 @@ class Setores extends Model
         ->with('populacaosubsetor')
         ->with('conclusoes')
         ->with('dadossaude')
+        ->with('analiseAtividade')
+        ->with('tarefa')
+        ->with('funcao')
         ->with('recomendacao');
         
 
     }
+    
+    public function area(){
+        
+        return $this->hasOne(Area::class, 'id_area', 'id');
+  
+      }
 }

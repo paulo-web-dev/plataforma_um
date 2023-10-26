@@ -12,7 +12,7 @@
    </head>
    <body>
       {{-- Capa --}}
-      <div class="homepage">
+      {{-- <div class="homepage">
          <img src="/logo_plataforma_um.jpeg" class="img-home">
          <div class="titulo-documento">
             <div class="text">
@@ -26,7 +26,7 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> --}}
       {{-- Contra capa com informações da empresa --}}
       <div class="page">
          <div class="cabecalho">
@@ -38,24 +38,13 @@
                <p class="text-center">Análise Ergonômica do Trabalho</p>
                <p class="text-center">2023</p>
             </div>
-            <center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa "></center>
-            <div class="subcabecalho" style="margin-top: 100px;">
-               <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Identificação da Empresa</p>
-            </div>
-            <div class="infobox">
-               <p class="text-center"><b>Endereço: {{$empresa->rua}}, {{$empresa->numero}}</b></p>
-               <p class="text-center"><b>Cidade/Estado: {{$empresa->cidade}} - {{$empresa->estado}}</b></p>
-               <p class="text-center"><b>CEP: {{$empresa->cep}}</b></p>
-               <p class="text-center"><b>CNPJ: {{$empresa->cnpj}}</b></p>
-               <p class="text-center"><b>N° de funcionários: {{$empresa->num_funcionarios}}</b></p>
-			   <p class="text-center"><b>Grau de Risco: {{$empresa->grau_de_risco}}</b></p>
-               <p class="text-center">
-                  <b id="atividadecapa">
-                     CNAE: <script>atividadecapa({{$empresa->cnpj}})</script>
-                  </b>
-               </p>
-               <p class="text-center"><b>Ramo de Atividade: {{$empresa->setor}}</b></p>
-            </div>
+
+
+            <center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa "></center><br>
+            <p style="font-size:26px" class="text-center"><b>{{$empresa->nome}}</b></p><br>
+            <p style="font-size:30px" class="text-center"><b>{{$empresa->titulo}}</b></p>
+
+ 
          </div>
       </div>
       {{-- Súmario --}}
@@ -70,7 +59,7 @@
                <li><span class="titulo">Introdução</span> <span class="pagina">3</span></li>
                <li><span class="titulo">Análise Ergônomica Do Trabalho.</span> <span class="pagina">4</span></li>
                {{-- <li><span class="titulo">Equipe Técnica</span> <span class="pagina">5</span></li> --}}
-               <li><span class="titulo">Objetivo</span> <span class="pagina">6</span></li>
+               <li><span class="titulo">Objetivos Da Análise Ergônomica Do Trabalho</span> <span class="pagina">6</span></li>
                <li><span class="titulo">Metodologia Empregada</span> <span class="pagina">7</span></li>
                <li><span class="titulo">Demanda</span> <span class="pagina">8</span></li>
                <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">8</span></li>
@@ -85,6 +74,29 @@
          </div>
       </div>
 
+          {{-- Identificação da Empresa --}}
+      <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+      <div class="page">
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Identificação da Empresa</p>
+         </div>
+         <ul>
+         <li><b>Endereço: {{$empresa->rua}}, {{$empresa->numero}}</b></li><br>
+               <li><b>Cidade/Estado: {{$empresa->cidade}} - {{$empresa->estado}}</b></li><br>
+               <li><b>CEP: {{$empresa->cep}}</b></li><br>
+               <li><b>CNPJ: {{$empresa->cnpj}}</b></li><br>
+               <li><b>N° de funcionários: {{$empresa->num_funcionarios}}</b></li><br>
+			   <li><b>Grau de Risco: {{$empresa->grau_de_risco}}</b></li><br>
+               <li>
+                  <b id="atividadecapa">
+                     CNAE: <script>atividadecapa({{$empresa->cnpj}})</script>
+                  </b>
+               </li><br>
+               <li><b>Ramo de Atividade: {{$empresa->setor}}</b></li><br>
+            </ul>
+      </div>
       {{-- Introdução --}}
       <div class="paginacao">
          <script>paginacao()</script>
@@ -102,7 +114,7 @@
      
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE ERGONÔMICA DO TRABALHO: </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE ERGONÔMICA DO TRABALHO </p>
          </div>
      <p>
           Método que envolve um conjunto de etapas e ações que mantêm uma coerência interna, principalmente quanto a possibilidade de se questionar os
@@ -159,7 +171,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Objetivos --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Objetivo: </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Objetivos Da Análise Ergônomica Do Trabalho </p>
          </div>
          <ul>
             @foreach ($empresa->objetivos as $objetivo)
@@ -173,7 +185,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Metodologia --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia Empregada: </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia Empregada</p>
          </div>
          <?= $empresa->metodologia->metodologia ?>
       </div>
@@ -207,16 +219,25 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Demanda --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Demanda: </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Demanda</p>
          </div>
          <ul>
             @if(isset($empresa->demanda))
             <p><?= $empresa->demanda->demanda ?></p>
             @endif
          </ul> <br>
+
+      </div>
+
+       <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+
+      <div class="page">
+ 
 {{-- Ánalise GLobal --}}
       <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Ánalise Global da Empresa: </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Ánalise Global da Empresa </p>
          </div>
          <ul>
             @if(isset($empresa->analise))
@@ -224,6 +245,8 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             @endif
          </ul>
       </div>
+
+   {{-- Ánalise Dos Postos de Trabalho --}}
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -232,23 +255,42 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DOS POSTOS DE TRABALHO</p>
          </div>
+         <p style="font-size: 25px;">O documento contempla o levantamento ergonômico @if(count($empresa->area) > 1) das seguintes áreas:@else da seguinte área: @endif </p>
+         <ul>
+            @foreach ($empresa->area as $area)
+            <li style="font-size: 25px;">{{$area->nome}}</li>
+            @endforeach
+         </ul>
+      </div>
+     
+ @foreach ($empresa->area as $area)
+  
+      <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+      {{-- Postos/Subsetores/Cargos que foram avaliados --}}
+      <div class="page">
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Área: {{$area->nome}}</p>
+         </div>
          <p style="font-size: 25px;">As avaliações ocorreram nos seguintes setores da empresa:</p>
          <ul>
-            @foreach ($empresa->setores as $setor)
+           @foreach ($area->setores as $setor)
             <li style="font-size: 25px;">{{$setor->nome}}</li>
             @endforeach
          </ul>
       </div>
+             
       {{-- Loop Setores --}}
-    @foreach ($empresa->setores as $setor)
+    @foreach ($area->setores as $setor)
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$setor->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: {{$setor->nome}}</p>
          </div>
-         <p style="font-size: 25px;">No setor {{$setor->nome}}, foram avaliado os seguintes postos de trabalho</p>
+         <p style="font-size: 25px;">No setor {{$setor->nome}},  foi realizado o levantamento ergonômico das atividades nos seguintes postos de trabalho:</p>
          <ul>
             @foreach ($setor->subsetores as $subsetor)
             <li style="font-size: 25px;">{{$subsetor->nome}}</li>
@@ -262,13 +304,13 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">{{$subsetor->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: {{$setor->nome}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
-            <tr>
+            {{-- <tr>
                <td><b>Setor:</b></td>
                <td>{{$setor->nome}}</td>
-            </tr>
+            </tr> --}}
             <tr>
                <td><b>Posto de Trabalho:</b></td>
                <td>{{$subsetor->nome}}</td>
@@ -278,6 +320,19 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             postos.innerHTML +=  '<li><span class="titulo">{{$subsetor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
          </script>
             </tr>
+            @if(isset($subsetor->funcao))
+              <tr>
+               <td><b>Função:</b></td>
+               <td>{{$subsetor->funcao->funcao}}</td>
+            </tr>
+            @endif
+
+            @if(isset($subsetor->tarefa))
+              <tr>
+               <td><b>Tarefa:</b></td>
+               <td>{{$subsetor->tarefa->tarefa}}</td>
+            </tr>
+            @endif
             
             <!-- Adicione mais linhas conforme necessário -->
          </table>
@@ -291,55 +346,25 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-      {{-- Características do Trabalho  --}}
+      @if(isset($subsetor->analiseAtividade))
+      {{-- Ánalise da Atividade --}}
+
       <div class="page">
          <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Trabalho </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Análise da Atividade</p>
          </div>
-         <ul>
-        
-            @foreach ($subsetor->dadosOrganizacionais as $dados)    
-            <li>{{$dados->dado}}</li>
-            @endforeach
+
+            <p><?= $subsetor->analiseAtividade->analise ?></p>
          
-         </ul>
-         {{-- Caracteristicas do ambiente de trabalho --}}
-         <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Ambiente de Trabalho</p>
-         </div>
-         <ul>
-           
-            @foreach ($subsetor->caracteristicas as $caracteristica)  
-            <li>{{$caracteristica->titulo}}: {{$caracteristica->descricao}}</li>
-            @endforeach
-     
-         </ul>
-
       </div>
-
-	    <div class="paginacao">
-         <script>paginacao()</script>
-      </div>
-    <div class="page">
-         {{-- Pré diagnosticos --}}
-         <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Pré Diagnóstico</p>
-         </div>
-         <ul>
-           
-            @foreach ($subsetor->preDiagnostico as $diagnostico)  
-            <li>{{$diagnostico->titulo}} {{$diagnostico->descricao}}</li>
-            @endforeach
-          
-         </ul>
-      </div>
-   
+      @endif
+      {{-- Fotos Atividade --}}
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Fotos: {{$subsetor->nome}} </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Fotos</p>
          </div>
          <div class="imagem-container">
             @foreach ($subsetor->fotosatividade as $foto)
@@ -353,181 +378,21 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-
- 
+      {{-- Características do Trabalho  --}}
       <div class="page">
-         <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnostico: {{$subsetor->nome}} </p>
+         <div class="subcabecalho2" style="margin-top:35px">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características Da Organização Do Trabalho</p>
          </div>
-         {{-- Tabela com Resultados de ferramentas --}}
-		 	@php
-			$i = 0;
-			@endphp
-         <div class="container mt-5">
-            <table class="table table-bordered" >
-               <thead>
-                  <tr>
-                     <th>Ferramentas</th>
-                     <th>Resultado</th>
-                     <th>Região Corpórea</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  @foreach ($subsetor->moore as $moore)
-                  <tr>
-                     <td>MOORE E GARG
-                        <br>(Análise de risco para punhos e mãos)
-                        <br> Atividade: {{$moore->atividade}}.
-                     </td>
-                     <td id="conclusaomoore{{$loop->index}}"></td>
-                     <td>Punhos, Mãos e Dedos</td>
-                  </tr>
-                  <script>
-                     mooregarg({{$moore->fit}},{{$moore->fde}},{{$moore->ffe}},{{$moore->fpmp}},{{$moore->fri}},{{$moore->fdt}}, {{$loop->index}});
-                  </script>   
-				  	@php
-					$i++;
-					@endphp    
-                  @endforeach
-                  @foreach ($subsetor->conclusoes as $conclusao)
-                  <tr>
-                     <td>
-                        {{$conclusao->ferramenta}}
-                        <p id="textomemrbos{{$conclusao->id}}">
-                        </p>
-                          Atividade: {{$conclusao->atividade}}.
-                     </td>
-                     <td id="conclusao{{$conclusao->id}}">{{$conclusao->conclusao}}</td>
-                     <td id="membros{{$conclusao->id}}"></td>
-                  </tr>
-                  <script>
-                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$conclusao->id}}, '{{$conclusao->membro}}');
-                  </script>   
-				  	@php
-					$i++;
-					@endphp    
-                  @endforeach
-                  @foreach ($subsetor->rula as $rula)
-                  <tr>
-                     <td>RULA
-                        <br>(Avaliação de fatores de risco para distÚrbios músculo-esqueléticos dos membros superiores)
-                        <br> Atividade: {{$rula->atividade}}.
-                     </td>
-                     <td id="conclusaorula{{$loop->index}}"></td>
-                     <td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
-                  </tr>
-                  <script>
-                     rula({{$rula->braco}},{{$rula->braco_desvio}},{{$rula->antebraco}},{{$rula->antebraco_desvio}}, {{$rula->punho}}, {{$rula->punho_desvio}}, {{$rula->pescoco}},{{$rula->pescoco_desvio}},{{$rula->tronco}},{{$rula->tronco_desvio}}, {{$rula->perna}}, {{$loop->index}}); 
-                  </script>  
-				  	@php
-					$i++;
-					@endphp     
-                  @endforeach
-                  @foreach ($subsetor->owas as $owas)
-                  <tr>
-                     <td>OWAS
-                        <br>(Detecção de posturas inadequadas)
-                        <br> Atividade: {{$owas->atividade}}.
-                     </td>
-                     <td id="conclusaoowas{{$loop->index}}"></td>
-                     <td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
-                  </tr>
-                  <script>
-                     owas({{$owas->dorso}},{{$owas->braco}}, {{$owas->pernas}}, {{$owas->carga}}, {{$loop->index}});
-                  </script>   
-				  	@php
-					$i++;
-					@endphp    
-                  @endforeach
-                  @foreach ($subsetor->suerodgers as $sue)
-                  <tr>
-                     <td>Sue Rodgers
-                        <br>(análise de esforço para segmentos corpóreos)
-                        <br> Atividade: {{$sue->atividade}}.
-                     </td>
-                     <td id="conclusaosue{{$loop->index}}"></td>
-                     <td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
-                  </tr>
-                  <script>
-                     suerodgers(['Pescoço -{{$sue->pescoco}}', 'Ombros -{{$sue->ombro}}', 'Tronco -{{$sue->tronco}}', 'Braco -{{$sue->braco}}', 'Mãos -{{$sue->mao_punho_dedo}}', 'Pernas -{{$sue->perna_pe_dedo}}' ], {{$loop->index}} );
-                  </script>    
-				  	@php
-					$i++;
-					@endphp   
-                  @endforeach
-               </tbody>
-            </table>
-         </div>
+         <ul>
+        
+            @foreach ($subsetor->dadosOrganizacionais as $dados)    
+            <li>{{$dados->dado}}</li>
+            @endforeach
+         
+         </ul>
+       
       </div>
-
-
-      <div class="paginacao">
-
-         <script>paginacao()</script>
-      </div>
-      {{-- Dados de Saúde --}}
-      <div class="page">
-         <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Dados de Saúde: {{$subsetor->nome}} </p>
-         </div>
-         <p style="font-size: 21px;">Por meio de uma entrevista individualizada (com participação de 100% dos trabalhadores do setor) foi aplicado um questionário com questões abertas com a finalidade de identificar os principais desconfortos referidos pelos
-            trabalhadores e que podem influenciar o seu desempenho durante o processo de trabalho.</li>
-         <p>
-            @php
-            $sim = $subsetor->dadossaude->sim;
-            $nao = $subsetor->dadossaude->nao;
-            $total = $sim + $nao;
-            $porcentagemSim = ($sim / $total) * 100;
-            $porcentagemNao = ($nao / $total) * 100;
-            $dataSaude = [
-            'labels' => ['Sim', 'Não'],
-            'data' => [$porcentagemSim, $porcentagemNao],
-            ];
-            @endphp
-         <div style="margin-left: 10%; margin-top: 50px">
-		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">Desconforto Osteomioarticular</p>
-            <canvas id="dadosaude{{$subsetor->id}}" class="grafico"></canvas>
-         </div>
-         <script>
-            // Gráfico Dados Saúde
-            var ctx = document.getElementById('dadosaude{{$subsetor->id}}').getContext('2d');
-            var data = @json($dataSaude);
-            var colors = ['rgba(2, 125, 195, 0.5)', 'rgba(75, 192, 192, 0.5)'];
-            
-            var chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: data.labels,
-                    datasets: [{
-                        label: 'Dados Saúde',
-                        data: data.data,
-                        backgroundColor: colors,
-                        borderColor: colors,
-                        borderWidth: 1,
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value, index, values) {
-                                    return value + '%';
-                                }
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false,
-                        }
-                    }
-                }
-            });
-         </script>
-      </div>
-      </div>
-      {{-- POPULAÇÃO --}}
+  {{-- POPULAÇÃO --}}
       {{-- Pegar dados Populacionais --}}
       @php $populacaoSubsetor = $subsetor->populacaosubsetor; @endphp
       <script>
@@ -541,7 +406,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Gráficos Populacionais --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Gráficos Populacionais</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características Da População</p>
          </div>
          <div class="grafico-container">
 		 	<p class="text-center legenda-grafico">Gênero</p>
@@ -708,18 +573,239 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
                }
            });
       </script>
-      @endforeach
-      {{-- Recomendações Técnicas --}}
+        <div class="paginacao">
+
+         <script>paginacao()</script>
+      </div>
+      {{-- Dados de Saúde --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">RECOMENDAÇÕES TÉCNICAS E SUGESTÕES DE ADEQUAÇÕES</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Dados de Saúde </p>
+         </div>
+         <p style="font-size: 21px;">Por meio de uma entrevista individualizada (com participação de 100% dos trabalhadores do setor) foi aplicado um questionário com questões abertas com a finalidade de identificar os principais desconfortos referidos pelos
+            trabalhadores e que podem influenciar o seu desempenho durante o processo de trabalho.</li>
+         <p>
+            @php
+            $sim = $subsetor->dadossaude->sim;
+            $nao = $subsetor->dadossaude->nao;
+            $total = $sim + $nao;
+            $porcentagemSim = ($sim / $total) * 100;
+            $porcentagemNao = ($nao / $total) * 100;
+            $dataSaude = [
+            'labels' => ['Sim', 'Não'],
+            'data' => [$porcentagemSim, $porcentagemNao],
+            ];
+            @endphp
+         <div style="margin-left: 10%; margin-top: 50px">
+		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">Desconforto Osteomioarticular</p>
+            <canvas id="dadosaude{{$subsetor->id}}" class="grafico"></canvas>
+         </div>
+         <script>
+            // Gráfico Dados Saúde
+            var ctx = document.getElementById('dadosaude{{$subsetor->id}}').getContext('2d');
+            var data = @json($dataSaude);
+            var colors = ['rgba(2, 125, 195, 0.5)', 'rgba(75, 192, 192, 0.5)'];
+            
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Dados Saúde',
+                        data: data.data,
+                        backgroundColor: colors,
+                        borderColor: colors,
+                        borderWidth: 1,
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        }
+                    }
+                }
+            });
+         </script>
+      </div>
+      <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+      
+     {{-- Caracteristicas do ambiente de trabalho --}}
+      <div class="page">
+
+         <div class="subcabecalho2" style="margin-top:35px">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Ambiente de Trabalho</p>
          </div>
          <ul>
-            @foreach ($subsetor->recomendacao as $recomendacao)
-            <li>{{$recomendacao->recomendacao}}</li>
+           
+            @foreach ($subsetor->caracteristicas as $caracteristica)  
+            <li>{{$caracteristica->titulo}}: {{$caracteristica->descricao}}</li>
             @endforeach
+     
+         </ul>
+
+      </div>
+
+	    <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+    <div class="page">
+         {{-- Pré diagnosticos --}}
+         <div class="subcabecalho2" style="margin-top:35px">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Pré Diagnóstico</p>
+         </div>
+         <ul>
+           
+            @foreach ($subsetor->preDiagnostico as $diagnostico)  
+            <li>{{$diagnostico->titulo}} {{$diagnostico->descricao}}</li>
+            @endforeach
+          
          </ul>
       </div>
+   
+    
+
+ 
+      <div class="page">
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnostico</p>
+         </div>
+         {{-- Tabela com Resultados de ferramentas --}}
+		 	@php
+			$i = 0;
+			@endphp
+         <div class="container mt-5">
+            <table class="table table-bordered" >
+               <thead>
+                  <tr>
+                     <th>Ferramentas</th>
+                     <th>Resultado</th>
+                     <th>Região Corpórea</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  @foreach ($subsetor->moore as $moore)
+                  <tr>
+                     <td>MOORE E GARG
+                        <br>(Análise de risco para punhos e mãos)
+                        <br> Atividade: {{$moore->atividade}}.
+                     </td>
+                     <td id="conclusaomoore{{$loop->index}}"></td>
+                     <td>Punhos, Mãos e Dedos</td>
+                  </tr>
+                  <script>
+                     mooregarg({{$moore->fit}},{{$moore->fde}},{{$moore->ffe}},{{$moore->fpmp}},{{$moore->fri}},{{$moore->fdt}}, {{$loop->index}});
+                  </script>   
+				  	@php
+					$i++;
+					@endphp    
+                  @endforeach
+                  @foreach ($subsetor->conclusoes as $conclusao)
+                  <tr>
+                     <td>
+                        {{$conclusao->ferramenta}}
+                        <p id="textomemrbos{{$conclusao->id}}">
+                        </p>
+                          Atividade: {{$conclusao->atividade}}.
+                     </td>
+                     <td id="conclusao{{$conclusao->id}}">{{$conclusao->conclusao}}</td>
+                     <td id="membros{{$conclusao->id}}"></td>
+                  </tr>
+                  <script>
+                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$conclusao->id}}, '{{$conclusao->membro}}');
+                  </script>   
+				  	@php
+					$i++;
+					@endphp    
+                  @endforeach
+                  @foreach ($subsetor->rula as $rula)
+                  <tr>
+                     <td>RULA
+                        <br>(Avaliação de fatores de risco para distÚrbios músculo-esqueléticos dos membros superiores)
+                        <br> Atividade: {{$rula->atividade}}.
+                     </td>
+                     <td id="conclusaorula{{$loop->index}}"></td>
+                     <td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
+                  </tr>
+                  <script>
+                     rula({{$rula->braco}},{{$rula->braco_desvio}},{{$rula->antebraco}},{{$rula->antebraco_desvio}}, {{$rula->punho}}, {{$rula->punho_desvio}}, {{$rula->pescoco}},{{$rula->pescoco_desvio}},{{$rula->tronco}},{{$rula->tronco_desvio}}, {{$rula->perna}}, {{$loop->index}}); 
+                  </script>  
+				  	@php
+					$i++;
+					@endphp     
+                  @endforeach
+                  @foreach ($subsetor->owas as $owas)
+                  <tr>
+                     <td>OWAS
+                        <br>(Detecção de posturas inadequadas)
+                        <br> Atividade: {{$owas->atividade}}.
+                     </td>
+                     <td id="conclusaoowas{{$loop->index}}"></td>
+                     <td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
+                  </tr>
+                  <script>
+                     owas({{$owas->dorso}},{{$owas->braco}}, {{$owas->pernas}}, {{$owas->carga}}, {{$loop->index}});
+                  </script>   
+				  	@php
+					$i++;
+					@endphp    
+                  @endforeach
+                  @foreach ($subsetor->suerodgers as $sue)
+                  <tr>
+                     <td>Sue Rodgers
+                        <br>(análise de esforço para segmentos corpóreos)
+                        <br> Atividade: {{$sue->atividade}}.
+                     </td>
+                     <td id="conclusaosue{{$loop->index}}"></td>
+                     <td>Pescoço, Ombros,Braços, Antebraços,Punhos, Mãos e Dedos</td>
+                  </tr>
+                  <script>
+                     suerodgers(['Pescoço -{{$sue->pescoco}}', 'Ombros -{{$sue->ombro}}', 'Tronco -{{$sue->tronco}}', 'Braco -{{$sue->braco}}', 'Mãos -{{$sue->mao_punho_dedo}}', 'Pernas -{{$sue->perna_pe_dedo}}' ], {{$loop->index}} );
+                  </script>    
+				  	@php
+					$i++;
+					@endphp   
+                  @endforeach
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+
+	    <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+    <div class="page">
+         {{-- Pré diagnosticos --}}
+         <div class="subcabecalho2" style="margin-top:35px">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Recomendações Técnicas e Sugestões De Adequações</p>
+         </div>
+         <ul>
+           
+          @foreach ($subsetor->recomendacao as $recomendacao)
+            <li>{{$recomendacao->recomendacao}}</li>
+            @endforeach
+          
+         </ul>
+      </div>
+    
+      </div>
+    
+      @endforeach
+      @endforeach
+    
       @endforeach
       <div class="paginacao">
          <script>paginacao()</script>

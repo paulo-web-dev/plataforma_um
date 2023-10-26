@@ -56,6 +56,11 @@
                                     <input id="nome" type="text" name="nome" class="form-control"
                                         placeholder="Nome da empresa" required>
                                 </div>
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Título AET</strong></label>
+                                    <input id="nome" type="text" name="titulo" class="form-control"
+                                        placeholder="Título da AET" value="" >
+                                </div>
                         
                                 <div class="mt-3">
                                     <label for="CNPJ" class="form-label"><strong>CNPJ</strong></label>

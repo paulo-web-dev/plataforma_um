@@ -75,6 +75,13 @@
                                     <input id="nome" type="text" name="nome" class="form-control"
                                         placeholder="Nome da empresa" value="{{$empresa->nome}}" required>
                                 </div>
+
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Título AET</strong></label>
+                                    <input id="nome" type="text" name="titulo" class="form-control"
+                                        placeholder="Título da AET" value="{{$empresa->titulo}}" >
+                                </div>
+                        
                         
                                 <div class="mt-3">
                                     <label for="CNPJ" class="form-label"><strong>CNPJ</strong></label>
@@ -235,6 +242,53 @@
             </form>
         </div>
     </div>
+ <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Lista de Áreas
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                @foreach ($empresa->area as $area) 
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$area->id}}</td>
+                                        <td class="border">{{$area->nome}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-areas', ['id' => $area->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                @endforeach 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-areas', ['idempresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Área</a>
+            </div>    
+        </div>
 
 
      <div class="intro-y box mt-5">

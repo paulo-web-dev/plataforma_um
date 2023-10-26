@@ -153,6 +153,156 @@
         </div>
     </div>
 
+    
+     <!-- Lista de Ánalise de Atividade -->
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Lista de Ánalise de Atividade
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                @if (isset($subsetor->analiseAtividade))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$subsetor->analiseAtividade->id}}</td>
+                                        <td class="border"><?= $subsetor->analiseAtividade->analise ?></td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-analise-de-atividade', ['id' => $subsetor->analiseAtividade->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-analise-de-atividade', ['id_subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Ánalise de Atividade</a>
+            </div>    
+        </div>
+    </div>
+
+     <!-- Lista de Tarefa -->
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Lista de Tarefa
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Tarefa</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                @if (isset($subsetor->tarefa))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$subsetor->tarefa->id}}</td>
+                                        <td class="border">{{$subsetor->tarefa->tarefa}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-tarefa', ['id' => $subsetor->tarefa->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-tarefa', ['id_subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Tarefa</a>
+            </div>    
+        </div>
+    </div>
+
+  <!-- Lista de Função -->
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Lista de Função
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                @if (isset($subsetor->funcao))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$subsetor->funcao->id}}</td>
+                                        <td class="border">{{$subsetor->funcao->funcao}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-funcao', ['id' => $subsetor->funcao->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-funcao', ['id_subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Função</a>
+            </div>    
+        </div>
+    </div>
      <!-- Lista de Dados Organizacionais -->
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
