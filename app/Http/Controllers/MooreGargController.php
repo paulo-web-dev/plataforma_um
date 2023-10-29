@@ -77,5 +77,10 @@ class MooreGargController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $moore->id_subsetor]);  
     } 
+
+    public function delete($id){
+        MooreGarg::destroy($id);
+        return back();
+    }
 }
 

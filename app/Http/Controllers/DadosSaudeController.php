@@ -42,4 +42,9 @@ class DadosSaudeController extends Controller
 
         return redirect()->route('info-subsetor', ['id' => $dado->id_subsetor]);  
     }
+
+    public function delete($id){
+        DadosSaude::destroy($id);
+        return back();
+    }
 }

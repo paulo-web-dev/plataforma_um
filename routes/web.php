@@ -70,6 +70,7 @@ Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('
 Route::get('/areas', [AreaController::class, 'show'])->name('show-areas');
 Route::get('/form/areas/{idempresa}', [AreaController::class, 'formAreas'])->name('form-areas');
 Route::get('/info/areas/{id}', [AreaController::class, 'infoAreas'])->name('info-areas'); 
+Route::get('/delete/areas/{id}', [AreaController::class, 'delete'])->name('delete-areas'); 
 Route::post('/cadastrar/areas', [AreaController::class, 'cadAreas'])->name('cad-areas');
 Route::post('/update/areas', [AreaController::class, 'updAreas'])->name('upd-areas');
 
@@ -78,6 +79,7 @@ Route::post('/update/areas', [AreaController::class, 'updAreas'])->name('upd-are
 Route::get('/setores', [SetoresController::class, 'show'])->name('show-setores');
 Route::get('/form/setores/{idempresa}', [SetoresController::class, 'formSetores'])->name('form-setores');
 Route::get('/info/setor/{id}', [SetoresController::class, 'infoSetores'])->name('info-setor'); 
+Route::get('/delete/setor/{id}', [SetoresController::class, 'delete'])->name('delete-setor');
 Route::post('/cadastrar/setor', [SetoresController::class, 'cadSetor'])->name('cad-setor');
 Route::post('/update/setor', [SetoresController::class, 'updSetor'])->name('upd-setor');
 
@@ -85,6 +87,7 @@ Route::post('/update/setor', [SetoresController::class, 'updSetor'])->name('upd-
 Route::get('/subsetores', [SubSetoresController::class, 'show'])->name('show-subsetor');
 Route::get('/form/subsetores/{idsetor}', [SubSetoresController::class, 'formSubSetores'])->name('form-subsetores');
 Route::get('/info/subsetor/{id}', [SubSetoresController::class, 'infoSubSetores'])->name('info-subsetor'); 
+Route::get('/delete/subsetor/{id}', [SubSetoresController::class, 'delete'])->name('delete-subsetor'); 
 Route::post('/cadastrar/subsetor', [SubSetoresController::class, 'cadSubSetor'])->name('cad-subsetor');
 Route::post('/update/subsetor', [SubSetoresController::class, 'updSubSetor'])->name('upd-subsetor');
 
@@ -99,6 +102,7 @@ Route::post('/update/cargo', [CargosController::class, 'updCargo'])->name('upd-c
 Route::get('/funcao', [FuncaoController::class, 'show'])->name('show-areas');
 Route::get('/form/funcao/{id_subsetor}', [FuncaoController::class, 'formFuncao'])->name('form-funcao');
 Route::get('/info/funcao/{id}', [FuncaoController::class, 'infoFuncao'])->name('info-funcao'); 
+Route::get('/delete/funcao/{id}', [FuncaoController::class, 'delete'])->name('delete-funcao'); 
 Route::post('/cadastrar/funcao', [FuncaoController::class, 'cadFuncao'])->name('cad-funcao');
 Route::post('/update/funcao', [FuncaoController::class, 'updFuncao'])->name('upd-funcao');
 
@@ -106,13 +110,15 @@ Route::post('/update/funcao', [FuncaoController::class, 'updFuncao'])->name('upd
 Route::get('/tarefas', [TarefaController::class, 'show'])->name('show-areas');
 Route::get('/form/tarefas/{id_subsetor}', [TarefaController::class, 'formTarefa'])->name('form-tarefa');
 Route::get('/info/tarefas/{id}', [TarefaController::class, 'infoTarefa'])->name('info-tarefa'); 
+Route::get('/delete/tarefas/{id}', [TarefaController::class, 'delete'])->name('delete-tarefa'); 
 Route::post('/cadastrar/tarefas', [TarefaController::class, 'cadTarefa'])->name('cad-tarefa');
 Route::post('/update/tarefas', [TarefaController::class, 'updTarefa'])->name('upd-tarefa');
 
 //Rotas Pertitentes a Ánalise de Atividade
 Route::get('/analise-de-atividade', [AnaliseAtividadeController::class, 'show'])->name('show-areas');
 Route::get('/form/analise-de-atividade/{id_subsetor}', [AnaliseAtividadeController::class, 'formAnaliseAtividade'])->name('form-analise-de-atividade');
-Route::get('/info/analise-de-atividade/{id}', [AnaliseAtividadeController::class, 'infoAnaliseAtividade'])->name('info-analise-de-atividade'); 
+Route::get('/info/analise-de-atividade/{id}', [AnaliseAtividadeController::class, 'infoAnaliseAtividade'])->name('info-analise-de-atividade');
+Route::get('/delete/analise-de-atividade/{id}', [AnaliseAtividadeController::class, 'delete'])->name('delete-analise-de-atividade'); 
 Route::post('/cadastrar/analise-de-atividade', [AnaliseAtividadeController::class, 'cadAnaliseAtividade'])->name('cad-analise-de-atividade');
 Route::post('/update/analise-de-atividade', [AnaliseAtividadeController::class, 'updAnaliseAtividade'])->name('upd-analise-de-atividade');
 
@@ -120,13 +126,15 @@ Route::post('/update/analise-de-atividade', [AnaliseAtividadeController::class, 
 Route::get('/dadosorganizacionais', [DadosOrganizacionaisController::class, 'show'])->name('show-dadosorganizacionais');
 Route::get('/form/dadosorganizacionais/{idsubsetor}', [DadosOrganizacionaisController::class, 'formDadosOrganizacionais'])->name('form-dadosorganizacionais');
 Route::get('/info/dadosorganizacionais/{id}', [DadosOrganizacionaisController::class, 'infoDadosOrganizacionais'])->name('info-dadosorganizacionais'); 
+Route::get('/delete/dadosorganizacionais/{id}', [DadosOrganizacionaisController::class, 'delete'])->name('delete-dadosorganizacionais'); 
 Route::post('/cadastrar/dadosorganizacionais', [DadosOrganizacionaisController::class, 'cadDadosOrganizacionais'])->name('cad-dadosorganizacionais');
 Route::post('/update/dadosorganizacionais', [DadosOrganizacionaisController::class, 'updDadosOrganizacionais'])->name('upd-dadosorganizacionais');
 
 //Rotas Pèrtinentes as Caracteristicas Do Ambiente De Trabalho
 Route::get('/caracteristicas', [CaracteristicasController::class, 'show'])->name('show-caracteristicas');
 Route::get('/form/caracteristicas/{idsubsetor}', [CaracteristicasController::class, 'formCaracteristicas'])->name('form-caracteristicas');
-Route::get('/info/caracteristicas/{id}', [CaracteristicasController::class, 'infoCaracteristicas'])->name('info-caracteristicas'); 
+Route::get('/info/caracteristicas/{id}', [CaracteristicasController::class, 'infoCaracteristicas'])->name('info-caracteristicas');
+Route::get('/delete/caracteristicas/{id}', [CaracteristicasController::class, 'delete'])->name('delete-caracteristicas'); 
 Route::post('/cadastrar/caracteristicas', [CaracteristicasController::class, 'cadCaracteristicas'])->name('cad-caracteristicas');
 Route::post('/update/caracteristicas', [CaracteristicasController::class, 'updCaracteristicas'])->name('upd-caracteristicas');
 
@@ -134,12 +142,14 @@ Route::post('/update/caracteristicas', [CaracteristicasController::class, 'updCa
 Route::get('/pre-diagnosticos', [PreDiagnosticoController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/pre-diagnosticos/{idsubsetor}', [PreDiagnosticoController::class, 'formPreDiagnostico'])->name('form-pre-diagnosticos');
 Route::get('/info/pre-diagnosticos/{id}', [PreDiagnosticoController::class, 'infoPreDiagnostico'])->name('info-pre-diagnosticos'); 
+Route::get('/delete/pre-diagnosticos/{id}', [PreDiagnosticoController::class, 'delete'])->name('delete-pre-diagnosticos'); 
 Route::post('/cadastrar/pre-diagnosticos', [PreDiagnosticoController::class, 'cadPreDiagnostico'])->name('cad-pre-diagnosticos');
 Route::post('/update/pre-diagnosticos', [PreDiagnosticoController::class, 'updPreDiagnostico'])->name('upd-pre-diagnosticos');
 
 //Rotas pertinentes a conclusões idependentes
 Route::get('/form/conlusao/{idsubsetor}/{ferramenta}', [ConclusaoController::class, 'formConclusao'])->name('form-conclusao');
 Route::get('/info/conlusao/{conclusao}', [ConclusaoController::class, 'infoConclusao'])->name('info-conclusao');
+Route::get('/delete/conlusao/{conclusao}', [ConclusaoController::class, 'delete'])->name('delete-conclusao');
 Route::post('/cadastrar/conclusao', [ConclusaoController::class, 'cadConclusao'])->name('cad-conclusao');
 Route::post('/upd/conclusao', [ConclusaoController::class, 'updConclusao'])->name('upd-conclusao');
 
@@ -148,6 +158,7 @@ Route::get('/moore', [MooreGargController::class, 'show'])->name('show-pre-diagn
 Route::get('/form/moore/{idsubsetor}', [MooreGargController::class, 'formMoore'])->name('form-moore');
 Route::get('/form/simplificado/moore/{idsubsetor}', [MooreGargController::class, 'formMooreSimplificado'])->name('form-moore-simplificado');
 Route::get('/info/moore/{id}', [MooreGargController::class, 'infoMoore'])->name('info-moore'); 
+Route::get('/delete/moore/{id}', [MooreGargController::class, 'delete'])->name('delete-moore'); 
 Route::post('/cadastrar/simplificado/moore', [MooreGargController::class, 'cadMooreSimplificado'])->name('cad-moore-simplificado');
 Route::post('/update/moore', [MooreGargController::class, 'updMoore'])->name('upd-moore');
 
@@ -155,6 +166,7 @@ Route::post('/update/moore', [MooreGargController::class, 'updMoore'])->name('up
 Route::get('/rula', [RulaController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/rula/{idsubsetor}', [RulaController::class, 'formRula'])->name('form-rula');
 Route::get('/info/rula/{id}', [RulaController::class, 'infoRula'])->name('info-rula'); 
+Route::get('/delete/rula/{id}', [RulaController::class, 'delete'])->name('delete-rula'); 
 Route::post('/cadastrar/rula', [RulaController::class, 'cadRula'])->name('cad-rula');
 Route::post('/update/rula', [RulaController::class, 'updRula'])->name('upd-rula');
 
@@ -162,6 +174,7 @@ Route::post('/update/rula', [RulaController::class, 'updRula'])->name('upd-rula'
 Route::get('/owas', [OwasController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/owas/{idsubsetor}', [OwasController::class, 'formOwas'])->name('form-owas');
 Route::get('/info/owas/{id}', [OwasController::class, 'infoOwas'])->name('info-owas'); 
+Route::get('/delete/owas/{id}', [OwasController::class, 'delete'])->name('delete-owas'); 
 Route::post('/cadastrar/owas', [OwasController::class, 'cadOwas'])->name('cad-owas');
 Route::post('/update/owas', [OwasController::class, 'updOwas'])->name('upd-owas');
 
@@ -170,6 +183,7 @@ Route::post('/update/owas', [OwasController::class, 'updOwas'])->name('upd-owas'
 Route::get('/suerodgers', [SueRodgersController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/suerodgers/{idsubsetor}', [SueRodgersController::class, 'formSueRodgers'])->name('form-suerodgers');
 Route::get('/info/suerodgers/{id}', [SueRodgersController::class, 'infoSueRodgers'])->name('info-suerodgers'); 
+Route::get('/delete/suerodgers/{id}', [SueRodgersController::class, 'delete'])->name('delete-sue'); 
 Route::post('/cadastrar/suerodgers', [SueRodgersController::class, 'cadSueRodgers'])->name('cad-suerodgers');
 Route::post('/update/suerodgers', [SueRodgersController::class, 'updSueRodgers'])->name('upd-suerodgers');
 
@@ -177,6 +191,7 @@ Route::post('/update/suerodgers', [SueRodgersController::class, 'updSueRodgers']
 Route::get('/niosh', [NioshController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/niosh/{idsubsetor}', [NioshController::class, 'formNiosh'])->name('form-niosh');
 Route::get('/info/niosh/{id}', [NioshController::class, 'infoNiosh'])->name('info-niosh'); 
+Route::get('/delete/niosh/{id}', [NioshController::class, 'delete'])->name('delete-niosh'); 
 Route::post('/cadastrar/niosh', [NioshController::class, 'cadNiosh'])->name('cad-niosh');
 Route::post('/update/niosh', [NioshController::class, 'updNiosh'])->name('upd-niosh');
 
@@ -184,6 +199,7 @@ Route::post('/update/niosh', [NioshController::class, 'updNiosh'])->name('upd-ni
 Route::get('/dados-de-saude', [DadosSaudeController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/dados-de-saude/{idsubsetor}', [DadosSaudeController::class, 'formDadosDeSaude'])->name('form-dados-de-saude');
 Route::get('/info/dados-de-saude/{dado}', [DadosSaudeController::class, 'infoDadosDeSaude'])->name('info-dados-de-saude'); 
+Route::get('/delete/dados-de-saude/{id}', [DadosSaudeController::class, 'delete'])->name('delete-dados-de-saude'); 
 Route::post('/cadastrar/dados-de-saude', [DadosSaudeController::class, 'cadDadosDeSaude'])->name('cad-dados-de-saude');
 Route::post('/update/dados-de-saude', [DadosSaudeController::class, 'updDadosDeSaude'])->name('upd-dados-de-saude');
 
@@ -192,6 +208,7 @@ Route::post('/update/dados-de-saude', [DadosSaudeController::class, 'updDadosDeS
 Route::get('/introducao', [IntroducaoController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/introducao/{empresa}', [IntroducaoController::class, 'formIntroducao'])->name('form-introducao');
 Route::get('/info/introducao/{id}', [IntroducaoController::class, 'infoIntroducao'])->name('info-introducao'); 
+Route::get('/delete/introducao/{id}', [IntroducaoController::class, 'delete'])->name('delete-introducao'); 
 Route::post('/cadastrar/introducao', [IntroducaoController::class, 'cadIntroducao'])->name('cad-introducao');
 Route::post('/update/introducao', [IntroducaoController::class, 'updIntroducao'])->name('upd-introducao');
 
@@ -199,6 +216,7 @@ Route::post('/update/introducao', [IntroducaoController::class, 'updIntroducao']
 Route::get('/demanda', [DemandaController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/demanda/{empresa}', [DemandaController::class, 'formDemanda'])->name('form-demanda');
 Route::get('/info/demanda/{demanda}', [DemandaController::class, 'infoDemanda'])->name('info-demanda'); 
+Route::get('/delete/demanda/{id}', [DemandaController::class, 'delete'])->name('delete-demanda'); 
 Route::post('/cadastrar/demanda', [DemandaController::class, 'cadDemanda'])->name('cad-demanda');
 Route::post('/update/demanda', [DemandaController::class, 'updDemanda'])->name('upd-demanda');
 
@@ -207,6 +225,7 @@ Route::post('/update/demanda', [DemandaController::class, 'updDemanda'])->name('
 Route::get('/analise-global', [AnaliseGlobalController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/analise-global/{empresa}', [AnaliseGlobalController::class, 'formAnaliseGlobal'])->name('form-analise-global');
 Route::get('/info/analise-global/{analise}', [AnaliseGlobalController::class, 'infoAnaliseGlobal'])->name('info-analise-global'); 
+Route::get('/delete/analise-global/{id}', [AnaliseGlobalController::class, 'delete'])->name('delete-analise-global'); 
 Route::post('/cadastrar/analise-global', [AnaliseGlobalController::class, 'cadAnaliseGlobal'])->name('cad-analise-global');
 Route::post('/update/analise-global', [AnaliseGlobalController::class, 'updAnaliseGlobal'])->name('upd-analise-global');
 
@@ -214,6 +233,7 @@ Route::post('/update/analise-global', [AnaliseGlobalController::class, 'updAnali
 Route::get('/metodologia', [MetodologiaController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/metodologia/{empresa}', [MetodologiaController::class, 'formMetodologia'])->name('form-metodologia');
 Route::get('/info/metodologia/{id}', [MetodologiaController::class, 'infoMetodologia'])->name('info-metodologia'); 
+Route::get('/delete/metodologia/{id}', [MetodologiaController::class, 'delete'])->name('delete-metodologia');
 Route::post('/cadastrar/metodologia', [MetodologiaController::class, 'cadMetodologia'])->name('cad-metodologia');
 Route::post('/update/metodologia', [MetodologiaController::class, 'updMetodologia'])->name('upd-metodologia');
 
@@ -222,6 +242,7 @@ Route::post('/update/metodologia', [MetodologiaController::class, 'updMetodologi
 Route::get('/equipe', [EquipeController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/equipe/{empresa}', [EquipeController::class, 'formEquipe'])->name('form-equipe');
 Route::get('/info/equipe/{id}', [EquipeController::class, 'infoEquipe'])->name('info-equipe'); 
+Route::get('/delete/equipe/{id}', [EquipeController::class, 'delete'])->name('delete-equipe'); 
 Route::post('/cadastrar/equipe', [EquipeController::class, 'cadEquipe'])->name('cad-equipe');
 Route::post('/update/equipe', [EquipeController::class, 'updEquipe'])->name('upd-equipe');
 
@@ -229,6 +250,7 @@ Route::post('/update/equipe', [EquipeController::class, 'updEquipe'])->name('upd
 Route::get('/objetivo', [ObjetivosController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/objetivo/{empresa}', [ObjetivosController::class, 'formObjetivo'])->name('form-objetivo');
 Route::get('/info/objetivo/{id}', [ObjetivosController::class, 'infoObjetivo'])->name('info-objetivo'); 
+Route::get('/delete/objetivo/{id}', [ObjetivosController::class, 'delete'])->name('delete-objetivo'); 
 Route::post('/cadastrar/objetivo', [ObjetivosController::class, 'cadObjetivo'])->name('cad-objetivo');
 Route::post('/update/objetivo', [ObjetivosController::class, 'updObjetivo'])->name('upd-objetivo');
 
@@ -236,6 +258,7 @@ Route::post('/update/objetivo', [ObjetivosController::class, 'updObjetivo'])->na
 Route::get('/recomendacao', [RecomendacaoController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/recomendacao/{id_subsetor}', [RecomendacaoController::class, 'formRecomendacao'])->name('form-recomendacao');
 Route::get('/info/recomendacao/{id}', [RecomendacaoController::class, 'infoRecomendacao'])->name('info-recomendacao'); 
+Route::get('/delete/recomendacao/{id}', [RecomendacaoController::class, 'delete'])->name('delete-recomendacao'); 
 Route::post('/cadastrar/recomendacao', [RecomendacaoController::class, 'cadRecomendacao'])->name('cad-recomendacao');
 Route::post('/update/recomendacao', [RecomendacaoController::class, 'updRecomendacao'])->name('upd-recomendacao');
 
@@ -243,6 +266,7 @@ Route::post('/update/recomendacao', [RecomendacaoController::class, 'updRecomend
 Route::get('/disposicao', [DisposicoesController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/disposicao/{empresa}', [DisposicoesController::class, 'formDisposicao'])->name('form-disposicao');
 Route::get('/info/disposicao/{id}', [DisposicoesController::class, 'infoDisposicao'])->name('info-disposicao'); 
+Route::get('/delete/disposicao/{id}', [DisposicoesController::class, 'delete'])->name('delete-disposicao'); 
 Route::post('/cadastrar/disposicao', [DisposicoesController::class, 'cadDisposicao'])->name('cad-disposicao');
 Route::post('/update/disposicao', [DisposicoesController::class, 'updDisposicao'])->name('upd-disposicao');
 
@@ -254,12 +278,14 @@ Route::post('/upload/populacao', [PopulacaoController::class, 'uploadPopulacao']
 //Rotas referente a upload de população de subsetor
 Route::get('/form/subsetor/populacao/{id_subsetor}', [PopulacaoSubSetorController::class, 'formPopulacao'])->name('form-populacao-subsetor');
 Route::get('/info/subsetor/populacao/{id}', [PopulacaoSubSetorController::class, 'infoPopulacao'])->name('info-populacao-subsetor');
+Route::get('/delete/subsetor/populacao/{id}', [PopulacaoSubSetorController::class, 'delete'])->name('delete-populacao-subsetor');
 Route::post('/upload/subsetor/populacao', [PopulacaoSubSetorController::class, 'uploadPopulacao'])->name('upload-populacao-subsetor');
 Route::post('/update/subsetor/populacao', [PopulacaoSubSetorController::class, 'updPopulacao'])->name('update-populacao-subsetor');
 
 //Rotas referente a upload de mapeamento ergonômico 
 Route::get('/form/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamento'])->name('form-mapeamento');
 Route::get('/info/mapeamento/{id}', [MapeamentoController::class, 'infoMapeamento'])->name('info-mapeamento');
+Route::get('/delete/mapeamento/{id}', [MapeamentoController::class, 'delete'])->name('delete-mapeamento');
 Route::post('/update/mapeamento', [MapeamentoController::class, 'updMapeamento'])->name('upd-mapeamento');
 Route::post('/upload/mapeamento', [MapeamentoController::class, 'uploadMapeamento'])->name('upload-mapeamento');
 
@@ -277,6 +303,7 @@ Route::get('/delete/foto/{foto}', [FotosAtividadesController::class, 'deleteFoto
 Route::get('/responsaveis', [ReponsaveisController::class, 'show'])->name('show-setores');
 Route::get('/form/responsaveis/{id_empresa}', [ReponsaveisController::class, 'formResponsaveis'])->name('form-responsaveis');
 Route::get('/info/responsaveis/{id}', [ReponsaveisController::class, 'infoResponsaveis'])->name('info-responsaveis'); 
+Route::get('/delete/responsaveis/{id}', [ReponsaveisController::class, 'delete'])->name('delete-responsaveis');
 Route::post('/cadastrar/responsaveis', [ReponsaveisController::class, 'cadResponsaveis'])->name('cad-responsaveis');
 Route::post('/update/responsaveis', [ReponsaveisController::class, 'updResponsaveis'])->name('upd-responsaveis');
 

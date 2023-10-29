@@ -35,12 +35,8 @@ class TarefaController extends Controller
     }
 
     
-    public function updTarefa(Request $request){
-
-        $tarefa =  Tarefa::where('id', $request->id)->first();
-        $tarefa->tarefa = $request->tarefa;
-        $tarefa->save();
-        
-        return redirect()->route('info-subsetor', ['id' => $tarefa->id_subsetor]); 
-    } 
+    public function delete($id){
+        Tarefa::destroy($id);
+        return back();
+    }
 }

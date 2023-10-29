@@ -62,4 +62,10 @@ class OwasController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $owas->id_subsetor]);  
     } 
+
+        
+    public function delete($id){
+        Owas::destroy($id);
+        return back();
+    }
 }

@@ -28,16 +28,17 @@
                     <div class="col-span-12 xl:col-span-6">
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
-                            <input id="update-profile-form-7" type="text" name="titulo" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
                                 placeholder="Titulo do Pré diagnostico" value="" required>
                         </div>
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição do Pré diagnostico</strong></label>
-                            <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15" required></textarea>
+                            <textarea class="form-control editor" name="descricao[]" id="descricao[]" cols="30" rows="15" required></textarea>
                         </div>
-                    
+                            <div id="dynamic-fields"></div>
                 <div class="flex justify-end mt-4">
+                        <button type="button" class="btn btn-primary w-40" style="margin:5px" onclick="addPreDiagnostico()">Adicionar Mais Pré Diagnosticos</button>
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Cadastrar Pré Diagnostico</button>
                 </div>
             </div>
@@ -47,7 +48,25 @@
     <!-- END: Users Layout -->
     </div>
 @endsection
-
+<script>
+    function addPreDiagnostico() {
+        const inputField = document.createElement('div');
+        inputField.innerHTML = `
+                        <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
+                            <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
+                                placeholder="Titulo do Pré diagnostico" value="" required>
+                        </div>
+                   
+                         <div class="mt-3"  id="link">
+                            <label for="update-profile-form-7" class="form-label"><strong>Descrição do Pré diagnostico</strong></label>
+                            <textarea class="form-control editor" name="descricao[]" id="descricao[]" cols="30" rows="15" required></textarea>
+                        </div>
+                    
+        `;
+        document.getElementById('dynamic-fields').appendChild(inputField);
+    }
+</script>
 @push('custom-scripts')
 
 

@@ -43,5 +43,11 @@ class AreaController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $area->id_empresa]); 
     } 
+
+    
+    public function delete($id){
+        Area::destroy($id);
+        return back();
+    }
     
 }

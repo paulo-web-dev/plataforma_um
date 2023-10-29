@@ -85,8 +85,12 @@
                <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">10</span></li>
                <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">11</span></li>
                <div id="postos" style="margin-left:20px"></div>
+               @if (count($empresa->mapeamento) > 1)
                <li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
+               @endif
+                @if (count($empresa->planodeacao) > 1)
                <li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li>
+                @endif
                <li><span class="titulo">Disposições Finais</span> <span class="pagina" id="disposicoes"></span></li>
                <li><span class="titulo">Encerramento</span> <span class="pagina" id="encerramento"></span></li>
                <li><span class="titulo">Anexos</span> <span class="pagina" id="anexos"></span></li>

@@ -50,4 +50,10 @@ class ConclusaoController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $conclusao->id_subsetor]); 
     } 
+
+    
+    public function delete($id){
+        Conclusoes::destroy($id);
+        return back();
+    }
 }

@@ -127,48 +127,11 @@ class EmpresaController extends Controller
         ->with('responsaveis')
         ->with('area')
         ->first();
-   
-        if(count($empresa->populacao) > 0){
-         
-        $idade= 0;
-        $tempoadmissão = 0;
-        $sexom = 0;
-        $sexof = 0;
-        $escolaridadesg = 0;
-        $escolaridadepg = 0;
-        $escolaridadetg = 0;
-        foreach ($empresa->populacao as $key => $populacao) {
-                $idade +=  $populacao->idade;
-                $tempoadmissão += $populacao->tempo_empresa;
-                if($populacao->sexo == 'MASC.'){
-                    $sexom += 1;
-                }
 
-                if($populacao->escolaridade == 'SEGUNDO GRAU (COLEGIAL) COMPLETO                  '){
-                    $escolaridadesg += 1;
-                }else{
-                    $escolaridadepg += 1;
-                }
-        }
-        $key += 1;
-        $idademedia = round($idade/$key);
-        $tempoadmissaomedio = round($tempoadmissão / $key);
-        $porcentagemmasculino = porcentagem($sexom, $key);
-        $porcentagemescolaridadesg = porcentagem($escolaridadesg, $key);
-    }else{
-        $idademedia =0;
-        $tempoadmissaomedio = 0;
-        $porcentagemmasculino =0;
-        $porcentagemescolaridadesg = 0;
-    }
 
     
         return view('infoempresa',
         [   
-            'idademedia' => $idademedia,
-            'tempoadmissaomedio' => $tempoadmissaomedio,
-            'porcentagemmasculino' => $porcentagemmasculino,
-            'porcentagemescolaridadesg' => $porcentagemescolaridadesg,
             'empresa' => $empresa
         ]); 
     }

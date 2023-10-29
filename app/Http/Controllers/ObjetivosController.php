@@ -43,4 +43,10 @@ class ObjetivosController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $objetivo->id_empresa]); 
     } 
+
+        
+    public function delete($id){
+        Objetivos::destroy($id);
+        return back();
+    }
 }

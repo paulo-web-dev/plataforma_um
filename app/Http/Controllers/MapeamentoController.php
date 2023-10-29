@@ -77,4 +77,10 @@ class MapeamentoController extends Controller
 
         return redirect()->route('infoempresa', ['id' => $mapeamento->id_empresa]);
     }
+
+    
+    public function delete($id){
+        Mapeamento::destroy($id);
+        return back();
+    }
 }

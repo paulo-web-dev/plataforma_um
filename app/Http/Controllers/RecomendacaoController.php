@@ -49,4 +49,9 @@ class RecomendacaoController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $recomendacao->id_subsetor]); 
     } 
+
+    public function delete($id){
+        Recomendacao::destroy($id);
+        return back();
+    }
 }

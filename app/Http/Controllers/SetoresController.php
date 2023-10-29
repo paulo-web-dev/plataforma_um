@@ -55,4 +55,9 @@ class SetoresController extends Controller
         return redirect()->route('info-setor', ['id' => $setor->id]); 
     } 
     
+        
+    public function delete($id){
+        Setores::destroy($id);
+        return back();
+    }
 }

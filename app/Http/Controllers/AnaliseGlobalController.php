@@ -42,5 +42,10 @@ class AnaliseGlobalController extends Controller
         $analise->save();
         
         return redirect()->route('infoempresa', ['id' => $analise->id_empresa]); 
-    } 
+    }
+    
+    public function delete($id){
+        AnaliseGlobal::destroy($id);
+        return back();
+    }
 }

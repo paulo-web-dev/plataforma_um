@@ -43,5 +43,12 @@ class DisposicoesController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $disposicao->id_empresa]); 
     } 
+
+
+    
+    public function delete($id){
+        Disposicoes::destroy($id);
+        return back();
+    }
 }
  

@@ -42,4 +42,9 @@ class EquipeController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $equipe->id_empresa]); 
     } 
+
+    public function delete($id){
+        Equipe::destroy($id);
+        return back();
+    }
 }

@@ -44,4 +44,9 @@ class AnaliseAtividadeController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $analise->id_subsetor]); 
     } 
+
+    public function delete($id){
+        AnaliseAtividade::destroy($id);
+        return back();
+    }
 }

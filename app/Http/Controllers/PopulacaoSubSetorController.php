@@ -68,4 +68,10 @@ class PopulacaoSubSetorController extends Controller
 
         return redirect()->route('info-subsetor', ['id' => $populacao->id_subsetor]); 
     }
+
+    
+    public function delete($id){
+        PopulacaoSubsetor::destroy($id);
+        return back();
+    }
 }

@@ -44,4 +44,9 @@ class FuncaoController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $funcao->id_subsetor]); 
     } 
+
+    public function delete($id){
+        Funcao::destroy($id);
+        return back();
+    }
 }

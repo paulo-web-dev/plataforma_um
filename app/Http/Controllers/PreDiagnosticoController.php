@@ -22,13 +22,21 @@ class PreDiagnosticoController extends Controller
 
     public function cadPreDiagnostico(Request $request){
 
-        $prediagnostico = new PreDiagnostico();
-        $prediagnostico->titulo = $request->titulo;
-        $prediagnostico->descricao = $request->descricao;
-        $prediagnostico->id_subsetor = $request->id_subsetor;
-        $prediagnostico->save();
+                     
+        $titulos = $request->input('titulo', []);
+        $descricoes = $request->input('descricao', []);
+        $id_subsetor = $request->input('id_subsetor');
+        $atributos = count($titulos);
+     
+        for ($i=0; $i < $atributos ; $i++) {   
+            $prediagnostico = new PreDiagnostico();
+            $prediagnostico->titulo = $titulos[$i];
+            $prediagnostico->descricao = $descricoes[$i];
+            $prediagnostico->id_subsetor = $id_subsetor;
+            $prediagnostico->save();
+        }
         
-        return redirect()->route('info-subsetor', ['id' => $prediagnostico->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
     } 
 
     public function infoPreDiagnostico($id){
@@ -52,4 +60,9 @@ class PreDiagnosticoController extends Controller
         
         return redirect()->route('info-pre-diagnosticos', ['id' => $prediagnostico->id]);  
     } 
+
+    public function delete($id){
+        PreDiagnostico::destroy($id);
+        return back();
+    }
 }

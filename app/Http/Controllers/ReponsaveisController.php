@@ -47,4 +47,9 @@ class ReponsaveisController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $responsavel->id_empresa]);
     } 
+
+    public function delete($id){
+        Responsaveis::destroy($id);
+        return back();
+    }
 }

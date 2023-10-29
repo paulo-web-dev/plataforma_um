@@ -21,13 +21,20 @@ class CaracteristicasController extends Controller
 
     public function cadCaracteristicas(Request $request){
 
-        $caracteristicas = new Caracteristicas();
-        $caracteristicas->titulo = $request->titulo;
-        $caracteristicas->descricao = $request->descricao;
-        $caracteristicas->id_subsetor = $request->id_subsetor;
-        $caracteristicas->save();
-        
-        return redirect()->route('info-subsetor', ['id' => $caracteristicas->id_subsetor]); 
+             
+        $titulos = $request->input('titulo', []);
+        $descricoes = $request->input('descricao', []);
+        $id_subsetor = $request->input('id_subsetor');
+        $atributos = count($titulos);
+
+        for ($i=0; $i < $atributos ; $i++) {   
+            $caracteristicas = new Caracteristicas();
+            $caracteristicas->titulo = $titulos[$i];
+            $caracteristicas->descricao = $descricoes[$i];
+            $caracteristicas->id_subsetor = $id_subsetor;
+            $caracteristicas->save();
+        }
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
     } 
 
     public function infoCaracteristicas($id){
@@ -49,5 +56,10 @@ class CaracteristicasController extends Controller
         
         
         return redirect()->route('info-caracteristicas', ['id' => $caracteristicas->id]);
-    } 
+    }
+    
+    public function delete($id){
+        Caracteristicas::destroy($id);
+        return back();
+    }
 }

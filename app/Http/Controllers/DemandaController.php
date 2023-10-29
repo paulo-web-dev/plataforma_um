@@ -43,4 +43,10 @@ class DemandaController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $demanda->id_empresa]); 
     } 
+
+            
+    public function delete($id){
+        Demanda::destroy($id);
+        return back();
+    }
 }

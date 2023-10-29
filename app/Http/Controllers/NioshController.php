@@ -69,4 +69,10 @@ class NioshController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $niosh->id_subsetor]); 
     } 
+
+            
+    public function delete($id){
+        Niosh::destroy($id);
+        return back();
+    }
 }

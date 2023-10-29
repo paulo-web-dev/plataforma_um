@@ -42,4 +42,10 @@ class MetodologiaController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $metodologia->id_empresa]); 
     } 
+
+    
+    public function delete($id){
+        Metodologia::destroy($id);
+        return back();
+    }
 }

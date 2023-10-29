@@ -73,8 +73,8 @@
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Nome</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
-                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,6 +88,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-subsetor', ['id' => $subsetor->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-subsetor', ['id' => $subsetor->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>

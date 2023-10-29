@@ -83,4 +83,10 @@ class SueRodgersController extends Controller
         return redirect()->route('info-subsetor', ['id' => $sue->id_subsetor]); 
          
     } 
+
+            
+    public function delete($id){
+        SueRodgers::destroy($id);
+        return back();
+    }
 }

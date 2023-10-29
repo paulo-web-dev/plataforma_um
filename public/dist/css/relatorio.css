@@ -165,7 +165,7 @@ body {
   max-width: 550px; /* Define a largura máxima para evitar que as imagens ultrapassem */
   margin: 0 auto; /* Centralize horizontalmente */
 }
-
+ 
 .imagem {
   width: calc(50% - 10px); /* Defina a largura para ocupar metade da largura da imagem-container com algum espaço à direita e à esquerda */
   margin-bottom: 20px; /* Espaço entre as imagens na coluna de baixo */
@@ -189,7 +189,7 @@ body {
 .grafico-saude {
   display: inline-block;
   width: 80%;
-  height: 800px; /* Ajuste a largura conforme necessário */
+  height: 600px; /* Ajuste a largura conforme necessário */
   margin-right: 5px; /* Espaço entre os gráficos */
   margin-left: 20px;
   margin-top: 50px;

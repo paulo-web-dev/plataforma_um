@@ -43,4 +43,10 @@ class IntroducaoController extends Controller
         
         return redirect()->route('infoempresa', ['id' => $introducao->id_empresa]); 
     } 
+
+            
+    public function delete($id){
+        Introducao::destroy($id);
+        return back();
+    }
 }

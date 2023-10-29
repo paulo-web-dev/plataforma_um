@@ -66,5 +66,10 @@ class SubSetoresController extends Controller
         $subsetor->save();
         
         return redirect()->route('info-subsetor', ['id' => $subsetor->id]); 
-    } 
+    }
+
+    public function delete($id){
+        SubSetores::destroy($id);
+        return back();
+    }
 }

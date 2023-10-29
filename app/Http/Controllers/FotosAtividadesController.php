@@ -36,4 +36,4 @@ class FotosAtividadesController extends Controller
         return back();
     }
 }
- 
+  

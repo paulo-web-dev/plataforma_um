@@ -83,7 +83,7 @@
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('delete-foto', ['foto' => $foto->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Excluir
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -119,7 +119,8 @@
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Características do Trabalho</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -134,6 +135,17 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-dadosorganizacionais', ['id' => $dados->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-dadosorganizacionais', ['id' => $dados->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -171,6 +183,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -185,6 +198,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-analise-de-atividade', ['id' => $subsetor->analiseAtividade->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                      href="{{route('delete-analise-de-atividade', ['id' => $subsetor->analiseAtividade->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -221,6 +244,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Tarefa</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -235,6 +259,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-tarefa', ['id' => $subsetor->tarefa->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                     href="{{route('delete-tarefa', ['id' => $subsetor->tarefa->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -271,6 +305,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -285,6 +320,17 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-funcao', ['id' => $subsetor->funcao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                   href="{{route('delete-funcao', ['id' => $subsetor->funcao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -320,6 +366,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Recomendacao</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -334,6 +381,17 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-recomendacao', ['id' => $recomendacao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-recomendacao', ['id' => $recomendacao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -371,6 +429,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -386,6 +445,17 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-moore', ['id' => $moore->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-moore', ['id' => $moore->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -410,6 +480,17 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -450,6 +531,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -465,6 +547,17 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-rula', ['id' => $rula->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-rula', ['id' => $rula->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -489,6 +582,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                     href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -530,6 +633,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -545,6 +649,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-owas', ['id' => $owas->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-owas', ['id' => $owas->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -570,6 +684,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -611,6 +735,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -626,6 +751,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-suerodgers', ['id' => $sue->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-sue', ['id' => $sue->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -651,6 +786,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -691,6 +836,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -706,6 +852,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-niosh', ['id' => $niosh->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                     href="{{route('delete-niosh', ['id' => $niosh->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -731,6 +887,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                     href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -771,6 +937,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -787,6 +954,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -824,6 +1001,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sim</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Não</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -840,6 +1018,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-dados-de-saude', ['dado' => $subsetor->dadossaude->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-dados-de-saude', ['id' => $subsetor->dadossaude->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -877,6 +1065,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Titulo</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Descrição</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -892,6 +1081,17 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-caracteristicas', ['id' => $caracteristica->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                      href="{{route('delete-caracteristicas', ['id' => $caracteristica->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -930,6 +1130,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Titulo</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Descrição</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -945,6 +1146,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-pre-diagnosticos', ['id' => $prediagnostico->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-pre-diagnosticos', ['id' => $prediagnostico->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>
@@ -983,6 +1194,8 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sexo</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Escolaridade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Tempo de Empresa</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                          
                                    
                                 </tr>
@@ -1001,6 +1214,16 @@
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-populacao-subsetor', ['id' => $populacao->id])}}">
                                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-populacao-subsetor', ['id' => $populacao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
                                                 </a>
                                               
                                             </div>

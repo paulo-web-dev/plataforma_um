@@ -94,4 +94,10 @@ class RulaController extends Controller
         
         return redirect()->route('info-subsetor', ['id' => $rula->id_subsetor]);  
     } 
+    
+    
+    public function delete($id){
+        Rula::destroy($id);
+        return back();
+    }
 } 
