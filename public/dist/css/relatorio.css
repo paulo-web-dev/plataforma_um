@@ -179,7 +179,17 @@ body {
 
 .grafico-container {
   display: inline-block;
-  width: 45%; /* Ajuste a largura conforme necessário */
+  width: 65%; /* Ajuste a largura conforme necessário */
+  margin-right: 5px; /* Espaço entre os gráficos */
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+
+.grafico-saude {
+  display: inline-block;
+  width: 80%;
+  height: 800px; /* Ajuste a largura conforme necessário */
   margin-right: 5px; /* Espaço entre os gráficos */
   margin-left: 20px;
   margin-top: 50px;

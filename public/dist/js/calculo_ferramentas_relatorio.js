@@ -24,7 +24,7 @@ function conclusao(conclusao, ferramenta, index, member){
     var conclusaobg = document.getElementById('conclusao'+index);
     var textomembros = document.getElementById('textomemrbos'+index);
     var membros = document.getElementById('membros'+index);
-    console.log(conclusao)
+   // console.log(conclusao)
     if(conclusao == 'Baixo Risco' || conclusao == 'RISCO BAIXO' || conclusao == 'Faixa Segura' || conclusao == 'Ausente ou Aceitável' || conclusao == 'aceitável se não é mantida ou repetida por longos períodos' || conclusao == 'Sem ações corretivas, postura adequada' || conclusao == 'Baixo'){
         colorbg = "green";
         colorfont = "white";
@@ -402,9 +402,9 @@ subsetor.forEach((populacao) => {
             break;
     }
 
-    if (populacao.escolaridade === 'SEGUNDO GRAU (COLEGIAL) COMPLETO                  ') {
+    if (populacao.escolaridade == 'SEGUNDO GRAU COMPLETO') {
         escolaridadesg += 1;
-    } else if (populacao.escolaridade === 'TERCEIRO GRAU (FACULDADE) COMPLETO                  ') {
+    } else if (populacao.escolaridade == 'TERCEIRO GRAU COMPLETO') {
         escolaridadetg += 1;
     } else {
         escolaridadepg += 1;
@@ -412,18 +412,18 @@ subsetor.forEach((populacao) => {
 });
 
 
-const porcentagemmasculino = (sexom / key) * 100;
+const porcentagemmasculino = Math.round((sexom / key) * 100);
 const porcentagemfeminino = 100 - porcentagemmasculino;
-const porcentagem20a29 = (faixaetaria20a29 / key) * 100;
-const porcentagem30a39 = (faixaetaria30a39 / key) * 100;
-const porcentagem40a49 = (faixaetaria40a49 / key) * 100;
-const porcentagem50a59 = (faixaetaria50a59 / key) * 100;
-const porcentagem0a5 = (tempoadmissao0a5 / key) * 100;
-const porcentagem6a10 = (tempoadmissao6a10 / key) * 100;
-const porcentagem10a20 = (tempoadmissao10a20 / key) * 100;
-const porcentagempg = (escolaridadepg / key) * 100;
-const porcentagemsg = (escolaridadesg / key) * 100;
-const porcentagemtg = (escolaridadetg / key) * 100;
+const porcentagem20a29 = Math.round((faixaetaria20a29 / key) * 100);
+const porcentagem30a39 = Math.round((faixaetaria30a39 / key) * 100);
+const porcentagem40a49 = Math.round((faixaetaria40a49 / key) * 100);
+const porcentagem50a59 = Math.round((faixaetaria50a59 / key) * 100);
+const porcentagem0a5 = Math.round((tempoadmissao0a5 / key) * 100);
+const porcentagem6a10 = Math.round((tempoadmissao6a10 / key) * 100);
+const porcentagem10a20 = Math.round((tempoadmissao10a20 / key) * 100);
+const porcentagempg = Math.round((escolaridadepg / key) * 100);
+const porcentagemsg = Math.round((escolaridadesg / key) * 100);
+const porcentagemtg = Math.round((escolaridadetg / key) * 100);
 
 var genero = {
     'labels': ['Feminino', 'Masculino'],
@@ -450,7 +450,7 @@ return {
     faixaetaria: faixaetaria,
     tempoadmissao: tempoadmissao,
     escolaridade: escolaridade,
-    index
+    index,
 
 };
 }
@@ -494,7 +494,7 @@ var atividade = document.getElementById('atividade');
 
 atividade_principal = data.atividade_principal[0];
 atividades_secundarias = data.atividades_secundarias[0];
-console.log(data);
+//console.log(data);
 atividade.innerHTML += atividade_principal.code + ' - ' + atividade_principal.text + '<br><br>';
 atividade.innerHTML += atividades_secundarias.code + ' - ' + atividades_secundarias.text;
 

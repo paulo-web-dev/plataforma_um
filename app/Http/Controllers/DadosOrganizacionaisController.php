@@ -22,12 +22,18 @@ class DadosOrganizacionaisController extends Controller
 
     public function cadDadosOrganizacionais(Request $request){
 
-        $dados = new DadosOrganizacionais();
-        $dados->id_subsetor = $request->id_subsetor;
-        $dados->dado = $request->dado;
-        $dados->save();
+        $dados = $request->input('dado', []);
+        $id_subsetor = $request->input('id_subsetor');
 
-        return redirect()->route('info-subsetor', ['id' => $dados->id_subsetor]); 
+        foreach ($dados as $dado) {
+            $dados = new DadosOrganizacionais();
+            $dados->id_subsetor = $id_subsetor;
+            $dados->dado = $dado;
+            $dados->save();
+        }
+
+
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
        
 
     }

@@ -16,14 +16,20 @@ class RecomendacaoController extends Controller
     } 
 
     public function cadRecomendacao(Request $request){
-
-        $recomendacao = new Recomendacao();
-        $recomendacao->recomendacao = $request->recomendacao;
-        $recomendacao->id_subsetor = $request->id_subsetor;
-        $recomendacao->save();
-        
-        return redirect()->route('info-subsetor', ['id' => $recomendacao->id_subsetor]); 
-    } 
+       
+        $recomendacoes = $request->input('recomendacao', []);
+        $id_subsetor = $request->input('id_subsetor');
+    
+        foreach ($recomendacoes as $recomendacaoTexto) {
+            $recomendacao = new Recomendacao();
+            $recomendacao->recomendacao = $recomendacaoTexto;
+            $recomendacao->id_subsetor = $id_subsetor;
+            $recomendacao->save();
+        }
+    
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
+    }
+    
 
     public function infoRecomendacao($id){
         

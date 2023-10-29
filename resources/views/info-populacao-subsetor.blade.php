@@ -58,9 +58,10 @@
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Escolaridade</strong></label>
                                 <select class="form-control" name="escolaridade" id="escolaridade">
-                                        <option value="PRIMEIRO GRAU  COMPLETO                 	.">PRIMEIRO GRAU  COMPLETO</option>
-                                        <option value="SEGUNDO GRAU (COLEGIAL) COMPLETO                 	.">SEGUNDO GRAU (COLEGIAL) COMPLETO</option>
-                                        <option value="TERCEIRO GRAU (FACULDADE) COMPLETO                 	.">TERCEIRO GRAU (FACULDADE) COMPLETO</option>                                  
+                                         <option value="{{$populacao->escolaridade}}">{{$populacao->escolaridade}}</option>
+                                        <option value="PRIMEIRO GRAU COMPLETO">PRIMEIRO GRAU COMPLETO</option>
+                                        <option value="SEGUNDO GRAU COMPLETO">SEGUNDO GRAU COMPLETO</option>
+                                        <option value="TERCEIRO GRAU COMPLETO">TERCEIRO GRAU COMPLETO</option>                                  
                             </select>
                         </div>
                     

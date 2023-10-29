@@ -45,19 +45,20 @@
                             <div class="col-span-12 xl:col-span-6">
                                 <div class="mt-3">
                                     <label for="nome" class="form-label"><strong>Dado:</strong></label>
-                                    <input id="num_funcionarios" type="text" name="dado" class="form-control"
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
                                         placeholder="Dado Organizacional" required>
                                 </div>
-                        
+                                <div id="dynamic-fields"></div>
                                
                                 
                             </div>
                         </div>
                         </div>
-                    
+
                         
 
                         <div class="intro-y box col-span-12 xxl:col-span-12">
+                        <button type="button" class="btn btn-primary w-40" style="margin:5px" onclick="addDados()">Adicionar Mais Dados Organizacionais</button>
                             <button type="submit" class="btn btn-primary w-full  mr-2 mb-2"> <i data-feather="activity"
                                     class="w-4 h-4 mr-2"></i>
                                 Adicionar Dados Organizacionais </button>
@@ -67,6 +68,18 @@
         </div>
     </div>
 @endsection
+<script>
+    function addDados() {
+        const inputField = document.createElement('div');
+        inputField.innerHTML = `
+            <div class="mt-3">
+                <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                <input id="num_funcionarios" type="text" name="dado[]" class="form-control" placeholder="Dado Organizacional" required>
+            </div>
+        `;
+        document.getElementById('dynamic-fields').appendChild(inputField);
+    }
+</script>
 @push('custom-scripts')
     
    

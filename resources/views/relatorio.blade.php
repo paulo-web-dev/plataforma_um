@@ -7,8 +7,28 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
       <link href="{{url('/dist/css/relatorio.css')}}" rel="stylesheet">
       <script src="{{url('/dist/js/calculo_ferramentas_relatorio.js')}}"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-chart-3d@2.0.0/dist/chartjs-plugin-chart-3d.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-cartesian-3d.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
       <title>AET</title>
+        <style type="text/css">
+
+    html,
+    body,
+    #container {
+      width: 50%;
+      height: 25%;
+      margin: 0;
+      padding: 0;
+    }
+  
+</style>
    </head>
    <body>
       {{-- Capa --}}
@@ -38,7 +58,7 @@
                <p class="text-center">Análise Ergonômica do Trabalho</p>
                <p class="text-center">2023</p>
             </div>
-
+ 
 
             <center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa "></center><br>
             <p style="font-size:26px" class="text-center"><b>{{$empresa->nome}}</b></p><br>
@@ -55,15 +75,15 @@
          </div>
          <div class="sumario">
             <ul>
-               <li><span class="titulo">Identificação da Empresa</span> <span class="pagina">1</span></li>
-               <li><span class="titulo">Introdução</span> <span class="pagina">3</span></li>
-               <li><span class="titulo">Análise Ergônomica Do Trabalho.</span> <span class="pagina">4</span></li>
+               <li><span class="titulo">Identificação da Empresa</span> <span class="pagina">3</span></li>
+               <li><span class="titulo">Introdução</span> <span class="pagina">4</span></li>
+               <li><span class="titulo">Análise Ergônomica Do Trabalho.</span> <span class="pagina">5</span></li>
                {{-- <li><span class="titulo">Equipe Técnica</span> <span class="pagina">5</span></li> --}}
                <li><span class="titulo">Objetivos Da Análise Ergônomica Do Trabalho</span> <span class="pagina">6</span></li>
                <li><span class="titulo">Metodologia Empregada</span> <span class="pagina">7</span></li>
-               <li><span class="titulo">Demanda</span> <span class="pagina">8</span></li>
-               <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">8</span></li>
-               <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">10</span></li>
+               <li><span class="titulo">Demanda</span> <span class="pagina">9</span></li>
+               <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">10</span></li>
+               <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">11</span></li>
                <div id="postos" style="margin-left:20px"></div>
                <li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
                <li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li>
@@ -100,6 +120,7 @@
               
               
             </ul>
+        
       </div>
       {{-- Introdução --}}
       <div class="paginacao">
@@ -198,9 +219,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
       {{-- Metodologia2 --}}
       <div class="page">
-         <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia: </p>
-         </div>
+         
          <p style="font-size: 18px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS - FERRAMENTAS ERGONÔMICAS</p>
          <p>Inicialmente foram realizadas as observações referentes à ergonomia dos postos
             de trabalho (condições dos mobiliários, das ferramentas, dos equipamentos, das
@@ -398,11 +417,12 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
   {{-- POPULAÇÃO --}}
       {{-- Pegar dados Populacionais --}}
+ 
       @php $populacaoSubsetor = $subsetor->populacaosubsetor; @endphp
       <script>
          var populacaoSubsetor = @json($populacaoSubsetor);
-         var graficos = calcularEstatisticas(populacaoSubsetor, {{$subsetor->id}});
-         console.log(graficos.index);
+         var graficos{{$subsetor->id}} = calcularEstatisticas(populacaoSubsetor, {{$subsetor->id}});
+         console.log(graficos{{$subsetor->id}});
       </script>
       <div class="paginacao">
          <script>paginacao()</script>
@@ -412,171 +432,271 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características Da População</p>
          </div>
+          <center>
          <div class="grafico-container">
 		 	<p class="text-center legenda-grafico">Gênero</p>
-            <canvas id="genero{{$subsetor->id}}" class="grafico"></canvas>
+                <div id="genero{{$subsetor->id}}"></div>
          </div>
          <div class="grafico-container">
 		 <p class="text-center legenda-grafico">Faixa Etária</p>
-            <canvas id="faixaetaria{{$subsetor->id}}" class="grafico"></canvas>
+            <div id="faixaetaria{{$subsetor->id}}"></div>
          </div>
-         <div class="grafico-container">
-		  <p class="text-center legenda-grafico">Tempo de Admissão</p>
-            <canvas id="tempoadimissao{{$subsetor->id}}" class="grafico"></canvas>
+
+               <div class="grafico-container">
+		 <p class="text-center legenda-grafico">Tempo Admissão</p>
+            <div id="tempoadmissao{{$subsetor->id}}"></div>
          </div>
-         <div class="grafico-container">
-		 	<p class="text-center legenda-grafico">Escolaridade</p>
-            <canvas id="escolaridade{{$subsetor->id}}" class="grafico"></canvas>
+              <div class="grafico-container">
+		 <p class="text-center legenda-grafico">Escolaridade</p>
+            <div id="escolaridade{{$subsetor->id}}"></div>
          </div>
+  </center>
       </div>
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
+
+    
+
       <script>
          //Gráfico Genêro
-           var ctx = document.getElementById('genero'+graficos.index).getContext('2d');
-           var data =graficos.genero; 
-           var colors = ['rgba(2, 125, 195, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(255, 205, 86, 0.5)', 'rgba(139, 69, 19, 0.5)', 'rgba(255, 165, 0, 0.5)'];
-           var chart = new Chart(ctx, {
-               type: 'bar', // Tipo de gráfico (por exemplo, barra)
-               data: {
-                   labels: data.labels, // Rótulos para o eixo X
-                   datasets: [{
-                       label: 'Gênero',
-                       data: data.data, // Dados para o eixo Y
-                       backgroundColor: colors, // Cor de fundo das barras
-                       borderColor: colors, // Cor das bordas das barras
-                       borderWidth: 1 // Largura das bordas das barras
-                   }]
-               },
-               options: {
-         		  scales: {
-                  y: {
-                      beginAtZero: true,
-                      ticks: {
-                          callback: function(value, index, values) {
-                              return value + '%';
-                          }
-                      }
-                  }
-         		  },
-                plugins: {
-         			legend: {
-         				display: false,
-         				
-         			}
-         		}
-               }
-           });
+
+anychart.onDocumentReady(function () {
+  // create column chart
+  var chart = anychart.column3d();
+
+  // turn on chart animation
+  chart.animation(true);
+
+  // set chart title text settings
+  var data = graficos{{$subsetor->id}}.genero;
+  var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
+
+
+var chartData = [];
+
+data.labels.forEach(function(label, index) {
+  var value = data.data[index];
+  var color = customColors[index];
+
+  chartData.push({ x: label, value: value, fill: color });
+});
+   
+
+  // create area series with passed data e atribuir cores da paleta personalizada
+chart.column(chartData);
+
+  // Adicionar rótulos no topo de cada barra
+  chart.getSeries(0).labels().enabled(true);
+  chart.getSeries(0).labels().position('top');
+  chart.getSeries(0).labels().format('{%Value} %');
+  chart.background().fill("#f0f0f0");
+  chart
+    .tooltip()
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5)
+    .format('{%Value}%');
+
+  // set scale minimum
+  chart.yScale().minimum(0);
+
+  // set yAxis labels formatter
+  chart.yAxis().labels().format('{%Value}%');
+
+  chart.tooltip().positionMode('point');
+  chart.interactivity().hoverMode('by-x');
+  chart.yScale().minimum(0);
+  chart.yScale().maximum(100);
+
+  // set container id for the chart
+  chart.container('genero{{$subsetor->id}}');
+
+  // initiate chart drawing
+  chart.draw();
+});
+
+
          //Gráfico Faixa Etaria
-         
-         var ctx = document.getElementById('faixaetaria'+graficos.index).getContext('2d');
-           var data = graficos.faixaetaria; 
-         
-           var chart = new Chart(ctx, {
-               type: 'bar', // Tipo de gráfico (por exemplo, barra)
-               data: {
-                   labels: data.labels, // Rótulos para o eixo X
-                   datasets: [{
-                       label: 'Faixa Etária',
-                       data: data.data, // Dados para o eixo Y
-                       backgroundColor: colors, // Cor de fundo das barras
-                       borderColor: colors, // Cor das bordas das barras
-                       borderWidth: 1 // Largura das bordas das barras
-                   }]
-               },
-               options: {
-         							  scales: {
-                  y: {
-                      beginAtZero: true,
-                      ticks: {
-                          callback: function(value, index, values) {
-                              return value + '%';
-                          }
-                      }
-                  }
-         		  },
-                plugins: {
-         			legend: {
-         				display: false,
-         				
-         			}
-         		}
-               }
-           }); 
-         //Gráfico tempo Admissão
-         
-         var ctx = document.getElementById('tempoadimissao'+graficos.index).getContext('2d');
-           var data = graficos.tempoadmissao; 
-         
-           var chart = new Chart(ctx, {
-               type: 'bar', // Tipo de gráfico (por exemplo, barra)
-               data: {
-                   labels: data.labels, // Rótulos para o eixo X
-                   datasets: [{
-                       label: '',
-                       data: data.data, // Dados para o eixo Y
-                       backgroundColor: colors, // Cor de fundo das barras
-                       borderColor: colors, // Cor das bordas das barras
-                       borderWidth: 1 // Largura das bordas das barras
-                   }]
-               },
-             options: {
-         							  scales: {
-                  y: {
-                      beginAtZero: true,
-                      ticks: {
-                          callback: function(value, index, values) {
-                              return value + '%';
-                          }
-                      }
-                  }
-         		  },
-         		plugins: {
-         			legend: {
-         				display: false,
-         				
-         			}
-         		}
-         	}
-           });
+   anychart.onDocumentReady(function () {
+  // create column chart
+  var chart = anychart.column3d();
+
+  // turn on chart animation
+  chart.animation(true);
+
+  // set chart title text settings
+  var data = graficos{{$subsetor->id}}.faixaetaria;
+  var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
+
+
+var chartData = [];
+
+data.labels.forEach(function(label, index) {
+  var value = data.data[index];
+  var color = customColors[index];
+  
+  chartData.push({ x: label, value: value, fill: color });
+});
+   
+
+  // create area series with passed data e atribuir cores da paleta personalizada
+chart.column(chartData);
+
+  // Adicionar rótulos no topo de cada barra
+  chart.getSeries(0).labels().enabled(true);
+  chart.getSeries(0).labels().position('top');
+  chart.getSeries(0).labels().format('{%Value} %');
+  chart.background().fill("#f0f0f0");
+  chart
+    .tooltip()
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5)
+    .format('{%Value}%');
+
+  // set scale minimum
+  chart.yScale().minimum(0);
+
+  // set yAxis labels formatter
+  chart.yAxis().labels().format('{%Value}%');
+
+  chart.tooltip().positionMode('point');
+  chart.interactivity().hoverMode('by-x');
+  chart.yScale().minimum(0);
+  chart.yScale().maximum(100);
+
+  // set container id for the chart
+  chart.container('faixaetaria{{$subsetor->id}}');
+
+  // initiate chart drawing
+  chart.draw();
+});
+       
+       
          
          //Gráfico Escolaridade
-         var ctx = document.getElementById('escolaridade'+graficos.index).getContext('2d');
-           var data =  graficos.escolaridade; 
          
-           var chart = new Chart(ctx, {
-               type: 'bar', // Tipo de gráfico (por exemplo, barra)
-               data: {
-                   labels: data.labels, // Rótulos para o eixo X
-                   datasets: [{
-                       label: 'Escolaridade',
-                       data: data.data, // Dados para o eixo Y
-                       backgroundColor: colors, // Cor de fundo das barras
-                       borderColor: colors, // Cor das bordas das barras
-                       borderWidth: 1 // Largura das bordas das barras
-                   }]
-               },
-               options: {
-         							  scales: {
-                  y: {
-                      beginAtZero: true,
-                      ticks: {
-                          callback: function(value, index, values) {
-                              return value + '%';
-                          }
-                      }
-                  }
-         		  },
-                 plugins: {
-         			legend: {
-         				display: false,
-         				
-         			}
-         		}
-               }
-           });
+         //Gráfico Faixa Etaria
+   anychart.onDocumentReady(function () {
+  // create column chart
+  var chart = anychart.column3d();
+
+  // turn on chart animation
+  chart.animation(true);
+
+  // set chart title text settings
+  var data = graficos{{$subsetor->id}}.escolaridade;
+  var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
+
+
+var chartData = [];
+
+data.labels.forEach(function(label, index) {
+  var value = data.data[index];
+  var color = customColors[index];
+   
+  chartData.push({ x: label, value: value, fill: color });
+});
+   
+
+  // create area series with passed data e atribuir cores da paleta personalizada
+chart.column(chartData);
+
+  // Adicionar rótulos no topo de cada barra
+  chart.getSeries(0).labels().enabled(true);
+  chart.getSeries(0).labels().position('top');
+  chart.getSeries(0).labels().format('{%Value} %');
+  chart.background().fill("#f0f0f0");
+  chart
+    .tooltip()
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5)
+    .format('{%Value}%');
+
+  // set scale minimum
+  chart.yScale().minimum(0);
+
+  // set yAxis labels formatter
+  chart.yAxis().labels().format('{%Value}%');
+
+  chart.tooltip().positionMode('point');
+  chart.interactivity().hoverMode('by-x');
+  chart.yScale().minimum(0);
+  chart.yScale().maximum(100);
+
+  // set container id for the chart
+  chart.container('escolaridade{{$subsetor->id}}');
+
+  // initiate chart drawing
+  chart.draw();
+});
+
+//Tempo Admissão
+ //Gráfico Escolaridade
+         
+         //Gráfico Faixa Etaria
+   anychart.onDocumentReady(function () {
+  // create column chart
+  var chart = anychart.column3d();
+
+  // turn on chart animation
+  chart.animation(true);
+
+  // set chart title text settings
+  var data = graficos{{$subsetor->id}}.tempoadmissao;
+  var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
+
+
+var chartData = [];
+
+data.labels.forEach(function(label, index) {
+  var value = data.data[index];
+  var color = customColors[index];
+   
+  chartData.push({ x: label, value: value, fill: color });
+});
+   
+
+  // create area series with passed data e atribuir cores da paleta personalizada
+chart.column(chartData);
+
+  // Adicionar rótulos no topo de cada barra
+  chart.getSeries(0).labels().enabled(true);
+  chart.getSeries(0).labels().position('top');
+  chart.getSeries(0).labels().format('{%Value} %');
+  chart.background().fill("#f0f0f0");
+  chart
+    .tooltip()
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5)
+    .format('{%Value}%');
+
+  // set scale minimum
+  chart.yScale().minimum(0);
+
+  // set yAxis labels formatter
+  chart.yAxis().labels().format('{%Value}%');
+
+  chart.tooltip().positionMode('point');
+  chart.interactivity().hoverMode('by-x');
+  chart.yScale().minimum(0);
+  chart.yScale().maximum(100);
+
+  // set container id for the chart
+  chart.container('tempoadmissao{{$subsetor->id}}');
+
+  // initiate chart drawing
+  chart.draw();
+});
       </script>
+
         <div class="paginacao">
 
          <script>paginacao()</script>
@@ -593,8 +713,8 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             $sim = $subsetor->dadossaude->sim;
             $nao = $subsetor->dadossaude->nao;
             $total = $sim + $nao;
-            $porcentagemSim = ($sim / $total) * 100;
-            $porcentagemNao = ($nao / $total) * 100;
+            $porcentagemSim = round(($sim / $total) * 100);
+            $porcentagemNao = round(($nao / $total) * 100);
             $dataSaude = [
             'labels' => ['Sim', 'Não'],
             'data' => [$porcentagemSim, $porcentagemNao],
@@ -602,44 +722,70 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             @endphp
          <div style="margin-left: 10%; margin-top: 50px">
 		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">Desconforto Osteomioarticular</p>
-            <canvas id="dadosaude{{$subsetor->id}}" class="grafico"></canvas>
+             <div class="grafico-saude">
+         <div id="dadosaude{{$subsetor->id}}" style="height: 600px;" ></div>
+            </div>
          </div>
          <script>
-            // Gráfico Dados Saúde
-            var ctx = document.getElementById('dadosaude{{$subsetor->id}}').getContext('2d');
-            var data = @json($dataSaude);
-            var colors = ['rgba(2, 125, 195, 0.5)', 'rgba(75, 192, 192, 0.5)'];
-            
-            var chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: data.labels,
-                    datasets: [{
-                        label: 'Dados Saúde',
-                        data: data.data,
-                        backgroundColor: colors,
-                        borderColor: colors,
-                        borderWidth: 1,
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value, index, values) {
-                                    return value + '%';
-                                }
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false,
-                        }
-                    }
-                }
-            });
+         
+         //Gráfico Faixa Etaria
+   anychart.onDocumentReady(function () {
+  // create column chart
+  var chart = anychart.column3d();
+
+  // turn on chart animation
+  chart.animation(true);
+
+  // set chart title text settings
+
+     var data = @json($dataSaude);
+    
+var chartData = [];
+  var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
+
+
+data.labels.forEach(function(label, index) {
+  var value = data.data[index];
+  var color = customColors[index];
+   
+  chartData.push({ x: label, value: value, fill: color });
+});
+   
+
+  // create area series with passed data e atribuir cores da paleta personalizada
+chart.column(chartData);
+
+  // Adicionar rótulos no topo de cada barra
+  chart.getSeries(0).labels().enabled(true);
+  chart.getSeries(0).labels().position('top');
+  chart.getSeries(0).labels().format('{%Value} %');
+  chart.background().fill("#f0f0f0");
+  chart
+    .tooltip()
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5)
+    .format('{%Value}%');
+
+  // set scale minimum
+  chart.yScale().minimum(0);
+
+  // set yAxis labels formatter
+  chart.yAxis().labels().format('{%Value}%');
+
+  chart.tooltip().positionMode('point');
+  chart.interactivity().hoverMode('by-x');
+  chart.yScale().minimum(0);
+  chart.yScale().maximum(100);
+
+  // set container id for the chart
+  chart.container('dadosaude{{$subsetor->id}}');
+
+  // initiate chart drawing
+  chart.draw();
+});
+          
          </script>
       </div>
       <div class="paginacao">
