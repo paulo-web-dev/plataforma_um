@@ -31,19 +31,131 @@
                     <div class="col-span-12 xl:col-span-6">
                         <div class="mt-3">
                             <label for="conclusao" class="form-label"><strong>Membro</strong></label>
-                              <select class="form-control" name="membro" id="membro">
-                                       
+                              <select class="form-control" name="membro[]" id="membro">     
                                         <option value="Pescoço">Pescoço</option>
-                                        <option value="Ombros">Ombros</option>
-                                        <option value="Tronco">Tronco</option>
-                                        <option value="Braço">Braço</option>
-                                        <option value="Mãos">Mãos</option>
-                                        <option value="Pernas">Pernas</option>
-                                        
-                                      
                             </select>
                         </div>
-                    @endif
+
+                         <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Conclusão</strong></label>
+                              <select class="form-control" name="conclusao[]" id="conclusao">
+                                    
+                                       
+                                        <option value="RISCO ALTO">Risco Alto</option>
+                                        <option value="RISCO MODERADO">Risco Moderado</option>
+                                        <option value="RISCO BAIXO">Risco Baixo</option>
+                                        
+                            </select>
+                        </div>
+
+
+                          <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Membro</strong></label>
+                              <select class="form-control" name="membro[]" id="membro">
+                                        <option value="Ombros">Ombros</option>
+                            </select>
+                        </div>
+
+                         <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Conclusão</strong></label>
+                              <select class="form-control" name="conclusao[]" id="conclusao">
+                                    
+                                       
+                                        <option value="RISCO ALTO">Risco Alto</option>
+                                        <option value="RISCO MODERADO">Risco Moderado</option>
+                                        <option value="RISCO BAIXO">Risco Baixo</option>
+                                        
+                            </select>
+                        </div>
+                          <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Membro</strong></label>
+                              <select class="form-control" name="membro[]" id="membro">
+                                        <option value="Tronco">Tronco</option>
+                            </select>
+                        </div>
+
+                         <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Conclusão</strong></label>
+                              <select class="form-control" name="conclusao[]" id="conclusao">
+                                    
+                                       
+                                        <option value="RISCO ALTO">Risco Alto</option>
+                                        <option value="RISCO MODERADO">Risco Moderado</option>
+                                        <option value="RISCO BAIXO">Risco Baixo</option>
+                                        
+                            </select>
+                        </div>
+                          <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Membro</strong></label>
+                              <select class="form-control" name="membro[]" id="membro">
+                                        <option value="Braço">Braço</option>  
+                            </select>
+                        </div>
+
+                         <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Conclusão</strong></label>
+                              <select class="form-control" name="conclusao[]" id="conclusao">
+                                    
+                                       
+                                        <option value="RISCO ALTO">Risco Alto</option>
+                                        <option value="RISCO MODERADO">Risco Moderado</option>
+                                        <option value="RISCO BAIXO">Risco Baixo</option>
+                                        
+                            </select>
+                        </div>
+                          <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Membro</strong></label>
+                              <select class="form-control" name="membro[]" id="membro">
+                                        <option value="Mãos">Mãos</option> 
+                            </select>
+                        </div>
+
+                         <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Conclusão</strong></label>
+                              <select class="form-control" name="conclusao[]" id="conclusao">
+                                    
+                                       
+                                        <option value="RISCO ALTO">Risco Alto</option>
+                                        <option value="RISCO MODERADO">Risco Moderado</option>
+                                        <option value="RISCO BAIXO">Risco Baixo</option>
+                                        
+                            </select>
+                        </div>
+                          <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Membro</strong></label>
+                              <select class="form-control" name="membro[]" id="membro">
+                                        <option value="Pernas">Pernas</option>          
+                            </select>
+                        </div>
+
+                         <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                            <label for="conclusao" class="form-label"><strong>Conclusão</strong></label>
+                              <select class="form-control" name="conclusao[]" id="conclusao">
+                                    
+                                       
+                                        <option value="RISCO ALTO">Risco Alto</option>
+                                        <option value="RISCO MODERADO">Risco Moderado</option>
+                                        <option value="RISCO BAIXO">Risco Baixo</option>
+                                        
+                            </select>
+                        </div>
+                         <div class="mt-3">
+                                    <label for="atividade" class="form-label"><strong>Atividade</strong></label>
+                                    <input id="atividade" type="text" name="atividade" class="form-control"
+                                        placeholder="Atividade avaliada" required>
+                                </div>
+                    @else
                     <div class="col-span-12 xl:col-span-6">
                         <div class="mt-3">
                             <label for="conclusao" class="form-label"><strong>Conclusão</strong></label>
@@ -86,6 +198,7 @@
                                     <input id="atividade" type="text" name="atividade" class="form-control"
                                         placeholder="Atividade avaliada" required>
                                 </div>
+                        @endif  
                 <div class="flex justify-end mt-4">
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Cadastrar Conclusão Simplificado</button>
                 </div>
