@@ -313,6 +313,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
+         <script>
+            var postos = document.getElementById('postos'); 
+            var pagina = document.getElementsByClassName('page').length;
+            postos.innerHTML +=  '<li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
+         </script>
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: {{$setor->nome}}</p>
@@ -329,8 +334,20 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-      <div class="page">
-         <div class="subcabecalho2">
+       <?php
+    $descricao = $subsetor->descricao;
+    $maxCaracteres = 3000;
+    
+    if (mb_strlen($descricao) > $maxCaracteres) {
+        // Se a descrição for maior que 500 caracteres, dividir em partes
+        $partes = str_split($descricao, $maxCaracteres);
+        $pagina = 1;
+
+        foreach ($partes as $parte) {
+          echo ' <div class="page">';
+            if($pagina == 1){
+               ?>
+                 <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: {{$setor->nome}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
@@ -341,11 +358,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             <tr>
                <td><b>Posto de Trabalho:</b></td>
                <td>{{$subsetor->nome}}</td>
-            <script>
-            var postos = document.getElementById('postos'); 
-            var pagina = document.getElementsByClassName('page').length;
-            postos.innerHTML +=  '<li><span class="titulo">{{$subsetor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
-         </script>
+    
             </tr>
             @if(isset($subsetor->funcao))
               <tr>
@@ -366,13 +379,64 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>
          </div>
-     
+               <?php 
+            }
+           
+            echo '<p class="text-cargo">' . $parte . '.</p>';
+            
+            echo '</div>';
+            echo '
+                 <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+            ';
+            $pagina++;
+        }
+    } else {
+    
+    ?>
+    
+      <div class="page">
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: {{$setor->nome}}</p>
+         </div>
+         <table style="margin-left:10px; margin-right:10px">
+            {{-- <tr>
+               <td><b>Setor:</b></td>
+               <td>{{$setor->nome}}</td>
+            </tr> --}}
+            <tr>
+               <td><b>Posto de Trabalho:</b></td>
+               <td>{{$subsetor->nome}}</td>
+    
+            </tr>
+            @if(isset($subsetor->funcao))
+              <tr>
+               <td><b>Função:</b></td>
+               <td>{{$subsetor->funcao->funcao}}</td>
+            </tr>
+            @endif
+
+            @if(isset($subsetor->tarefa))
+              <tr>
+               <td><b>Tarefa:</b></td>
+               <td>{{$subsetor->tarefa->tarefa}}</td>
+            </tr>
+            @endif
+            
+            <!-- Adicione mais linhas conforme necessário -->
+         </table>
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>
+         </div>
+         
          <p class="text-cargo" ><b>{{$subsetor->nome}}: </b>{{$subsetor->descricao}}. </p>
      
       </div>
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
+      <?php }?>
       @if(isset($subsetor->analiseAtividade))
       {{-- Ánalise da Atividade --}}
 
