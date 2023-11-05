@@ -61,6 +61,11 @@
                 <a href="{{route('show-empresas')}}" class="menu">
                     <div class="menu__icon"> <i data-feather="user-check"></i> </div>
                     <div class="menu__title"> Empresas  </div>
+                </a> 
+
+                 <a href="{{route('show-identidade')}}" class="menu">
+                    <div class="menu__icon"> <i data-feather="user"></i> </div>
+                    <div class="menu__title"> Identidade Visual  </div>
                 </a>        
                 
         </ul>
@@ -104,6 +109,15 @@
                                 data-icon="material-symbols:drive-folder-upload" style="font-size:30px"></span>
                         </div>
                         <div class="side-menu__title"> Empresas </div>
+                    </a>
+
+                    
+                <a href="{{route('show-identidade')}}" target="_blank"
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
+                                data-icon="mdi:subscriber-identity-module-outline" style="font-size:30px"></span>
+                        </div>
+                        <div class="side-menu__title"> Identidade Visual </div>
                     </a>
 
 

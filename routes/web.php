@@ -37,6 +37,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\FuncaoController;
 use App\Http\Controllers\AnaliseAtividadeController;
+use App\Http\Controllers\IdentidadeVisualController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -65,6 +66,14 @@ Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('fo
 Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
+
+//Rotas Pertinentes a cadastro de Identidade visual 
+Route::get('/identidades', [IdentidadeVisualController::class, 'show'])->name('show-identidade');
+Route::get('/form/identidade-visual', [IdentidadeVisualController::class, 'formIdentidade'])->name('form-identidade');
+Route::get('/info/identidade-visual/{id}', [IdentidadeVisualController::class, 'infoIdentidade'])->name('info-identidade'); 
+Route::post('/cadastrar/identidade-visual', [IdentidadeVisualController::class, 'cadIdentidade'])->name('cad-identidade-visual');
+Route::post('/update/identidade-visual', [IdentidadeVisualController::class, 'updIdentidade'])->name('upd-identidade-visual');
+
 
 //Rotas Pertitentes a Áreas da empresa
 Route::get('/areas', [AreaController::class, 'show'])->name('show-areas');

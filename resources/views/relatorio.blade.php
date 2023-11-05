@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link href="{{url('/dist/css/relatorio.css')}}" rel="stylesheet">
+      {{-- <link href="{{url('/dist/css/relatorio.css')}}" rel="stylesheet"> --}}
       <script src="{{url('/dist/js/calculo_ferramentas_relatorio.js')}}"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -27,6 +27,236 @@
       margin: 0;
       padding: 0;
     }
+
+    body {
+    font-family: 'Poppins', sans-serif !important; 
+    text-align: justify;
+  
+  }
+  table {
+    border-collapse: collapse;
+    width: 780px;
+    margin-left:10px;   
+    background-color: #f0f0f0;
+    margin-top: -16px;
+    border-radius: 10px;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+   border-radius: 10px;
+   font-size:14px;
+  }
+    
+  th {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif; 
+    margin: 15px;
+  }
+    .title{
+      
+    color: #fff;
+    font-weight: bold;
+    font-size: 58px;
+  }
+
+  .subtitle{
+    color: #fff;
+    font-weight: bold;
+    font-size: 38px;
+  }
+  .text{
+    margin:15px;
+  }
+  .legenda-grafico{
+    font-weight: bold; 
+    font-size:18px;
+  }
+  .homepage{
+    border: 15px solid #00253b;
+    width: 800px ;
+    height:1150px;
+    background-color: {{$identidade->cor_principal}};
+    border-radius: 10px;
+  }
+
+  .page{
+    border: 3px solid {{$identidade->cor_principal}};
+    width: 800px ;
+    height:1150px;
+    border-radius: 10px;
+    /* background-color: lightgray; */
+  }
+
+  .cabecalho{
+    border: 3px solid {{$identidade->cor_principal}};
+    width: 750px ;
+    height:200px;
+    border-radius: 10px;
+    margin-left:25px;
+    margin-top: 10px;
+    
+  }
+
+    .infobox{
+    border: 3px solid {{$identidade->cor_principal}};
+    border-top: none; 
+    width: 750px ;
+    height:auto;
+    border-radius: 10px;
+    
+  }
+
+  .subcabecalho{
+    border: 3px solid #000;
+    background-color: {{$identidade->cor_principal}};
+    width: 750px ;
+    height:auto;
+    border-radius: 10px;
+  }
+
+    .subcabecalho2{
+    border: 3px solid #000;
+    background-color: {{$identidade->cor_principal}};
+    width: 780px;
+    margin-left:10px;
+    margin-top:10px;
+    margin-bottom:15px;
+    height:auto;
+    border-radius: 10px;
+  }
+
+  .img-home{
+    margin-top: 100px;
+    margin-left: 175px;
+    border-radius: 10px;
+  }
+
+  
+  .img-empresa{
+    margin-top: 100px;
+    margin-left: auto;
+    border-radius: 10px;
+  }
+
+ .img-cabecalho{
+    width: auto;
+    height: 195px;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+ .cabecalhotext{
+    display: inline-block;
+    vertical-align: top;
+    margin-left:90px;
+    margin-top:10px;
+    color: {{$identidade->cor_principal}};
+    font-weight: bold;
+  }
+  .titulo-documento{
+    border: 5px solid #15f1ff;
+    border-radius: 80px;
+    margin: 20px; 
+    height: auto;
+    width:auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .text-cargo{
+     margin:8px;
+ }
+
+ .paginacao {
+  font-size: 22px;
+  position: absolute;
+  left: 740px; 
+  margin-top: -40px;
+}
+
+
+.border{
+  max-width: 80px; /* Ajuste conforme necessário */
+  font-size: 10px;
+} 
+
+ /* Estilos para centralizar o container horizontalmente */
+.imagem-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 550px; /* Define a largura máxima para evitar que as imagens ultrapassem */
+  margin: 0 auto; /* Centralize horizontalmente */
+}
+ 
+.imagem {
+  width: calc(50% - 10px); /* Defina a largura para ocupar metade da largura da imagem-container com algum espaço à direita e à esquerda */
+  margin-bottom: 20px; /* Espaço entre as imagens na coluna de baixo */
+  max-width: 250px; /* Largura máxima para as imagens */
+}
+
+.imagem img {
+  width: 100%;
+  height: auto;
+}
+
+.grafico-container {
+  display: inline-block;
+  width: 65%; /* Ajuste a largura conforme necessário */
+  margin-right: 5px; /* Espaço entre os gráficos */
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+
+.grafico-saude {
+  display: inline-block;
+  width: 80%;
+  height: 600px; /* Ajuste a largura conforme necessário */
+  margin-right: 5px; /* Espaço entre os gráficos */
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+.grafico{
+  max-width: 450px;
+
+}
+
+.sumario {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.titulo {
+  font-weight: bold;
+}
+ul{
+  margin-right:25px;
+}
+.pagina {
+  float: right;
+  margin-right: 30px;
+}
+
+.responsaveis {
+  margin-top: 100px;
+}
+
+.linha-assinatura {
+  border-top: 2px solid #000; 
+  max-width: 300px;
+}
+
+.ferramenta{
+  font-size: 18px;
+}
   
 </style>
    </head>
@@ -50,7 +280,7 @@
       {{-- Contra capa com informações da empresa --}}
       <div class="page">
          <div class="cabecalho">
-            <img src="/logo_plataforma_um.jpeg" class="img-cabecalho">
+            <img src="/fotos-identidade/{{$identidade->foto_empresa}}" class="img-cabecalho">
             <div class="cabecalhotext">
                <h2>
                   <p class="text-center">AET</p>

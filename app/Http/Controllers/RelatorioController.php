@@ -10,17 +10,14 @@ use App\Models\Cargos;
 use App\Models\DadosOrganizacionais;
 use App\Models\Caracteristicas;
 use App\Models\PreDiagnostico;
-
+use App\Models\IdentidadeVisual;
+use Auth;
 
 class RelatorioController extends Controller
 {
     public function gerarRelatorio($id){
 
-        function porcentagem($numero, $key){
-            $porcentagem = ($numero/$key) * 100;
-
-            return round($porcentagem);
-        }
+        $identidade = IdentidadeVisual::where('id_user', Auth::user()->id)->first();
         $empresa = Empresas::where('id', $id)
         ->with('setores')
         ->with('introducao')
@@ -38,6 +35,7 @@ class RelatorioController extends Controller
  
         return view('relatorio',[
             'empresa' => $empresa,
+            'identidade' => $identidade,
         ]);
 
     }
