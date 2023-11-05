@@ -350,7 +350,8 @@
                 </div>
             </div>
             <div class="flex justify-end mt-4">
-                <a href="{{route('form-populacao-subsetor', ['id_subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2">Adicionar População</a>
+                <a href="{{route('form-populacao-subsetor', ['id_subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2">Adicionar População Via Planilha</a> 
+                <a href="{{route('form-populacao-subsetor-campos', ['id_subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2">Adicionar População Campo a Campo</a>
             </div>    
         </div>
     </div>
