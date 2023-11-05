@@ -450,6 +450,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
       @endif
       {{-- Fotos Atividade --}}
+      @if(count($subsetor->fotosatividade) >= 1)
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -483,6 +484,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          </ul>
        
       </div>
+   @endif
   {{-- POPULAÇÃO --}}
       {{-- Pegar dados Populacionais --}}
  
@@ -492,10 +494,12 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          var graficos{{$subsetor->id}} = calcularEstatisticas(populacaoSubsetor, {{$subsetor->id}});
          console.log(graficos{{$subsetor->id}});
       </script>
+     
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       {{-- Gráficos Populacionais --}}
+       @if(count($subsetor->populacaosubsetor) >= 1)
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características Da População</p>
@@ -769,6 +773,8 @@ chart.column(chartData);
 
          <script>paginacao()</script>
       </div>
+      @endif
+   @if(isset($subsetor->dadossaude))
       {{-- Dados de Saúde --}}
       <div class="page">
          <div class="subcabecalho2">
@@ -856,11 +862,13 @@ chart.column(chartData);
           
          </script>
       </div>
+       @endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-      
+     
      {{-- Caracteristicas do ambiente de trabalho --}}
+     @if(count($subsetor->caracteristicas) >= 1)
       <div class="page">
 
          <div class="subcabecalho2" style="margin-top:35px">
@@ -875,11 +883,14 @@ chart.column(chartData);
          </ul>
 
       </div>
-
+@endif
 	    <div class="paginacao">
          <script>paginacao()</script>
       </div>
+
+        @if(count($subsetor->preDiagnostico) >= 1)
     <div class="page">
+   
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Pré Diagnóstico</p>
@@ -892,10 +903,9 @@ chart.column(chartData);
           
          </ul>
       </div>
-   
-    
 
- 
+@endif
+
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnostico</p>
@@ -1000,11 +1010,12 @@ chart.column(chartData);
             </table>
          </div>
       </div>
-
+ 
 
 	    <div class="paginacao">
          <script>paginacao()</script>
       </div>
+         @if(count($subsetor->recomendacao) >= 1)
     <div class="page">
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
@@ -1020,8 +1031,9 @@ chart.column(chartData);
       </div>
     
       </div>
-    
+    @endif
       @endforeach
+      
       @endforeach
     
       @endforeach
