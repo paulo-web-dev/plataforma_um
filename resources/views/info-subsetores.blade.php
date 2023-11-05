@@ -369,6 +369,7 @@
                             <thead>
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Título</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sim</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Não</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
@@ -382,6 +383,7 @@
                                   
                                     <tr class="hover:bg-gray-200">
                                         <td class="border">{{$subsetor->dadossaude->id}}</td>
+                                        <td class="border">{{$subsetor->dadossaude->titulo}}</td>
                                         <td class="border">{{$subsetor->dadossaude->sim}}</td>
                                         <td class="border">{{$subsetor->dadossaude->nao}}</td>
                                         <td class="border">
@@ -412,10 +414,11 @@
                     </div>
                 </div>
             </div>
-           
+           @if(!isset($subsetor->dadossaude))
             <div class="flex justify-end mt-4">
                 <a href="{{route('form-dados-de-saude', ['idsubsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2 simplificado">Cadastrar Dados de Saúde</a>
-            </div>    
+            </div>   
+            @endif 
         </div>
     </div>
 
@@ -1247,6 +1250,41 @@
         </div>
     </div>
 
+@if (session()->get('message') == 'erro_planilha')
+       <!-- BEGIN: Notification With Buttons Below -->
+                        <div class="intro-y box mt-5">
+
+                            <div id="notification-with-buttons-below" class="p-5">
+                                <div class="preview">
+                                    <div class="text-center">
+                                        <!-- BEGIN: Notification Content -->
+                                        <div id="notification-with-buttons-below-content" class="toastify-content hidden flex">
+                                            <i data-feather="file-text"></i> 
+                                            <div class="ml-4 mr-5 sm:mr-20">
+                                                <div class="font-medium">Upload de Planilha Incorreto</div>
+                                                <div class="text-slate-500 mt-1">Lembre de seguir o modelo, e fazer o upload em .CSV</div>
+                                                <div class="mt-2.5"> <a class="btn btn-primary py-1 px-2 mr-2" href="">Ver Planilha Modelo</a></div>
+                                            </div>
+                                        </div>
+
+                                        <button id="notification-with-buttons-below-toggle" class="btn btn-primary" style="display: none">Abrir Notificação</button>
+
+                                        <script>
+                                            // Use JavaScript para encontrar o botão pelo ID e disparar um evento de clique
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                                var botao = document.getElementById("notification-with-buttons-below-toggle");
+                                                if (botao) {
+                                                    botao.click(); // Clique no botão automaticamente
+                                                }
+                                            });
+                                        </script>
+                                                                            
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+            @endif
 
 @endsection
 

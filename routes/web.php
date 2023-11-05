@@ -284,14 +284,21 @@ Route::post('/update/subsetor/populacao', [PopulacaoSubSetorController::class, '
 
 //Rotas referente a upload de mapeamento ergonômico 
 Route::get('/form/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamento'])->name('form-mapeamento');
+Route::get('/form/campos/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamentocampos'])->name('form-mapeamento-campos');
 Route::get('/info/mapeamento/{id}', [MapeamentoController::class, 'infoMapeamento'])->name('info-mapeamento');
 Route::get('/delete/mapeamento/{id}', [MapeamentoController::class, 'delete'])->name('delete-mapeamento');
 Route::post('/update/mapeamento', [MapeamentoController::class, 'updMapeamento'])->name('upd-mapeamento');
+Route::post('/cadastrar/mapeamento', [MapeamentoController::class, 'cadMapeamento'])->name('cad-mapeamento');
 Route::post('/upload/mapeamento', [MapeamentoController::class, 'uploadMapeamento'])->name('upload-mapeamento');
 
 //Rotas referente a upload de plano de ação 
 Route::get('/form/plano-de-acao/{empresa}', [PlanoDeAcaoController::class, 'formPlanoDeAcao'])->name('form-plano-de-acao');
+Route::get('/form/campos/plano-de-acao/{empresa}', [PlanoDeAcaoController::class, 'formPlanoDeAcaoCampos'])->name('form-plano-de-acao-campos');
+Route::get('/info/plano-de-acao/{id}', [PlanoDeAcaoController::class, 'infoPlanoDeAcao'])->name('info-plano-de-acao');
 Route::post('/upload/plano-de-acao', [PlanoDeAcaoController::class, 'uploadPlanoDeAcao'])->name('upload-plano-de-acao');
+Route::post('/cadastrar/plano-de-acao', [PlanoDeAcaoController::class, 'cadPlanoDeAcao'])->name('cad-plano-de-acao');
+Route::post('/upd/plano-de-acao', [PlanoDeAcaoController::class, 'updPlanoDeAcao'])->name('upd-plano-de-acao');
+Route::get('/delete/plano-de-acao/{id}', [PlanoDeAcaoController::class, 'delete'])->name('delete-plano-de-acao');
 
 //Rotas referente a upload de fotos 
 Route::get('/form/foto/{id_subsetor}', [FotosAtividadesController::class, 'formFoto'])->name('form-foto');

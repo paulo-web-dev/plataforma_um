@@ -20,6 +20,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://johnny.github.io/jquery-sortable/jquery-sortable.js"></script>
+
     <script src="{{url('/dist/js/calculo_ferramentas.js')}}"></script> 
     <title>PlataformaUm</title>
     <!-- BEGIN: CSS Assets-->
@@ -28,7 +29,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
 </head>
- 
+
 {{-- Inici do CSS do Menu  WEB --}}
 <style>
     .dropdown-content {

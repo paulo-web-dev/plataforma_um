@@ -26,6 +26,7 @@ class PopulacaoSubSetorController extends Controller
 
     public function uploadPopulacao(Request $request){
 
+    try {
         $arquivo = $request->file;
         $subsetor = PopulacaoSubsetor::where('id_subsetor', $request->id_subsetor)->get();
         foreach ($subsetor as $key => $populacao) {
@@ -52,6 +53,10 @@ class PopulacaoSubSetorController extends Controller
        
         }
         return redirect()->route('info-subsetor', ['id' => $request->id_subsetor]); 
+
+    } catch(\Exception $e){
+        return redirect()->route('info-subsetor', ['id' => $request->id_subsetor])->with('message', 'erro_planilha'); 
+    }
     }
 
     public function updPopulacao(Request $request){

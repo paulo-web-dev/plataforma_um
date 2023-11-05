@@ -19,6 +19,7 @@ class DadosSaudeController extends Controller
 
         $dado = new DadosSaude();
         $dado->id_subsetor = $request->idsubsetor;
+        $dado->titulo = $request->titulo;
         $dado->sim = $request->sim;
         $dado->nao = $request->nao;
         $dado->save();
@@ -37,6 +38,7 @@ class DadosSaudeController extends Controller
         
         $dado = DadosSaude::where('id', $request->id)->first();
         $dado->sim = $request->sim;
+        $dado->titulo = $request->titulo;
         $dado->nao = $request->nao;
         $dado->save();
 

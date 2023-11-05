@@ -26,16 +26,21 @@
                     @csrf
                     <input type="hidden" name="id" value="{{$dado->id}}">
                     <div class="col-span-12 xl:col-span-6">
+                      <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Título</strong></label>
+                            <input id="update-profile-form-7" type="text" name="titulo" class="form-control"
+                                placeholder="Titulo, Exemplo (Desconforto Osteomioarticular)" value="{{$dado->titulo}}" required>
+                        </div>
                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Possuem Dores Lombares (SIM)</strong></label>
+                            <label for="update-profile-form-7" class="form-label"><strong>Possuem Queixas (SIM)</strong></label>
                             <input id="update-profile-form-7" type="number" name="sim" class="form-control"
                                 placeholder="Possuem Dores Lombares (SIM)" value="{{$dado->sim}}" required>
                         </div>
 
                          <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Não Possuem Dores Lombares (NÂO)</strong></label>
+                            <label for="update-profile-form-7" class="form-label"><strong>NNão Possuem Queixas (NÃO)</strong></label>
                             <input id="update-profile-form-7" type="number" name="nao" class="form-control"
-                                placeholder="Não Possuem Dores Lombares (NÂO)" value="{{$dado->nao}}" required>
+                                placeholder="Não Possuem Dores Lombares (NÃO)" value="{{$dado->nao}}" required>
                         </div>
 
 

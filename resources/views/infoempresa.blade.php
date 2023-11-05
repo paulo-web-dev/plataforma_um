@@ -969,6 +969,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sobrecarga</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
                             </thead>
                             <tbody>
                              
@@ -1012,7 +1013,11 @@
                 </div>
             </div>
             <div class="flex justify-end mt-4">
-                <a href="{{route('form-mapeamento', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Mapeamento</a>
+                <a href="{{route('form-mapeamento', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Mapeamento Via Planilha</a>
+            </div>    
+
+             <div class="flex justify-end mt-4">
+                <a href="{{route('form-mapeamento-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Mapeamento Campo a Campo</a>
             </div>    
         </div>
 
@@ -1038,6 +1043,8 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Recomendação de Melhora</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Viabilidade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Prazo</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
                             </thead>
                             <tbody>
                              
@@ -1051,6 +1058,26 @@
                                         <td class="border">{{$plano->recomendacao}}</td>
                                         <td class="border">{{$plano->viabilidade}}</td>
                                         <td class="border">{{$plano->prazo}}</td>
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-plano-de-acao', ['id' => $plano->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-plano-de-acao', ['id' => $plano->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
                                     </tr>
                                     
                                 @endforeach 
@@ -1060,12 +1087,87 @@
                 </div>
             </div>
             <div class="flex justify-end mt-4">
-                <a href="{{route('form-plano-de-acao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Plano de Ação</a>
+                <a href="{{route('form-plano-de-acao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Plano de Ação via Planilha</a>
             </div>    
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-plano-de-acao-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Plano de Ação campo a campo</a>
+            </div>  
         </div>
+     @if (session()->get('message') == 'erro_planilha_plano')
+       <!-- BEGIN: Notification With Buttons Below -->
+                        <div class="intro-y box mt-5">
+
+                            <div id="notification-with-buttons-below" class="p-5">
+                                <div class="preview">
+                                    <div class="text-center">
+                                        <!-- BEGIN: Notification Content -->
+                                        <div id="notification-with-buttons-below-content" class="toastify-content hidden flex">
+                                            <i data-feather="file-text"></i> 
+                                            <div class="ml-4 mr-5 sm:mr-20">
+                                                <div class="font-medium">Upload de Planilha Incorreto</div>
+                                                <div class="text-slate-500 mt-1">Lembre de seguir o modelo, e fazer o upload em .CSV</div>
+                                                <div class="mt-2.5"> <a class="btn btn-primary py-1 px-2 mr-2" href="">Ver Planilha Modelo</a></div>
+                                            </div>
+                                        </div>
+
+                                        <button id="notification-with-buttons-below-toggle" class="btn btn-primary" style="display: none">Abrir Notificação</button>
+
+                                        <script>
+                                            // Use JavaScript para encontrar o botão pelo ID e disparar um evento de clique
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                                var botao = document.getElementById("notification-with-buttons-below-toggle");
+                                                if (botao) {
+                                                    botao.click(); // Clique no botão automaticamente
+                                                }
+                                            });
+                                        </script>
+                                                                            
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+            @endif
+
+  @if (session()->get('message') == 'erro_planilha_mapeamento')
+       <!-- BEGIN: Notification With Buttons Below -->
+                        <div class="intro-y box mt-5">
+
+                            <div id="notification-with-buttons-below" class="p-5">
+                                <div class="preview">
+                                    <div class="text-center">
+                                        <!-- BEGIN: Notification Content -->
+                                        <div id="notification-with-buttons-below-content" class="toastify-content hidden flex">
+                                            <i data-feather="file-text"></i> 
+                                            <div class="ml-4 mr-5 sm:mr-20">
+                                                <div class="font-medium">Upload de Planilha Incorreto</div>
+                                                <div class="text-slate-500 mt-1">Lembre de seguir o modelo, e fazer o upload em .CSV</div>
+                                                <div class="mt-2.5"> <a class="btn btn-primary py-1 px-2 mr-2" href="">Ver Planilha Modelo</a></div>
+                                            </div>
+                                        </div>
+
+                                        <button id="notification-with-buttons-below-toggle" class="btn btn-primary" style="display: none">Abrir Notificação</button>
+
+                                        <script>
+                                            // Use JavaScript para encontrar o botão pelo ID e disparar um evento de clique
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                                var botao = document.getElementById("notification-with-buttons-below-toggle");
+                                                if (botao) {
+                                                    botao.click(); // Clique no botão automaticamente
+                                                }
+                                            });
+                                        </script>
+                                                                            
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+            @endif
+
 @endsection
 @push('custom-scripts')
-    
+
     <script>
         $(document).ready(function() {
 
