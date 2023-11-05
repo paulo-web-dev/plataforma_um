@@ -15,6 +15,16 @@ class PopulacaoSubSetorController extends Controller
         ]);
     }
 
+
+    public function formPopulacaoCampos($id_subsetor){
+
+        
+        return view('form-populacao-campos',[
+            'id_subsetor' => $id_subsetor,
+        ]);
+    }
+
+
     public function infoPopulacao($id){
 
         $populacao = PopulacaoSubsetor::where('id', $id)->first();
@@ -74,6 +84,22 @@ class PopulacaoSubSetorController extends Controller
         return redirect()->route('info-subsetor', ['id' => $populacao->id_subsetor]); 
     }
 
+    
+    public function cadPopulacao(Request $request){
+
+
+        $populacao = new PopulacaoSubsetor();
+        $populacao->id_subsetor =  $request->id_subsetor;
+        $populacao->nome =  $request->nome;
+        $populacao->idade =  $request->idade;
+        $populacao->sexo =  $request->sexo;
+        $populacao->escolaridade =  $request->escolaridade;
+        $populacao->tempo_empresa =  $request->tempo_empresa;
+        $populacao->save();
+   
+
+        return redirect()->route('info-subsetor', ['id' => $populacao->id_subsetor]); 
+}
     
     public function delete($id){
         PopulacaoSubsetor::destroy($id);

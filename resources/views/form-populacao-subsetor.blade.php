@@ -36,10 +36,18 @@
                         <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
                             <div class="px-4 pt-24 pb-24 flex items-center justify-center cursor-pointer relative">
                                 <div id="areaArquivo">
-                                    <img id="previewImage" src="" alt="Adicionar Planilha">
+
+                                    <div id="file-name" class="hidden">
+                                        Nome do arquivo: <span id="name"></span>
+                                    </div>
+
+                                    <div id="clique">
+                                        Clique Para fazer upload 
+                                    </div>
+
                                 </div>
                                 <input type="file" id="file" name="file"
-                                    class="w-full h-full top-0 left-0 absolute opacity-0" required>
+                                   accept=".csv" class="w-full h-full top-0 left-0 absolute opacity-0" required>
                             </div>
                         </div>
                     </div>
@@ -55,6 +63,23 @@
     <!-- END: Personal Information -->
     <!-- END: Users Layout -->
     </div>
+<script>
+    document.getElementById('file').addEventListener('change', function(e) {
+        const fileInput = e.target;
+        const fileName = document.getElementById('name');
+        const fileNameContainer = document.getElementById('file-name');
+        const clique = document.getElementById('clique');
+      
+        if (fileInput.files && fileInput.files[0]) {
+            fileName.textContent = fileInput.files[0].name;
+            fileNameContainer.classList.remove('hidden');
+        } else {
+            fileName.textContent = '';
+            fileNameContainer.classList.add('hidden');
+            
+        }
+    });
+</script>
 
 @endsection
 @push('custom-scripts')

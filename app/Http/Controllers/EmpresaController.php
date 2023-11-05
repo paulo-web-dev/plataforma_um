@@ -9,6 +9,7 @@ use App\Models\Equipe;
 use App\Models\Objetivos;
 use App\Models\Disposicoes;
 use App\Models\Metodologia;
+use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
 {
@@ -57,6 +58,7 @@ class EmpresaController extends Controller
 
         $empresa = new Empresas(); 
         $empresa->nome = $request->nome;
+        $empresa->id_user = Auth::user()->id;
         $empresa->titulo = $request->titulo;
         $empresa->periodo_inspecao = $request->periodo_inspecao;
         $empresa->cnpj = $request->cnpj;

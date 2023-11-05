@@ -286,10 +286,12 @@ Route::post('/upload/populacao', [PopulacaoController::class, 'uploadPopulacao']
 
 //Rotas referente a upload de população de subsetor
 Route::get('/form/subsetor/populacao/{id_subsetor}', [PopulacaoSubSetorController::class, 'formPopulacao'])->name('form-populacao-subsetor');
+Route::get('/form/subsetor/campos/populacao/{id_subsetor}', [PopulacaoSubSetorController::class, 'formPopulacaoCampos'])->name('form-populacao-subsetor-campos');
 Route::get('/info/subsetor/populacao/{id}', [PopulacaoSubSetorController::class, 'infoPopulacao'])->name('info-populacao-subsetor');
 Route::get('/delete/subsetor/populacao/{id}', [PopulacaoSubSetorController::class, 'delete'])->name('delete-populacao-subsetor');
 Route::post('/upload/subsetor/populacao', [PopulacaoSubSetorController::class, 'uploadPopulacao'])->name('upload-populacao-subsetor');
 Route::post('/update/subsetor/populacao', [PopulacaoSubSetorController::class, 'updPopulacao'])->name('update-populacao-subsetor');
+Route::post('/cad/subsetor/populacao', [PopulacaoSubSetorController::class, 'cadPopulacao'])->name('cad-populacao-subsetor');
 
 //Rotas referente a upload de mapeamento ergonômico 
 Route::get('/form/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamento'])->name('form-mapeamento');

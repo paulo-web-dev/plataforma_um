@@ -260,6 +260,11 @@ ul{
   
 </style>
    </head>
+   @if($alert != 0)
+   <script>
+      alert("Você ainda não definiu sua identidade visual prórpia, faça isso no menu!");
+   </script>
+   @endif
    <body>
       {{-- Capa --}}
       {{-- <div class="homepage">
@@ -1025,7 +1030,7 @@ chart.column(chartData);
             ];
             @endphp
          <div style="margin-left: 10%; margin-top: 50px">
-		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">Desconforto Osteomioarticular</p>
+		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">{{$subsetor->dadossaude->titulo}}</p>
              <div class="grafico-saude">
          <div id="dadosaude{{$subsetor->id}}" style="height: 600px;" ></div>
             </div>

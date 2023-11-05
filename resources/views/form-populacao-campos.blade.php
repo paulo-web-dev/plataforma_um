@@ -7,10 +7,10 @@
             <h2 class="font-medium text-base mr-auto">
                Dado de População
             </h2>
-            <a href="{{ route('info-subsetor',  ['id' => $populacao->id_subsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
+            <a href="{{ route('info-subsetor',  ['id' => $id_subsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
         </div>
 
-        <form action="{{ route('update-populacao-subsetor') }}" enctype="multipart/form-data" data-single="true" method="post">
+        <form action="{{ route('cad-populacao-subsetor') }}" enctype="multipart/form-data" data-single="true" method="post">
             <div class="p-5">
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger alert-dismissible show flex items-center mb-2" role="alert">
@@ -24,32 +24,33 @@
                 <div class="grid grid-cols-12 gap-x-5">
 
                     @csrf
-                    <input type="hidden" name="id" value="{{$populacao->id}}">
+                    <input type="hidden" name="id_subsetor" value="{{$id_subsetor}}">
                     <div class="col-span-12 xl:col-span-6">
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Nome</strong></label>
                             <input id="update-profile-form-7" type="text" name="nome" class="form-control"
-                                placeholder="Nome" value="{{$populacao->nome}}">
+                                placeholder="Nome" value="">
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Idade</strong></label>
                             <input id="update-profile-form-7" type="number" name="idade" class="form-control"
-                                placeholder="Idade" value="{{$populacao->idade}}">
+                                placeholder="Idade" value="}">
                         </div>
 
                         
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Tempo de Empresa</strong></label>
                             <input id="update-profile-form-7" type="number" name="tempo_empresa" class="form-control"
-                                placeholder="Tempo de Empresa" value="{{$populacao->tempo_empresa}}">
+                                placeholder="Tempo de Empresa" value="">
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Sexo</strong></label>
                                 <select class="form-control" name="sexo" id="sexo">
-                                        <option  value="FEM.">Feminino</option>  
-                                        <option @if($populacao->sexo == 'MASC.') selected @endif value="MASC.">Masculino</option>
+                                        <option value="MASC.">Masculino</option>
+                                        <option value="FEM.">Feminino</option>  
+                                        
                                                                            
                             </select>
                         </div>
@@ -58,7 +59,7 @@
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Escolaridade</strong></label>
                                 <select class="form-control" name="escolaridade" id="escolaridade">
-                                         <option value="{{$populacao->escolaridade}}">{{$populacao->escolaridade}}</option>
+                                         
                                         <option value="PRIMEIRO GRAU COMPLETO">PRIMEIRO GRAU COMPLETO</option>
                                         <option value="SEGUNDO GRAU COMPLETO">SEGUNDO GRAU COMPLETO</option>
                                         <option value="TERCEIRO GRAU COMPLETO">TERCEIRO GRAU COMPLETO</option>                                  
@@ -66,7 +67,7 @@
                         </div>
                     
                 <div class="flex justify-end mt-4">
-                    <button type="submit" class="btn btn-primary w-40 mr-auto">Atualizar População</button>
+                    <button type="submit" class="btn btn-primary w-40 mr-auto">Cadastrar População</button>
                 </div>
             </div>
         </form>

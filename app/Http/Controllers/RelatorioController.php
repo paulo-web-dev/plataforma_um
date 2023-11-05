@@ -18,6 +18,14 @@ class RelatorioController extends Controller
     public function gerarRelatorio($id){
 
         $identidade = IdentidadeVisual::where('id_user', Auth::user()->id)->first();
+        $alert = 0;
+        if(!isset($identidade)){
+            $identidade = new IdentidadeVisual();
+            $identidade->cor_principal = '#027dc3';
+            $identidade->foto_empresa = 'logo_plataforma_um%20(1).jpeg';
+            $alert = 1;
+        }
+       
         $empresa = Empresas::where('id', $id)
         ->with('setores')
         ->with('introducao')
@@ -36,6 +44,7 @@ class RelatorioController extends Controller
         return view('relatorio',[
             'empresa' => $empresa,
             'identidade' => $identidade,
+            'alert' => $alert,
         ]);
 
     }
