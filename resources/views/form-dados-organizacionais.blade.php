@@ -4,7 +4,7 @@
 
  <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Cadastrar Dados Organizacionais
+            Cadastrar Características da Organização do Trabalho
         </h2>
          <a href="{{ route('info-subsetor',  ['id' => $idsubsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
     </div>
@@ -45,9 +45,107 @@
                             <div class="col-span-12 xl:col-span-6">
                                 <div class="mt-3">
                                     <label for="nome" class="form-label"><strong>Dado:</strong></label>
-                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
-                                        placeholder="Dado Organizacional" required>
+                                     <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Número de Funcionários" value="Número de Funcionários:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                       
                                 </div>
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Jornada de Trabalho:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+                                   <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Carga Horária:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Diversificação de Tarefas:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Rodízio de Atividades:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Ritimo de Trabalho:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Movimentação Repetitiva:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Ciclo de Trabalho:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Movimentação de Cargas:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Metas:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+
+                                 <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Produtividade:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+
+                                
+                                 <div class="mt-3">
+                                    <label for="nome" class="form-label"><strong>Dado:</strong></label>
+                                    <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
+                                        placeholder="Dado Organizacional" value="Dados de Produção:" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
+                                </div>
+                             
                                 <div id="dynamic-fields"></div>
                                
                                 
@@ -58,10 +156,10 @@
                         
 
                         <div class="intro-y box col-span-12 xxl:col-span-12">
-                        <button type="button" class="btn btn-primary w-40" style="margin:5px" onclick="addDados()">Adicionar Mais Dados Organizacionais</button>
+                        <button type="button" class="btn btn-primary w-40" style="margin:5px" onclick="addDados()">Adicionar Mais Características da Organização do Trabalho</button>
                             <button type="submit" class="btn btn-primary w-full  mr-2 mb-2"> <i data-feather="activity"
                                     class="w-4 h-4 mr-2"></i>
-                                Adicionar Dados Organizacionais </button>
+                                Adicionar Características da Organização do Trabalho </button>
                         </div>
                     </div>
             </form>
@@ -69,16 +167,27 @@
     </div>
 @endsection
 <script>
+function removeInput(element) {
+    // Encontre o elemento pai do ícone de fechar
+    var inputContainer = element.parentNode;
+    // Remova o elemento pai, que contém o input e o ícone de fechar
+    inputContainer.parentNode.removeChild(inputContainer);
+}
     function addDados() {
         const inputField = document.createElement('div');
         inputField.innerHTML = `
             <div class="mt-3">
                 <label for="nome" class="form-label"><strong>Dado:</strong></label>
                 <input id="num_funcionarios" type="text" name="dado[]" class="form-control" placeholder="Dado Organizacional" required>
+                                        <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                        </span>
             </div>
         `;
         document.getElementById('dynamic-fields').appendChild(inputField);
     }
+
+    
 </script>
 @push('custom-scripts')
     

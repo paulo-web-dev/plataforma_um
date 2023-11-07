@@ -175,6 +175,10 @@
             .rotated {
                 transform: rotate(180deg);
             }
+            .close-button{
+                 position:absolute !important;
+                 margin:5px;
+            }
         </style>
 
 </body>

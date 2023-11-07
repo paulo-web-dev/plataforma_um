@@ -28,12 +28,93 @@
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
                             <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
-                                placeholder="Titulo da Caracteristica" value="" required>
+                                placeholder="Titulo da Caracteristica" value="Postura de Trabalho:" required>
+                                <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                               
                         </div>
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
                             <textarea class="form-control editor" name="descricao[]" id="descricao" cols="30" rows="15"></textarea>
+                             <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                        
+                        </div>
+
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
+                            <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
+                                placeholder="Titulo da Caracteristica" value="Descrição do Posto de Trabalho:" required>
+                                <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                                
+                        </div>
+                   
+                         <div class="mt-3"  id="link">
+                            <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
+                            <textarea class="form-control editor" name="descricao[]" id="descricao" cols="30" rows="15"></textarea>
+                             <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                        </div>
+
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
+                            <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
+                                placeholder="Titulo da Caracteristica" value="Medidas da Bancada de Trabalho:" required>
+                                <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                                
+                        </div>
+                   
+                         <div class="mt-3"  id="link">
+                            <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
+                            <textarea class="form-control editor" name="descricao[]" id="descricao" cols="30" rows="15"></textarea>
+                             <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                        </div>
+                        
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
+                            <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
+                                placeholder="Titulo da Caracteristica" value="Descrição dos Equipamentos/Ferramentas de Trabalho:" required>
+                                <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                                
+                        </div>
+                   
+                         <div class="mt-3"  id="link">
+                            <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
+                            <textarea class="form-control editor" name="descricao[]" id="descricao" cols="30" rows="15"></textarea>
+                             <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                        </div>
+
+                        
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
+                            <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
+                                placeholder="Titulo da Caracteristica" value="Descrição dos Equipamentos de Segurança:" required>
+                                <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
+                                
+                        </div>
+                   
+                         <div class="mt-3"  id="link">
+                            <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
+                            <textarea class="form-control editor" name="descricao[]" id="descricao" cols="30" rows="15"></textarea>
+                             <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
                         </div>
                         <div id="dynamic-fields"></div>
                     
@@ -56,16 +137,29 @@
                             <label for="update-profile-form-7" class="form-label"><strong>Titulo</strong></label>
                             <input id="update-profile-form-7" type="text" name="titulo[]" class="form-control"
                                 placeholder="Titulo da Caracteristica" value="" required>
+                                <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
                         </div>
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
                             <textarea class="form-control editor" name="descricao[]" id="descricao" cols="30" rows="15"></textarea>
+                             <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
+                                            <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
+                                </span>
                         </div>
                     
         `;
         document.getElementById('dynamic-fields').appendChild(inputField);
     }
+
+    function removeInput(element) {
+    // Encontre o elemento pai do ícone de fechar
+    var inputContainer = element.parentNode;
+    // Remova o elemento pai, que contém o input e o ícone de fechar
+    inputContainer.parentNode.removeChild(inputContainer);
+}
 </script>
 @push('custom-scripts')
 
