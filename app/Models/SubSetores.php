@@ -125,7 +125,7 @@ class SubSetores extends Model
 
     public function dadossaude(){
         
-        return $this->hasOne(DadosSaude::class, 'id_subsetor', 'id');
+        return $this->hasOne(DadosSaude::class, 'id_subsetor', 'id')->with('segmentos');
   
       }
 

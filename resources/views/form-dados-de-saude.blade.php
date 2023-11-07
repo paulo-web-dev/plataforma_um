@@ -43,6 +43,71 @@
                                 placeholder="Não Queixas (NÃO)" value="" required>
                         </div>
 
+                        
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Coluna Cervical</strong></label>
+                            <input id="update-profile-form-7" type="number" name="coluna_cervical" class="form-control"
+                                placeholder="Coluna Cervical" value="" >
+                        </div>
+
+                                                
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Coluna Toracica</strong></label>
+                            <input id="update-profile-form-7" type="number" name="coluna_toracica" class="form-control"
+                                placeholder="Coluna Toracica" value="" >
+                        </div>
+
+                                                
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Coluna Lombar</strong></label>
+                            <input id="update-profile-form-7" type="number" name="coluna_lombar" class="form-control"
+                                placeholder="Coluna Lombar" value="" >
+                        </div>
+
+
+                                                
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Ombro</strong></label>
+                            <input id="update-profile-form-7" type="number" name="ombro" class="form-control"
+                                placeholder="Ombro" value="" >
+                        </div>
+
+                                                
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Cotovelo</strong></label>
+                            <input id="update-profile-form-7" type="number" name="cotovelo" class="form-control"
+                                placeholder="Cotovelo" value="" >
+                        </div>
+
+                                                
+                         <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Punho/Mão</strong></label>
+                            <input id="update-profile-form-7" type="number" name="punho_mao" class="form-control"
+                                placeholder="Punho/Mão" value="" >
+                        </div>
+
+                        <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Quadril</strong></label>
+                            <input id="update-profile-form-7" type="number" name="quadril" class="form-control"
+                                placeholder="Quadril" value="" >
+                        </div>
+
+                        
+                        <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Joelho</strong></label>
+                            <input id="update-profile-form-7" type="number" name="joelho" class="form-control"
+                                placeholder="Joelho" value="" >
+                        </div>
+
+                          
+                        <div class="mt-3">
+                            <label for="update-profile-form-7" class="form-label"><strong>Tornozelo</strong></label>
+                            <input id="update-profile-form-7" type="number" name="tornozelo" class="form-control"
+                                placeholder="Tornozelo" value="" >
+                        </div>
+
+                        
+
 
                          {{-- <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição do SubSetor</strong></label>

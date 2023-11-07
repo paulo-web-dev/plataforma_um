@@ -1023,6 +1023,7 @@ chart.column(chartData);
          <p style="font-size: 21px;">Por meio de uma entrevista individualizada (com participação de 100% dos trabalhadores do setor) foi aplicado um questionário com questões abertas com a finalidade de identificar os principais desconfortos referidos pelos
             trabalhadores e que podem influenciar o seu desempenho durante o processo de trabalho.</li>
          <p>
+       
             @php
             $sim = $subsetor->dadossaude->sim;
             $nao = $subsetor->dadossaude->nao;
@@ -1033,13 +1034,20 @@ chart.column(chartData);
             'labels' => ['Sim', 'Não'],
             'data' => [$porcentagemSim, $porcentagemNao],
             ];
+
+    
+
             @endphp
          <div style="margin-left: 10%; margin-top: 50px">
 		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">{{$subsetor->dadossaude->titulo}}</p>
-             <div class="grafico-saude">
-         <div id="dadosaude{{$subsetor->id}}" style="height: 600px;" ></div>
+            <div class="grafico-container">
+               <div id="dadosaude{{$subsetor->id}}" style="height: 280px; width: 160%; margin-left: -70px"></div>
             </div>
-         </div>
+         <p class="text-center" style="font-size: 22px; font-weight: bold;">Segmento Corporal</p>
+            <div class="grafico-container">
+               <div id="segmento{{$subsetor->id}}" style="height: 280px; width: 160%; margin-left: -70px" ></div>
+            </div>
+         </div> 
          <script>
          
          //Gráfico Faixa Etaria
@@ -1099,8 +1107,100 @@ chart.column(chartData);
   // initiate chart drawing
   chart.draw();
 });
+
+
+
+</script>
+   @if (isset($subsetor->dadossaude->segmentos))
+   @php 
+           $colunaCervical = $subsetor->dadossaude->segmentos->coluna_cervical ?? 0;
+            $colunaToracica = $subsetor->dadossaude->segmentos->coluna_toracica ?? 0;
+            $colunaLombar = $subsetor->dadossaude->segmentos->coluna_lombar ?? 0;
+            $ombro = $subsetor->dadossaude->segmentos->ombro ?? 0;
+            $cotovelo = $subsetor->dadossaude->segmentos->cotovelo ?? 0;
+            $punhoMao = $subsetor->dadossaude->segmentos->punho_mao ?? 0;
+            $quadril = $subsetor->dadossaude->segmentos->quadril ?? 0;
+            $joelho = $subsetor->dadossaude->segmentos->joelho ?? 0;
+            $tornozeloPe = $subsetor->dadossaude->segmentos->tornozelo ?? 0;
+
+
+            $total = $colunaCervical + $colunaToracica + $colunaLombar + $ombro + $cotovelo + $punhoMao + $quadril + $joelho + $tornozeloPe;
+            $porcentagemColunaCervical = round(($colunaCervical / $total) * 100);
+            $porcentagemColunaToracica = round(($colunaToracica / $total) * 100);
+            $porcentagemColunaLombar = round(($colunaLombar / $total) * 100);
+            $porcentagemOmbro = round(($ombro / $total) * 100);
+            $porcentagemCotovelo = round(($cotovelo / $total) * 100);
+            $porcentagemPunhoMao = round(($punhoMao / $total) * 100);
+            $porcentagemQuadril = round(($quadril / $total) * 100);
+            $porcentagemJoelho = round(($joelho / $total) * 100);
+            $porcentagemTornozeloPe = round(($tornozeloPe / $total) * 100);
+
+   @endphp
+<script>
+
+
+//GRÁFICO SEGMENTOS CORPORAIS
+ //Gráfico Faixa Etaria
+   anychart.onDocumentReady(function () {
+  // create column chart
+  var chart = anychart.column3d();
+
+  // turn on chart animation
+  chart.animation(true);
+    
+var chartData = [];
+  var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
+
+
+  var chartData = [
+    { x: 'Coluna Cervical', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
+    { x: 'Coluna Toracica', value: {{$porcentagemColunaToracica}}, fill: '#FFC300' },
+    { x: 'Coluna Lombar', value: {{$porcentagemColunaLombar}}, fill: '#3498DB' },
+    { x: 'Ombro', value: {{$porcentagemOmbro}}, fill: '#32CD32' },
+    { x: 'Cotovelo', value: {{$porcentagemCotovelo}}, fill: '#FF9900' },
+    { x: 'Punho/Mão', value: {{$porcentagemPunhoMao}}, fill: '#66CCCC' },
+    { x: 'Quadril', value: {{$porcentagemQuadril}}, fill: '#993366' },
+    { x: 'Joelho', value: {{$porcentagemJoelho}}, fill: '#996633' },
+   { x: 'Tornozelo/Pé', value: {{$porcentagemTornozeloPe}}, fill: '#0099CC' },
+  ];
+   
+
+  // create area series with passed data e atribuir cores da paleta personalizada
+chart.column(chartData);
+
+  // Adicionar rótulos no topo de cada barra
+  chart.getSeries(0).labels().enabled(true);
+  chart.getSeries(0).labels().position('top');
+  chart.getSeries(0).labels().format('{%Value} %');
+  chart.background().fill("#f0f0f0");
+  chart
+    .tooltip()
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5)
+    .format('{%Value}%');
+
+  // set scale minimum
+  chart.yScale().minimum(0);
+
+  // set yAxis labels formatter
+  chart.yAxis().labels().format('{%Value}%');
+
+  chart.tooltip().positionMode('point');
+  chart.interactivity().hoverMode('by-x');
+  chart.yScale().minimum(0);
+  chart.yScale().maximum(100);
+
+  // set container id for the chart
+  chart.container('segmento{{$subsetor->id}}');
+
+  // initiate chart drawing
+  chart.draw();
+});
           
          </script>
+         @endif
       </div>
        @endif
       <div class="paginacao">
