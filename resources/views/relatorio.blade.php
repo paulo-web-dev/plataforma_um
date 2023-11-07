@@ -317,8 +317,12 @@ ul{
                <li><span class="titulo">Objetivos Da Análise Ergônomica Do Trabalho</span> <span class="pagina">6</span></li>
                <li><span class="titulo">Metodologia Empregada</span> <span class="pagina">7</span></li>
                <li><span class="titulo">Demanda</span> <span class="pagina">9</span></li>
+               @if(isset($empresa->analise))
                <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">10</span></li>
                <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">11</span></li>
+               @else
+               <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">10</span></li>
+               @endif
                <div id="postos" style="margin-left:20px"></div>
                @if (count($empresa->mapeamento) > 1)
                <li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
@@ -490,7 +494,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          </ul> <br>
 
       </div>
-
+ @if(isset($empresa->analise))
        <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -498,16 +502,17 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       <div class="page">
  
 {{-- Ánalise GLobal --}}
+
       <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Ánalise Global da Empresa </p>
          </div>
          <ul>
-            @if(isset($empresa->analise))
+           
             <p><?= $empresa->analise->analise ?></p>
-            @endif
+            
          </ul>
       </div>
-
+@endif
    {{-- Ánalise Dos Postos de Trabalho --}}
       <div class="paginacao">
          <script>paginacao()</script>
