@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Nome</strong></label>
+                            <label for="update-profile-form-7" class="form-label"><strong>Setor</strong></label>
                             <input id="update-profile-form-7" type="text" name="nome" class="form-control"
                                 placeholder="Nome do Setor" value="" required>
                         </div>

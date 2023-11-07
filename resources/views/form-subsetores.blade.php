@@ -27,7 +27,7 @@
                     <input type="hidden" name="id_setor" value="{{$idsetor}}">
                     <div class="col-span-12 xl:col-span-6">
                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Nome</strong></label>
+                            <label for="update-profile-form-7" class="form-label"><strong>Posto de Trabalho</strong></label>
                             <input id="update-profile-form-7" type="text" name="nome" class="form-control"
                                 placeholder="Nome do Posto de Trabalho" value="" required>
                         </div>

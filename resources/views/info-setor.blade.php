@@ -37,7 +37,7 @@
                         </div>
                     
                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Nome</strong></label>
+                            <label for="update-profile-form-7" class="form-label"><strong>Setor</strong></label>
                             <input id="update-profile-form-7" type="text" name="nome" class="form-control"
                                 placeholder="Nome do Setor" value="{{$setor->nome}}">
                         </div>
@@ -72,7 +72,7 @@
                             <thead>
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Nome</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Posto de Trabalho</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                 </tr>
