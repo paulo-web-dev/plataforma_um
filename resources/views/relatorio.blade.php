@@ -1535,17 +1535,47 @@ chart.column(chartData);
             encerramento.innerHTML = paginacao();
          </script>
       </div>
-      <div class="page">
+      
+
+        <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Moore & Garg</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Checklist</p>
          </div>
-         <img src="/fotos/moore.png" style="max-width: 700px">
+            <table class="table table-striped" style="width: 80%; margin-top: 20px">
+ 
+  <tbody>
+    <tr>
+   
+      
+    </tr>
+    <tr>
+   
+      <td>Mark</td>
+      <td>Otto</td>
+    </tr>
+  </tbody>
+</table>
       </div>
       <div class="paginacao">
          <script>
             var anexos = document.getElementById('anexos'); 
             anexos.innerHTML = paginacao();
          </script>
+      </div>
+
+
+
+      <div class="page">
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Moore & Garg</p>
+         </div>
+         <img src="/fotos/moore.png" style="max-width: 700px">
+      </div>
+         <div class="paginacao">
+         <script> paginacao();</script>
+      </div>
+      <div class="paginacao">
+      
       </div>
       <div class="page">
          <div class="subcabecalho2">

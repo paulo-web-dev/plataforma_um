@@ -128,6 +128,7 @@ class EmpresaController extends Controller
         ->with('planodeacao')
         ->with('responsaveis')
         ->with('area')
+        ->with('ChecklistCadeira')
         ->first();
 
 

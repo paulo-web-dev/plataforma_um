@@ -39,6 +39,7 @@ use App\Http\Controllers\FuncaoController;
 use App\Http\Controllers\AnaliseAtividadeController;
 use App\Http\Controllers\IdentidadeVisualController;
 use App\Http\Controllers\DescricaoFotoController;
+use App\Http\Controllers\ChecklistsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -334,6 +335,14 @@ Route::get('/info/responsaveis/{id}', [ReponsaveisController::class, 'infoRespon
 Route::get('/delete/responsaveis/{id}', [ReponsaveisController::class, 'delete'])->name('delete-responsaveis');
 Route::post('/cadastrar/responsaveis', [ReponsaveisController::class, 'cadResponsaveis'])->name('cad-responsaveis');
 Route::post('/update/responsaveis', [ReponsaveisController::class, 'updResponsaveis'])->name('upd-responsaveis');
+
+//Rotas Pertinentes ao cadastro de Checklists
+Route::get('/checklists', [ChecklistsController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/checklists/{idempresa}', [ChecklistsController::class, 'formChecklists'])->name('form-checklists');
+Route::get('/info/checklists/{id}', [ChecklistsController::class, 'infoChecklists'])->name('info-checklists'); 
+Route::get('/delete/checklists/{id}', [ChecklistsController::class, 'delete'])->name('delete-checklists'); 
+Route::post('/cadastrar/checklists', [ChecklistsController::class, 'cadChecklists'])->name('cad-checklists');
+Route::post('/update/checklists', [ChecklistsController::class, 'updChecklists'])->name('upd-checklists');
 
 //Rotas referentes ao relatório
 
