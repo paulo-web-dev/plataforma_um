@@ -58,6 +58,7 @@ class DadosSaudeController extends Controller
         $dado->nao = $request->nao;
         $dado->save();
         $segmento = SegmentoCorporal::where('id_dados_saude', $dado->id)->first();
+        if(isset($segmento)){
         $segmento->coluna_cervical = $request->coluna_cervical;
         $segmento->coluna_toracica = $request->coluna_toracica;
         $segmento->coluna_lombar = $request->coluna_lombar;
@@ -68,6 +69,20 @@ class DadosSaudeController extends Controller
         $segmento->joelho = $request->joelho;
         $segmento->tornozelo = $request->tornozelo;
         $segmento->save();
+    }else{
+        $segmento = new SegmentoCorporal();
+        $segmento->id_dados_saude = $request->id;
+        $segmento->coluna_cervical = $request->coluna_cervical;
+        $segmento->coluna_toracica = $request->coluna_toracica;
+        $segmento->coluna_lombar = $request->coluna_lombar;
+        $segmento->ombro = $request->ombro;
+        $segmento->cotovelo = $request->cotovelo;
+        $segmento->punho_mao = $request->punho_mao;
+        $segmento->quadril = $request->quadril;  
+        $segmento->joelho = $request->joelho;
+        $segmento->tornozelo = $request->tornozelo;
+        $segmento->save();
+    }
         
         return redirect()->route('info-subsetor', ['id' => $dado->id_subsetor]);  
     }
