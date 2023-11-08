@@ -52,7 +52,7 @@ class RelatorioController extends Controller
         ->with('ChecklistSuporteTeclado')
         ->with('ChecklistTeclado')
         ->first();
-        dd();
+      
         return view('relatorio',[
             'empresa' => $empresa,
             'identidade' => $identidade,
