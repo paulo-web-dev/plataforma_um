@@ -44,67 +44,59 @@
                         </div>
 
                           
-                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Coluna Cervical</strong></label>
-                            <input id="update-profile-form-7" type="number" name="coluna_cervical" class="form-control"
-                                placeholder="Coluna Cervical" value="{{$segmento->coluna_cervical}}" >
-                        </div>
-
-                                                
-                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Coluna Toracica</strong></label>
-                            <input id="update-profile-form-7" type="number" name="coluna_toracica" class="form-control"
-                                placeholder="Coluna Toracica" value="{{$segmento->coluna_toracica}}" >
-                        </div>
-
-                                                
-                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Coluna Lombar</strong></label>
-                            <input id="update-profile-form-7" type="number" name="coluna_lombar" class="form-control"
-                                placeholder="Coluna Lombar" value="{{$segmento->coluna_lombar}}" >
-                        </div>
-
-
-                                                
-                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Ombro</strong></label>
-                            <input id="update-profile-form-7" type="number" name="ombro" class="form-control"
-                                placeholder="Ombro" value="{{$segmento->ombro}}" >
-                        </div>
-
-                                                
-                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Cotovelo</strong></label>
-                            <input id="update-profile-form-7" type="number" name="cotovelo" class="form-control"
-                                placeholder="Cotovelo" value="{{$segmento->cotovelo}}" >
-                        </div>
-
-                                                
-                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Punho/Mão</strong></label>
-                            <input id="update-profile-form-7" type="number" name="punho_mao" class="form-control"
-                                placeholder="Punho/Mão" value="{{$segmento->punho_mao}}" >
-                        </div>
-
                         <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Quadril</strong></label>
-                            <input id="update-profile-form-7" type="number" name="quadril" class="form-control"
-                                placeholder="Quadril" value="{{$segmento->quadril}}" >
-                        </div>
+    <label for="update-profile-form-7" class="form-label"><strong>Coluna Cervical</strong></label>
+    <input id="update-profile-form-7" type="number" name="coluna_cervical" class="form-control"
+        placeholder="Coluna Cervical" value="{{isset($segmento->coluna_cervical) ? $segmento->coluna_cervical : ''}}">
+</div>
 
-                        
-                        <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Joelho</strong></label>
-                            <input id="update-profile-form-7" type="number" name="joelho" class="form-control"
-                                placeholder="Joelho" value="{{$segmento->joelho}}" >
-                        </div>
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Coluna Toracica</strong></label>
+    <input id="update-profile-form-7" type="number" name="coluna_toracica" class="form-control"
+        placeholder="Coluna Toracica" value="{{isset($segmento->coluna_toracica) ? $segmento->coluna_toracica : ''}}">
+</div>
 
-                          
-                        <div class="mt-3">
-                            <label for="update-profile-form-7" class="form-label"><strong>Tornozelo</strong></label>
-                            <input id="update-profile-form-7" type="number" name="tornozelo" class="form-control"
-                                placeholder="Tornozelo" value="{{$segmento->tornozelo}}" >
-                        </div>
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Coluna Lombar</strong></label>
+    <input id="update-profile-form-7" type="number" name="coluna_lombar" class = "form-control"
+        placeholder="Coluna Lombar" value="{{isset($segmento->coluna_lombar) ? $segmento->coluna_lombar : ''}}">
+</div>
+
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Ombro</strong></label>
+    <input id="update-profile-form-7" type="number" name="ombro" class="form-control"
+        placeholder="Ombro" value="{{isset($segmento->ombro) ? $segmento->ombro : ''}}">
+</div>
+
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Cotovelo</strong></label>
+    <input id="update-profile-form-7" type="number" name="cotovelo" class="form-control"
+        placeholder="Cotovelo" value="{{isset($segmento->cotovelo) ? $segmento->cotovelo : ''}}">
+</div>
+
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Punho/Mão</strong></label>
+    <input id="update-profile-form-7" type="number" name="punho_mao" class="form-control"
+        placeholder="Punho/Mão" value="{{isset($segmento->punho_mao) ? $segmento->punho_mao : ''}}">
+</div>
+
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Quadril</strong></label>
+    <input id="update-profile-form-7" type="number" name="quadril" class="form-control"
+        placeholder="Quadril" value="{{isset($segmento->quadril) ? $segmento->quadril : ''}}">
+</div>
+
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Joelho</strong></label>
+    <input id="update-profile-form-7" type="number" name="joelho" class="form-control"
+        placeholder="Joelho" value="{{isset($segmento->joelho) ? $segmento->joelho : ''}}">
+</div>
+
+<div class="mt-3">
+    <label for="update-profile-form-7" class="form-label"><strong>Tornozelo</strong></label>
+    <input id="update-profile-form-7" type="number" name="tornozelo" class="form-control"
+        placeholder="Tornozelo" value="{{isset($segmento->tornozelo) ? $segmento->tornozelo : ''}}">
+</div>
 
 
                          {{-- <div class="mt-3"  id="link">
