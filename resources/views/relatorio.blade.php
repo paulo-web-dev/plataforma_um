@@ -704,7 +704,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
                <img src="/fotos-atividades/{{$foto->photo}}" alt="Imagem" style=" max-height: 250px ;">
             </div>
             @endforeach
+            @if (isset($subsetor->descricaoFotos))
+                 <p>{{$subsetor->descricaoFotos->descricao}}</p>
+            @else
             <p>Fotos - Funcionário executando atividade: {{$subsetor->nome}}</p>
+            @endif
          </div>
       </div>
       <div class="paginacao">

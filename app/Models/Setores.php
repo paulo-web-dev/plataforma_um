@@ -33,6 +33,7 @@ class Setores extends Model
         ->with('analiseAtividade')
         ->with('tarefa')
         ->with('funcao')
+        ->with('descricaoFotos')
         ->with('recomendacao');
         
 

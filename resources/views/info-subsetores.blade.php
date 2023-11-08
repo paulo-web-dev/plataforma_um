@@ -226,6 +226,69 @@
         </div>
     </div>
 
+    <!-- Lista de Descrição de Fotos -->
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Lista de Descricação de Fotos
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Descrição</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                @if (isset($subsetor->descricaoFotos))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$subsetor->descricaoFotos->id}}</td>
+                                        <td class="border">{{$subsetor->descricaoFotos->descricao}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-descricao-foto', ['id' => $subsetor->descricaoFotos->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                               <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                   href="{{route('delete-descricao-foto', ['id' => $subsetor->descricaoFotos->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-descricao-foto', ['id_subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Descrição de Fotos</a>
+            </div>    
+        </div>
+    </div>
+    
+
      <!-- Lista de Dados Organizacionais -->
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">

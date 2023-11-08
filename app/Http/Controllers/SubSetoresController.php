@@ -49,6 +49,7 @@ class SubSetoresController extends Controller
         ->with('analiseAtividade')
         ->with('tarefa')
         ->with('funcao')
+        ->with('descricaoFotos')
         ->first();  
   
         return view('info-subsetores',[

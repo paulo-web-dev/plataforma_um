@@ -38,6 +38,7 @@ use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\FuncaoController;
 use App\Http\Controllers\AnaliseAtividadeController;
 use App\Http\Controllers\IdentidadeVisualController;
+use App\Http\Controllers\DescricaoFotoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -114,6 +115,15 @@ Route::get('/info/funcao/{id}', [FuncaoController::class, 'infoFuncao'])->name('
 Route::get('/delete/funcao/{id}', [FuncaoController::class, 'delete'])->name('delete-funcao'); 
 Route::post('/cadastrar/funcao', [FuncaoController::class, 'cadFuncao'])->name('cad-funcao');
 Route::post('/update/funcao', [FuncaoController::class, 'updFuncao'])->name('upd-funcao');
+
+//Rotas Pertitentes as Descrições de Foto
+Route::get('/descricao-foto', [DescricaoFotoController::class, 'show'])->name('show-areas');
+Route::get('/form/descricao-foto/{id_subsetor}', [DescricaoFotoController::class, 'formDescricaoFoto'])->name('form-descricao-foto');
+Route::get('/info/descricao-foto/{id}', [DescricaoFotoController::class, 'infoDescricaoFoto'])->name('info-descricao-foto'); 
+Route::get('/delete/descricao-foto/{id}', [DescricaoFotoController::class, 'delete'])->name('delete-descricao-foto'); 
+Route::post('/cadastrar/descricao-foto', [DescricaoFotoController::class, 'cadDescricaoFoto'])->name('cad-descricao-foto');
+Route::post('/update/descricao-foto', [DescricaoFotoController::class, 'updDescricaoFoto'])->name('upd-descricao-foto');
+
 
 //Rotas Pertitentes as Tarefas
 Route::get('/tarefas', [TarefaController::class, 'show'])->name('show-areas');

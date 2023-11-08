@@ -147,4 +147,11 @@ class SubSetores extends Model
         return $this->hasOne(Funcao::class, 'id_subsetor', 'id');
   
       }
+
+      
+      public function descricaoFotos(){
+        
+        return $this->hasOne(DescricaoFoto::class, 'id_subsetor', 'id');
+  
+      }
 }
