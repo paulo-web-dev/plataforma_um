@@ -216,7 +216,7 @@ class ChecklistsController extends Controller
         $checklistIluminacao->brilho_piso_baixo = $request->has('brilho_piso_baixo') ? 1 : 0;
         $checklistIluminacao->legibilidade_documento_satisfatoria = $request->has('legibilidade_documento_satisfatoria') ? 1 : 0;
         $checklistIluminacao->save();
-        return redirect()->route('infoempresa', ['id' => $request->id_empresa]); 
+        return redirect()->route('infoempresa', ['id' => $request->idempresa]); 
     } 
 
 
