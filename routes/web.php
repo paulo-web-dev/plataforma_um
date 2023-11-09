@@ -340,7 +340,7 @@ Route::post('/update/responsaveis', [ReponsaveisController::class, 'updResponsav
 Route::get('/checklists', [ChecklistsController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/checklists/{idempresa}', [ChecklistsController::class, 'formChecklists'])->name('form-checklists');
 Route::get('/info/checklists/{id}', [ChecklistsController::class, 'infoChecklists'])->name('info-checklists'); 
-Route::get('/delete/checklists/{id}', [ChecklistsController::class, 'delete'])->name('delete-checklists'); 
+Route::get('/delete/checklists/{idempresa}', [ChecklistsController::class, 'delete'])->name('delete-checklists'); 
 Route::post('/cadastrar/checklists', [ChecklistsController::class, 'cadChecklists'])->name('cad-checklists');
 Route::post('/update/checklists', [ChecklistsController::class, 'updChecklists'])->name('upd-checklists');
 

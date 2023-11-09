@@ -902,7 +902,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Nome</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Cargo</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
-<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
@@ -963,14 +963,15 @@
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
                                 </tr>
                             </thead>
                             <tbody>
-                             
+                             @if(isset($empresa->ChecklistCadeira))
                                
                                     <tr class="hover:bg-gray-200">
-                                        <td class="border">@if(isset($empresa->ChecklistCadeira))Checklist Adicionada clique em editar para conferir @else Nenhum Checklist adicionado, adicione se necessário! @endif</td>
+                                        <td class="border">Checklist Adicionada clique em editar para conferir</td>
                                       
                                         <td class="border">
                                             <div class="flex justify-center">
@@ -984,9 +985,19 @@
                                         </td>
 
                                                                                                                        
-                                         
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-checklists', ['idempresa' => $empresa->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
                                       
                                     </tr>
+                                    @endif
                                
                             </tbody>
                         </table>

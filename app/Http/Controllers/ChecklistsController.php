@@ -398,4 +398,64 @@ class ChecklistsController extends Controller
         return redirect()->route('infoempresa', ['id' => $request->idempresa]); 
 
     } 
+
+    public function delete($idempresa){
+
+        $checklistApoioPes = ChecklistApoioPes::where('id_empresa', $idempresa)->first();
+        if ($checklistApoioPes) {
+            $checklistApoioPes->delete();
+        }
+
+        $checklistCadeira = ChecklistCadeira::where('id_empresa', $idempresa)->first();
+        if ($checklistCadeira) {
+            $checklistCadeira->delete();
+        }
+
+
+        $ChecklistComputador = ChecklistComputador::where('id_empresa', $idempresa)->first();
+        if ($ChecklistComputador) {
+            $ChecklistComputador->delete();
+        }
+
+        $checklistDocumentos = ChecklistDocumentos::where('id_empresa', $idempresa)->first();
+        if ($checklistDocumentos) {
+            $checklistDocumentos->delete();
+        }
+
+        $ChecklistIluminacao = ChecklistIluminacao::where('id_empresa', $idempresa)->first();
+        if ($ChecklistIluminacao) {
+            $ChecklistIluminacao->delete();
+        }
+
+        $ChecklistMesa = ChecklistMesa::where('id_empresa', $idempresa)->first();
+        if ($ChecklistMesa) {
+            $ChecklistMesa->delete();
+        }
+
+        $ChecklistMonitor = ChecklistMonitor::where('id_empresa', $idempresa)->first();
+        if ($ChecklistMonitor) {
+            $ChecklistMonitor->delete();
+        }
+
+        $checklistSistema = ChecklistSistema::where('id_empresa', $idempresa)->first();
+        if ($checklistSistema) {
+            $checklistSistema->delete();
+        }
+
+
+        $ChecklistSuporteTeclado = ChecklistSuporteTeclado::where('id_empresa', $idempresa)->first();
+        if ($ChecklistSuporteTeclado) {
+            $ChecklistSuporteTeclado->delete();
+        }
+
+
+        $ChecklistNotebook = ChecklistNotebook::where('id_empresa', $idempresa)->first();
+        if ($ChecklistNotebook) {
+            $ChecklistNotebook->delete();
+        }
+
+
+
+        return back();
+    }
 }
