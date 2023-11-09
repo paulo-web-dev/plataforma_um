@@ -94,7 +94,7 @@
                         <div class="mt-3">
                             <label for="conclusao" class="form-label"><strong>Membro</strong></label>
                               <select class="form-control" name="membro[]" id="membro">
-                                        <option value="Braço">Braço</option>  
+                                        <option value="Braços e Antebraços">Braços e Antebraços</option>  
                             </select>
                         </div>
 
@@ -114,7 +114,7 @@
                         <div class="mt-3">
                             <label for="conclusao" class="form-label"><strong>Membro</strong></label>
                               <select class="form-control" name="membro[]" id="membro">
-                                        <option value="Mãos">Mãos</option> 
+                                        <option value="Punhos, Mãos e Dedos">Punhos, Mãos e Dedos</option> 
                             </select>
                         </div>
 
@@ -134,7 +134,7 @@
                         <div class="mt-3">
                             <label for="conclusao" class="form-label"><strong>Membro</strong></label>
                               <select class="form-control" name="membro[]" id="membro">
-                                        <option value="Pernas">Pernas</option>          
+                                        <option value="Pernas, Pés e Dedos">Pernas, Pés e Dedos</option>          
                             </select>
                         </div>
 

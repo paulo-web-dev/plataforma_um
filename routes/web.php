@@ -59,6 +59,7 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
+
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/upload/audio', [AudioController::class, 'uploadAudio'])->name('upload-audio');
 
@@ -68,7 +69,7 @@ Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('fo
 Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
-
+Route::post('/alteracao/ordem/setor', [EmpresaController::class, 'alteraordem'])->name('alteraordem-setor');
 //Rotas Pertinentes a cadastro de Identidade visual 
 Route::get('/identidades', [IdentidadeVisualController::class, 'show'])->name('show-identidade');
 Route::get('/form/identidade-visual', [IdentidadeVisualController::class, 'formIdentidade'])->name('form-identidade');
@@ -179,6 +180,7 @@ Route::get('/form/moore/{idsubsetor}', [MooreGargController::class, 'formMoore']
 Route::get('/form/simplificado/moore/{idsubsetor}', [MooreGargController::class, 'formMooreSimplificado'])->name('form-moore-simplificado');
 Route::get('/info/moore/{id}', [MooreGargController::class, 'infoMoore'])->name('info-moore'); 
 Route::get('/delete/moore/{id}', [MooreGargController::class, 'delete'])->name('delete-moore'); 
+Route::post('/cadastrar/moore', [MooreGargController::class, 'cadMoore'])->name('cad-moore');
 Route::post('/cadastrar/simplificado/moore', [MooreGargController::class, 'cadMooreSimplificado'])->name('cad-moore-simplificado');
 Route::post('/update/moore', [MooreGargController::class, 'updMoore'])->name('upd-moore');
 

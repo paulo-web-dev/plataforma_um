@@ -11,14 +11,13 @@ class Empresas extends Model
 
     protected $table = 'empresas';
 
-    
     public function setores()
-
     {
-
-        return $this->hasMany(Setores::class, 'id_empresa', 'id')->with('subsetores');
-
+        return $this->hasMany(Setores::class, 'id_empresa', 'id')
+                    ->with('subsetores')
+                    ->orderBy('ordenacao');
     }
+    
 
     public function populacao()
 

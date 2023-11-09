@@ -10,14 +10,14 @@
     <meta name="keywords"
         content="admin template, Rubick Admin Template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="LEFT4CODE">
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js">
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
-       
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></>
+
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://johnny.github.io/jquery-sortable/jquery-sortable.js"></script>
 

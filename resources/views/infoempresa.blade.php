@@ -253,6 +253,317 @@
             </form>
         </div>
     </div>
+        <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Introdução
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Introducao</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(isset($empresa->introducao))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">1</td>
+                                        <td class="border"><?=substr($empresa->introducao->introducao, 0, 200)?> </td>
+                         
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-introducao', ['id' => $empresa->introducao->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-introducao', ['id' => $empresa->introducao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                             @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-introducao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Introdução</a>
+            </div>    
+        </div>
+    </div>
+
+    
+     <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Lista de Objetivos
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Objetivo</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                @foreach ($empresa->objetivos as $objetivo) 
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$objetivo->id}}</td>
+                                        <td class="border">{{$objetivo->objetivo}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-objetivo', ['id' => $objetivo->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                                                                
+                                          <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-objetivo', ['id' => $objetivo->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                @endforeach 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-objetivo', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Objetivos</a>
+            </div>    
+        </div>
+
+    
+  <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+               Metodologia
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Metodologia</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(isset($empresa->metodologia))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">1</td>
+                                        <td class="border"><?= substr($empresa->metodologia->metodologia, 0, 200)?>... </td>
+                         
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-metodologia', ['id' => $empresa->metodologia->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                          <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-metodologia', ['id' => $empresa->metodologia->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                    </tr>
+
+                                    
+                                      
+                             @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-metodologia', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Metodologia</a>
+            </div>    
+        </div>
+    </div>
+
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Demanda
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Demanda</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(isset($empresa->demanda))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">1</td>
+                                        <td class="border"><?= substr($empresa->demanda->demanda, 0, 200)?>... </td>
+                         
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-demanda', ['demanda' => $empresa->demanda->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-demanda', ['id' => $empresa->demanda->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                      
+                                    </tr>
+                             @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-demanda', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Demanda</a>
+            </div>    
+        </div>
+    </div>
+
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Ánalise Global
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Ánalise</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
+<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                             @if(isset($empresa->analise))
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">1</td>
+                                        <td class="border"><?= substr($empresa->analise->analise, 0, 200)?>... </td>
+                         
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-analise-global', ['analise' => $empresa->analise->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-analise-global', ['id' => $empresa->analise->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                             @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-analise-global', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Ánalise</a>
+            </div>    
+        </div>
+    </div>
  <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
@@ -324,7 +635,7 @@
             <div class="grid grid-cols-12 gap-x-5">
                 <div class="col-span-12 xl:col-span-12">
                     <div class="overflow-x-auto">
-                        <table class="table">
+                        <table class="table" id="sortable-table">
                             <thead>
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
@@ -335,13 +646,14 @@
                                    
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="sortable-tbody">
                              
                                 @foreach ($empresa->setores as $setor) 
                                     <tr class="hover:bg-gray-200">
                                         <td class="border">{{$setor->id}}</td>
                                         <td class="border">{{$setor->nome}}</td>
-                                         <td class="border">{{$setor->descricao}}</td>
+                                        <td class="border">{{$setor->descricao}}</td>
+                                        <td class="border" style="display: none">{{$loop->index}}</td>
                                         <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
@@ -375,8 +687,69 @@
                 <a href="{{route('form-setores', ['idempresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Setor</a>
             </div>    
         </div>
+<!-- Inclua a biblioteca Sortable -->
 
-    {{-- <div class="intro-y box mt-5">
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+<!-- Inicialize a ordenação -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtenha a tabela e o tbody usando os IDs
+        var table = document.getElementById('sortable-table');
+        var tbody = document.getElementById('sortable-tbody');
+
+        // Inicialize o Sortable
+        var sortable = new Sortable(tbody, {
+            animation: 150,
+            ghostClass: 'bg-gray-300',
+            onEnd: function (evt) {
+                // Atualize os IDs após a ordenação
+                updateIds();
+                sendAjaxRequest();
+            },
+        });
+
+        // Função para atualizar os IDs
+        function updateIds() {
+            var rows = tbody.getElementsByTagName('tr');
+
+            // Atualize os IDs com base na nova ordem
+            for (var i = 0; i < rows.length; i++) {
+                var idCell = rows[i].getElementsByTagName('td')[3];
+                idCell.textContent = i + 1; // Atualiza o ID
+            }
+        }
+      
+    // Função para enviar uma solicitação AJAX
+        function sendAjaxRequest() {
+            var rows = tbody.getElementsByTagName('tr');
+            var data = [];
+
+            // Construa um array de objetos com id e nome
+            for (var i = 0; i < rows.length; i++) {
+                var id = rows[i].getElementsByTagName('td')[0].textContent;
+                var ordenacao = rows[i].getElementsByTagName('td')[3].textContent;
+                data.push({ id: id, ordenacao: ordenacao });
+            }
+            console.log(data);
+        
+
+            axios.post('/alteracao/ordem/setor', { data: data,  _token: '{{ csrf_token() }}', })
+                .then(function (response) {
+                    console.log( response);
+                })
+                .catch(function (error) {
+                    console.error('Erro ao enviar a solicitação', error);
+                });
+                
+        }
+
+        
+    });
+</script>
+   {{-- <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 Populaçao Setor
@@ -444,194 +817,10 @@
     </div>
  --}}
 
-    <div class="intro-y box mt-5">
-        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">
-                Introducao
-            </h2>
-        </div>
-        <div class="p-5">
-            <div class="grid grid-cols-12 gap-x-5">
-                <div class="col-span-12 xl:col-span-12">
-                    <div class="overflow-x-auto">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                   
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Introducao</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
-<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                             @if(isset($empresa->introducao))
-                                    <tr class="hover:bg-gray-200">
-                                        <td class="border">1</td>
-                                        <td class="border"><?=substr($empresa->introducao->introducao, 0, 200)?> </td>
-                         
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-introducao', ['id' => $empresa->introducao->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
 
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('delete-introducao', ['id' => $empresa->introducao->id])}}">
-                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                      
-                                    </tr>
-                             @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-end mt-4">
-                <a href="{{route('form-introducao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Introdução</a>
-            </div>    
-        </div>
-    </div>
-
-    
-    <div class="intro-y box mt-5">
-        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">
-                Demanda
-            </h2>
-        </div>
-        <div class="p-5">
-            <div class="grid grid-cols-12 gap-x-5">
-                <div class="col-span-12 xl:col-span-12">
-                    <div class="overflow-x-auto">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                   
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Demanda</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
-<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                             @if(isset($empresa->demanda))
-                                    <tr class="hover:bg-gray-200">
-                                        <td class="border">1</td>
-                                        <td class="border"><?= substr($empresa->demanda->demanda, 0, 200)?>... </td>
-                         
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-demanda', ['demanda' => $empresa->demanda->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-
-                                         <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('delete-demanda', ['id' => $empresa->demanda->id])}}">
-                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                      
-                                      
-                                    </tr>
-                             @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-end mt-4">
-                <a href="{{route('form-demanda', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Demanda</a>
-            </div>    
-        </div>
-    </div>
 
 
     
-    <div class="intro-y box mt-5">
-        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">
-                Ánalise Global
-            </h2>
-        </div>
-        <div class="p-5">
-            <div class="grid grid-cols-12 gap-x-5">
-                <div class="col-span-12 xl:col-span-12">
-                    <div class="overflow-x-auto">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                   
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Ánalise</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
-<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                             @if(isset($empresa->analise))
-                                    <tr class="hover:bg-gray-200">
-                                        <td class="border">1</td>
-                                        <td class="border"><?= substr($empresa->analise->analise, 0, 200)?>... </td>
-                         
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-analise-global', ['analise' => $empresa->analise->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                         <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('delete-analise-global', ['id' => $empresa->analise->id])}}">
-                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                      
-                                    </tr>
-                             @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-end mt-4">
-                <a href="{{route('form-analise-global', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Ánalise</a>
-            </div>    
-        </div>
-    </div>
 
     
     <div class="intro-y box mt-5">
@@ -697,69 +886,6 @@
     </div>
 
 
-  <div class="intro-y box mt-5">
-        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">
-               Metodologia
-            </h2>
-        </div>
-        <div class="p-5">
-            <div class="grid grid-cols-12 gap-x-5">
-                <div class="col-span-12 xl:col-span-12">
-                    <div class="overflow-x-auto">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                   
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Metodologia</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
-<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                             @if(isset($empresa->metodologia))
-                                    <tr class="hover:bg-gray-200">
-                                        <td class="border">1</td>
-                                        <td class="border"><?= substr($empresa->metodologia->metodologia, 0, 200)?>... </td>
-                         
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-metodologia', ['id' => $empresa->metodologia->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                          <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('delete-metodologia', ['id' => $empresa->metodologia->id])}}">
-                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                    </tr>
-
-                                    
-                                      
-                             @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-end mt-4">
-                <a href="{{route('form-metodologia', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Metodologia</a>
-            </div>    
-        </div>
-    </div>
-
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
@@ -822,67 +948,6 @@
             </div>    
         </div>
     </div>
-
-     <div class="intro-y box mt-5">
-        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">
-                Lista de Objetivos
-            </h2>
-        </div>
-        <div class="p-5">
-            <div class="grid grid-cols-12 gap-x-5">
-                <div class="col-span-12 xl:col-span-12">
-                    <div class="overflow-x-auto">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Objetivo</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
-<th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                             
-                                @foreach ($empresa->objetivos as $objetivo) 
-                                    <tr class="hover:bg-gray-200">
-                                        <td class="border">{{$objetivo->id}}</td>
-                                        <td class="border">{{$objetivo->objetivo}}</td>
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-objetivo', ['id' => $objetivo->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-
-                                                                                
-                                          <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('delete-objetivo', ['id' => $objetivo->id])}}">
-                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                      
-                                    </tr>
-                                @endforeach 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-end mt-4">
-                <a href="{{route('form-objetivo', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Setor</a>
-            </div>    
-        </div>
 
         {{-- //Responsáveis --}}
      <div class="intro-y box mt-5">

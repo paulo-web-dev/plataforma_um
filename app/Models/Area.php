@@ -15,7 +15,9 @@ class Area extends Model
 
     {
 
-        return $this->hasMany(Setores::class, 'id_area', 'id')->with('subsetores');
+        return $this->hasMany(Setores::class, 'id_area', 'id')
+        ->with('subsetores')
+        ->orderBy('ordenacao');
 
     }
 }

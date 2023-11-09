@@ -9,6 +9,7 @@ use App\Models\Equipe;
 use App\Models\Objetivos;
 use App\Models\Disposicoes;
 use App\Models\Metodologia;
+use App\Models\Setores;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
@@ -170,5 +171,16 @@ class EmpresaController extends Controller
 
         return redirect()->route('infoempresa', ['id' => $empresa->id]);
     }
+    
+    public function alteraordem(Request $request){
 
+        foreach ($request->data as $key => $data) {
+            $id = $data['id'];
+            $ordenacao = $data['ordenacao'];
+            $setor =  Setores::where('id', $id)->first();
+            $setor->ordenacao = $ordenacao;
+            $setor->save();
+        }
+        return "salvo com sucesso";
+    }
 }
