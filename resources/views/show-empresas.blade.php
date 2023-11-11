@@ -10,7 +10,10 @@
         Lista de Empresas cadastrados
            </h2> 
         <a href="{{ route('home') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
-     <a href="{{ route('formempresa') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Adicionar Empresa</a>
+        
+     <a href="{{ route('formempresa') }}" data-theme="light" class="tooltip btn btn-primary"  title="Clique aqui para cadastrar uma empresa, e os dados de sua AET"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Adicionar Empresa</a>
+       
+
  
 
     <div class="grid grid-cols-12 gap-6 mt-5">

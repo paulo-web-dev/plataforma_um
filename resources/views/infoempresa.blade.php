@@ -3,7 +3,7 @@
 
 
 @section('content')
-
+   
  <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Informações da Empresa
@@ -256,7 +256,7 @@
         <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Introdução
+             <a href="javascript:;" data-theme="light" class="tooltip"  title="Texto de introdução da AET, altere conforme o necessário.">Introdução   <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -319,7 +319,7 @@
      <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Lista de Objetivos
+               <a href="javascript:;" data-theme="light" class="tooltip"  title="Lista de Objetivos que apareceram na AET">Lista de Objetivos   <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -381,7 +381,7 @@
   <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-               Metodologia
+              <a href="javascript:;" data-theme="light" class="tooltip"  title="Texto de Metodologia utilizada na AET">Metodologia   <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -444,7 +444,7 @@
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Demanda
+               <a href="javascript:;" data-theme="light" class="tooltip"  title="Demanda da Empresa perante a AET">Demanda   <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -507,7 +507,7 @@
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Ánalise Global
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Ánalise Global da Empresa">Ánalise Global   <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -567,7 +567,7 @@
  <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Lista de Áreas
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicione e Edite as Áreas Analisadas, EX: Fábrica, Administrativo etc">Lista de Áreas   <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -628,7 +628,7 @@
      <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Lista de Setores
+               <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicione e Edite os Setores Analisados, EX: Fiação, Retifica etc">Lista de Setores   <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -826,7 +826,7 @@
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Equipe Técnica
+                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Texto Sobre a Equipe Técnica Responsável">Equipe Técnica <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -889,7 +889,7 @@
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Disposições Finais
+             <a href="javascript:;" data-theme="light" class="tooltip"  title="Texto com as disposições finais da AET">Disposições Finais <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -953,7 +953,7 @@
      <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Lista de Responsáveis
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Lista de Responsáveis Pela a AET">Lista de Responsáveis <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -1016,7 +1016,7 @@
          <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Checklists
+             <a href="javascript:;" data-theme="light" class="tooltip"  title="CHECKLIST PARA ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> CHECKLIST PARA ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</a>
             </h2>
         </div>
         <div class="p-5">
@@ -1076,7 +1076,7 @@
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Mapeamento Ergonômico
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Cadastro de Mapeamento Ergonômico">Mapeamento Ergonômico <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -1152,7 +1152,7 @@
      <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                Plano de Ação
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Cadastro de Plano de Ação">Plano de Ação <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -1400,10 +1400,6 @@
         <!-- END: JS Assets-->
     </body>
 </html>
-
-@push('custom-scripts')
-
-
 
 
 
