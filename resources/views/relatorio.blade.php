@@ -1115,8 +1115,9 @@ chart.column(chartData);
 
 
 </script>
+
    @if (isset($subsetor->dadossaude->segmentos))
-   @php 
+         @php
            $colunaCervical = $subsetor->dadossaude->segmentos->coluna_cervical ?? 0;
             $colunaToracica = $subsetor->dadossaude->segmentos->coluna_toracica ?? 0;
             $colunaLombar = $subsetor->dadossaude->segmentos->coluna_lombar ?? 0;
@@ -1128,7 +1129,8 @@ chart.column(chartData);
             $tornozeloPe = $subsetor->dadossaude->segmentos->tornozelo ?? 0;
 
 
-            $total = $colunaCervical + $colunaToracica + $colunaLombar + $ombro + $cotovelo + $punhoMao + $quadril + $joelho + $tornozeloPe;
+           
+           
             $porcentagemColunaCervical = round(($colunaCervical / $total) * 100);
             $porcentagemColunaToracica = round(($colunaToracica / $total) * 100);
             $porcentagemColunaLombar = round(($colunaLombar / $total) * 100);
@@ -1140,6 +1142,8 @@ chart.column(chartData);
             $porcentagemTornozeloPe = round(($tornozeloPe / $total) * 100);
 
    @endphp
+
+   @if($total > 0)
 <script>
 
 
@@ -1205,6 +1209,7 @@ chart.column(chartData);
           
          </script>
          @endif
+          @endif
       </div>
        @endif
       <div class="paginacao">
