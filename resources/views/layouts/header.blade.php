@@ -44,7 +44,7 @@
         margin: 8px;
     }
 
-       .tooltip {
+       h2 .tooltip {
             display: flex;
             align-items: center;
             text-decoration: none;
