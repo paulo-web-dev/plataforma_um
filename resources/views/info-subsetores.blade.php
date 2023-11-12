@@ -33,7 +33,7 @@
                         </div>
 
                          <div class="mt-6">
-                            <label for="conteudo" class="form-label">Descrição do Posto de Trabalho</label>
+                            <label for="conteudo" class="form-label">Descrição da Tarefa</label>
                             <div class="mt-2">
                                 <textarea class="form-control editor" name="descricao" id="editor" cols="30" rows="15">{{$subsetor->descricao}}</textarea>
                             </div>
