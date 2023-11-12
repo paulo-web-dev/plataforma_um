@@ -1256,6 +1256,204 @@
             </div>    
         </div>
     </div>
+    
+       <!-- Lista de Rosa -->
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação ROSA">Lista de ROSA<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody> 
+
+                                  @foreach ($subsetor->conclusoes as $conclusao) 
+                                     @if($conclusao->ferramenta == 'ROSA')
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$conclusao->id}}</td>
+                                        <td class="border">{{$conclusao->atividade}}</td>
+                                        <td class="border">{{$conclusao->conclusao}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                    </tr>
+                                 @endif
+                                @endforeach 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-conclusao', ['idsubsetor' => $subsetor->id, 'ferramenta' => 'ROSA'])}}" class="btn btn-primary mr-auto mb-2 simplificado">Cadastrar Dados ROSA Simplificado</a>
+            </div>    
+        </div>
+    </div>
+
+    
+       <!-- Lista de Reba -->
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação REBA">Lista de REBA<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody> 
+
+                                  @foreach ($subsetor->conclusoes as $conclusao) 
+                                     @if($conclusao->ferramenta == 'REBA')
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$conclusao->id}}</td>
+                                        <td class="border">{{$conclusao->atividade}}</td>
+                                        <td class="border">{{$conclusao->conclusao}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                    </tr>
+                                 @endif
+                                @endforeach 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-conclusao', ['idsubsetor' => $subsetor->id, 'ferramenta' => 'REBA'])}}" class="btn btn-primary mr-auto mb-2 simplificado">Cadastrar Dados REBA Simplificado</a>
+            </div>    
+        </div>
+    </div>
+
+
+       <!-- Lista de HAL -->
+    <div class="intro-y box mt-5">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação HAL">Lista de HAL<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody> 
+
+                                  @foreach ($subsetor->conclusoes as $conclusao) 
+                                     @if($conclusao->ferramenta == 'HAL')
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$conclusao->id}}</td>
+                                        <td class="border">{{$conclusao->atividade}}</td>
+                                        <td class="border">{{$conclusao->conclusao}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao', ['conclusao' => $conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                    </tr>
+                                 @endif
+                                @endforeach 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-conclusao', ['idsubsetor' => $subsetor->id, 'ferramenta' => 'HAL'])}}" class="btn btn-primary mr-auto mb-2 simplificado">Cadastrar Dados HAL Simplificado</a>
+            </div>    
+        </div>
+    </div>
+
 
        <!-- Lista de Recomendações Técnicas -->
     <div class="intro-y box mt-5">

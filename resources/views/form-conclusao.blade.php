@@ -188,6 +188,21 @@
                                         <option value="Baixo">Baixo</option>
                                         <option value="Médio">Médio</option>
                                         <option value="Alto">Alto</option>
+                                        @elseif($ferramenta == 'ROSA')
+                                        <option value="Improvável">Improvável</option>
+                                        <option value="Alto">Alto</option>
+                                        <option value="Muito Alto">Muito Alto</option>
+                                        <option value="Extremo">Extremo</option>
+                                        @elseif($ferramenta == 'REBA')
+                                        <option value="Risco inexistente">Risco inexistente</option>
+                                        <option value="Risco Baixo">Risco Baixo</option>
+                                        <option value="Risco Médio">Risco Médio</option>
+                                        <option value="Risco Alto">Risco Alto</option>
+                                        <option value="Risco Muito Alto">Risco Muito Alto</option>
+                                        @elseif($ferramenta == 'HAL')
+                                        <option value="Sem Risco">Sem Risco </option>
+                                        <option value="Duvidoso"> Duvidoso</option>
+                                        <option value="Risco">Risco</option>
                                         @endif
                             </select>
                         </div>
