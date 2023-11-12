@@ -16,6 +16,10 @@ use App\Models\SueRodgers;
 
 class SueRodgersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formSueRodgers($idsubsetor){
         
         return view('form-suerodgers',[

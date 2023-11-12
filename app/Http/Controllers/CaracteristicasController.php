@@ -12,6 +12,10 @@ use App\Models\Caracteristicas;
 
 class CaracteristicasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formCaracteristicas($idsubsetor){
 
         return view('form-caracteristicas',[

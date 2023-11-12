@@ -16,7 +16,10 @@ use App\Models\Conclusoes;
 
 class MooreGargController extends Controller
 {
-  
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formMoore($idsubsetor){
         
         return view('form-moore',[

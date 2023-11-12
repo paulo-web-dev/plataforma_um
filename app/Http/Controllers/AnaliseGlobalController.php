@@ -8,6 +8,10 @@ use App\Models\AnaliseGlobal;
 
 class AnaliseGlobalController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formAnaliseGlobal($idempresa){
 
         return view('form-analise',[

@@ -7,6 +7,10 @@ use App\Models\DescricaoFoto;
 
 class DescricaoFotoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formDescricaoFoto($id_subsetor){
 
         return view('form-descricao-foto',[

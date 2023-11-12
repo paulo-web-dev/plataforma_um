@@ -7,6 +7,10 @@ use App\Models\Metodologia;
 
 class MetodologiaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formMetodologia($idempresa){
 
         return view('form-metodologia',[

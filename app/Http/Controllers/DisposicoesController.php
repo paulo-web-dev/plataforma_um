@@ -8,6 +8,10 @@ use App\Models\Disposicoes;
 
 class DisposicoesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formDisposicao($idempresa){
 
         return view('form-disposicao',[

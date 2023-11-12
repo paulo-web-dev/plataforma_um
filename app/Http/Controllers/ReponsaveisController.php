@@ -8,6 +8,10 @@ use App\Models\Responsaveis;
 
 class ReponsaveisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formResponsaveis($id_empresa){
 
         return view('form-responsaveis',[

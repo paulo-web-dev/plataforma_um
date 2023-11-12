@@ -9,6 +9,10 @@ use App\Models\AnaliseAtividade;
 
 class AnaliseAtividadeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formAnaliseAtividade($id_subsetor){
 
         return view('form-analise-atividade',[

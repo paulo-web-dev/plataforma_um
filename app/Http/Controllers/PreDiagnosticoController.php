@@ -13,6 +13,10 @@ use App\Models\PreDiagnostico;
 
 class PreDiagnosticoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formPreDiagnostico($idsubsetor){
 
         return view('form-pre-diagnostico',[

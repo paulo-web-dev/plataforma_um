@@ -8,6 +8,10 @@ use App\Models\Setores;
 use App\Models\Tarefa;
 class TarefaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formTarefa($id_subsetor){
 
         return view('form-tarefa',[

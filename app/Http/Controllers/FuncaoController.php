@@ -9,6 +9,10 @@ use App\Models\Funcao;
 
 class FuncaoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formFuncao($id_subsetor){
 
         return view('form-funcao',[

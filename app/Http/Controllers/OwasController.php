@@ -15,6 +15,10 @@ use App\Models\Owas;
 
 class OwasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formOwas($idsubsetor){
         
         return view('form-owas',[

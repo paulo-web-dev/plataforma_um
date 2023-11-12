@@ -8,6 +8,10 @@ use App\Models\Setores;
 use App\Models\Recomendacao;
 class RecomendacaoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formRecomendacao($id_subsetor){
 
         return view('form-recomendacao',[

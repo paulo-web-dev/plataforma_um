@@ -8,6 +8,10 @@ use App\Models\Introducao;
 
 class IntroducaoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formIntroducao($idempresa){
 
         return view('form-introducao',[

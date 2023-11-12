@@ -14,6 +14,10 @@ use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function show(){
 

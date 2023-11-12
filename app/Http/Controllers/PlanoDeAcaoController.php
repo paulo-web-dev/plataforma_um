@@ -8,6 +8,10 @@ use App\Models\PlanoDeAcao;
 
 class PlanoDeAcaoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formPlanoDeAcao($empresa){
 
         

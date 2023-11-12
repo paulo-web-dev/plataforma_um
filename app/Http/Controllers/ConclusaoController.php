@@ -8,6 +8,10 @@ use App\Models\Conclusoes;
 class ConclusaoController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formConclusao($idsubsetor, $ferramenta){
         
    

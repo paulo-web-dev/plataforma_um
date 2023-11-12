@@ -10,6 +10,10 @@ use App\Models\SubSetores;
 
 class SubSetoresController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formSubSetores($idsetor){
 
         return view('form-subsetores',[

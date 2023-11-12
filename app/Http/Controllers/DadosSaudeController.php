@@ -9,6 +9,10 @@ use App\Models\SegmentoCorporal;
 
 class DadosSaudeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formDadosDeSaude($idsubsetor){
 
         return view('form-dados-de-saude',[

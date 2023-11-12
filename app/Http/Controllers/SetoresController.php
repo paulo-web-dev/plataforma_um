@@ -9,6 +9,10 @@ use App\Models\Area;
 
 class SetoresController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formSetores($idempresa){
 
         $areas = Area::where('id_empresa', $idempresa)->get();

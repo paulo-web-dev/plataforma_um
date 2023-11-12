@@ -8,6 +8,10 @@ use App\Models\Demanda;
 
 class DemandaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formDemanda($idempresa){
 
         return view('form-demanda',[

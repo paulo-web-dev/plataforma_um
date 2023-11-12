@@ -17,6 +17,10 @@ use App\Models\Niosh;
 
 class NioshController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formNiosh($idsubsetor){
         
         return view('form-niosh',[

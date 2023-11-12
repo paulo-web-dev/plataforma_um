@@ -14,6 +14,10 @@ use App\Models\MooreGarg;
 use App\Models\Rula;
 class RulaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formRula($idsubsetor){
         
         return view('form-rula',[

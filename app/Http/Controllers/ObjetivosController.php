@@ -8,6 +8,10 @@ use App\Models\Objetivos;
 
 class ObjetivosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formObjetivo($idempresa){
 
         return view('form-objetivo',[

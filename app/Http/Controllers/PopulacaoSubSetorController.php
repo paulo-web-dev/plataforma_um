@@ -7,6 +7,10 @@ use App\Models\PopulacaoSubsetor;
 
 class PopulacaoSubSetorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formPopulacao($id_subsetor){
 
         

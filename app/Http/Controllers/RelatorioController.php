@@ -15,6 +15,10 @@ use Auth;
 
 class RelatorioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function gerarRelatorio($id){
 
         $identidade = IdentidadeVisual::where('id_user', Auth::user()->id)->first();

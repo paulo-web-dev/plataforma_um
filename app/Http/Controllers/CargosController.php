@@ -10,7 +10,11 @@ use App\Models\SubSetores;
 use App\Models\Cargos;
   
 class CargosController extends Controller
-{   
+{  
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
     public function formCargos($idsubsetor){
 
         return view('form-cargos',[

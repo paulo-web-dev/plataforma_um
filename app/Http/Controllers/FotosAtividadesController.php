@@ -8,6 +8,10 @@ use App\Models\FotosAtividades;
 
 class FotosAtividadesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formFoto($id_subsetor){
        
         return view('form-foto',[

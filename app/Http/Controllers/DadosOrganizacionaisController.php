@@ -12,6 +12,10 @@ use App\Models\DadosOrganizacionais;
 
 class DadosOrganizacionaisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formDadosOrganizacionais($idsubsetor){
 
         return view('form-dados-organizacionais',[

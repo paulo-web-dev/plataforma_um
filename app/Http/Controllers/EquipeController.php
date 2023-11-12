@@ -7,6 +7,10 @@ use App\Models\Empresas;
 use App\Models\Equipe;
 class EquipeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function formEquipe($idempresa){
 
         return view('form-equipe',[
