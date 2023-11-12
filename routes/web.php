@@ -158,7 +158,7 @@ Route::get('/info/caracteristicas/{id}', [CaracteristicasController::class, 'inf
 Route::get('/delete/caracteristicas/{id}', [CaracteristicasController::class, 'delete'])->name('delete-caracteristicas'); 
 Route::post('/cadastrar/caracteristicas', [CaracteristicasController::class, 'cadCaracteristicas'])->name('cad-caracteristicas');
 Route::post('/update/caracteristicas', [CaracteristicasController::class, 'updCaracteristicas'])->name('upd-caracteristicas');
-
+Route::post('/alteracao/ordem/ambiente', [CaracteristicasController::class, 'alteraordem'])->name('alteraordem-ambiente');
 //Rotas Pèrtinentes aos Pré diagnosticos
 Route::get('/pre-diagnosticos', [PreDiagnosticoController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/pre-diagnosticos/{idsubsetor}', [PreDiagnosticoController::class, 'formPreDiagnostico'])->name('form-pre-diagnosticos');
@@ -283,7 +283,7 @@ Route::get('/info/recomendacao/{id}', [RecomendacaoController::class, 'infoRecom
 Route::get('/delete/recomendacao/{id}', [RecomendacaoController::class, 'delete'])->name('delete-recomendacao'); 
 Route::post('/cadastrar/recomendacao', [RecomendacaoController::class, 'cadRecomendacao'])->name('cad-recomendacao');
 Route::post('/update/recomendacao', [RecomendacaoController::class, 'updRecomendacao'])->name('upd-recomendacao');
-
+Route::post('/alteracao/ordem/recomendacao', [RecomendacaoController::class, 'alteraordem'])->name('alteraordem-recomendacao');
 //Rotas Pertinentes ao cadatros de Disposições Finais
 Route::get('/disposicao', [DisposicoesController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/disposicao/{empresa}', [DisposicoesController::class, 'formDisposicao'])->name('form-disposicao');

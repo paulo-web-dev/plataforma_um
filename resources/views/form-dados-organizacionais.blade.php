@@ -178,13 +178,14 @@ function removeInput(element) {
         inputField.innerHTML = `
             <div class="mt-3">
                 <label for="nome" class="form-label"><strong>Dado:</strong></label>
-                <input id="num_funcionarios" type="text" name="dado[]" class="form-control" placeholder="Dado Organizacional" required>
+                <input id="num_funcionarios" type="text" name="dado[]" class="form-control" placeholder="Dado Organizaciona" required>
                                         <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
                                             <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
                                         </span>
             </div>
         `;
         document.getElementById('dynamic-fields').appendChild(inputField);
+        feather.replace();
     }
 
     

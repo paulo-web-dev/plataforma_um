@@ -32,10 +32,12 @@
                                 placeholder="Nome do Posto de Trabalho" value="" required>
                         </div>
                    
-                        <div class="mt-3"  id="link">
-                            <label for="update-profile-form-7" class="form-label"><strong>Descrição de Tarefa</strong></label>
-                            <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15" required></textarea>
-                        </div>
+                        <div class="mt-6">
+        <label for="conteudo" class="form-label">Descrição do Posto de Trabalho</label>
+        <div class="mt-2">
+            <textarea class="form-control editor" name="descricao" id="editor" cols="30" rows="15"></textarea>
+        </div>
+    </div>
                          {{-- <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição do SubSetor</strong></label>
                             <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15"></textarea>
@@ -51,11 +53,23 @@
     <!-- END: Users Layout -->
     </div>
 @endsection
-
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 @push('custom-scripts')
 
 
 
+
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
 
 
 @endpush

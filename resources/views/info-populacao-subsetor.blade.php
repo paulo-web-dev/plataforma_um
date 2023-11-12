@@ -61,7 +61,7 @@
                                          <option value="{{$populacao->escolaridade}}">{{$populacao->escolaridade}}</option>
                                         <option value="PRIMEIRO GRAU COMPLETO">PRIMEIRO GRAU COMPLETO</option>
                                         <option value="SEGUNDO GRAU COMPLETO">SEGUNDO GRAU COMPLETO</option>
-                                        <option value="TERCEIRO GRAU COMPLETO">TERCEIRO GRAU COMPLETO</option>                                  
+                                        <option value="ENSINO SUPERIOR COMPLETO">ENSINO SUPERIOR COMPLETO</option>                                  
                             </select>
                         </div>
                     

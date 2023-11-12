@@ -31,7 +31,7 @@ class SubSetores extends Model
 
     {
 
-        return $this->hasMany(Caracteristicas::class, 'id_subsetor', 'id');
+        return $this->hasMany(Caracteristicas::class, 'id_subsetor', 'id')->orderBy('ordenacao');
 
     }
 
@@ -97,7 +97,7 @@ class SubSetores extends Model
 
     {
 
-        return $this->hasMany(Recomendacao::class, 'id_subsetor', 'id');
+        return $this->hasMany(Recomendacao::class, 'id_subsetor', 'id')->orderBy('ordenacao');
 
     }
 

@@ -28,9 +28,10 @@
                     <div class="col-span-12 xl:col-span-6">
                      
                    
+                   
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Objetivo</strong></label>
-                            <input type="text" class="form-control editor" name="objetivo" placeholder="Objetivo">
+                            <textarea class="form-control editor" name="objetivo" id="editor" cols="30" rows="15"><p>•&nbsp;Atender a Norma Regulamentadora nº. 17 da Portaria 3214/78</p><p>•&nbsp;Estabelecer diretrizes a serem tomadas minimizando ou eliminando riscos ergonômicos existentes no setor</p><p>•&nbsp;&nbsp;Melhoria do processo produtivo e a preservação da integridade física e mental do trabalhador; &nbsp;</p><p>•&nbsp;Apontar fatores potenciais de lesões ocupacionais e acidentes;</p><p>•&nbsp;Apontar situações ou pontos de fadiga física e mental exacerbada;</p><p>•&nbsp;Sugerir medidas de minimização dessas ocorrências</p><p>•Apontar riscos para o cumprimento NR1.</p></textarea>
                         </div>
                     
                 <div class="flex justify-end mt-4">
@@ -46,7 +47,16 @@
 
 @push('custom-scripts')
 
-
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script> 
 
 
 

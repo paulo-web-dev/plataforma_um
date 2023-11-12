@@ -341,7 +341,7 @@
                                 @foreach ($empresa->objetivos as $objetivo) 
                                     <tr class="hover:bg-gray-200">
                                         <td class="border">{{$objetivo->id}}</td>
-                                        <td class="border">{{$objetivo->objetivo}}</td>
+                                        <td class="border"><?= $objetivo->objetivo ?></td>
                                         <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
@@ -640,7 +640,6 @@
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Nome</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Descrição</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
 <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
@@ -652,7 +651,6 @@
                                     <tr class="hover:bg-gray-200">
                                         <td class="border">{{$setor->id}}</td>
                                         <td class="border">{{$setor->nome}}</td>
-                                        <td class="border">{{$setor->descricao}}</td>
                                         <td class="border" style="display: none">{{$loop->index}}</td>
                                         <td class="border">
                                             <div class="flex justify-center">

@@ -6,7 +6,9 @@
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 Cadastro de Caracteristicas do Ambiente de Trabalho
+                
             </h2>
+             <a href="{{ route('info-subsetor',  ['id' => $id_subsetor]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
         </div>
 
         <form action="{{ route('cad-caracteristicas') }}" enctype="multipart/form-data" data-single="true" method="post">

@@ -54,4 +54,16 @@ class RecomendacaoController extends Controller
         Recomendacao::destroy($id);
         return back();
     }
+
+    public function alteraordem(Request $request){
+
+        foreach ($request->data as $key => $data) {
+            $id = $data['id'];
+            $ordenacao = $data['ordenacao'];
+            $recomendacao =  Recomendacao::where('id', $id)->first();
+            $recomendacao->ordenacao = $ordenacao;
+            $recomendacao->save();
+        }
+        return "salvo com sucesso";
+    }
 }

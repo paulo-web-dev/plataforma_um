@@ -28,9 +28,9 @@
                     <div class="col-span-12 xl:col-span-6">
                      
                    
-                         <div class="mt-3"  id="link">
+                            <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Objetivo</strong></label>
-                            <input type="text" class="form-control editor" name="objetivo" placeholder="objetivo" value="{{$objetivo->objetivo}}" >
+                            <textarea class="form-control editor" name="objetivo" id="editor" cols="30" rows="15"><?= $objetivo->objetivo ?></textarea>
                         </div>
                     
                 <div class="flex justify-end mt-4">
@@ -47,7 +47,16 @@
 @push('custom-scripts')
 
 
-
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script> 
 
 
 @endpush

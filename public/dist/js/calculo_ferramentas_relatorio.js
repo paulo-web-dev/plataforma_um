@@ -42,6 +42,8 @@ function conclusao(conclusao, ferramenta, index, member){
         txt = '(Análise de risco para punhos e mãos)';
         membro = 'Punhos, Mãos e Dedos';
         var metodologia = document.getElementById('metodologia_moor');
+        var anexo = document.getElementById('pagemoore');
+        anexo.style.display ='none';
         metodologia.innerHTML = '<b>MOORE & GARG</b> para analisar índice de esforço musculoesquelético da  parte distal dos membros superiores (punhos, mãos e dedos);';
     } else if (ferramenta === 'Rula') {
         txt = '(Avaliação de fatores de risco para distúrbios músculo-esqueléticos dos membros superiores)';
@@ -404,7 +406,7 @@ subsetor.forEach((populacao) => {
 
     if (populacao.escolaridade == 'SEGUNDO GRAU COMPLETO') {
         escolaridadesg += 1;
-    } else if (populacao.escolaridade == 'TERCEIRO GRAU COMPLETO') {
+    } else if (populacao.escolaridade == 'TERCEIRO GRAU COMPLETO' || 'ENSINO SUPERIOR COMPLETO') {
         escolaridadetg += 1;
     } else {
         escolaridadepg += 1;

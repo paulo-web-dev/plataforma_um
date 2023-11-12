@@ -29,20 +29,20 @@
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Nome</strong></label>
                             <input id="update-profile-form-7" type="text" name="nome" class="form-control"
-                                placeholder="Nome" value="">
+                                placeholder="Nome" value="" required>
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Idade</strong></label>
                             <input id="update-profile-form-7" type="number" name="idade" class="form-control"
-                                placeholder="Idade" value="}">
+                                placeholder="Idade" value="" required>
                         </div>
 
                         
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Tempo de Empresa</strong></label>
                             <input id="update-profile-form-7" type="number" name="tempo_empresa" class="form-control"
-                                placeholder="Tempo de Empresa" value="">
+                                placeholder="Tempo de Empresa" value="" required>
                         </div>
 
                         <div class="mt-3">
@@ -62,7 +62,7 @@
                                          
                                         <option value="PRIMEIRO GRAU COMPLETO">PRIMEIRO GRAU COMPLETO</option>
                                         <option value="SEGUNDO GRAU COMPLETO">SEGUNDO GRAU COMPLETO</option>
-                                        <option value="TERCEIRO GRAU COMPLETO">TERCEIRO GRAU COMPLETO</option>                                  
+                                        <option value="ENSINO SUPERIOR COMPLETO">ENSINO SUPERIOR COMPLETO</option>                                  
                             </select>
                         </div>
                     

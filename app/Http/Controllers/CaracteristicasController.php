@@ -62,4 +62,16 @@ class CaracteristicasController extends Controller
         Caracteristicas::destroy($id);
         return back();
     }
+
+    public function alteraordem(Request $request){
+
+        foreach ($request->data as $key => $data) {
+            $id = $data['id'];
+            $ordenacao = $data['ordenacao'];
+            $caracteristica =  Caracteristicas::where('id', $id)->first();
+            $caracteristica->ordenacao = $ordenacao;
+            $caracteristica->save();
+        }
+        return "salvo com sucesso";
+    }
 }
