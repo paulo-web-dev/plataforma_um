@@ -22,7 +22,7 @@ class TarefaController extends Controller
         $tarefa->id_subsetor = $request->id_subsetor;
         $tarefa->save();
         
-        return redirect()->route('info-subsetor', ['id' => $tarefa->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $tarefa->id_subsetor])->with('secao', 'tarefa'); 
     } 
 
     public function infoTarefa($id){

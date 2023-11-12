@@ -37,7 +37,7 @@ class DadosSaudeController extends Controller
         $segmento->joelho = $request->joelho;
         $segmento->tornozelo = $request->tornozelo;
         $segmento->save();
-        return redirect()->route('info-subsetor', ['id' => $dado->id_subsetor]);  
+        return redirect()->route('info-subsetor', ['id' => $dado->id_subsetor])->with('secao', 'saude');  
     }
 
     public function infoDadosDeSaude(DadosSaude $dado){
@@ -84,7 +84,7 @@ class DadosSaudeController extends Controller
         $segmento->save();
     }
         
-        return redirect()->route('info-subsetor', ['id' => $dado->id_subsetor]);  
+        return redirect()->route('info-subsetor', ['id' => $dado->id_subsetor])->with('secao', 'saude');  
     }
 
     public function delete($id){

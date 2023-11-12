@@ -35,7 +35,7 @@ class OwasController extends Controller
         $owas->save();
     
         
-        return redirect()->route('info-subsetor', ['id' => $owas->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $owas->id_subsetor])->with('secao', 'owas'); 
     } 
 
     public function infoOwas($id){
@@ -60,7 +60,7 @@ class OwasController extends Controller
         $owas->save();
         
         
-        return redirect()->route('info-subsetor', ['id' => $owas->id_subsetor]);  
+        return redirect()->route('info-subsetor', ['id' => $owas->id_subsetor])->with('secao', 'owas');  
     } 
 
         

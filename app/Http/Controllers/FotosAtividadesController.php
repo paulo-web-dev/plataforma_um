@@ -28,7 +28,7 @@ class FotosAtividadesController extends Controller
             $arquivo->move($destinationPath, $photoname);
             $foto->save();  
         }
-        return redirect()->route('info-subsetor', ['id' => $foto->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $foto->id_subsetor])->with('secao', 'fotos'); 
     }
 
     public function deleteFoto($id){

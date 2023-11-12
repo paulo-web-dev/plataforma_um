@@ -49,7 +49,7 @@ class RulaController extends Controller
         $rula->save();
              
         
-        return redirect()->route('info-subsetor', ['id' => $rula->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $rula->id_subsetor])->with('secao', 'rula'); 
     } 
 
     public function infoRula($id){
@@ -92,7 +92,7 @@ class RulaController extends Controller
         $rula->save();
         
         
-        return redirect()->route('info-subsetor', ['id' => $rula->id_subsetor]);  
+        return redirect()->route('info-subsetor', ['id' => $rula->id_subsetor])->with('secao', 'rula');  
     } 
     
     

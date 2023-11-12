@@ -54,6 +54,7 @@ class SubSetoresController extends Controller
   
         return view('info-subsetores',[
             'subsetor' => $subsetor,
+            
         ]);
 
     }

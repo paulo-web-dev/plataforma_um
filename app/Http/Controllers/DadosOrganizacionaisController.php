@@ -33,7 +33,7 @@ class DadosOrganizacionaisController extends Controller
         }
 
 
-        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'caracteristicas'); 
        
 
     }
@@ -54,7 +54,7 @@ class DadosOrganizacionaisController extends Controller
         $dados->dado = $request->dado;
         $dados->save();
 
-        return redirect()->route('info-dadosorganizacionais', ['id' => $dados->id]);
+        return redirect()->route('info-dadosorganizacionais', ['id' => $dados->id])->with('secao', 'caracteristicas');
        
 
     }

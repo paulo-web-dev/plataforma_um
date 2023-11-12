@@ -23,7 +23,7 @@ class FuncaoController extends Controller
         $funcao->id_subsetor = $request->id_subsetor;
         $funcao->save();
         
-        return redirect()->route('info-subsetor', ['id' => $funcao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $funcao->id_subsetor])->with('secao', 'função'); 
     } 
 
     public function infoFuncao($id){
@@ -42,7 +42,7 @@ class FuncaoController extends Controller
         $funcao->funcao = $request->funcao;
         $funcao->save();
         
-        return redirect()->route('info-subsetor', ['id' => $funcao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $funcao->id_subsetor])->with('secao', 'função'); 
     } 
 
     public function delete($id){

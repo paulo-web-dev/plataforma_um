@@ -62,7 +62,7 @@ class PopulacaoSubSetorController extends Controller
         $i++;
        
         }
-        return redirect()->route('info-subsetor', ['id' => $request->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $request->id_subsetor])->with('secao', 'populacao'); 
 
     } catch(\Exception $e){
         return redirect()->route('info-subsetor', ['id' => $request->id_subsetor])->with('message', 'erro_planilha'); 
@@ -81,7 +81,7 @@ class PopulacaoSubSetorController extends Controller
                 $populacao->save();
            
 
-        return redirect()->route('info-subsetor', ['id' => $populacao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $populacao->id_subsetor])->with('secao', 'populacao'); 
     }
 
     
@@ -98,7 +98,7 @@ class PopulacaoSubSetorController extends Controller
         $populacao->save();
    
 
-        return redirect()->route('info-subsetor', ['id' => $populacao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $populacao->id_subsetor])->with('secao', 'populacao'); 
 }
     
     public function delete($id){

@@ -34,7 +34,7 @@ class CaracteristicasController extends Controller
             $caracteristicas->id_subsetor = $id_subsetor;
             $caracteristicas->save();
         }
-        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'caracteristicas-do-ambiente'); 
     } 
 
     public function infoCaracteristicas($id){
@@ -55,7 +55,7 @@ class CaracteristicasController extends Controller
         $caracteristicas->save();
         
         
-        return redirect()->route('info-caracteristicas', ['id' => $caracteristicas->id]);
+        return redirect()->route('info-caracteristicas', ['id' => $caracteristicas->id])->with('secao', 'caracteristicas-do-ambiente');
     }
     
     public function delete($id){

@@ -27,7 +27,7 @@ class RecomendacaoController extends Controller
             $recomendacao->save();
         }
     
-        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'recomendacao'); 
     }
     
 
@@ -47,7 +47,7 @@ class RecomendacaoController extends Controller
         $recomendacao->recomendacao = $request->recomendacao;
         $recomendacao->save();
         
-        return redirect()->route('info-subsetor', ['id' => $recomendacao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $recomendacao->id_subsetor])->with('secao', 'recomendacao'); 
     } 
 
     public function delete($id){

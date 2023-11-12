@@ -53,7 +53,7 @@ class ConclusaoController extends Controller
         $conclusao->save();
         
     }
-        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'moore'); 
     } 
 
     public function updConclusao(Request $request){
@@ -65,7 +65,7 @@ class ConclusaoController extends Controller
         $conclusao->save();
         
         
-        return redirect()->route('info-subsetor', ['id' => $conclusao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $conclusao->id_subsetor])->with('secao', 'moore'); 
     } 
 
     

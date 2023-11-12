@@ -36,7 +36,7 @@ class PreDiagnosticoController extends Controller
             $prediagnostico->save();
         }
         
-        return redirect()->route('info-subsetor', ['id' => $id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'pre-diagnosticos'); 
     } 
 
     public function infoPreDiagnostico($id){
@@ -58,7 +58,7 @@ class PreDiagnosticoController extends Controller
         $prediagnostico->save();
         
         
-        return redirect()->route('info-pre-diagnosticos', ['id' => $prediagnostico->id]);  
+        return redirect()->route('info-pre-diagnosticos', ['id' => $prediagnostico->id])->with('secao', 'pre-diagnosticos');  
     } 
 
     public function delete($id){

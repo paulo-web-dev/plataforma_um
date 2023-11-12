@@ -21,7 +21,7 @@ class DescricaoFotoController extends Controller
         $descricao->id_subsetor = $request->id_subsetor;
         $descricao->save();
         
-        return redirect()->route('info-subsetor', ['id' => $descricao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $descricao->id_subsetor])->with('secao', 'legenda-fotos'); 
     } 
 
     public function infoDescricaoFoto($id){
@@ -40,7 +40,7 @@ class DescricaoFotoController extends Controller
         $descricao->descricao = $request->descricao;
         $descricao->save();
         
-        return redirect()->route('info-subsetor', ['id' => $descricao->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $descricao->id_subsetor])->with('secao', 'legenda-fotos'); 
     } 
 
     public function delete($id){

@@ -23,7 +23,7 @@ class AnaliseAtividadeController extends Controller
         $analise->id_subsetor = $request->id_subsetor;
         $analise->save();
         
-        return redirect()->route('info-subsetor', ['id' => $analise->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $analise->id_subsetor])->with('secao', 'analise-atividade'); 
     } 
 
     public function infoAnaliseAtividade($id){
@@ -42,7 +42,7 @@ class AnaliseAtividadeController extends Controller
         $analise->analise = $request->analise;
         $analise->save();
         
-        return redirect()->route('info-subsetor', ['id' => $analise->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $analise->id_subsetor])->with('secao', 'analise-atividade'); 
     } 
 
     public function delete($id){

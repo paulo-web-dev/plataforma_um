@@ -56,7 +56,7 @@
 
 
   <!-- Lista de Função -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="função">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Função que o trabalhador exerce. Ex: Retificador C">Função<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -118,7 +118,7 @@
     </div>
     
      <!-- Lista de Tarefa -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="tarefa">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
               <a href="javascript:;" data-theme="light" class="tooltip"  title="Tarefa Exercida pelo Funcionario">Lista de Tarefa<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -179,7 +179,7 @@
     </div>
 
      <!-- Lista de Ánalise de Atividade -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="analise-atividade">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Texto da Ánalise da Atividade">Lista de Ánalise de Atividade<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a> 
@@ -240,7 +240,7 @@
     </div>
 
     <!-- Lista de Fotos -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="fotos">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Faça o Upload das fotos da atividade">Lista de Fotos da Atividade<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a> 
@@ -290,7 +290,7 @@
     </div>
 
     <!-- Lista de Descrição de Fotos -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="legenda-fotos">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Descrição que fica embaixo das fotos">Lista de Descricação de Fotos<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a> 
@@ -353,7 +353,7 @@
     
 
      <!-- Lista de Dados Organizacionais -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="caracteristicas">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                  <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicione as Características da Organização do Trabalho">Lista de Características da Organização do Trabalho<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a> 
@@ -414,7 +414,7 @@
         </div>
     </div>
  <!-- Lista de População -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="populacao">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                  <a href="javascript:;" data-theme="light" class="tooltip"  title="Lista de dados da População">Lista de População<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a> 
@@ -482,7 +482,7 @@
         </div>
     </div>
     <!-- Lista de Dados de Saúde -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="saude">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                <a href="javascript:;" data-theme="light" class="tooltip"  title="Lista de dados de Dados de Saúde">Lista de Dados de Saúde<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a> 
@@ -552,7 +552,7 @@
     
       
      <!-- Lista de Caracteristicas -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="caracteristicas-do-ambiente">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                  <a href="javascript:;" data-theme="light" class="tooltip"  title="Lista de Caracteristicas do Ambiente de trabalho">Lista de Caracteristicas do Ambiente de trabalho<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a> 
@@ -680,7 +680,7 @@
     });
 </script>
   <!-- Lista de Pré Diasgnosticos -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="pre-diagnosticos" id="pre-diagnostico">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Pré Diagnosticos do Posto de Trabalho">Lista de Pré Diagnosticos<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -747,7 +747,7 @@
 
    
   <!-- Lista de Dados Moore e garg -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="moore">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
             <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação Moore e Garg">Lista de Moore e Garg<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -849,7 +849,7 @@
 
 
     <!-- Lista de Dados Rula -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="rula">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
             <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação Rula">Lista de Rula<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -951,7 +951,7 @@
 
 
     <!-- Lista de OWAS -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="owas">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
              <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação OWAS">Lista de OWAS<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -1053,7 +1053,7 @@
 
     
     <!-- Lista de Sue Rodgers -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="sue">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
              <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação Sue Rodgers">Lista de Sue Rodgers<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -1157,7 +1157,7 @@
 
 
    <!-- Lista de NIOSH -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="niosh">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação NIOSH">Lista de NIOSH<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -1258,7 +1258,7 @@
 
 
        <!-- Lista de OCRA -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="ocra">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação OCRA">Lista de OCRA<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -1323,7 +1323,7 @@
     </div>
     
        <!-- Lista de Rosa -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" >
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação ROSA">Lista de ROSA<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -1521,7 +1521,7 @@
 
 
        <!-- Lista de Recomendações Técnicas -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="recomendacao">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação Recomendações Técnicas">Lista de Recomendações Técnicas<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -1675,7 +1675,23 @@
             @endif
 
 @endsection
-
+@php 
+$secao = session('secao');
+@endphp
+@if (isset($secao))
+   
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Encontrar o elemento com o ID 'caracteristicas-section'
+        var caracteristicasSection = document.getElementById("{{$secao}}");
+ 
+        // Rolagem suave até a seção de características
+        if (caracteristicasSection) {
+            caracteristicasSection.scrollIntoView({ behavior: 'smooth' });
+        } 
+    });
+</script>
+@endif
 @push('custom-scripts')
 
 
@@ -1692,5 +1708,7 @@
                                         console.error( error );
                                 } );
                 </script>
+
+
 
 @endpush

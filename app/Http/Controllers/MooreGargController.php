@@ -46,7 +46,7 @@ class MooreGargController extends Controller
         $moore->save();
         
         
-        return redirect()->route('info-subsetor', ['id' => $moore->id_subsetor]); 
+        return redirect()->route('info-subsetor', ['id' => $moore->id_subsetor])->with('secao', 'moore'); 
     } 
 
 
@@ -75,7 +75,7 @@ class MooreGargController extends Controller
         $moore->save();
         
         
-        return redirect()->route('info-subsetor', ['id' => $moore->id_subsetor]);  
+        return redirect()->route('info-subsetor', ['id' => $moore->id_subsetor])->with('secao', 'moore');  
     } 
 
     public function delete($id){
