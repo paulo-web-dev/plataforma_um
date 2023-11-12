@@ -32,12 +32,13 @@
                                 placeholder="Nome do Posto de Trabalho" value="" required>
                         </div>
                    
-                        <div class="mt-6">
-        <label for="conteudo" class="form-label">Descrição da Tarefa</label>
+                                   
+              <div class="mt-6">
+        <label for="conteudo" class="form-label">Descrição da tarefa</label>
         <div class="mt-2">
-            <textarea class="form-control editor" name="descricao" id="editor" cols="30" rows="15" required></textarea>
+            <textarea class="form-control editor" name="descricao" id="editor" cols="30" rows="15"></textarea>
         </div>
-    </div> 
+    </div>
                          {{-- <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição do SubSetor</strong></label>
                             <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15"></textarea>
