@@ -596,14 +596,14 @@ $maxCaracteres = 2000;
 
 if (mb_strlen($descricao) > $maxCaracteres) {
     // Encontrar a posição de "</li>" após 2000 caracteres
-    $posicao_li = mb_strpos(mb_substr($descricao, $maxCaracteres), "<br>");
-
+    $posicao_li = mb_strpos(mb_substr($descricao, $maxCaracteres), "</p>");
+    $posicao_li2 = mb_strpos(mb_substr($descricao, $maxCaracteres), "<br>");  
     if ($posicao_li !== false) {
         // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
         $posicao_li += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
-        $parte1 = mb_substr($descricao, 0, $posicao_li + 5); // +5 para incluir "</li>"
-        $parte2 = mb_substr($descricao, $posicao_li + 5);
-
+        $parte1 = mb_substr($descricao, 0, $posicao_li + 4); // +4 para incluir "</li>"
+        $parte2 = mb_substr($descricao, $posicao_li + 4);
+         
         echo '<div class="page">';
         echo '<div class="subcabecalho2">';
         echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: ' . $setor->nome . '</p>';
@@ -625,25 +625,33 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         echo '<div class="page">';
         echo '<p class="text-cargo">' . $parte2 . '</p>';
         echo '</div>';
-    } else {
-        // Se "</li>" não estiver dentro da segunda parte, dividir na quantidade padrão de caracteres
-        $partes = str_split($descricao, $maxCaracteres);
-        $pagina = 1;
+    } elseif($posicao_li2 !== false)  {
+        // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
+        $posicao_li2 += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
+        $parte1 = mb_substr($descricao, 0, $posicao_li2 + 5); // +5 para incluir "</li>"
+        $parte2 = mb_substr($descricao, $posicao_li2 + 5);
+         
+        echo '<div class="page">';
+        echo '<div class="subcabecalho2">';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: ' . $setor->nome . '</p>';
+        echo '</div>';
+        echo '<table style="margin-left:10px; margin-right:10px">';
+        echo '<tr>';
+        echo '<td><b>Posto de Trabalho:</b></td>';
+        echo '<td>' . $subsetor->nome . '</td>';
+        echo '</tr>';
+        // Adicione mais linhas conforme necessário
 
-        foreach ($partes as $parte) {
-            echo '<div class="page">';
-            if ($pagina == 1) {
-                // Adicionar cabeçalho aqui se necessário
-            }
+        echo '</table>';
+        echo '<div class="subcabecalho2">';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>';
+        echo '</div>';
+        echo '<p class="text-cargo">' . $parte1 . '</p>';
+        echo '</div>';
 
-            echo '<p class="text-cargo">' . $parte . '</p>';
-            echo '</div>';
-
-            echo '<div class="paginacao">';
-            echo '<script>paginacao()</script>';
-            echo '</div>';
-            $pagina++;
-        }
+        echo '<div class="page">';
+        echo '<p class="text-cargo">' . $parte2 . '</p>';
+        echo '</div>';
     }
 } else {
 
