@@ -18,7 +18,7 @@ class SubSetoresController extends Controller
     }
 
     public function cadSubSetor(Request $request){
-
+        
         $subsetor = new SubSetores();
         $subsetor->nome = $request->nome;
         $subsetor->descricao = $request->descricao;
