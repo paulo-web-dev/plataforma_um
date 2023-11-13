@@ -1,4 +1,5 @@
-function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
+function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){ 
+    
     var metodologia = document.getElementById('metodologia_moor');
     metodologia.innerHTML = '<b>MOORE & GARG</b> para analisar índice de esforço musculoesquelético da  parte distal dos membros superiores (punhos, mãos e dedos);';
     var resultado = fit * fde * ffe * fpmp * fri * fdt;
@@ -19,17 +20,20 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
 
    
 }
+var ferramentas = []; 
 function conclusao(conclusao, ferramenta, index, member){
 
     var conclusaobg = document.getElementById('conclusao'+index);
+    
+    ferramentas[index] = ferramenta;
     var textomembros = document.getElementById('textomemrbos'+index);
     var membros = document.getElementById('membros'+index);
    // console.log(conclusao)
-    if(conclusao == 'Baixo Risco' || conclusao == 'RISCO BAIXO' || conclusao == 'Faixa Segura' || conclusao == 'Ausente ou Aceitável' || conclusao == 'aceitável se não é mantida ou repetida por longos períodos' || conclusao == 'Sem ações corretivas, postura adequada' || conclusao == 'Baixo'){
+    if(conclusao == 'Baixo Risco' || conclusao == 'Risco Leve'  || conclusao == 'RISCO BAIXO'|| conclusao == 'Faixa Segura' || conclusao == 'Ausente ou Aceitável' || conclusao == 'aceitável se não é mantida ou repetida por longos períodos' || conclusao == 'Sem ações corretivas, postura adequada' || conclusao == 'Baixo' || conclusao == 'Sem Risco' || conclusao == 'Risco inexistente' || conclusao == 'Improvável'){
         colorbg = "green";
         colorfont = "white";
   
-    } else if(conclusao == 'Duvidoso' || conclusao == 'RISCO MODERADO' || conclusao == 'Faixa é considerada de risco moderado' || conclusao == 'Limite' ||conclusao == 'Médio' ||conclusao == 'são necessários mais estudos e que serão necessárias mudanças' ||conclusao == 'são necessárias pesquisas e mudanças em um futuro próximo' || conclusao == 'Ações corretivas são requeridas em um futuro próximo' || conclusao == 'Ações corretivas são necessária a curto prazo'){
+    } else if(conclusao == 'Duvidoso' || conclusao == 'RISCO MODERADO' || conclusao == 'Risco Moderado' || conclusao == 'Faixa é considerada de risco moderado' || conclusao == 'Limite' ||conclusao == 'Médio' ||conclusao == 'são necessários mais estudos e que serão necessárias mudanças' ||conclusao == 'são necessárias pesquisas e mudanças em um futuro próximo' || conclusao == 'Ações corretivas são requeridas em um futuro próximo' || conclusao == 'Ações corretivas são necessária a curto prazo'){
         colorbg = "yellow";
         colorfont = "black";
 
@@ -42,8 +46,7 @@ function conclusao(conclusao, ferramenta, index, member){
         txt = '(Análise de risco para punhos e mãos)';
         membro = 'Punhos, Mãos e Dedos';
         var metodologia = document.getElementById('metodologia_moor');
-        var anexo = document.getElementById('pagemoore');
-        anexo.style.display ='none';
+   
         metodologia.innerHTML = '<b>MOORE & GARG</b> para analisar índice de esforço musculoesquelético da  parte distal dos membros superiores (punhos, mãos e dedos);';
     } else if (ferramenta === 'Rula') {
         txt = '(Avaliação de fatores de risco para distúrbios músculo-esqueléticos dos membros superiores)';
@@ -68,14 +71,57 @@ function conclusao(conclusao, ferramenta, index, member){
         membro = 'Pescoço, Ombros, Braços, Antebraços, Punhos, Mãos e Dedos';
         var metodologia = document.getElementById('metodologia_ocra');
         metodologia.innerHTML = "<b>OCRA</b>  mapeamento dos riscos por sobrecarga dos membros superiores;";
-    } else {
+    }else if (ferramenta === 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR') {
+        txt = '(Avaliação do Posto Administrativo)';
+        membro = 'Boa Condição Ergônomica';
+        var metodologia = document.getElementById('metodologia_checklist');
+        metodologia.innerHTML = "<b>CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</b> Avaliação do Posto Administrativo;";
+    }else if (ferramenta === 'ROSA') {
+        txt = '(Avaliação de riscos ergonômicos em ambientes de escritório)';
+        membro = 'Boa Condição Ergônomica';
+        var metodologia = document.getElementById('metodologia_rosa');
+        metodologia.innerHTML = "<b>ROSA</b> Avaliação de riscos ergonômicos em ambientes de escritório;";
+    }else if (ferramenta === 'REBA') {
+        txt = '(Postura Corporal)';
+        membro = 'Postura Corporal Completa';
+        var metodologia = document.getElementById('metodologia_reba');
+        metodologia.innerHTML = "<b>REBA</b>  Avaliação de tarefas que envolvem movimentos complexos e posturas variadas;";
+    }else if (ferramenta === 'HAL') {
+        txt = '(Avaliação de Atividade da Mão)';
+        membro = 'Mãos e Punhos';
+        var metodologia = document.getElementById('metodologia_hal');
+        metodologia.innerHTML = "<b>HAL</b> Avaliação de esforço de mãos e punhos;";
+    }else {
         txt = ''; 
         membro = '';  
     }
     conclusaobg.style.backgroundColor = colorbg;
     conclusaobg.style.color = colorfont;
-   // textomembros.innerHTML = txt;
+    textomembros.innerHTML = txt;
     membros.innerHTML = membro;
+
+}
+
+function ver_ferramentas (){
+    
+let arraySemDuplicatas = ferramentas.reduce((acumulador, valor) => {
+    if (!acumulador.includes(valor)) {
+        acumulador.push(valor);
+    }
+    return acumulador;
+}, []);
+
+
+
+arraySemDuplicatas.forEach(array =>  {
+    var divToDisplay = document.getElementById(array);
+    if (divToDisplay) {
+        divToDisplay.style.display = "block";
+    }
+       console.log(array);
+    });
+    
+   
 }
 function rula(braco, braco_desvio, antebraco, antebraco_desvio, punho, punho_desvio, pescoco, pescoco_desvio, tronco, tronco_desvio, perna, index){
     var metodologia = document.getElementById('metodologia_rula');

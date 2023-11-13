@@ -34,7 +34,7 @@
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Possuem Queixas (SIM)</strong></label>
                             <input id="update-profile-form-7" type="number" name="sim" class="form-control"
-                                placeholder="Possuem Queixas (SIM)" value="" required>
+                                placeholder="Possuem Queixas (SIM)" value=""  onchange="toggleInputs()" required>
                         </div>
 
                          <div class="mt-3">
@@ -43,7 +43,7 @@
                                 placeholder="Não Queixas (NÃO)" value="" required>
                         </div>
 
-                        
+                        <div class="mt-3 hidden" id="additionalInputs">
                          <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Coluna Cervical</strong></label>
                             <input id="update-profile-form-7" type="number" name="coluna_cervical" class="form-control"
@@ -106,7 +106,7 @@
                                 placeholder="Tornozelo" value="" >
                         </div>
 
-                        
+                        </div>
 
 
                          {{-- <div class="mt-3"  id="link">
@@ -128,7 +128,18 @@
 @push('custom-scripts')
 
 
+<script>
+    function toggleInputs() {
+        var simValue = document.getElementsByName('sim')[0].value;
+        var additionalInputs = document.getElementById('additionalInputs');
 
+        if (simValue === '0') {
+            additionalInputs.classList.add('hidden');
+        } else {
+            additionalInputs.classList.remove('hidden');
+        }
+    }
+</script>
 
 
 @endpush

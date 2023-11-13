@@ -492,7 +492,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <p id="metodologia_owas" class="ferramenta"></p>
          <p id="metodologia_sue" class="ferramenta"></p>
          <p id="metodologia_niosh" class="ferramenta"></p>
-		 <p id="metodologia_ocra" class="ferramenta"></p>
+		   <p id="metodologia_ocra" class="ferramenta"></p>
+         <p id="metodologia_checklist" class="ferramenta"></p>
+         <p id="metodologia_rosa" class="ferramenta"></p>
+         <p id="metodologia_reba" class="ferramenta"></p>
+         <p id="metodologia_hal" class="ferramenta"></p>
       </div>
       <div class="paginacao">
          <script>paginacao()</script>
@@ -1315,11 +1319,11 @@ chart.column(chartData);
                         <br>(Análise de risco para punhos e mãos)
                         <br> Atividade: {{$moore->atividade}}.
                      </td>
-                     <td id="conclusaomoore{{$loop->index}}"></td>
+                     <td id="conclusaomoore{{$moore->id}}"></td>
                      <td>Punhos, Mãos e Dedos</td>
                   </tr>
                   <script>
-                     mooregarg({{$moore->fit}},{{$moore->fde}},{{$moore->ffe}},{{$moore->fpmp}},{{$moore->fri}},{{$moore->fdt}}, {{$loop->index}});
+                     mooregarg({{$moore->fit}},{{$moore->fde}},{{$moore->ffe}},{{$moore->fpmp}},{{$moore->fri}},{{$moore->fdt}}, {{$moore->id}});
                   </script>   
 				  	@php
 					$i++;
@@ -1337,7 +1341,7 @@ chart.column(chartData);
                      <td id="membros{{$conclusao->id}}"></td>
                   </tr>
                   <script>
-                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,{{$conclusao->id}}, '{{$conclusao->membro}}');
+                     conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,'{{$conclusao->id}}', '{{$conclusao->membro}}');
                   </script>   
 				  	@php
 					$i++;
@@ -1585,8 +1589,8 @@ chart.column(chartData);
             anexos.innerHTML = paginacao();
          </script>
       </div>
-   
-      <div class="page" id="pagemoore" style="display:">
+   <div  id="Moore e Garg" style="display: none">
+      <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Moore & Garg</p>
          </div>
@@ -1595,9 +1599,11 @@ chart.column(chartData);
          <div class="paginacao">
          <script> paginacao();</script>
       </div>
+      </div>
       <div class="paginacao">
       
       </div>
+      <div  id="NIOSH" style="display: none">
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Niosh</p>
@@ -1607,10 +1613,13 @@ chart.column(chartData);
             <img src="/fotos/niosh.jpg" style="max-width: 700px; margin-top: 150px">
          </center>
       </div>
-      <div class="paginacao">
+     
+      <div class="paginacao" >
          <script> paginacao();</script>
       </div>
-      <div class="page">
+       </div>
+       <div id="Sue Rodgers" style="display: none">
+      <div class="page" >
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Sue Rodgers</p>
          </div>
@@ -1618,11 +1627,100 @@ chart.column(chartData);
             <img src="/fotos/sue.webp" style="max-width: 700px">
          </center>
       </div>
+      
       <div class="paginacao">
          <script> paginacao();</script>
       </div>
-      <div class="page">
+      </div>
+
+   <div id="CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR" style="display: none ">
+      <div class="page" >
          <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>
+         </div>
+         <center>
+            <img src="/fotos/check1.jpeg" style="max-width: 700px">
+         </center>
+      </div>
+      
+      <div class="paginacao">
+         <script> paginacao();</script>
+      </div>
+
+            <div class="page" >
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>
+         </div>
+         <center>
+            <img src="/fotos/check2.jpeg" style="max-width: 700px">
+         </center>
+      </div>
+      
+      <div class="paginacao">
+         <script> paginacao();</script>
+      </div>
+
+
+            <div class="page" >
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>
+         </div>
+         <center>
+            <img src="/fotos/check3.jpeg" style="max-width: 700px">
+         </center>
+      </div>
+      
+      <div class="paginacao">
+         <script> paginacao();</script>
+      </div>
+
+            <div class="page" >
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>
+         </div>
+         <center>
+            <img src="/fotos/check4.jpeg" style="max-width: 700px">
+         </center>
+      </div>
+      
+      <div class="paginacao">
+         <script> paginacao();</script>
+      </div>
+
+
+            <div class="page" >
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>
+         </div>
+         <center>
+            <img src="/fotos/check5.jpeg" style="max-width: 700px">
+         </center>
+      </div>
+      
+      <div class="paginacao">
+         <script> paginacao();</script>
+      </div>
+
+            <div class="page" >
+         <div class="subcabecalho2">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>
+         </div>
+         <center>
+            <img src="/fotos/check6.jpeg" style="max-width: 700px">
+         </center>
+      </div>
+      
+      <div class="paginacao">
+         <script> paginacao();</script>
+      </div>
+
+
+      </div>
+
+
+      <div id="OWAS" style="display: none">
+      <div class="page" >
+         <div class="subcabecalho2"  >
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: OWAS</p>
          </div>
          <center>
@@ -1632,13 +1730,16 @@ chart.column(chartData);
       <div class="paginacao">
          <script> paginacao();</script>
       </div>
-      <div class="page">
+      </div>
+      <div  id="Rula" style="display: none">
+      <div class="page" >
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Rula</p>
          </div>
          <center>
             <img src="/fotos/rulaa.png" style="max-width: 700px; margin-top: -150px">
          </center>
+      </div>
       </div>
       <div class="paginacao">
          <script>
@@ -1647,6 +1748,7 @@ chart.column(chartData);
             window.onload = function () {
             //window.print();
             }
+            ver_ferramentas();
          </script>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

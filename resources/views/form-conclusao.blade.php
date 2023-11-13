@@ -175,9 +175,10 @@
                                         <option value="Ações corretivas são necessária a curto prazo">Ações corretivas são necessária a curto prazo </option>
                                         <option value="Ações corretivas imediatas">Ações corretivas imediatas</option>
                                         @elseif($ferramenta == 'Sue Rodgers')
-                                        <option value="RISCO ALTO">Risco Alto</option>
-                                        <option value="RISCO MODERADO">Risco Moderado</option>
                                         <option value="RISCO BAIXO">Risco Baixo</option>
+                                        <option value="RISCO MODERADO">Risco Moderado</option>
+                                        <option value="RISCO ALTO">Risco Alto</option>
+                                        
                                         @elseif($ferramenta == 'NIOSH')
                                         <option value="Faixa Segura">Faixa Segura</option>
                                         <option value="Faixa é considerada de risco moderado">Faixa é considerada de risco moderado</option>
@@ -203,6 +204,10 @@
                                         <option value="Sem Risco">Sem Risco </option>
                                         <option value="Duvidoso"> Duvidoso</option>
                                         <option value="Risco">Risco</option>
+                                        @elseif($ferramenta == 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR')
+                                        <option value="Risco Leve">Risco Leve</option>
+                                        <option value="Risco Moderado"> Risco Moderado</option>
+                                        <option value="Risco Alto">Risco Alto</option>
                                         @endif
                             </select>
                         </div>
