@@ -647,7 +647,7 @@
 
             // Atualize os IDs com base na nova ordem
             for (var i = 0; i < rows.length; i++) {
-                var idCell = rows[i].getElementsByTagName('td')[3];
+                var idCell = rows[i].getElementsByTagName('td')[2];
                 idCell.textContent = i + 1; // Atualiza o ID
             }
         }
@@ -660,7 +660,7 @@
             // Construa um array de objetos com id e nome
             for (var i = 0; i < rows.length; i++) {
                 var id = rows[i].getElementsByTagName('td')[0].textContent;
-                var ordenacao = rows[i].getElementsByTagName('td')[3].textContent;
+                var ordenacao = rows[i].getElementsByTagName('td')[2].textContent;
                 data.push({ id: id, ordenacao: ordenacao });
             }
             console.log(data);
