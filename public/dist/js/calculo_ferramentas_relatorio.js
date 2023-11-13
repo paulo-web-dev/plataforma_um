@@ -102,7 +102,7 @@ function conclusao(conclusao, ferramenta, index, member){
 
 }
 
-function ver_ferramentas (){
+function ver_ferramentas (paginas){
     
 let arraySemDuplicatas = ferramentas.reduce((acumulador, valor) => {
     if (!acumulador.includes(valor)) {
@@ -110,17 +110,179 @@ let arraySemDuplicatas = ferramentas.reduce((acumulador, valor) => {
     }
     return acumulador;
 }, []);
-
+var anexos = document.getElementById('anexospage');
 
 
 arraySemDuplicatas.forEach(array =>  {
-    var divToDisplay = document.getElementById(array);
-    if (divToDisplay) {
-        divToDisplay.style.display = "block";
-    }
-       console.log(array);
-    });
     
+    if (array == 'Moore e Garg') {
+        
+        anexos.innerHTML +=   '<div id="Moore e Garg">'+
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Moore & Garg</p>'+
+            '</div>'+
+            '<img src="/fotos/moore.png" style="max-width: 700px">'+
+        '</div>'+
+        '<div class="paginacao">'+
+         
+        '</div>'+
+    '</div>';
+    
+    }else if (array == 'NIOSH'){
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML +=  '<div id="NIOSH" >'+
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Niosh</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/niosh.png" style="max-width: 700px">'+
+                '<img src="/fotos/niosh.jpg" style="max-width: 700px; margin-top: 150px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+            paginas +
+        '</div>'+
+    '</div>';
+
+    }else if(array == 'Sue Rodgers'){
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML += '<div id="Sue Rodgers">'+
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Sue Rodgers</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/sue.webp" style="max-width: 700px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+        paginas +
+        '</div>'+
+    '</div>';
+
+    }else if(array == "CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR"){
+       
+        anexos.innerHTML +=       '<div id="CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR" >'+
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/check1.jpeg" style="max-width: 700px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+        paginas +
+        '</div>';
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML += 
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/check2.jpeg" style="max-width: 700px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+            paginas+
+        '</div>';
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML += 
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/check3.jpeg" style="max-width: 700px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+        paginas+
+        '</div>';
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML += 
+
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/check4.jpeg" style="max-width: 700px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+        paginas+
+        '</div>';
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML += 
+
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/check5.jpeg" style="max-width: 700px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+        paginas+
+        '</div>';
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML += 
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/check6.jpeg" style="max-width: 700px">'+
+            '</center>'+
+        '</div>'+
+        '<div class="paginacao">'+
+           paginas+
+        '</div>'+
+
+    '</div>';
+    }else if(array == 'OWAS'){
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML +=  '<div id="OWAS" style="display: none">'+
+        '<div class="page">'+
+            '<div class="subcabecalho2" >'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: OWAS</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/owas.jpeg" style="max-width: 700px; margin-top: 150px">'+
+            '</center>'+
+        '</div>'+
+    '</div>'
+    '<div class="paginacao">'+
+    paginas +
+    '</div>';   
+    }else if(array == 'Rula'){
+        paginas = parseInt(paginas) + 1;
+        anexos.innerHTML +=    '<div id="Rula" style="display: none">'+
+        '<div class="page">'+
+            '<div class="subcabecalho2">'+
+                '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANEXOS: Rula</p>'+
+            '</div>'+
+            '<center>'+
+                '<img src="/fotos/rulaa.png" style="max-width: 700px; margin-top: -150px">'+
+            '</center>'+
+        '</div>'+
+    '</div>'+
+    '<div class="paginacao">'+
+    paginas +
+    '</div>';
+    }
+    
+    });
+    var paginas = document.getElementById('paginas'); 
+            paginas.innerHTML = paginacao2();
+            window.onload = function () {
+            //window.print();
+            }
    
 }
 function rula(braco, braco_desvio, antebraco, antebraco_desvio, punho, punho_desvio, pescoco, pescoco_desvio, tronco, tronco_desvio, perna, index){
@@ -366,6 +528,13 @@ var elementos = document.getElementsByClassName(classeAlvo);
 document.write(elementos.length);
 return elementos.length;
 }
+
+function paginacao2(){
+    var classeAlvo = "page";
+    var elementos = document.getElementsByClassName(classeAlvo);
+
+    return elementos.length;
+    }
 
 function classificacao(classificacao, index){
 classification = classificacao.split(' ', 2);
