@@ -11,7 +11,7 @@ class TarefaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
+    } 
     public function formTarefa($id_subsetor){
 
         return view('form-tarefa',[
@@ -29,6 +29,14 @@ class TarefaController extends Controller
         return redirect()->route('info-subsetor', ['id' => $tarefa->id_subsetor])->with('secao', 'tarefa'); 
     } 
 
+    public function updTarefa(Request $request){
+
+        $tarefa =  Tarefa::where('id', $request->id)->first();
+        $tarefa->tarefa = $request->tarefa;
+        $tarefa->save();
+        
+        return redirect()->route('info-subsetor', ['id' => $tarefa->id_subsetor])->with('secao', 'tarefa'); 
+    } 
     public function infoTarefa($id){
         
         $tarefa = Tarefa::where('id', $id)->first();
