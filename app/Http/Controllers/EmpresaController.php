@@ -21,7 +21,7 @@ class EmpresaController extends Controller
 
     public function show(){
 
-        $empresas = Empresas::all();
+        $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->get();
         
         return view('show-empresas',
         [
@@ -63,7 +63,7 @@ class EmpresaController extends Controller
 
         $empresa = new Empresas(); 
         $empresa->nome = $request->nome;
-        $empresa->id_user = Auth::user()->id;
+        $empresa->id_user = Auth::user()->id_instituicao;
         $empresa->titulo = $request->titulo;
         $empresa->periodo_inspecao = $request->periodo_inspecao;
         $empresa->cnpj = $request->cnpj;

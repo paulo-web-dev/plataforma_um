@@ -40,6 +40,7 @@ use App\Http\Controllers\AnaliseAtividadeController;
 use App\Http\Controllers\IdentidadeVisualController;
 use App\Http\Controllers\DescricaoFotoController;
 use App\Http\Controllers\ChecklistsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -345,6 +346,14 @@ Route::get('/info/checklists/{id}', [ChecklistsController::class, 'infoChecklist
 Route::get('/delete/checklists/{idempresa}', [ChecklistsController::class, 'delete'])->name('delete-checklists'); 
 Route::post('/cadastrar/checklists', [ChecklistsController::class, 'cadChecklists'])->name('cad-checklists');
 Route::post('/update/checklists', [ChecklistsController::class, 'updChecklists'])->name('upd-checklists');
+//Rotas referentes ao Cadastro de Usuarios da plataforma 
+
+Route::get('/form/usuario/{instituicao}', [UserController::class, 'formUsuarios'])->name('form-usuario');
+Route::get('/show/usuarios', [UserController::class, 'showUsuarios'])->name('show-usuario');
+Route::get('/info/usuario/{id}', [UserController::class, 'infoUsuarios'])->name('info-usuario');
+Route::get('/delete/usuario/{id}', [UserController::class, 'delete'])->name('delete-usuario');
+Route::post('/update/usuario', [UserController::class, 'updUsuarios'])->name('upd-usuario');
+Route::post('/cadastrar/usuario', [UserController::class, 'cadUsuarios'])->name('cad-usuario');
 
 //Rotas referentes ao relatório
 

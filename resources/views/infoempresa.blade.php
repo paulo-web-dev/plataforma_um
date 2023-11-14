@@ -1010,67 +1010,7 @@
                 <a href="{{route('form-responsaveis', ['id_empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Responsável</a>
             </div>    
         </div>
-    {{-- Checklist --}}
-         <div class="intro-y box mt-5">
-        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">
-             <a href="javascript:;" data-theme="light" class="tooltip"  title="CHECKLIST PARA ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> CHECKLIST PARA ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</a>
-            </h2>
-        </div>
-        <div class="p-5">
-            <div class="grid grid-cols-12 gap-x-5">
-                <div class="col-span-12 xl:col-span-12">
-                    <div class="overflow-x-auto">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                             @if(isset($empresa->ChecklistCadeira))
-                               
-                                    <tr class="hover:bg-gray-200">
-                                        <td class="border">Checklist Adicionada clique em editar para conferir</td>
-                                      
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-checklists', ['id' => $empresa->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-
-                                                                                                                       
-                                         <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('delete-checklists', ['idempresa' => $empresa->id])}}">
-                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                      
-                                    </tr>
-                                    @endif
-                               
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-end mt-4">
-                <a href="{{route('form-checklists', ['idempresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Checklist</a>
-            </div>    
-        </div>
+   
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">

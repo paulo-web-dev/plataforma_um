@@ -76,7 +76,16 @@
                  <a href="{{route('show-identidade')}}" class="menu">
                     <div class="menu__icon"> <i data-feather="user"></i> </div>
                     <div class="menu__title"> Identidade Visual  </div>
-                </a>        
+                </a>     
+                @if (Auth::user()->power == 1)
+                    
+               
+                <a href="{{route('show-usuario')}}" class="menu">
+                    <div class="menu__icon"> <i data-feather="user"></i> </div>
+                    <div class="menu__title">Controle de Usuários  </div>
+                </a>     
+
+                 @endif  
                 
         </ul>
     </div>
@@ -130,7 +139,16 @@
                         <div class="side-menu__title"> Identidade Visual </div>
                     </a>
 
+                        @if (Auth::user()->power == 1)                
+                <a href="{{route('show-usuario')}}" target="_blank"
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
+                                data-icon="ep:user" style="font-size:30px"></span>
+                        </div>
+                        <div class="side-menu__title"> Controle de Usuários </div>
+                    </a>
 
+                    @endif
                      
            
           
