@@ -1346,7 +1346,7 @@ chart.column(chartData);
 				  	@php
 					$i++;
 					@endphp    
-                     @if ($i == 8)
+                     @if ($i == 7)
                     </tbody>
                 </table>
             </div>
