@@ -1395,6 +1395,21 @@ chart.column(chartData);
 					$i++;
 					@endphp   
                   @endforeach
+
+                 @if(isset($subsetor->ChecklistCadeira))
+                  <tr>
+                     <td>CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR
+                       
+                        <br> Atividade: {{$subsetor->ChecklistCadeira->atividade}}.
+                     </td>
+                     <td id="">{{$subsetor->ChecklistCadeira->resultado}}</td>
+                     <td>Boa Condição Ergônomica</td>
+                  </tr>
+                   
+				  	@php
+					$i++;
+					@endphp   
+                  @endif
                </tbody>
             </table>
          </div>

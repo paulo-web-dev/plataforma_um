@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -27,8 +28,12 @@ class HomeController extends Controller
     }
 
     public function home(){
-
-        return view('home2');
+    $user = User::where('id', Auth::user()->id)->with('instituicao')->first();
+    
+        return view('home2',
+        [   
+            'user' => $user,
+        ]);
     }
 
 

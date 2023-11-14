@@ -154,4 +154,103 @@ class SubSetores extends Model
         return $this->hasOne(DescricaoFoto::class, 'id_subsetor', 'id');
   
       }
+
+      
+    public function ChecklistCadeira()
+
+    {
+
+        return $this->hasOne(ChecklistCadeira::class, 'id_empresa', 'id');
+
+    }
+
+
+    public function ChecklistApoioPes()
+
+    {
+
+        return $this->hasOne(ChecklistApoioPes::class, 'id_empresa', 'id');
+
+    }
+
+
+    public function ChecklistComputador()
+
+    {
+
+        return $this->hasOne(ChecklistComputador::class, 'id_empresa', 'id');
+
+    }
+
+
+    public function ChecklistDocumentos()
+
+    {
+
+        return $this->hasOne(ChecklistDocumentos::class, 'id_empresa', 'id');
+
+    }
+
+    public function ChecklistIluminacao()
+
+    {
+
+        return $this->hasOne(ChecklistIluminacao::class, 'id_empresa', 'id');
+
+    }
+
+    public function ChecklistLeiaute()
+
+    {
+
+        return $this->hasOne(ChecklistLeiaute::class, 'id_empresa', 'id');
+
+    }
+
+    public function ChecklistMesa()
+
+    {
+
+        return $this->hasOne(ChecklistMesa::class, 'id_empresa', 'id');
+
+    }
+    public function ChecklistMonitor()
+
+    {
+
+        return $this->hasOne(ChecklistMonitor::class, 'id_empresa', 'id');
+
+    }
+
+    public function ChecklistNotebook()
+
+    {
+
+        return $this->hasOne(ChecklistNotebook::class, 'id_empresa', 'id');
+
+    }
+
+    public function ChecklistSistema()
+
+    {
+
+        return $this->hasOne(ChecklistSistema::class, 'id_empresa', 'id');
+
+    }
+
+    public function ChecklistSuporteTeclado()
+
+    {
+
+        return $this->hasOne(ChecklistSuporteTeclado::class, 'id_empresa', 'id');
+
+    }
+
+    public function ChecklistTeclado()
+
+    {
+
+        return $this->hasOne(ChecklistTeclado::class, 'id_empresa', 'id');
+
+    }
 }

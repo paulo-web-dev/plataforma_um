@@ -65,9 +65,10 @@ class ChecklistsController extends Controller
     }
 
     public function cadChecklists(Request $request){
-         
+
         $checklistCadeira = new ChecklistCadeira();
         $checklistCadeira->id_empresa = $request->idempresa;
+        $checklistCadeira->atividade = $request->atividade;
         $checklistCadeira->cadeira_estofada = $request->cadeira_estofada=== 'on' ? 1 : 0;
         $checklistCadeira->estofado_espessura_maciez = $request->estofado_espessura_maciez=== 'on' ? 1 : 0;
         $checklistCadeira->tecido_transpiracao = $request->tecido_transpiracao=== 'on' ? 1 : 0;
@@ -89,7 +90,35 @@ class ChecklistsController extends Controller
         $checklistCadeira->bracos_aproximacao_trabalhador = $request->bracos_aproximacao_trabalhador=== 'on' ? 1 : 0;
         $checklistCadeira->mecanismo_conforto = $request->mecanismo_conforto=== 'on' ? 1 : 0;
         $checklistCadeira->mecanismos_funcionando_bem = $request->mecanismos_funcionando_bem=== 'on' ? 1 : 0;
-        $checklistCadeira->save();
+        
+        // Somando os valores das propriedades
+        $totalCadeira = $checklistCadeira->cadeira_estofada +
+        $checklistCadeira->estofado_espessura_maciez +
+        $checklistCadeira->tecido_transpiracao +
+        $checklistCadeira->altura_regulavel +
+        $checklistCadeira->acionamento_regulagem_altura +
+        $checklistCadeira->altura_compativel +
+        $checklistCadeira->largura_dimensao_correta +
+        $checklistCadeira->assento_horizontal +
+        $checklistCadeira->assento_plano +
+        $checklistCadeira->borda_anterior_arredondada +
+        $checklistCadeira->apoio_dorsal_regulagem +
+        $checklistCadeira->apoio_dorsal_suporte_firme +
+        $checklistCadeira->apoio_dorsal_curvaturas_coluna +
+        $checklistCadeira->altura_apoio_dorsal +
+        $checklistCadeira->espaco_nadegas +
+        $checklistCadeira->giratoria +
+        $checklistCadeira->rodizios_duros_leves +
+        $checklistCadeira->bracos_regulaveis +
+        $checklistCadeira->bracos_aproximacao_trabalhador +
+        $checklistCadeira->mecanismo_conforto +
+        $checklistCadeira->mecanismos_funcionando_bem;
+
+// Contando os itens usados (com valor 1) e não usados (com valor 0)
+
+
+// Exibindo os resultados
+
 
         $checklistMesa = new ChecklistMesa();
         $checklistMesa->id_empresa = $request->idempresa;
@@ -111,6 +140,26 @@ class ChecklistsController extends Controller
         $checklistMesa->organizacao_fios = $request->has('organizacao_fios') ? 1 : 0;
         $checklistMesa->outro_mecanismo_conforto = $request->has('outro_mecanismo_conforto') ? 1 : 0;
         $checklistMesa->save();
+        $totalMesa = $checklistMesa->tipo_movel_adequado +
+        $checklistMesa->altura_apropriada +
+        $checklistMesa->regulagem_altura +
+        $checklistMesa->borda_anterior_arredondada +
+        $checklistMesa->dimensoes_apropriadas +
+        $checklistMesa->material_nao_reflexivo +
+        $checklistMesa->espaco_pernas_alto +
+        $checklistMesa->espaco_pernas_profundo +
+        $checklistMesa->espaco_pernas_largo +
+        $checklistMesa->facilidade_entrada_saida +
+        $checklistMesa->ajuste_altura_tela_monitor +
+        $checklistMesa->facilidade_ajuste_altura +
+        $checklistMesa->ajuste_monitor_frente_tras +
+        $checklistMesa->facilidade_ajuste_frente_tras +
+        $checklistMesa->espaco_objeto_pessoal +
+        $checklistMesa->organizacao_fios +
+        $checklistMesa->outro_mecanismo_conforto;
+
+// Exibindo os resultados
+
 
         $checklistSuporteTeclado = new ChecklistSuporteTeclado();
         $checklistSuporteTeclado->id_empresa = $request->idempresa;
@@ -126,6 +175,20 @@ class ChecklistsController extends Controller
         $checklistSuporteTeclado->apoio_arredondado_carpo = $request->has('apoio_arredondado_carpo') ? 1 : 0;
         $checklistSuporteTeclado->quina_viva_ocasionar_acidente = $request->has('quina_viva_ocasionar_acidente') ? 1 : 0;
         $checklistSuporteTeclado->save();
+// Somando os valores das propriedades
+$totalSuporteTeclado = $checklistSuporteTeclado->altura_regulavel +
+    $checklistSuporteTeclado->regulagem_facil +
+    $checklistSuporteTeclado->dimensoes_apropriadas +
+    $checklistSuporteTeclado->largura_teclado_ajustavel +
+    $checklistSuporteTeclado->amortecimento_vibracoes_sons +
+    $checklistSuporteTeclado->espaco_pernas_alto +
+    $checklistSuporteTeclado->espaco_pernas_profundo +
+    $checklistSuporteTeclado->espaco_pernas_largo +
+    $checklistSuporteTeclado->facilidade_entrada_saida +
+    $checklistSuporteTeclado->apoio_arredondado_carpo +
+    $checklistSuporteTeclado->quina_viva_ocasionar_acidente;
+
+// Exibindo os resultados
 
         $checklistApoioPes = new ChecklistApoioPes();
         $checklistApoioPes->id_empresa = $request->idempresa;
@@ -154,6 +217,26 @@ class ChecklistsController extends Controller
         $checklistTeclado->configuracao_ABNT = $request->has('configuracao_ABNT') ? 1 : 0;
         $checklistTeclado->formato_nao_tradicional = $request->has('formato_nao_tradicional') ? 1 : 0;
         $checklistTeclado->save();
+        // Somando os valores das propriedades para cada classe
+$totalApoioPes = $checklistApoioPes->largura_suficiente +
+$checklistApoioPes->altura_regulavel +
+$checklistApoioPes->inclinação_ajustavel +
+$checklistApoioPes->movimento_frente_tras +
+$checklistApoioPes->desliza_facilmente;
+
+$totalDocumentos = $checklistDocumentos->ajuste_altura_distancia_angulo +
+$checklistDocumentos->facilidade_ajuste +
+$checklistDocumentos->retencao_fixacao_documento +
+$checklistDocumentos->prevencao_vibracoes +
+$checklistDocumentos->espaco_suficiente_documento +
+$checklistDocumentos->posicao_proxima_angulo_visao;
+
+$totalTeclado = $checklistTeclado->fino +
+$checklistTeclado->macio +
+$checklistTeclado->teclas_dimensoes_corretas +
+$checklistTeclado->configuracao_ABNT +
+$checklistTeclado->formato_nao_tradicional;
+
 
         $checklistMonitor = new ChecklistMonitor();
         $checklistMonitor->id_empresa = $request->idempresa;
@@ -186,7 +269,29 @@ class ChecklistsController extends Controller
         $checklistNotebook->tela_dimensoes = $request->has('tela_dimensoes') ? 1 : 0;
         $checklistNotebook->dispositivos_midia = $request->has('dispositivos_midia') ? 1 : 0;
         $checklistNotebook->save();
+       $totalMonitor = $checklistMonitor->monitor_frente_trabalhador +
+       $checklistMonitor->altura_adequada +
+       $checklistMonitor->regulagem_altura_facil +
+       $checklistMonitor->inclinação_facil +
+       $checklistMonitor->controle_brilho_contraste +
+       $checklistMonitor->tremores_tela +
+       $checklistMonitor->imagem_claramente_definida +
+       $checklistMonitor->freq_renovacao_imagem_ajustavel +
+       $checklistMonitor->monitor_fosco +
+       $checklistMonitor->monitor_plano;
+        $totalComputador = $checklistComputador->espaco_excessivo +
+    $checklistComputador->transmite_calor_radiante +
+    $checklistComputador->nivel_excessivo_ruido;
 
+$totalNotebook = $checklistNotebook->suporte_tela_teclado_mouse +
+    $checklistNotebook->leve +
+    $checklistNotebook->teclas_separadas +
+    $checklistNotebook->teclado_notebook_configuracao +
+    $checklistNotebook->teclas_dimensoes +
+    $checklistNotebook->tela_dimensoes +
+    $checklistNotebook->dispositivos_midia;
+
+    
         $checklistLeiaute = new ChecklistLeiaute();
         $checklistLeiaute->id_empresa = $request->idempresa;
         $checklistLeiaute->posicao_correta = $request->has('posicao_correta') ? 1 : 0;
@@ -220,7 +325,64 @@ class ChecklistsController extends Controller
         $checklistIluminacao->brilho_piso_baixo = $request->has('brilho_piso_baixo') ? 1 : 0;
         $checklistIluminacao->legibilidade_documento_satisfatoria = $request->has('legibilidade_documento_satisfatoria') ? 1 : 0;
         $checklistIluminacao->save();
-        return redirect()->route('infoempresa', ['id' => $request->idempresa]); 
+
+        
+// Somando os valores das propriedades para cada classe
+$totalLeiaute = $checklistLeiaute->posicao_correta +
+$checklistLeiaute->area_minima +
+$checklistLeiaute->distancia_terminal_operador +
+$checklistLeiaute->tomadas_altura +
+$checklistLeiaute->acesso_dispositivos +
+$checklistLeiaute->fator_contracao_estatica +
+$checklistLeiaute->headset_disponivel +
+$checklistLeiaute->interferencias_posicionamento +
+$checklistLeiaute->alterna_postura_de_pe +
+$checklistLeiaute->clima_adequado +
+$checklistLeiaute->nivel_sonoro_apropriado;
+
+$totalSistema = $checklistSistema->pausa_10_minutos_cada_50_minutos +
+$checklistSistema->pausa_digitacao_8000_toques_por_hora +
+$checklistSistema->pausa_10_minutos_cada_2_horas;
+
+$totalIluminacao = $checklistIluminacao->iluminacao_lux +
+$checklistIluminacao->iluminacao_suplementar_mais_45_anos +
+$checklistIluminacao->visao_livre_reflexos +
+$checklistIluminacao->fontes_deslumbramento_fora_visao +
+$checklistIluminacao->postos_trabalho_posicionados_lado_janelas +
+$checklistIluminacao->janelas_persianas_cortinas +
+$checklistIluminacao->brilho_piso_baixo +
+$checklistIluminacao->legibilidade_documento_satisfatoria;
+
+$total = $totalCadeira +
+    $totalMesa +
+    $totalSuporteTeclado +
+    $totalApoioPes +
+    $totalDocumentos +
+    $totalTeclado +
+    $totalMonitor +
+    $totalComputador +
+    $totalNotebook +
+    $totalLeiaute +
+    $totalSistema +
+    $totalIluminacao;
+
+    
+    $percentual = round(($total/99) * 100);
+    if($percentual < 30){
+        $resultado = 'Condição Ergonômica Pessima';
+    }elseif ($percentual <= 50) {
+        $resultado = 'Condição Ergonômica Ruim';
+    }elseif ($percentual <= 70) {
+        $resultado = 'Condição Ergonômica Razoável';
+    }elseif ($percentual <= 90){
+        $resultado = 'Boa Condição Ergonômica';
+    }elseif ($percentual > 90) {
+       $resultado = 'Condição Ergonômica Execelente';
+    }
+    $checklistCadeira->resultado = $resultado ;
+    $checklistCadeira->save();
+
+        return redirect()->route('info-subsetor', ['id' => $request->idempresa])->with('secao', 'checklist'); 
     } 
 
 
@@ -240,6 +402,7 @@ class ChecklistsController extends Controller
         $checklistNotebook = ChecklistNotebook::where('id_empresa', $request->idempresa)->first();
         
         $checklistCadeira->id_empresa = $request->idempresa;
+        $checklistCadeira->atividade = $request->atividade;
         $checklistCadeira->cadeira_estofada = $request->cadeira_estofada=== 'on' ? 1 : 0;
         $checklistCadeira->estofado_espessura_maciez = $request->estofado_espessura_maciez=== 'on' ? 1 : 0;
         $checklistCadeira->tecido_transpiracao = $request->tecido_transpiracao=== 'on' ? 1 : 0;
@@ -399,7 +562,7 @@ class ChecklistsController extends Controller
         $checklistNotebook->dispositivos_midia = $request->has('dispositivos_midia') ? 1 : 0;
         $checklistNotebook->save();
 
-        return redirect()->route('infoempresa', ['id' => $request->idempresa]); 
+        return redirect()->route('info-subsetor', ['id' => $request->idempresa])->with('secao', 'checklist'); 
 
     } 
 

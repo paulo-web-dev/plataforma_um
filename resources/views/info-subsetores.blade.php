@@ -1520,7 +1520,7 @@
     </div>
 
        <!-- Lista de CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR -->
-    <div class="intro-y box mt-5">
+    <div class="intro-y box mt-5" id="checklist">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR">Lista de CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
@@ -1533,7 +1533,6 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
@@ -1546,7 +1545,6 @@
                                   @foreach ($subsetor->conclusoes as $conclusao) 
                                      @if($conclusao->ferramenta == 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR')
                                     <tr class="hover:bg-gray-200">
-                                        <td class="border">{{$conclusao->id}}</td>
                                         <td class="border">{{$conclusao->atividade}}</td>
                                         <td class="border">{{$conclusao->conclusao}}</td>
                                         <td class="border">
@@ -1571,7 +1569,39 @@
                                         </td>
                                     </tr>
                                  @endif
+                                  
                                 @endforeach 
+
+                                 @if(isset($subsetor->ChecklistCadeira))
+                               
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$subsetor->ChecklistCadeira->atividade}}</td>
+                                        <td class="border">{{$subsetor->ChecklistCadeira->resultado}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('info-checklists', ['id' => $subsetor->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+
+                                                                                                                       
+                                         <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-checklists', ['idempresa' => $subsetor->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                      
+                                    </tr>
+                                    @endif
                             </tbody>
                         </table>
                     </div>
@@ -1579,7 +1609,8 @@
             </div>
            
             <div class="flex justify-end mt-4">
-                <a href="{{route('form-conclusao', ['idsubsetor' => $subsetor->id, 'ferramenta' => 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR'])}}" class="btn btn-primary mr-auto mb-2 simplificado">CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR</a>
+                <a href="{{route('form-conclusao', ['idsubsetor' => $subsetor->id, 'ferramenta' => 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR'])}}" class="btn btn-primary mr-auto mb-2 simplificado">ADICIONAR CHECK LIST SIMPLIFICADO</a>
+                <a href="{{route('form-checklists', ['idempresa' => $subsetor->id ])}}" class="btn btn-primary mr-auto mb-2 simplificado">ADICIONAR CHECK LIST COMPLETO</a>
             </div>    
         </div>
     </div>

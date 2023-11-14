@@ -693,6 +693,12 @@ aproximadamente 10 minutos a cada duas horas trabalhadas?
                 
     </tbody>
 </table>
+
+            <div class="mt-3">
+                <label for="atividade" class="form-label"><strong>Atividade</strong></label>
+                <input id="atividade" type="text" name="atividade" class="form-control"
+                  value="{{$checklistCadeira->atividade}}"   placeholder="Atividade avaliada" required>
+            </div>
                                                                   
                 <div class="flex justify-end mt-4">
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Atualizar Checklist</button>

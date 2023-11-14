@@ -54,8 +54,19 @@ class SubSetoresController extends Controller
         ->with('tarefa')
         ->with('funcao')
         ->with('descricaoFotos')
+        ->with('ChecklistCadeira')
+        ->with('ChecklistApoioPes')
+        ->with('ChecklistComputador')
+        ->with('ChecklistDocumentos')
+        ->with('ChecklistIluminacao')
+        ->with('ChecklistLeiaute')
+        ->with('ChecklistMesa')
+        ->with('ChecklistMonitor')
+        ->with('ChecklistNotebook')
+        ->with('ChecklistSistema')
+        ->with('ChecklistSuporteTeclado')
+        ->with('ChecklistTeclado')
         ->first();  
-  
         return view('info-subsetores',[
             'subsetor' => $subsetor,
             

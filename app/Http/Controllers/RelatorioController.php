@@ -43,18 +43,6 @@ class RelatorioController extends Controller
         ->with('demanda')
         ->with('analise')
         ->with('area')
-        ->with('ChecklistCadeira')
-        ->with('ChecklistApoioPes')
-        ->with('ChecklistComputador')
-        ->with('ChecklistDocumentos')
-        ->with('ChecklistIluminacao')
-        ->with('ChecklistLeiaute')
-        ->with('ChecklistMesa')
-        ->with('ChecklistMonitor')
-        ->with('ChecklistNotebook')
-        ->with('ChecklistSistema')
-        ->with('ChecklistSuporteTeclado')
-        ->with('ChecklistTeclado')
         ->first();
         return view('relatorio',[
             'empresa' => $empresa,

@@ -39,13 +39,14 @@
                         
                         <div class="mt-6 lg:mt-0 flex-1 px-5 border-t lg:border-0 border-slate-200/60 dark:border-darkmode-400 pt-5 lg:pt-0">
                             <div class="font-medium text-center lg:text-left lg:mt-5">Informações</div>
-                            <div class="truncate sm:whitespace-normal flex items-center">  </div>
+                            <div class="truncate sm:whitespace-normal flex items-center">Instituição: {{$user->instituicao->nome}}</div>
+                            <div class="truncate sm:whitespace-normal flex items-center">Número de Colaboradores: {{$user->instituicao->num_usuarios}}</div>
                         </div>
                         
                         <div class="absolute right-0 top-0 mr-5 mt-3 dropdown">
 
                             <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false"><i data-feather="settings"></i>
-
+                                
                             </a>
 
                             <div class="dropdown-menu w-40">

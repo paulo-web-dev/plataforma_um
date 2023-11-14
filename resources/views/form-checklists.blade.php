@@ -780,13 +780,17 @@ operador?</td>
         
                 
     </tbody>
-</table>
+</table> 
 
 
 
                             
                             
-                           
+                                <div class="mt-3">
+                                    <label for="atividade" class="form-label"><strong>Atividade</strong></label>
+                                    <input id="atividade" type="text" name="atividade" class="form-control"
+                                        placeholder="Atividade avaliada" required>
+                                </div>
                 <div class="flex justify-end mt-4">
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Cadastrar Checklist</button>
                 </div>

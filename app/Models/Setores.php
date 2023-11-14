@@ -34,8 +34,19 @@ class Setores extends Model
         ->with('tarefa')
         ->with('funcao')
         ->with('descricaoFotos')
-        ->with('recomendacao');
-        
+        ->with('recomendacao')
+        ->with('ChecklistCadeira')
+        ->with('ChecklistApoioPes')
+        ->with('ChecklistComputador')
+        ->with('ChecklistDocumentos')
+        ->with('ChecklistIluminacao')
+        ->with('ChecklistLeiaute')
+        ->with('ChecklistMesa')
+        ->with('ChecklistMonitor')
+        ->with('ChecklistNotebook')
+        ->with('ChecklistSistema')
+        ->with('ChecklistSuporteTeclado')
+        ->with('ChecklistTeclado');
 
     }
     
