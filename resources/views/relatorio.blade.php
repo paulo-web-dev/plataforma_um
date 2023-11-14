@@ -1346,7 +1346,34 @@ chart.column(chartData);
 				  	@php
 					$i++;
 					@endphp    
+                     @if ($i == 8)
+                    </tbody>
+                </table>
+            </div>
+            </div>
+              <div class="paginacao">
+         <script>paginacao()</script>
+      </div>
+            {{-- Open a new page here --}}
+            <div class="page">
+                <div class="subcabecalho2">
+                    <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnóstico</p>
+                </div>
+                {{-- Tabela com Resultados de ferramentas --}}
+                <div class="container mt-5">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Ferramentas</th>
+                                <th>Resultado</th>
+                                <th>Região Corpórea</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                @endif
+
                   @endforeach
+                  
                   @foreach ($subsetor->rula as $rula)
                   <tr>
                      <td>RULA
@@ -1361,7 +1388,8 @@ chart.column(chartData);
                   </script>  
 				  	@php
 					$i++;
-					@endphp     
+					@endphp   
+                 
                   @endforeach
                   @foreach ($subsetor->owas as $owas)
                   <tr>
