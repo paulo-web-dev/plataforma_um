@@ -1043,9 +1043,9 @@
                                         <td class="border">{{$mapeamento->area}}</td>
                                         <td class="border">{{$mapeamento->setor}}</td>
                                         <td class="border">{{$mapeamento->posto_trabalho}}</td>
-                                        <td class="border">{{substr($mapeamento->funcao,0 , 50)}}...</td>
+                                        <td class="border">{{$mapeamento->funcao}}</td>
                                         <td class="border">{{$mapeamento->postura}}</td>
-                                        <td class="border">{{$mapeamento->atividade}}...</td>
+                                        <td class="border">{{$mapeamento->atividade}}</td>
                                         <td class="border">{{$mapeamento->exigencia}}</td>
                                         <td class="border">{{$mapeamento->sobrecarga}}</td>
                                         <td class="border" id="classificacao{{$loop->index}}">{{$mapeamento->classificacao}}</td>
@@ -1083,6 +1083,10 @@
 
              <div class="flex justify-end mt-4">
                 <a href="{{route('form-mapeamento-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Mapeamento Campo a Campo</a>
+            </div> 
+
+            <div class="flex justify-end mt-4">
+                <a href="{{route('gerar-mapeamento', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Gerar Mapeamento Com Base No Relatório</a>
             </div>    
         </div>
 

@@ -1487,21 +1487,21 @@ chart.column(chartData);
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
-               <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Postura</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
+               <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Postura</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Exigência da Atividade</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sobrecarga</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
             </thead>
             <tbody>
-               @foreach ($mapeamentos->take(8) as $mapeamento)
+               @foreach ($mapeamentos->take(10) as $mapeamento)
                <tr class="hover:bg-gray-200">
                   <td class="border">{{$mapeamento->area}}</td>
                   <td class="border">{{$mapeamento->setor}}</td>
                   <td class="border">{{$mapeamento->posto_trabalho}}</td>
-                  <td class="border">{{substr($mapeamento->funcao, 0, 50)}}...</td>
+                  <td class="border">{{$mapeamento->funcao}}</td>
+                  <td class="border">{{$mapeamento->atividade}}</td>
                   <td class="border">{{$mapeamento->postura}}</td>
-                  <td class="border">{{$mapeamento->atividade}}...</td>
                   <td class="border">{{$mapeamento->exigencia}}</td>
                   <td class="border">{{$mapeamento->sobrecarga}}</td>
                   <td class="border" id="classificacao{{$mapeamento->id}}">{{$mapeamento->classificacao}}</td>
@@ -1511,7 +1511,7 @@ chart.column(chartData);
             </tbody>
          </table>
          @php
-         $mapeamentos = $mapeamentos->slice(8); // Remove os primeiros 8 elementos
+         $mapeamentos = $mapeamentos->slice(10); // Remove os primeiros 8 elementos
          @endphp
       </div>
       <div class="paginacao">
@@ -1543,12 +1543,12 @@ chart.column(chartData);
                <!-- Cabeçalho da tabela -->
             </thead>
             <tbody>
-               @foreach ($planos->take(8) as $plano)
+               @foreach ($planos->take(10) as $plano)
                <tr class="hover:bg-gray-200">
                   <td class="border">{{$plano->area}}</td>
                   <td class="border">{{$plano->setor}}</td>
                   <td class="border">{{$plano->posto_trabalho}}</td>
-                  <td class="border">{{substr($plano->funcao, 0, 50)}}...</td>
+                  <td class="border">{{$plano->funcao}}</td>
                   <td class="border">{{$plano->exigencia}}</td>
                   <td class="border">{{$plano->recomendacao}}</td>
                   <td class="border">{{$plano->viabilidade}}</td>
@@ -1558,7 +1558,7 @@ chart.column(chartData);
             </tbody>
          </table>
          @php
-         $planos = $planos->slice(8); // Remove os primeiros 8 elementos
+         $planos = $planos->slice(10); // Remove os primeiros 8 elementos
          @endphp
       </div>
       <div class="paginacao">

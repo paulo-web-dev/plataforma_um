@@ -309,6 +309,7 @@ Route::post('/cad/subsetor/populacao', [PopulacaoSubSetorController::class, 'cad
 
 //Rotas referente a upload de mapeamento ergonômico 
 Route::get('/form/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamento'])->name('form-mapeamento');
+Route::get('/gerar/mapeamento/{empresa}', [MapeamentoController::class, 'gerarMapeamento'])->name('gerar-mapeamento');
 Route::get('/form/campos/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamentocampos'])->name('form-mapeamento-campos');
 Route::get('/info/mapeamento/{id}', [MapeamentoController::class, 'infoMapeamento'])->name('info-mapeamento');
 Route::get('/delete/mapeamento/{id}', [MapeamentoController::class, 'delete'])->name('delete-mapeamento');

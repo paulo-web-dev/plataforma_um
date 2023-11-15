@@ -1,7 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif !important; 
     text-align: justify;
-  
+    line-height: 5.5em; 
   }
   table {
     border-collapse: collapse;
@@ -27,6 +27,7 @@ body {
   p {
     font-family: 'Poppins', sans-serif; 
     margin: 15px;
+    line-height: 5.5em; 
   }
     .title{
       
