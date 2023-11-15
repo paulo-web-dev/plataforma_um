@@ -581,7 +581,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          </script>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{$setor->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{strtoupper($setor->nome)}}</p>
          </div>
          <p style="font-size: 25px;">No setor {{$setor->nome}},  foi realizado o levantamento ergonômico das atividades nos seguintes postos de trabalho:</p>
          <ul>
@@ -611,7 +611,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
          
         echo '<div class="page">';
         echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . $setor->nome . '</p>';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . strtoupper($setor->nome) . '</p>';
         echo '</div>';
         echo '<table style="margin-left:10px; margin-right:10px">';
         echo '<tr>';
@@ -638,7 +638,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
          
         echo '<div class="page">';
         echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . $setor->nome . '</p>';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . strtoupper($setor->nome) . '</p>';
         echo '</div>';
         echo '<table style="margin-left:10px; margin-right:10px">';
         echo '<tr>';
@@ -667,7 +667,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
     
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{$setor->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{strtoupper($setor->nome)}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
             {{-- <tr>
