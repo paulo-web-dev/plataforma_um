@@ -31,7 +31,7 @@
     body {
     font-family: 'Poppins', sans-serif !important; 
     text-align: justify;
-  
+    line-height: 1.5;
   }
   table {
     border-collapse: collapse;
@@ -57,6 +57,7 @@
   p {
     font-family: 'Poppins', sans-serif; 
     margin: 15px;
+     line-height: 1.5;
   }
     .title{
       
@@ -343,7 +344,7 @@ ul{
       </div>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Identificação da Empresa</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">IDENTIFICAÇÃO DA EMPRESA</p>
          </div>
          <ul>
          <li><b>Endereço: {{$empresa->rua}}, {{$empresa->numero}}</b></li><br>
@@ -371,7 +372,7 @@ ul{
       </div>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Introdução</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">INTRODUÇÃO</p>
          </div>
          <p><?= $empresa->introducao->introducao?></p>
       </div>
@@ -441,7 +442,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
           
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Objetivos Da Análise Ergônomica Do Trabalho </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">OBJETIVOS DA ÁNALISE ERGONÔMICA DO TRABALHO</p>
          </div>
          <ul>
             @foreach ($empresa->objetivos as $objetivo)
@@ -505,7 +506,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Demanda --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Demanda</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DEMANDA</p>
          </div>
          <ul>
             @if(isset($empresa->demanda))
@@ -524,7 +525,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
 {{-- Ánalise GLobal --}}
 
       <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Ánalise Global da Empresa </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁNALISE GLOBAL DA EMPRESA </p>
          </div>
          <ul>
            
@@ -558,7 +559,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Postos/Subsetores/Cargos que foram avaliados --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Área: {{$area->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{$area->nome}}</p>
          </div>
          <p style="font-size: 25px;">As avaliações ocorreram nos seguintes setores da empresa:</p>
          <ul>
@@ -580,7 +581,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          </script>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: {{$setor->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{$setor->nome}}</p>
          </div>
          <p style="font-size: 25px;">No setor {{$setor->nome}},  foi realizado o levantamento ergonômico das atividades nos seguintes postos de trabalho:</p>
          <ul>
@@ -610,7 +611,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
          
         echo '<div class="page">';
         echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: ' . $setor->nome . '</p>';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . $setor->nome . '</p>';
         echo '</div>';
         echo '<table style="margin-left:10px; margin-right:10px">';
         echo '<tr>';
@@ -621,7 +622,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
 
         echo '</table>';
         echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>';
         echo '</div>';
         echo '<p class="text-cargo">' . $parte1 . '</p>';
         echo '</div>';
@@ -637,7 +638,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
          
         echo '<div class="page">';
         echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: ' . $setor->nome . '</p>';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . $setor->nome . '</p>';
         echo '</div>';
         echo '<table style="margin-left:10px; margin-right:10px">';
         echo '<tr>';
@@ -648,7 +649,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
 
         echo '</table>';
         echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>';
         echo '</div>';
         echo '<p class="text-cargo">' . $parte1 . '</p>';
         echo '</div>';
@@ -666,7 +667,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
     
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Setor: {{$setor->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{$setor->nome}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
             {{-- <tr>
@@ -695,7 +696,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
             <!-- Adicione mais linhas conforme necessário -->
          </table>
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Descrição da Tarefa</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
          </div>
          
          <p class="text-cargo" ><b>{{$subsetor->nome}}: </b><?= $subsetor->descricao?>. </p>
@@ -724,7 +725,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
       </div>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Fotos</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">FOTOS</p>
          </div>
          <div class="imagem-container">
             @foreach ($subsetor->fotosatividade as $foto)
@@ -745,7 +746,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
       {{-- Características do Trabalho  --}}
       <div class="page">
          <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características Da Organização Do Trabalho</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DA ORGANIZAÇÃO DO TRABALHO</p>
          </div>
          <ul>
         
@@ -774,7 +775,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
        @if(count($subsetor->populacaosubsetor) >= 1)
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características Da População</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DA POPULAÇÃO</p>
          </div>
           <center>
          <div class="grafico-container">
@@ -1050,7 +1051,7 @@ chart.column(chartData);
       {{-- Dados de Saúde --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Dados de Saúde </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DADOS DE SAÚDE</p>
          </div>
          <p style="font-size: 21px;">Por meio de uma entrevista individualizada (com participação de 100% dos trabalhadores do setor) foi aplicado um questionário com questões abertas com a finalidade de identificar os principais desconfortos referidos pelos
             trabalhadores e que podem influenciar o seu desempenho durante o processo de trabalho.</li>
@@ -1261,7 +1262,7 @@ chart.column(chartData);
       <div class="page">
 
          <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Características do Ambiente de Trabalho</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DO AMBIENTE DE TRABALHO</p>
          </div>
          <ul>
            
@@ -1282,7 +1283,7 @@ chart.column(chartData);
    
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Pré Diagnóstico</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">PRÉ DIAGNÓSTICO</p>
          </div>
          <ul>
            
@@ -1357,7 +1358,7 @@ chart.column(chartData);
             {{-- Open a new page here --}}
             <div class="page">
                 <div class="subcabecalho2">
-                    <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnóstico</p>
+                    <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DIAGNÓSTICO</p>
                 </div>
                 {{-- Tabela com Resultados de ferramentas --}}
                 <div class="container mt-5">
@@ -1451,7 +1452,7 @@ chart.column(chartData);
     <div class="page">
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Recomendações Técnicas e Sugestões De Adequações</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">RECOMENDAÇÕES TÉCNICAS E SUGESTÕES DE ADEQUAÇÕES</p>
          </div>
          <ul>
            
@@ -1479,7 +1480,7 @@ chart.column(chartData);
       @while(count($mapeamentos) > 0)
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">Mapeamento Ergonômico</p>
+            <p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">MAPEAMENTO ERGONÔMICO</p>
          </div>
          <table>
             <thead>
@@ -1528,7 +1529,7 @@ chart.column(chartData);
       @while(count($planos) > 0)
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">Plano de Ação</p>
+            <p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">PLANO DE AÇÃO</p>
          </div>
          <table>
             <thead>
@@ -1591,7 +1592,7 @@ chart.column(chartData);
       {{-- Encerramento --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Encerramento: {{$empresa->nome}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ENCERRAMENTO: {{$empresa->nome}}</p>
          </div>
          <p style="font-size: 25px;">
             Este documento é composto de <span id="paginas">55</span> páginas impressas somente no anverso,

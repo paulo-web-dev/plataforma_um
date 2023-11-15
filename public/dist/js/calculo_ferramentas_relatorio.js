@@ -29,11 +29,11 @@ function conclusao(conclusao, ferramenta, index, member){
     var textomembros = document.getElementById('textomemrbos'+index);
     var membros = document.getElementById('membros'+index);
    // console.log(conclusao)
-    if(conclusao == 'Baixo Risco' || conclusao == 'Risco Leve'  || conclusao == 'RISCO BAIXO'|| conclusao == 'Faixa Segura' || conclusao == 'Ausente ou Aceitável' || conclusao == 'aceitável se não é mantida ou repetida por longos períodos' || conclusao == 'Sem ações corretivas, postura adequada' || conclusao == 'Baixo' || conclusao == 'Sem Risco' || conclusao == 'Risco inexistente' || conclusao == 'Improvável'){
+    if(conclusao == 'Baixo Risco' || conclusao == 'Risco Leve'  ||  conclusao == 'RISCO MODERADO' || conclusao == 'Risco Moderado'  ||  conclusao == 'RISCO BAIXO'|| conclusao == 'Faixa Segura' || conclusao == 'Ausente ou Aceitável' || conclusao == 'aceitável se não é mantida ou repetida por longos períodos' || conclusao == 'Sem ações corretivas, postura adequada' || conclusao == 'Baixo' || conclusao == 'Sem Risco' || conclusao == 'Risco inexistente' || conclusao == 'Improvável'){
         colorbg = "green";
         colorfont = "white";
   
-    } else if(conclusao == 'Duvidoso' || conclusao == 'RISCO MODERADO' || conclusao == 'Risco Moderado' || conclusao == 'Faixa é considerada de risco moderado' || conclusao == 'Limite' ||conclusao == 'Médio' ||conclusao == 'são necessários mais estudos e que serão necessárias mudanças' ||conclusao == 'são necessárias pesquisas e mudanças em um futuro próximo' || conclusao == 'Ações corretivas são requeridas em um futuro próximo' || conclusao == 'Ações corretivas são necessária a curto prazo'){
+    } else if(conclusao == 'Duvidoso'  || conclusao == 'Faixa é considerada de risco moderado' || conclusao == 'Limite' ||conclusao == 'Médio' ||conclusao == 'são necessários mais estudos e que serão necessárias mudanças' ||conclusao == 'são necessárias pesquisas e mudanças em um futuro próximo' || conclusao == 'Ações corretivas são requeridas em um futuro próximo' || conclusao == 'Ações corretivas são necessária a curto prazo'){
         colorbg = "yellow";
         colorfont = "black";
 
