@@ -55,6 +55,7 @@ class UserController extends Controller
              $usuario->email = $request->email;
              $usuario->power = 0;
              $usuario->save();
+             return redirect()->route('show-usuario'); 
 
             }
 
@@ -68,6 +69,7 @@ class UserController extends Controller
         $usuario->id_instituicao = $request->instituicao;
         $usuario->power = 0;
         $usuario->save();
+        return redirect()->route('show-usuario'); 
 
 }
 
