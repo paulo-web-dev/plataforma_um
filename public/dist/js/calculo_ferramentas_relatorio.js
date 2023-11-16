@@ -539,7 +539,7 @@ function paginacao2(){
 function classificacao(classificacao, index){
  
 var conclusao = document.getElementById('classificacao'+index);
-
+console.log(classificacao);
     if(classificacao == 'RISCO LEVE' || classificacao == ' Baixo Risco' || classificacao == 'Aceitável se não é mantida ou repetida por longos períodos' || classificacao == 'Faixa Segura'  || classificacao == 'Condição Ergonômica Execelente'  || classificacao == 'Boa Condição Ergonômica'  || classificacao == 'RISCO BAIXO'  || classificacao == 'Sem ações corretivas, postura adequada' || classificacao == 'Ausente ou Aceitável' || classificacao == 'Baixo Risco' || classificacao == 'Improvável' || classificacao == 'Risco Leve'  ){
 
         conclusao.style.backgroundColor = "green"
