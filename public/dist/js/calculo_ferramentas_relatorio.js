@@ -537,28 +537,18 @@ function paginacao2(){
     }
 
 function classificacao(classificacao, index){
-classification = classificacao.split(' ', 2);
-resultado = classification[1].split('(', 1);
+ 
 var conclusao = document.getElementById('classificacao'+index);
-switch(resultado[0]){
-    case 'LEVE':
 
-    conclusao.style.backgroundColor = "green";
-    break;
+    if(classificacao == 'RISCO LEVE' || classificacao == ' Baixo Risco' || classificacao == 'Aceitável se não é mantida ou repetida por longos períodos' || classificacao == 'Faixa Segura'  || classificacao == 'Condição Ergonômica Execelente'  || classificacao == 'Boa Condição Ergonômica'  || classificacao == 'RISCO BAIXO'  || classificacao == 'Sem ações corretivas, postura adequada' || classificacao == 'Ausente ou Aceitável' || classificacao == 'Baixo Risco' || classificacao == 'Improvável' || classificacao == 'Risco Leve'  ){
 
-     case 'MODERADO':
-
+        conclusao.style.backgroundColor = "green"
+    }else if(classificacao == 'RISCO MODERADO' || classificacao == 'A Faixa é considerada de risco moderado' || classificacao == 'Ações corretivas são requeridas em um futuro próximo' || classificacao == 'Ações corretivas são necessárias a curto prazo' || classificacao == 'São necessários mais estudos e que serão necessárias mudanças'  || classificacao == 'são necessários mais estudos e que serão necessárias mudanças' || classificacao == 'São necessárias pesquisas e mudanças em um futuro próximo' || classificacao == 'Duvidoso' || classificacao == 'Condição Ergonômica Razoável' ){
      conclusao.style.backgroundColor = "yellow";
-   
-    break;
-
-    case 'ALTO':
-  
+    }else if(classificacao == 'RISCO ALTO' || classificacao == ' Alto Risco'  || classificacao == 'Muito Alto' || classificacao == 'São necessárias pesquisas e mudanças imediatamente' || classificacao == 'Ações corretivas imediatas' || classificacao == 'A Faixa é considerada de alto risco' || classificacao == 'Condição Ergonômica Pessima' || classificacao == 'Condição Ergonômica Ruim' || classificacao == 'Ações corretivas são necessária a curto prazo' || classificacao == 'Risco Alto') {
+        
      conclusao.style.backgroundColor = "red";
-   
-    break;
-
-}
+    }
 
 }
 

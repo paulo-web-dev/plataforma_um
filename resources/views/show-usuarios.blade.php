@@ -10,8 +10,13 @@
         Lista de Usuários Cadastrados
            </h2> 
         <a href="{{ route('home') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
-        
-     <a href="{{ route('form-usuario', ['instituicao' => Auth::user()->id_instituicao]) }}" data-theme="light" class="tooltip btn btn-primary"  title="Cadastre um Usuário"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Adicionar Usuário</a>
+        @if ($num_usuarios < $max_usuarios)
+              <a href="{{ route('form-usuario', ['instituicao' => Auth::user()->id_instituicao]) }}" data-theme="light" class="tooltip btn btn-primary"  title="Cadastre um Usuário"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Adicionar Usuário</a>
+
+        @else
+            <a href="#" disabled data-theme="light" class="tooltip btn btn-primary"  title="Cadastre um Usuário"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Você já cadastrou o limite de usuários</a>
+        @endif
+   
        
 
  
@@ -51,9 +56,9 @@
 
                         <div class="absolute right-0 top-0 mr-5 mt-3 dropdown">
 
-                            <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false"> <i
+                            <a class="dropdown-toggle w-5 h-5 block" href="{{route('delete-usuario', ['id' => $usuario->id])}}" aria-expanded="false"> <i
 
-                                    data-feather="more-horizontal" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                                    data-feather="trash-2" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
 
                             </a>
                             

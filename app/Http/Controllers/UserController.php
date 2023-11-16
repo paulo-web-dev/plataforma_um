@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Instituicao;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 class UserController extends Controller
@@ -26,9 +27,14 @@ class UserController extends Controller
     public function showUsuarios(){
 
         $usuarios = User::where('id_instituicao', Auth::user()->id_instituicao)->get();
-         
+        $instituicao = Instituicao::where('id', Auth::user()->id_instituicao)->first();
+        $num_usuarios = count($usuarios);
+
+
         return view('show-usuarios',[
             'usuarios' => $usuarios,
+            'num_usuarios' => $num_usuarios,
+            'max_usuarios' => $instituicao->num_usuarios, 
         ]);
     }
 
@@ -75,7 +81,7 @@ class UserController extends Controller
 
     
     public function delete($id){
-        Mapeamento::destroy($id);
+        User::destroy($id);
         return back();
     }
 }
