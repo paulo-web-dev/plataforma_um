@@ -40,6 +40,7 @@ use App\Http\Controllers\AnaliseAtividadeController;
 use App\Http\Controllers\IdentidadeVisualController;
 use App\Http\Controllers\DescricaoFotoController;
 use App\Http\Controllers\ChecklistsController;
+use App\Http\Controllers\TextosController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -355,6 +356,14 @@ Route::get('/info/usuario/{id}', [UserController::class, 'infoUsuarios'])->name(
 Route::get('/delete/usuario/{id}', [UserController::class, 'delete'])->name('delete-usuario');
 Route::post('/update/usuario', [UserController::class, 'updUsuarios'])->name('upd-usuario');
 Route::post('/cadastrar/usuario', [UserController::class, 'cadUsuarios'])->name('cad-usuario');
+
+//Rotas Pertinentes ao cadatros de Textos Padrão
+Route::get('/textos', [TextosController::class, 'show'])->name('show-textos');
+Route::get('/form/textos', [TextosController::class, 'formTextos'])->name('form-textos');
+Route::get('/info/textos/{id}', [TextosController::class, 'infoTextos'])->name('info-textos'); 
+Route::get('/delete/textos/{id}', [TextosController::class, 'delete'])->name('delete-textos'); 
+Route::post('/cadastrar/textos', [TextosController::class, 'cadTextos'])->name('cad-textos');
+Route::post('/update/textos', [TextosController::class, 'updTextos'])->name('upd-textos');
 
 //Rotas referentes ao relatório
 

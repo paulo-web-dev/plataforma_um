@@ -86,7 +86,10 @@
                 </a>     
 
                  @endif  
-                
+                <a href="{{route('show-textos')}}" class="menu">
+                    <div class="menu__icon"> <i data-feather="user"></i> </div>
+                    <div class="menu__title">Textos Padrão </div>
+                </a>  
         </ul>
     </div>
     <!-- BEGIN: Top Bar -->
@@ -149,7 +152,13 @@
                     </a>
 
                     @endif
-                     
+                        <a href="{{route('show-textos')}}" target="_blank"
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
+                                data-icon="jam:text" style="font-size:30px"></span>
+                        </div>
+                        <div class="side-menu__title">Textos Padrão</div>
+                    </a>
            
           
            
