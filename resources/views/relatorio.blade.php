@@ -1348,7 +1348,7 @@ chart.column(chartData);
 				  	@php
 					$i++;
 					@endphp    
-                     @if ($i == 7)
+                     @if ($i == 5)
                     </tbody>
                 </table>
             </div>
@@ -1545,7 +1545,7 @@ chart.column(chartData);
                <!-- Cabeçalho da tabela -->
             </thead>
             <tbody>
-               @foreach ($planos->take(10) as $plano)
+               @foreach ($planos->take(6) as $plano)
                <tr class="hover:bg-gray-200">
                   <td class="border">{{$plano->area}}</td>
                   <td class="border">{{$plano->setor}}</td>
@@ -1560,7 +1560,7 @@ chart.column(chartData);
             </tbody>
          </table>
          @php
-         $planos = $planos->slice(10); // Remove os primeiros 8 elementos
+         $planos = $planos->slice(6); // Remove os primeiros 8 elementos
          @endphp
       </div>
       <div class="paginacao">
