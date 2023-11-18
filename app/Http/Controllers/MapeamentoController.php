@@ -41,6 +41,11 @@ class MapeamentoController extends Controller
 
     
     public function gerarMapeamento($empresa){
+        $empresas = Mapeamento::where('id_empresa', $empresa)->get();
+        foreach ($empresas as $key => $populacao) {
+            
+            Mapeamento::destroy($populacao->id);
+        }
         $areas = Area::where('id_empresa', $empresa)->with('setores')->get();
 
       
