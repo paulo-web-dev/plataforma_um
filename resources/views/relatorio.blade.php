@@ -259,6 +259,38 @@ ul{
   font-size: 18px;
 }
   
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.content {
+    display: none;
+}
+
 </style>
    </head>
    @if($alert != 0)
@@ -267,6 +299,10 @@ ul{
    </script>
    @endif
    <body>
+      <div class="loader-wrapper" id="loader">
+        <div class="loader"></div>
+    </div>
+
       {{-- Capa --}}
       {{-- <div class="homepage">
          <img src="/logo_plataforma_um.jpeg" class="img-home">
@@ -284,6 +320,19 @@ ul{
          </div>
       </div> --}}
       {{-- Contra capa com informações da empresa --}}
+      <div class="content" id="content">
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    // Simule o tempo de carregamento da página
+    setTimeout(function () {
+        // Esconde a tela de carregamento
+        document.getElementById("loader").style.display = "none";
+        // Exibe o conteúdo da página
+        document.getElementById("content").style.display = "block";
+    }, 3000); // Tempo de simulação em milissegundos
+});
+
+      </script>
       <div class="page">
          <div class="cabecalho">
             <img src="/fotos-identidade/{{$identidade->foto_empresa}}" class="img-cabecalho">
