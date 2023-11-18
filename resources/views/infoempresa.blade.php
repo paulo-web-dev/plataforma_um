@@ -1096,7 +1096,7 @@
      <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                <a href="javascript:;" data-theme="light" class="tooltip"  title="Cadastro de Plano de Ação">Plano de Ação <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Cadastro de Plano de Ação" id="plano">Plano de Ação <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">

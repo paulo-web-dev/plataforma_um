@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Empresas; 
 use App\Models\PlanoDeAcao;
 use App\Models\Area;
+use App\Models\Setores;
+use App\Models\SubSetores;  
 class PlanoDeAcaoController extends Controller
 {
     public function __construct()
@@ -100,7 +102,7 @@ class PlanoDeAcaoController extends Controller
         $plano->prazo = $request->prazo;
         $plano->save();
 
-        return redirect()->route('infoempresa', ['id' => $plano->id_empresa ]);
+        return redirect()->route('infoempresa', ['id' => $plano->id_empresa ])->with('secao', 'mapeamento');
     }
 
 

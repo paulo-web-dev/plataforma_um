@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Empresas;
-use App\Models\Setores;
 use App\Models\Recomendacao;
+use App\Models\PlanoDeAcao;
+use App\Models\Area;
+use App\Models\Setores;
+use App\Models\SubSetores; 
 class RecomendacaoController extends Controller
 {
     public function __construct()
@@ -23,13 +26,31 @@ class RecomendacaoController extends Controller
        
         $recomendacoes = $request->input('recomendacao', []);
         $id_subsetor = $request->input('id_subsetor');
-    
+        
+        $subsetor = SubSetores::where('id', $id_subsetor)->with('setor')->with('funcao')->first();
         foreach ($recomendacoes as $recomendacaoTexto) {
             $recomendacao = new Recomendacao();
             $recomendacao->recomendacao = $recomendacaoTexto;
             $recomendacao->id_subsetor = $id_subsetor;
             $recomendacao->save();
+            $plano = new PlanoDeAcao();
+            $plano->id_empresa = $subsetor->setor->empresa->id;
+            $plano->area = $subsetor->setor->area->nome;
+            $plano->setor = $subsetor->setor->nome;
+            $plano->posto_trabalho = $subsetor->nome;
+            if(isset($subsetor->funcao->funcao)){
+                $plano->funcao = $subsetor->funcao->funcao;
+              }else{
+                  $plano->funcao = '';
+              }
+            $plano->exigencia = '';
+            $plano->recomendacao = $recomendacao->recomendacao;
+            $plano->viabilidade = '';
+            $plano->prazo = '';
+            $plano->save();
         }
+
+        
     
         return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'recomendacao'); 
     }

@@ -343,7 +343,7 @@ class MapeamentoController extends Controller
              $mapeamento->classificacao = $request->classificacao;
             $mapeamento->save();
 
-        return redirect()->route('infoempresa', ['id' => $mapeamento->id_empresa])->with('secao', 'mapeamento'); ;
+        return redirect()->route('infoempresa', ['id' => $mapeamento->id_empresa])->with('secao', 'mapeamento');
     }
 
     public function cadMapeamento(Request $request){
