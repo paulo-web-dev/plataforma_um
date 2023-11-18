@@ -368,6 +368,6 @@ class MapeamentoController extends Controller
     
     public function delete($id){
         Mapeamento::destroy($id);
-        return back();
+        return back()->with('secao', 'mapeamento');;
     }
 }

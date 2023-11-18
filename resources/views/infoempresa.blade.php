@@ -1021,61 +1021,55 @@
             <div class="grid grid-cols-12 gap-x-5">
                 <div class="col-span-12 xl:col-span-12">
                     <div class="overflow-x-auto">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Postura</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Exigência da Atividade</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sobrecarga</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
-                                    
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
-                            </thead>
-                            <tbody>
-                             
-                                @foreach ($empresa->mapeamento as $mapeamento) 
-                                    <tr class="hover:bg-gray-200">
-                                        <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('info-mapeamento', ['id' => $mapeamento->id])}}">
-                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                        <td class="border">{{$mapeamento->area}}</td>
-                                        <td class="border">{{$mapeamento->setor}}</td>
-                                        <td class="border">{{$mapeamento->posto_trabalho}}</td>
-                                        <td class="border">{{$mapeamento->funcao}}</td>
-                                        <td class="border">{{$mapeamento->postura}}</td>
-                                        <td class="border">{{$mapeamento->atividade}}</td>
-                                        <td class="border">{{$mapeamento->exigencia}}</td>
-                                        <td class="border">{{$mapeamento->sobrecarga}}</td>
-                                        <td class="border" id="classificacao{{$loop->index}}">{{$mapeamento->classificacao}}</td>
-                                    
-                                         <td class="border">
-                                            <div class="flex justify-center">
-                                                <a class="flex text-theme-1 mr-3"
-                                                    href="{{route('delete-mapeamento', ['id' => $mapeamento->id])}}">
-                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
-                                                </a>
-                                              
-                                            </div>
-                                           
-                                        </td>
-                                    </tr>
-                                    <script> classificacao('{{$mapeamento->classificacao}}', '{{$loop->index}}'); </script>
-                                @endforeach 
-                            </tbody>
-                        </table>
+               <table class="table">
+    <thead>
+        <tr>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Postura</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Exigência da Atividade</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sobrecarga</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
+            <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($empresa->mapeamento as $mapeamento)
+        <tr class="hover:bg-gray-200">
+            <td class="border">
+                <div class="flex justify-center">
+                    <a class="flex text-theme-1 mr-3"
+                        href="{{route('info-mapeamento', ['id' => $mapeamento->id])}}">
+                        <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                    </a>
+                </div>
+            </td>
+            <td class="border" >{{$mapeamento->area}}</td>
+            <td class="border">{{$mapeamento->setor}}</td>
+            <td class="border">{{$mapeamento->posto_trabalho}}</td>
+            <td class="border">{{$mapeamento->funcao}}</td>
+            <td class="border"><input type="text" value="{{$mapeamento->postura}}"></td>
+            <td class="border">{{$mapeamento->atividade}}</td>
+            <td class="border"><input type="text" value="{{$mapeamento->exigencia}}"></td>
+            <td class="border"><input type="text" value="{{$mapeamento->sobrecarga}}"></td>
+            <td class="border"  id="classificacao{{$loop->index}}"> {{$mapeamento->classificacao}} </td>
+            <td class="border">
+                <div class="flex justify-center">
+                    <a class="flex text-theme-1 mr-3"
+                        href="{{route('delete-mapeamento', ['id' => $mapeamento->id])}}">
+                        <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <script> classificacao('{{$mapeamento->classificacao}}', '{{$loop->index}}'); </script>
+        @endforeach
+    </tbody>
+</table>
                     </div>
                 </div>
             </div>
