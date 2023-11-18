@@ -1010,14 +1010,14 @@
                 <a href="{{route('form-responsaveis', ['id_empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Responsável</a>
             </div>    
         </div>
-   <style>
+   {{-- <style>
     table th, table td {
         max-width: 10px;
         overflow: hidden;
         text-overflow: ellipsis; /* Adiciona reticências (...) para indicar que o texto foi cortado */
         white-space: nowrap; /* Evita a quebra de texto */
     }
-</style>
+</style> --}}
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
@@ -1058,14 +1058,15 @@
                                             </div>
                                            
                                         </td>
+                                        <td class="border" style="display: none" id="id">{{$mapeamento->id}}</td>
                                         <td class="border">{{$mapeamento->area}}</td>
                                         <td class="border">{{$mapeamento->setor}}</td>
                                         <td class="border">{{$mapeamento->posto_trabalho}}</td>
                                         <td class="border">{{$mapeamento->funcao}}</td>
-                                        <td class="border">{{$mapeamento->postura}}</td>
+                                        <td class="border" id="postura"><input type="text"  value="{{$mapeamento->postura}}" > </td>
                                         <td class="border">{{$mapeamento->atividade}}</td>
-                                        <td class="border">{{$mapeamento->exigencia}}</td>
-                                        <td class="border">{{$mapeamento->sobrecarga}}</td>
+                                        <td class="border" id="exigencia"><input type="text"  value="{{$mapeamento->exigencia}}"></td>
+                                        <td class="border" id="sobrecarga"><input type="text"  value="{{$mapeamento->sobrecarga}}"></td>
                                         <td class="border" id="classificacao{{$loop->index}}">{{$mapeamento->classificacao}}</td>
                                     
                                          <td class="border">
@@ -1085,7 +1086,57 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div><!-- Add this script at the end of your HTML body or in the head section -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get all input fields with id "postura," "exigencia," and "sobrecarga"
+        var posturaInput = document.querySelectorAll('#postura input');
+        var exigenciaInput = document.querySelectorAll('#exigencia input');
+        var sobrecargaInput = document.querySelectorAll('#sobrecarga input');
+
+        // Add event listeners to each input field
+        posturaInput.forEach(function (input) {
+            input.addEventListener('input', function () {
+                  showAlert(input, 'postura');
+            });
+        });
+
+        exigenciaInput.forEach(function (input) {
+            input.addEventListener('input', function () {
+                showAlert(input, 'exigencia');
+            });
+        });
+
+        sobrecargaInput.forEach(function (input) {
+            input.addEventListener('input', function () {
+                showAlert(input, 'sobrecarga');
+            });
+        });
+
+        // Function to show an alert with the id attribute and field value
+        function showAlert(input, fieldName) {
+            // Get the closest <tr> element (parent of the input)
+            var closestTr = input.closest('tr');
+
+            // Get the value of the "id" cell in the same row
+            var mapeamentoId = closestTr.querySelector('#id').textContent;
+
+            // Get the value of the input field
+            var fieldValue = input.value;
+             //alert('Mapeamento ID: ' + mapeamentoId + '\n' + fieldName + ': ' + fieldValue);
+            axios.post('/alteracao/mapeamento', { id: mapeamentoId, valor: fieldValue, campo: fieldName, _token: '{{ csrf_token() }}', })
+                .then(function (response) {
+                    console.log( response);
+                })
+                .catch(function (error) {
+                    console.error('Erro ao enviar a solicitação', error);
+                });
+            
+           
+        }
+    });
+</script>
+
             <div class="flex justify-end mt-4">
                 <a href="{{route('form-mapeamento', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Mapeamento Via Planilha</a>
             </div>    

@@ -638,12 +638,12 @@ var genero = {
 };
 
 var faixaetaria = {
-    'labels': ['20 á 29 anos', '30 á 39 anos', '40 á 49 anos', '50 á 59 anos'],
+    'labels': ['20 à 29 anos', '30 à 39 anos', '40 à 49 anos', '50 à 59 anos'],
     'data': [porcentagem20a29, porcentagem30a39, porcentagem40a49, porcentagem50a59],
 };
 
 var tempoadmissao = {
-    'labels': ['0 á 5 anos', '6 á 10 anos', '10 á 20 anos'],
+    'labels': ['0 à 5 anos', '6 à 10 anos', '10 à 20 anos'],
     'data': [porcentagem0a5, porcentagem6a10, porcentagem10a20],
 };
 

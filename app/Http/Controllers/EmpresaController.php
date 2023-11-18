@@ -11,6 +11,7 @@ use App\Models\Disposicoes;
 use App\Models\Metodologia;
 use App\Models\Setores;
 use App\Models\Textos;
+use App\Models\Mapeamento;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
@@ -198,5 +199,22 @@ class EmpresaController extends Controller
             $setor->save();
         }
         return "salvo com sucesso";
+    }
+
+    public function alteramapeamento(Request $request){
+
+        $id = $request->id;
+        $valor = $request->valor;
+        $campo = $request->campo;
+        $mapeamento = Mapeamento::where('id', $id)->first();
+        if($campo == 'postura'){
+            $mapeamento->postura = $valor;
+        }elseif($campo == 'exigencia'){
+            $mapeamento->exigencia = $valor;
+        }elseif($campo == 'sobrecarga'){
+            $mapeamento->sobrecarga = $valor;
+        }
+        $mapeamento->save();
+        return 'ok';
     }
 }
