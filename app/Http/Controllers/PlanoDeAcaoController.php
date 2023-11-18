@@ -102,7 +102,7 @@ class PlanoDeAcaoController extends Controller
         $plano->prazo = $request->prazo;
         $plano->save();
 
-        return redirect()->route('infoempresa', ['id' => $plano->id_empresa ])->with('secao', 'mapeamento');
+        return redirect()->route('infoempresa', ['id' => $plano->id_empresa ])->with('secao', 'plano');
     }
 
 
@@ -175,7 +175,7 @@ class PlanoDeAcaoController extends Controller
     }
     public function delete($id){
         PlanoDeAcao::destroy($id);
-        return back();
+        return back()->with('secao', 'plano');;
     }
 
 }
