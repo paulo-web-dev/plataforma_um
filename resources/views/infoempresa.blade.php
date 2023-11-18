@@ -1010,7 +1010,14 @@
                 <a href="{{route('form-responsaveis', ['id_empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Responsável</a>
             </div>    
         </div>
-   
+   <style>
+    table th, table td {
+        max-width: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Adiciona reticências (...) para indicar que o texto foi cortado */
+        white-space: nowrap; /* Evita a quebra de texto */
+    }
+</style>
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
@@ -1024,7 +1031,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap" style="width: 5px !important">Editar</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap" >Editar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
