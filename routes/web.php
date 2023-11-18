@@ -320,6 +320,7 @@ Route::post('/upload/mapeamento', [MapeamentoController::class, 'uploadMapeament
 
 //Rotas referente a upload de plano de ação 
 Route::get('/form/plano-de-acao/{empresa}', [PlanoDeAcaoController::class, 'formPlanoDeAcao'])->name('form-plano-de-acao');
+Route::get('/gerar/plano-de-acao/{empresa}', [PlanoDeAcaoController::class, 'gerarPlanoDeAcao'])->name('gerar-plano-de-acao');
 Route::get('/form/campos/plano-de-acao/{empresa}', [PlanoDeAcaoController::class, 'formPlanoDeAcaoCampos'])->name('form-plano-de-acao-campos');
 Route::get('/info/plano-de-acao/{id}', [PlanoDeAcaoController::class, 'infoPlanoDeAcao'])->name('info-plano-de-acao');
 Route::post('/upload/plano-de-acao', [PlanoDeAcaoController::class, 'uploadPlanoDeAcao'])->name('upload-plano-de-acao');

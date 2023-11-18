@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empresas; 
 use App\Models\PlanoDeAcao;
-
+use App\Models\Area;
 class PlanoDeAcaoController extends Controller
 {
     public function __construct()
@@ -122,7 +122,209 @@ class PlanoDeAcaoController extends Controller
 
         return redirect()->route('infoempresa', ['id' => $request->empresa]);
     }
+    public function gerarPlanoDeAcao($empresa){
+        $areas = Area::where('id_empresa', $empresa)->with('setores')->get();
 
+      
+        foreach ($areas as $key => $area) {
+            foreach ($area->setores as $key => $setor) {
+                foreach ($setor->subsetores as $key => $subsetor) {
+
+                    //Conclusões Checklist
+                    if(isset($subsetor->ChecklistCadeira)) {
+                    
+                        if(isset($subsetor->funcao->funcao)){
+                            $plano = new PlanoDeAcao();
+                            $plano->id_empresa = $empresa;
+                            $plano->area = $area->nome;
+                            $plano->setor = $setor->nome;
+                            $plano->posto_trabalho = $subsetor->nome;
+                            $plano->funcao = $subsetor->funcao->funcao;
+                            $plano->exigencia = '';
+                            $plano->recomendacao = '';
+                            $plano->viabilidade = '';
+                            $plano->prazo = '';
+                            $plano->save();
+                           
+                        }else{
+                            $plano = new PlanoDeAcao();
+                            $plano->id_empresa = $empresa;
+                            $plano->area = $area->nome;
+                            $plano->setor = $setor->nome;
+                            $plano->posto_trabalho = $subsetor->nome;
+                            $plano->funcao = '';
+                            $plano->exigencia = '';
+                            $plano->recomendacao = '';
+                            $plano->viabilidade = '';
+                            $plano->prazo = '';
+                            $plano->save();
+                           
+                        }
+                    }
+                    //Conclusões Moore e Garg
+                    foreach ($subsetor->moore as $key => $moore) {
+                  
+                        if(isset($subsetor->funcao->funcao)){
+                            $plano = new PlanoDeAcao();
+                            $plano->id_empresa = $empresa;
+                            $plano->area = $area->nome;
+                            $plano->setor = $setor->nome;
+                            $plano->posto_trabalho = $subsetor->nome;
+                            $plano->funcao = $subsetor->funcao->funcao;
+                            $plano->exigencia = '';
+                            $plano->recomendacao = '';
+                            $plano->viabilidade = '';
+                            $plano->prazo = '';
+                            $plano->save();
+                           
+                        }else{
+                            $plano = new PlanoDeAcao();
+                            $plano->id_empresa = $empresa;
+                            $plano->area = $area->nome;
+                            $plano->setor = $setor->nome;
+                            $plano->posto_trabalho = $subsetor->nome;
+                            $plano->funcao = '';
+                            $plano->exigencia = '';
+                            $plano->recomendacao = '';
+                            $plano->viabilidade = '';
+                            $plano->prazo = '';
+                            $plano->save();
+                           
+                           
+                        }
+                    }
+
+                //Conclusões Rula 
+                   foreach ($subsetor->rula as $key => $rula) {
+
+                    if(isset($subsetor->funcao->funcao)){
+                        $plano = new PlanoDeAcao();
+                        $plano->id_empresa = $empresa;
+                        $plano->area = $area->nome;
+                        $plano->setor = $setor->nome;
+                        $plano->posto_trabalho = $subsetor->nome;
+                        $plano->funcao = $subsetor->funcao->funcao;
+                        $plano->exigencia = '';
+                        $plano->recomendacao = '';
+                        $plano->viabilidade = '';
+                        $plano->prazo = '';
+                        $plano->save();
+                    }else{
+                        $plano = new PlanoDeAcao();
+                        $plano->id_empresa = $empresa;
+                        $plano->area = $area->nome;
+                        $plano->setor = $setor->nome;
+                        $plano->posto_trabalho = $subsetor->nome;
+                        $plano->funcao = '';
+                        $plano->exigencia = '';
+                        $plano->recomendacao = '';
+                        $plano->viabilidade = '';
+                        $plano->prazo = '';
+                        $plano->save();
+                       
+                    }
+                }
+                //Conclusões OWAS 
+
+                foreach ($subsetor->owas as $key => $owas) {
+    
+                    
+                    if(isset($subsetor->funcao->funcao)){
+                        $plano = new PlanoDeAcao();
+                        $plano->id_empresa = $empresa;
+                        $plano->area = $area->nome;
+                        $plano->setor = $setor->nome;
+                        $plano->posto_trabalho = $subsetor->nome;
+                        $plano->funcao = '';
+                        $plano->exigencia = '';
+                        $plano->recomendacao = '';
+                        $plano->viabilidade = '';
+                        $plano->prazo = '';
+                        $plano->save();
+                    }else{
+                        $plano = new PlanoDeAcao();
+                        $plano->id_empresa = $empresa;
+                        $plano->area = $area->nome;
+                        $plano->setor = $setor->nome;
+                        $plano->posto_trabalho = $subsetor->nome;
+                        $plano->funcao = '';
+                        $plano->exigencia = '';
+                        $plano->recomendacao = '';
+                        $plano->viabilidade = '';
+                        $plano->prazo = '';
+                        $plano->save();
+                       
+                    }
+                }
+
+                //Conclusão Niosh
+                foreach ($subsetor->niosh as $key => $niosh) {
+                    
+                    if(isset($subsetor->funcao->funcao)){
+                        $plano = new PlanoDeAcao();
+                        $plano->id_empresa = $empresa;
+                        $plano->area = $area->nome;
+                        $plano->setor = $setor->nome;
+                        $plano->posto_trabalho = $subsetor->nome;
+                        $plano->funcao =$subsetor->funcao->funcao;
+                        $plano->exigencia = '';
+                        $plano->recomendacao = '';
+                        $plano->viabilidade = '';
+                        $plano->prazo = '';
+                        $plano->save();
+                    }else{
+                        $plano = new PlanoDeAcao();
+                        $plano->id_empresa = $empresa;
+                        $plano->area = $area->nome;
+                        $plano->setor = $setor->nome;
+                        $plano->posto_trabalho = $subsetor->nome;
+                        $plano->funcao = '';
+                        $plano->exigencia = '';
+                        $plano->recomendacao = '';
+                        $plano->viabilidade = '';
+                        $plano->prazo = '';
+                        $plano->save();
+                       
+                    }
+                } 
+                //Conclusões Gerais
+                    foreach ($subsetor->conclusoes as $key => $conclusao) {
+                        if(isset($subsetor->funcao->funcao)){
+                            $plano = new PlanoDeAcao();
+                            $plano->id_empresa = $empresa;
+                            $plano->area = $area->nome;
+                            $plano->setor = $setor->nome;
+                            $plano->posto_trabalho = $subsetor->nome;
+                            $plano->funcao = $subsetor->funcao->funcao;
+                            $plano->exigencia = '';
+                            $plano->recomendacao = '';
+                            $plano->viabilidade = '';
+                            $plano->prazo = '';
+                            $plano->save();
+                        }else{
+                            $plano = new PlanoDeAcao();
+                            $plano->id_empresa = $empresa;
+                            $plano->area = $area->nome;
+                            $plano->setor = $setor->nome;
+                            $plano->posto_trabalho = $subsetor->nome;
+                            $plano->funcao = '';
+                            $plano->exigencia = '';
+                            $plano->recomendacao = '';
+                            $plano->viabilidade = '';
+                            $plano->prazo = '';
+                            $plano->save();
+                           
+                        }
+                    }
+                }
+            }
+
+           
+        }
+
+        return redirect()->route('infoempresa', ['id' => $empresa]);
+
+    }
     public function delete($id){
         PlanoDeAcao::destroy($id);
         return back();

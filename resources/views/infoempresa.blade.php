@@ -1109,9 +1109,10 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Exigência da Atividade</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Recomendação de Melhora</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Melhoria</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Viabilidade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Prazo</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Data</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
                             </thead>
@@ -1122,7 +1123,7 @@
                                         <td class="border">{{$plano->area}}</td>
                                         <td class="border">{{$plano->setor}}</td>
                                         <td class="border">{{$plano->posto_trabalho}}</td>
-                                        <td class="border">{{substr($plano->funcao, 0, 50)}}...</td>
+                                        <td class="border">{{$plano->funcao}}</td>
                                         <td class="border">{{$plano->exigencia}}</td>
                                         <td class="border">{{$plano->recomendacao}}</td>
                                         <td class="border">{{$plano->viabilidade}}</td>
@@ -1161,6 +1162,11 @@
             <div class="flex justify-end mt-4">
                 <a href="{{route('form-plano-de-acao-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Plano de Ação campo a campo</a>
             </div>  
+
+            
+            <div class="flex justify-end mt-4">
+                <a href="{{route('gerar-plano-de-acao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Gerar  Plano de Ação Com Base No Relatório</a>
+            </div> 
         </div>
      @if (session()->get('message') == 'erro_planilha_plano')
        <!-- BEGIN: Notification With Buttons Below -->

@@ -794,6 +794,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
               <div class="grafico-container">
 		 <p class="text-center legenda-grafico">Escolaridade</p>
             <div id="escolaridade{{$subsetor->id}}"></div>
+             <div class="bloco-preto"></div>
          </div>
   </center>
       </div>
@@ -1538,7 +1539,7 @@ chart.column(chartData);
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Exigência da Atividade</th>
-               <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Recomendação de Melhora</th>
+               <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Melhoria</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Viabilidade</th>
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Prazo</th>
                <!-- Cabeçalho da tabela -->
