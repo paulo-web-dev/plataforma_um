@@ -648,7 +648,7 @@ var tempoadmissao = {
 };
 
 var escolaridade = {
-    'labels': ['Primeiro Grau', 'Segundo Grau', 'Terceiro Grau'],
+    'labels': ['Primeiro Grau', 'Segundo Grau', 'Ensino Superior'],
     'data': [porcentagempg, porcentagemsg, porcentagemtg],
 };
 

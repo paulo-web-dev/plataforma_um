@@ -51,7 +51,7 @@ class PopulacaoSubSetorController extends Controller
         $path = $request->file('file')->store('diretorio'); 
         $tempFilePath = storage_path('app/'.$path);
         $dados_planilha = fopen($tempFilePath, "r");
-        while($linha = fgetcsv($dados_planilha, 1000, ",")){
+        while($linha = fgetcsv($dados_planilha, 1000, ";")){
             if($i > 0){
                 $populacao = new PopulacaoSubsetor();
                 $populacao->id_subsetor = $request->id_subsetor;
