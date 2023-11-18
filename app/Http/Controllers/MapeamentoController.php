@@ -68,7 +68,7 @@ class MapeamentoController extends Controller
                             $mapeamento->exigencia = '';
                             $mapeamento->sobrecarga = '';
                             $mapeamento->classificacao = $subsetor->ChecklistCadeira->resultado;
-                           $mapeamento->save();
+                            $mapeamento->save();
                            
                         }else{
                             $mapeamento = new Mapeamento();

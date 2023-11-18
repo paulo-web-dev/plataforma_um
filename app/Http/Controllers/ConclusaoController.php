@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Conclusoes;
-
+use App\Models\Mapeamento;
+use App\Models\Empresas;
+use App\Models\Setores;
+use App\Models\SubSetores;  
 class ConclusaoController extends Controller
 {
 
@@ -55,8 +58,29 @@ class ConclusaoController extends Controller
         $conclusao->ferramenta = $request->ferramenta;
         $conclusao->atividade = $request->atividade;
         $conclusao->save();
+
+        $subsetor = SubSetores::where('id', $conclusao->id_subsetor)->with('setor')->with('funcao')->first();
+        $mapeamento = new Mapeamento();
+        $mapeamento->id_empresa = $subsetor->setor->empresa->id;
+        $mapeamento->area = $subsetor->setor->area->nome;
+        $mapeamento->setor = $subsetor->setor->nome;
+        $mapeamento->posto_trabalho = $subsetor->nome;
+        if(isset($subsetor->funcao->funcao)){
+        $mapeamento->funcao = $subsetor->funcao->funcao;
+      }else{
+          $mapeamento->funcao = '';
+      }
+        $mapeamento->atividade = $request->atividade;
+        $mapeamento->postura = '';
+        $mapeamento->exigencia = '';
+        $mapeamento->sobrecarga = '';
+        $mapeamento->classificacao = $request->conclusao;
+        $mapeamento->save();
         
     }
+    
+
+    
         return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'moore'); 
     } 
 

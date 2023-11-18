@@ -52,7 +52,13 @@ class Setores extends Model
     
     public function area(){
         
-        return $this->hasOne(Area::class, 'id_area', 'id');
+        return $this->hasOne(Area::class, 'id', 'id_area');
+  
+      }
+
+      public function empresa(){
+        
+        return $this->hasOne(Empresas::class, 'id', 'id_empresa');
   
       }
 }

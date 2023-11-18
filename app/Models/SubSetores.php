@@ -11,6 +11,12 @@ class SubSetores extends Model
 
     protected $table = 'sub_setores';
 
+    public function setor(){
+        
+        return $this->hasOne(Setores::class, 'id', 'id_setor')->with('empresa')->with('area');
+  
+      }
+
     public function dadosOrganizacionais()
 
     {
