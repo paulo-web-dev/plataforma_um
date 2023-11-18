@@ -1112,7 +1112,7 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Melhoria</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Viabilidade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Prazo</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Data</th>
+                                   
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
                             </thead>
