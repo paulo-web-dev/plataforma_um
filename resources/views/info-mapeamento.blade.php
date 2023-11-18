@@ -28,56 +28,56 @@
                     <div class="col-span-12 xl:col-span-6">
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Área</strong></label>
-                            <input id="update-profile-form-7" type="text" name="area" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="area" class="form-control" required
                                 placeholder="Área" value="{{$mapeamento->area}}">
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Setor</strong></label>
-                            <input id="update-profile-form-7" type="text" name="setor" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="setor" class="form-control" required
                                 placeholder="Setor" value="{{$mapeamento->setor}}">
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Posto de Trabalho</strong></label>
-                            <input id="update-profile-form-7" type="text" name="posto_trabalho" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="posto_trabalho" class="form-control" required
                                 placeholder="Posto de Trabalho" value="{{$mapeamento->posto_trabalho}}">
                         </div>
                         
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Função</strong></label>
-                            <input id="update-profile-form-7" type="text" name="funcao" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="funcao" class="form-control" required
                                 placeholder="Função" value="{{$mapeamento->funcao}}">
                         </div>
                         
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Atividade</strong></label>
-                            <input id="update-profile-form-7" type="text" name="atividade" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="atividade" class="form-control" required
                                 placeholder="Atividade" value="{{$mapeamento->atividade}}">
                         </div>
                         
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Postura</strong></label>
-                            <input id="update-profile-form-7" type="text" name="postura" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="postura" class="form-control" required
                                 placeholder="Postura" value="{{$mapeamento->postura}}">
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Exigencia</strong></label>
-                            <input id="update-profile-form-7" type="text" name="exigencia" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="exigencia" class="form-control" required
                                 placeholder="Postura" value="{{$mapeamento->exigencia}}">
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Sobrecarga</strong></label>
-                            <input id="update-profile-form-7" type="text" name="sobrecarga" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="sobrecarga" class="form-control" required
                                 placeholder="Postura" value="{{$mapeamento->sobrecarga}}">
                         </div>
 
                         
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Classificação</strong></label>
-                            <input id="update-profile-form-7" type="text" name="classificacao" class="form-control"
+                            <input id="update-profile-form-7" type="text" name="classificacao" class="form-control" required
                                 placeholder="Postura" value="{{$mapeamento->classificacao}}">
                         </div>
                     

@@ -1024,6 +1024,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
@@ -1033,22 +1034,13 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Exigência da Atividade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sobrecarga</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
+                                    
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
                             </thead>
                             <tbody>
                              
                                 @foreach ($empresa->mapeamento as $mapeamento) 
                                     <tr class="hover:bg-gray-200">
-                                        <td class="border">{{$mapeamento->area}}</td>
-                                        <td class="border">{{$mapeamento->setor}}</td>
-                                        <td class="border">{{$mapeamento->posto_trabalho}}</td>
-                                        <td class="border">{{$mapeamento->funcao}}</td>
-                                        <td class="border">{{$mapeamento->postura}}</td>
-                                        <td class="border">{{$mapeamento->atividade}}</td>
-                                        <td class="border">{{$mapeamento->exigencia}}</td>
-                                        <td class="border">{{$mapeamento->sobrecarga}}</td>
-                                        <td class="border" id="classificacao{{$loop->index}}">{{$mapeamento->classificacao}}</td>
                                         <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
@@ -1059,6 +1051,16 @@
                                             </div>
                                            
                                         </td>
+                                        <td class="border">{{$mapeamento->area}}</td>
+                                        <td class="border">{{$mapeamento->setor}}</td>
+                                        <td class="border">{{$mapeamento->posto_trabalho}}</td>
+                                        <td class="border">{{$mapeamento->funcao}}</td>
+                                        <td class="border">{{$mapeamento->postura}}</td>
+                                        <td class="border">{{$mapeamento->atividade}}</td>
+                                        <td class="border">{{$mapeamento->exigencia}}</td>
+                                        <td class="border">{{$mapeamento->sobrecarga}}</td>
+                                        <td class="border" id="classificacao{{$loop->index}}">{{$mapeamento->classificacao}}</td>
+                                    
                                          <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
@@ -1104,6 +1106,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
@@ -1113,22 +1116,14 @@
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Viabilidade</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Prazo</th>
                                    
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
+                                    
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
                             </thead>
                             <tbody>
                              
                                 @foreach ($empresa->planodeacao as $plano) 
                                     <tr class="hover:bg-gray-200">
-                                        <td class="border">{{$plano->area}}</td>
-                                        <td class="border">{{$plano->setor}}</td>
-                                        <td class="border">{{$plano->posto_trabalho}}</td>
-                                        <td class="border">{{$plano->funcao}}</td>
-                                        <td class="border">{{$plano->exigencia}}</td>
-                                        <td class="border">{{$plano->recomendacao}}</td>
-                                        <td class="border">{{$plano->viabilidade}}</td>
-                                        <td class="border">{{$plano->prazo}}</td>
-                                         <td class="border">
+                                          <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
                                                     href="{{route('info-plano-de-acao', ['id' => $plano->id])}}">
@@ -1138,6 +1133,15 @@
                                             </div>
                                            
                                         </td>
+                                        <td class="border">{{$plano->area}}</td>
+                                        <td class="border">{{$plano->setor}}</td>
+                                        <td class="border">{{$plano->posto_trabalho}}</td>
+                                        <td class="border">{{$plano->funcao}}</td>
+                                        <td class="border">{{$plano->exigencia}}</td>
+                                        <td class="border">{{$plano->recomendacao}}</td>
+                                        <td class="border">{{$plano->viabilidade}}</td>
+                                        <td class="border">{{$plano->prazo}}</td>
+                                   
                                          <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
