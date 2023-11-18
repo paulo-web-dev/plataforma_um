@@ -1014,7 +1014,7 @@
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
-                <a href="javascript:;" data-theme="light" class="tooltip"  title="Cadastro de Mapeamento Ergonômico">Mapeamento Ergonômico <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Cadastro de Mapeamento Ergonômico" id="mapeamento">Mapeamento Ergonômico <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
             </h2>
         </div>
         <div class="p-5">
@@ -1352,7 +1352,23 @@
         <!-- END: JS Assets-->
     </body>
 </html>
-
+@php 
+$secao = session('secao');
+@endphp
+@if (isset($secao))
+   
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Encontrar o elemento com o ID 'caracteristicas-section'
+        var caracteristicasSection = document.getElementById("{{$secao}}");
+ 
+        // Rolagem suave até a seção de características
+        if (caracteristicasSection) {
+            caracteristicasSection.scrollIntoView({ behavior: 'smooth' });
+        } 
+    });
+</script>
+@endif
 
 
 @endpush
