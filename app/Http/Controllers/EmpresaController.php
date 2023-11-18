@@ -12,6 +12,7 @@ use App\Models\Metodologia;
 use App\Models\Setores;
 use App\Models\Textos;
 use App\Models\Mapeamento;
+use App\Models\PlanoDeAcao;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
@@ -215,6 +216,25 @@ class EmpresaController extends Controller
             $mapeamento->sobrecarga = $valor;
         }
         $mapeamento->save();
+        return 'ok';
+    }
+
+    public function alteraplano(Request $request){
+
+        $id = $request->id;
+        $valor = $request->valor;
+        $campo = $request->campo;
+        $plano = PlanoDeAcao::where('id', $id)->first();
+        if($campo == 'exigencia'){
+            $plano->exigencia = $valor;
+        }elseif($campo == 'recomendacao'){
+            $plano->recomendacao = $valor;
+        }elseif($campo == 'viabilidade'){
+            $plano->viabilidade = $valor;
+        }elseif($campo == 'prazo'){
+            $plano->prazo = $valor;
+        }
+        $plano->save();
         return 'ok';
     }
 }

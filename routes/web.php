@@ -73,6 +73,7 @@ Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->nam
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
 Route::post('/alteracao/ordem/setor', [EmpresaController::class, 'alteraordem'])->name('alteraordem-setor');
 Route::post('/alteracao/mapeamento', [EmpresaController::class, 'alteramapeamento'])->name('alteraordem-setor');
+Route::post('/alteracao/plano', [EmpresaController::class, 'alteraplano'])->name('alteraordem-plano');
 //Rotas Pertinentes a cadastro de Identidade visual 
 Route::get('/identidades', [IdentidadeVisualController::class, 'show'])->name('show-identidade');
 Route::get('/form/identidade-visual', [IdentidadeVisualController::class, 'formIdentidade'])->name('form-identidade');

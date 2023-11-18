@@ -1145,9 +1145,9 @@
                 <a href="{{route('form-mapeamento-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Mapeamento Campo a Campo</a>
             </div> 
 
-            <div class="flex justify-end mt-4">
+            {{-- <div class="flex justify-end mt-4">
                 <a href="{{route('gerar-mapeamento', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Gerar Mapeamento Com Base No Relatório</a>
-            </div>    
+            </div>     --}}
         </div>
 
 
@@ -1191,14 +1191,15 @@
                                             </div>
                                            
                                         </td>
+                                        <td id="id" style="display:none">{{$plano->id}}</td>
                                         <td class="border">{{$plano->area}}</td>
                                         <td class="border">{{$plano->setor}}</td>
                                         <td class="border">{{$plano->posto_trabalho}}</td>
                                         <td class="border">{{$plano->funcao}}</td>
-                                        <td class="border">{{$plano->exigencia}}</td>
-                                        <td class="border">{{$plano->recomendacao}}</td>
-                                        <td class="border">{{$plano->viabilidade}}</td>
-                                        <td class="border">{{$plano->prazo}}</td>
+                                        <td class="border" id="exigencia"><input type="text"  value="{{$plano->exigencia}}"></td>
+                                        <td class="border" id="recomendacao"><input type="text"  value="{{$plano->recomendacao}}"></td>
+                                        <td class="border" id="viabilidade"><input type="text"  value="{{$plano->viabilidade}}"></td>
+                                        <td class="border" id="prazo"><input type="text"  value="{{$plano->prazo}}"></td>
                                    
                                          <td class="border">
                                             <div class="flex justify-center">
@@ -1230,6 +1231,65 @@
                 <a href="{{route('gerar-plano-de-acao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Gerar  Plano de Ação Com Base No Relatório</a>
             </div> 
         </div>
+
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get all input fields with id "exigencia," "recomendacao," "viabilidade," and "prazo"
+        var exigenciaInput = document.querySelectorAll('#exigencia input');
+        var recomendacaoInput = document.querySelectorAll('#recomendacao input');
+        var viabilidadeInput = document.querySelectorAll('#viabilidade input');
+        var prazoInput = document.querySelectorAll('#prazo input');
+
+        // Add event listeners to each input field
+        exigenciaInput.forEach(function (input) {
+            input.addEventListener('input', function () {
+                showAlert(input, 'exigencia');
+            });
+        });
+
+        recomendacaoInput.forEach(function (input) {
+            input.addEventListener('input', function () {
+                showAlert(input, 'recomendacao');
+            });
+        });
+
+        viabilidadeInput.forEach(function (input) {
+            input.addEventListener('input', function () {
+                showAlert(input, 'viabilidade');
+            });
+        });
+
+        prazoInput.forEach(function (input) {
+            input.addEventListener('input', function () {
+                showAlert(input, 'prazo');
+            });
+        });
+
+        // Function to show an alert with the id attribute and field value
+        function showAlert(input, fieldName) {
+            // Get the closest <tr> element (parent of the input)
+            var closestTr = input.closest('tr');
+
+            // Get the value of the "id" cell in the same row
+            var planoId = closestTr.querySelector('#id').textContent;
+
+            // Get the value of the input field
+            var fieldValue = input.value;
+
+            // Show an alert with the planoId and fieldValue
+           // alert('Plano ID: ' + planoId + '\n' + fieldName + ': ' + fieldValue);
+                 axios.post('/alteracao/plano', { id: planoId, valor: fieldValue, campo: fieldName, _token: '{{ csrf_token() }}', })
+                .then(function (response) {
+                    console.log( response);
+                })
+                .catch(function (error) {
+                    console.error('Erro ao enviar a solicitação', error);
+                });
+            
+        }
+    });
+</script>
+
      @if (session()->get('message') == 'erro_planilha_plano')
        <!-- BEGIN: Notification With Buttons Below -->
                         <div class="intro-y box mt-5">
