@@ -50,6 +50,23 @@ class ConclusaoController extends Controller
             $conclusao->atividade = $request->atividade;
             $conclusao->save();
         }
+        $subsetor = SubSetores::where('id', $conclusao->id_subsetor)->with('setor')->with('funcao')->first();
+        $mapeamento = new Mapeamento();
+        $mapeamento->id_empresa = $subsetor->setor->empresa->id;
+        $mapeamento->area = $subsetor->setor->area->nome;
+        $mapeamento->setor = $subsetor->setor->nome;
+        $mapeamento->posto_trabalho = $subsetor->nome;
+        if(isset($subsetor->funcao->funcao)){
+        $mapeamento->funcao = $subsetor->funcao->funcao;
+      }else{
+          $mapeamento->funcao = '';
+      }
+        $mapeamento->atividade = $request->atividade;
+        $mapeamento->postura = '';
+        $mapeamento->exigencia = '';
+        $mapeamento->sobrecarga = '';
+        $mapeamento->classificacao =  $conclusoes[$i - 1];
+        $mapeamento->save();
         }else{
         $conclusao = new Conclusoes();
         $conclusao->id_subsetor = $request->id_subsetor;
