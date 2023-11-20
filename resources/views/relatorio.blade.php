@@ -1355,12 +1355,12 @@ chart.column(chartData);
 			$i = 0;
 			@endphp
          <div class="container mt-5">
-            <table class="table table-bordered" >
+            <table class="table table-bordered" style="width: 93%;" >
                <thead>
                   <tr>
-                     <th>Ferramentas</th>
-                     <th>Resultado</th>
-                     <th>Região Corpórea</th>
+                     <th style="width: 31%;">Ferramentas</th>
+                     <th style="width: 31%;">Resultado</th>
+                     <th style="width: 31%;"> Região Corpórea</th>
                   </tr>
                </thead>
                <tbody>
@@ -1412,12 +1412,12 @@ chart.column(chartData);
                 </div>
                 {{-- Tabela com Resultados de ferramentas --}}
                 <div class="container mt-5">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" style="width: 93%;">
                         <thead>
                             <tr>
-                                <th>Ferramentas</th>
-                                <th>Resultado</th>
-                                <th>Região Corpórea</th>
+                                <th style="width: 31%;">Ferramentas</th>
+                                <th style="width: 31%;">Resultado</th>
+                                <th style="width: 31%;">Região Corpórea</th>
                             </tr>
                         </thead>
                         <tbody>
