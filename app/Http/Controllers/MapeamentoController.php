@@ -301,7 +301,7 @@ class MapeamentoController extends Controller
         $path = $request->file('file')->store('diretorio'); 
         $tempFilePath = storage_path('app/'.$path);
         $dados_planilha = fopen($tempFilePath, "r");
-        while($linha = fgetcsv($dados_planilha, 1000, ",")){
+        while($linha = fgetcsv($dados_planilha, 1000, ";")){
             if($i > 2){
              $mapeamento = new Mapeamento();
              $mapeamento->id_empresa = $request->id_empresa;
