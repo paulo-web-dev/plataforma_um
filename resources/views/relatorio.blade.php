@@ -1348,7 +1348,7 @@ chart.column(chartData);
 
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Diagnostico</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DIAGNÓSTICO</p>
          </div>
          {{-- Tabela com Resultados de ferramentas --}}
 		 	@php
