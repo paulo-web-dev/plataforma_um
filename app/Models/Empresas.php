@@ -110,6 +110,15 @@ class Empresas extends Model
 
     }
 
+    
+    public function identidade()
+
+    {
+
+        return $this->hasOne(IdentidadeVisual::class, 'id_user', 'id');
+
+    }
+
     public function area()
 
     {

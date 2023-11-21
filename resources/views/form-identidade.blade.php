@@ -61,7 +61,21 @@
                                     <input id="cor_secundaria" type="color" name="cor_secundaria" class="form-control"
                                         required>
                                 </div>
+                                  <div class="mt-3">
+                                <label for="empresa" class="form-label"><strong>Estado</strong></label>
                                 
+                                    <select class="form-control" name="empresa" id="empresa"
+                                        onchange="buscarCidades()">
+                                        @foreach ($empresas as $empresa)
+                                             <option value="{{$empresa->id}}">{{$empresa->nome}}</option>
+                                        @endforeach
+                                       
+                                       
+                                    </select>
+                                    <br><br>
+                                </div>
+                               
+                            
                             </div>
                     <div class="col-span-12 xl:col-span-6">
                         <label class="form-label"><strong>Upload de Imagem</strong></label>

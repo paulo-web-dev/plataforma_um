@@ -21,7 +21,7 @@ class RelatorioController extends Controller
     }
     public function gerarRelatorio($id){
 
-        $identidade = IdentidadeVisual::where('id_user', Auth::user()->id)->first();
+        $identidade = IdentidadeVisual::where('id_user', $id)->first();
         $alert = 0;
         if(!isset($identidade)){
             $identidade = new IdentidadeVisual();
