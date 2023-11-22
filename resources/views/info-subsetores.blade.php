@@ -581,7 +581,7 @@
                                         <td class="border">{{$caracteristica->id}}</td>
                                         <td class="border">{{$caracteristica->titulo}}</td>
                                         <td class="border" style="display: none">{{$loop->index}}</td>
-                                         <td class="border">{{$caracteristica->descricao}}</td>
+                                         <td class="border"><?= $caracteristica->descricao ?></td>
                                         <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
