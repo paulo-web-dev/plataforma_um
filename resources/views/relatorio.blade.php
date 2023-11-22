@@ -1317,7 +1317,7 @@ chart.column(chartData);
          <ul>
            
             @foreach ($subsetor->caracteristicas as $caracteristica)  
-            <li><b>{{$caracteristica->titulo}}: </b>{{$caracteristica->descricao}}</li>
+            <li><b>{{$caracteristica->titulo}}: </b><?= $caracteristica->descricao ?></li>
             @endforeach
      
          </ul>
