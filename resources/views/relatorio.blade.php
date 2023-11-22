@@ -1338,7 +1338,7 @@ chart.column(chartData);
          <ul>
            
             @foreach ($subsetor->preDiagnostico as $diagnostico)  
-            <li><b>{{$diagnostico->titulo}}:</b> {{$diagnostico->descricao}}</li>
+            <li><b>{{$diagnostico->titulo}}</b> {{$diagnostico->descricao}}</li>
             @endforeach
           
          </ul>
