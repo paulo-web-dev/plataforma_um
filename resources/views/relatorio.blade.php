@@ -833,7 +833,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
                   $partes = explode(":", $dados->dado);
              
                @endphp
-            <li><b>{{$partes[0]}}</b>@if(isset($partes[1])) {{$partes[1]}} @endif</li>
+            <li><b>{{$partes[0]}}:</b>@if(isset($partes[1])) {{$partes[1]}} @endif</li>
             @endforeach
          
          </ul>
