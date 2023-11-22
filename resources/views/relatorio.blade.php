@@ -729,7 +729,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
     
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{mb_strtoupper($setor->nome, 'UTF-8')}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETORs: {{mb_strtoupper($setor->nome, 'UTF-8')}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
             {{-- <tr>
