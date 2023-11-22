@@ -799,8 +799,13 @@ if (mb_strlen($descricao) > $maxCaracteres) {
          </div>
          <ul>
         
-            @foreach ($subsetor->dadosOrganizacionais as $dados)    
-            <li><b>{{$dados->dado}}</b></li>
+            @foreach ($subsetor->dadosOrganizacionais as $dados)  
+
+               @php
+                  $partes = explode(":", $dados->dado);
+             
+               @endphp
+            <li><b>{{$partes[0]}}</b>@if(isset($partes[1])) {{$partes[1]}} @endif</li>
             @endforeach
          
          </ul>
