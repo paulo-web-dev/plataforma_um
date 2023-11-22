@@ -693,6 +693,19 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         echo '<tr>';
         echo '<td><b>Posto de Trabalho:</b></td>';
         echo '<td>' . $subsetor->nome . '</td>';
+           if(isset($subsetor->funcao)){
+        echo ' <tr>
+               <td><b>Função:</b></td>
+               <td>'.$subsetor->funcao->funcao.'</td>
+            </tr>';
+          }
+
+           if(isset($subsetor->tarefa)){
+              echo '<tr>
+               <td><b>Tarefa:</b></td>
+               <td>'.$subsetor->tarefa->tarefa.'</td>
+            </tr>';
+            }
         echo '</tr>';
         // Adicione mais linhas conforme necessário
 
