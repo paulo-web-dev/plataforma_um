@@ -1658,6 +1658,7 @@ chart.column(chartData);
             <h3>Responsabilidade pela elaboração</h3>
             <div class="responsaveis">
                @foreach ($empresa->responsaveis as $responsavel)
+               <img src="https://unyflex.com.br/storage/alunos/assinatura.jpg">
                <div class="linha-assinatura">
                </div>
                <p>{{$responsavel->nome}}</p>
