@@ -341,7 +341,7 @@ ul{
                   <p class="text-center">AET</p>
                </h2>
                <p class="text-center">Análise Ergonômica do Trabalho</p>
-               <p class="text-center">2023</p>
+               <p class="text-center">2023 @if($empresa->id == 13)/2024 @endif</p>
             </div>
  
          @if(isset($empresa->photo))
