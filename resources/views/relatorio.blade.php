@@ -344,9 +344,9 @@ ul{
                <p class="text-center">2023</p>
             </div>
  
-
+         @if(isset($empresa->photo))
             <center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa "></center><br>
-         
+         @endif
             <p style="font-size:30px" class="text-center"><b>{{$empresa->titulo}}</b></p>
 
  
@@ -748,7 +748,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
          </div>
          
-         <p class="text-cargo" ><b>{{$subsetor->nome}}: </b><?= $subsetor->descricao?>. </p>
+         <p class="text-cargo" ><?= $subsetor->descricao?>. </p>
      
       </div>
       <div class="paginacao">
@@ -800,7 +800,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
          <ul>
         
             @foreach ($subsetor->dadosOrganizacionais as $dados)    
-            <li>{{$dados->dado}}</li>
+            <li><b>{{$dados->dado}}</b></li>
             @endforeach
          
          </ul>
@@ -1317,7 +1317,7 @@ chart.column(chartData);
          <ul>
            
             @foreach ($subsetor->caracteristicas as $caracteristica)  
-            <li>{{$caracteristica->titulo}}: {{$caracteristica->descricao}}</li>
+            <li><b>{{$caracteristica->titulo}}: </b>{{$caracteristica->descricao}}</li>
             @endforeach
      
          </ul>
@@ -1338,7 +1338,7 @@ chart.column(chartData);
          <ul>
            
             @foreach ($subsetor->preDiagnostico as $diagnostico)  
-            <li>{{$diagnostico->titulo}} {{$diagnostico->descricao}}</li>
+            <li><b>{{$diagnostico->titulo}}:</b> {{$diagnostico->descricao}}</li>
             @endforeach
           
          </ul>

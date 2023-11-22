@@ -34,7 +34,7 @@
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
-                            <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15">{{$caracteristica->descricao}}</textarea>
+                            <textarea class="form-control editor" name="descricao" id="editor" cols="30" rows="15">{{$caracteristica->descricao}}</textarea>
                         </div>
                     
                 <div class="flex justify-end mt-4">
@@ -49,7 +49,16 @@
 @endsection
 
 @push('custom-scripts')
-
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
 
 
 

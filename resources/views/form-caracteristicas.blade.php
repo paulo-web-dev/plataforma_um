@@ -39,7 +39,7 @@
                    
                          <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição da Caracteristica</strong></label>
-                            <textarea class="form-control editor" name="descricao[]" id="descricao" cols="30" rows="15"></textarea>
+                            <textarea class="form-control editor" name="descricao[]" id="editor" cols="30" rows="15"></textarea>
                              <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
                                             <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
                                 </span>
@@ -131,6 +131,7 @@
     <!-- END: Users Layout -->
     </div>
 @endsection
+
 <script>
     function addCaracteristicas() {
         const inputField = document.createElement('div');
