@@ -691,14 +691,14 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         echo '</div>';
         echo '<table style="margin-left:10px; margin-right:10px">';
         echo '<tr>';
-        echo '<td><b>Posto de Trabalho:</b></td>';
+        echo '<td><b>Posto de Trabsalho:</b></td>';
         echo '<td>' . $subsetor->nome . '</td>';
-      
+           if(isset($subsetor->funcao)){
         echo ' <tr>
                <td><b>Função:</b></td>
                <td>'.$subsetor->funcao->funcao.'</td>
             </tr>';
-          
+          }
 
            if(isset($subsetor->tarefa)){
               echo '<tr>
