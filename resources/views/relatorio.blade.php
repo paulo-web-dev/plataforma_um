@@ -356,7 +356,7 @@ ul{
       {{-- Objetivos --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Súmario</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SÚMARIO</p>
          </div>
          <div class="sumario">
             <ul>
@@ -506,7 +506,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Metodologia --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Metodologia Empregada</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">METODOLOGIA EMPREGADA/p>
          </div>
          <?php
 
@@ -1691,7 +1691,7 @@ chart.column(chartData);
             <h3>Responsabilidade pela elaboração</h3>
             <div class="responsaveis">
                @foreach ($empresa->responsaveis as $responsavel)
-               <img src="https://unyflex.com.br/storage/alunos/assinatura.jpg">
+               <img src="https://unyflex.com.br/storage/alunos/assinatura.jpg" style="width: 200px; height: 80px"> 
                <div class="linha-assinatura">
                </div>
                <p>{{$responsavel->nome}}</p>
