@@ -356,7 +356,7 @@ ul{
       {{-- Objetivos --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SÚMARIO</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SUMÁRIO</p>
          </div>
          <div class="sumario">
             <ul>
@@ -651,6 +651,7 @@ $maxCaracteres = 2000;
 if (mb_strlen($descricao) > $maxCaracteres) {
     // Encontrar a posição de "</li>" após 2000 caracteres
     $posicao_li = mb_strpos(mb_substr($descricao, $maxCaracteres), "</p>");
+    $posicao_lit = mb_strpos(mb_substr($descricao, $maxCaracteres), ".");
     $posicao_li2 = mb_strpos(mb_substr($descricao, $maxCaracteres), "<br>");  
     if ($posicao_li !== false) {
         // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
@@ -699,6 +700,46 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         $posicao_li2 += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
         $parte1 = mb_substr($descricao, 0, $posicao_li2 + 5); // +5 para incluir "</li>"
         $parte2 = mb_substr($descricao, $posicao_li2 + 5);
+         
+        echo '<div class="page">';
+        echo '<div class="subcabecalho2">';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>';
+        echo '</div>';
+        echo '<table style="margin-left:10px; margin-right:10px">';
+        echo '<tr>';
+        echo '<td><b>Posto de Trabalho:</b></td>';
+        echo '<td>' . $subsetor->nome . '</td>';
+           if(isset($subsetor->funcao)){
+        echo ' <tr>
+               <td><b>Função:</b></td>
+               <td>'.$subsetor->funcao->funcao.'</td>
+            </tr>';
+          }
+
+           if(isset($subsetor->tarefa)){
+              echo '<tr>
+               <td><b>Tarefa:</b></td>
+               <td>'.$subsetor->tarefa->tarefa.'</td>
+            </tr>';
+            }
+        echo '</tr>';
+        // Adicione mais linhas conforme necessário
+
+        echo '</table>';
+        echo '<div class="subcabecalho2">';
+        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>';
+        echo '</div>';
+        echo '<p class="text-cargo">' . $parte1 . '</p>';
+        echo '</div>';
+
+        echo '<div class="page">';
+        echo '<p class="text-cargo">' . $parte2 . '</p>';
+        echo '</div>';
+    }else{
+              // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
+        $posicao_lit += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
+        $parte1 = mb_substr($descricao, 0, $posicao_lit + 5); // +5 para incluir "</li>"
+        $parte2 = mb_substr($descricao, $posicao_lit + 5);
          
         echo '<div class="page">';
         echo '<div class="subcabecalho2">';
@@ -1588,7 +1629,7 @@ chart.column(chartData);
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
             </thead>
             <tbody>
-               @foreach ($mapeamentos->take(10) as $mapeamento)
+               @foreach ($mapeamentos->take(6) as $mapeamento)
                <tr class="hover:bg-gray-200">
                   <td class="border">{{$mapeamento->area}}</td>
                   <td class="border">{{$mapeamento->setor}}</td>
@@ -1605,7 +1646,7 @@ chart.column(chartData);
             </tbody>
          </table>
          @php
-         $mapeamentos = $mapeamentos->slice(10); // Remove os primeiros 8 elementos
+         $mapeamentos = $mapeamentos->slice(6); // Remove os primeiros 8 elementos
          @endphp
       </div>
       <div class="paginacao">
