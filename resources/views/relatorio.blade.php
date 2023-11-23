@@ -738,8 +738,8 @@ if (mb_strlen($descricao) > $maxCaracteres) {
     }else{
               // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
         $posicao_lit += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
-        $parte1 = mb_substr($descricao, 0, $posicao_lit + 5); // +5 para incluir "</li>"
-        $parte2 = mb_substr($descricao, $posicao_lit + 5);
+        $parte1 = mb_substr($descricao, 0, $posicao_lit + 1); // +5 para incluir "</li>"
+        $parte2 = mb_substr($descricao, $posicao_lit + 1);
          
         echo '<div class="page">';
         echo '<div class="subcabecalho2">';
