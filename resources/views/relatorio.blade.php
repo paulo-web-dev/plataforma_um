@@ -574,7 +574,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
 {{-- Ánalise GLobal --}}
 
       <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁNALISE GLOBAL DA EMPRESA </p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE  GLOBAL DA EMPRESA </p>
          </div>
          <ul>
            
@@ -1350,7 +1350,17 @@ chart.column(chartData);
          <ul>
            
             @foreach ($subsetor->caracteristicas as $caracteristica)  
-            <li><b>{{$caracteristica->titulo}}: </b><?= $caracteristica->descricao ?></li>
+            @php
+            $titulo = $caracteristica->titulo;
+
+            // Verifica se o último caractere é diferente de ":"
+            if (substr($titulo, -1) !== ':') {
+               $titulo .= ':';
+            }
+
+        
+            @endphp
+            <li><b>{{$titulo}} </b><?= $caracteristica->descricao ?></li>
             @endforeach
      
          </ul>
