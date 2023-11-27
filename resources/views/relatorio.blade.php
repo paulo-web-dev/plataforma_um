@@ -242,7 +242,9 @@
 ul{
   margin-right:25px;
 } 
-
+td{
+   font-size: 12px;
+}
 li{
     font-size: 16px;
 }
@@ -1458,7 +1460,7 @@ chart.column(chartData);
                <tbody>
                   @foreach ($subsetor->moore as $moore)
                   <tr>
-                     <td>MOORE E GARG
+                     <td >MOORE E GARG
                         <br>(Análise de risco para punhos e mãos)
                         <br> Atividade: {{$moore->atividade}}.
                      </td>
@@ -1476,12 +1478,12 @@ chart.column(chartData);
                   <tr>
                      <td>
                         {{$conclusao->ferramenta}}
-                        <p id="textomemrbos{{$conclusao->id}}">
+                        <p id="textomemrbos{{$conclusao->id}}" style="font-size: 12px">
                         </p>
                           Atividade: {{$conclusao->atividade}}.
                      </td>
-                     <td id="conclusao{{$conclusao->id}}">{{$conclusao->conclusao}}</td>
-                     <td id="membros{{$conclusao->id}}"></td>
+                     <td id="conclusao{{$conclusao->id}}" style="font-size: 12px">{{$conclusao->conclusao}}</td>
+                     <td id="membros{{$conclusao->id}}" style="font-size: 12px"></td>
                   </tr>
                   <script>
                      conclusao('{{$conclusao->conclusao}}', '{{$conclusao->ferramenta}}' ,'{{$conclusao->id}}', '{{$conclusao->membro}}');
