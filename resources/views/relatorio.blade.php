@@ -506,7 +506,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Metodologia --}}
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">METODOLOGIA EMPREGADA/p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">METODOLOGIA EMPREGADA </p>
          </div>
          <?php
 
