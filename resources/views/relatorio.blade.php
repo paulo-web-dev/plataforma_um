@@ -1474,7 +1474,10 @@ chart.column(chartData);
 					$i++;
 					@endphp    
                   @endforeach
+                  @php $totalitens = $i + count($subsetor->conclusoes ) @endphp
                   @foreach ($subsetor->conclusoes as $conclusao)
+                  
+                 
                   <tr>
                      <td>
                         {{$conclusao->ferramenta}}
@@ -1491,7 +1494,7 @@ chart.column(chartData);
 				  	@php
 					$i++;
 					@endphp    
-                     @if ($i == 5)
+                  @if ($i == 5 && $totalitens > 5)
                     </tbody>
                 </table>
             </div>
