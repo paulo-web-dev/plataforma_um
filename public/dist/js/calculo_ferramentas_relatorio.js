@@ -279,7 +279,7 @@ arraySemDuplicatas.forEach(array =>  {
     
     });
     var paginas = document.getElementById('paginas'); 
-            paginas.innerHTML = paginacao2();
+            paginas.innerHTML = paginacao2() - 1;
             window.onload = function () {
             //window.print();
             }
