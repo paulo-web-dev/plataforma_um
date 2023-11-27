@@ -58,6 +58,7 @@
     font-family: 'Poppins', sans-serif; 
     margin: 15px;
      line-height: 1.5;
+      font-size: 16px;
   }
     .title{
       
@@ -240,6 +241,10 @@
 }
 ul{
   margin-right:25px;
+} 
+
+li{
+    font-size: 16px;
 }
 .pagina {
   float: right;
@@ -529,7 +534,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Metodologia2 --}}
       <div class="page">
          
-         <p style="font-size: 18px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS - FERRAMENTAS ERGONÔMICAS</p>
+         <p style="font-size: 16px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS - FERRAMENTAS ERGONÔMICAS</p>
          <p>Inicialmente foram realizadas as observações referentes à ergonomia dos postos
             de trabalho (condições dos mobiliários, das ferramentas, dos equipamentos, das
             posturas de trabalho, da iluminação, do ruído).<br><br>
@@ -693,7 +698,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         echo '</div>';
 
         echo '<div class="page">';
-        echo '<p class="text-cargo">' . $parte2 . '</p>';
+        echo '<p class="text-cargo"> aa' . $parte2 . '</p>';
         echo '</div>';
     } elseif($posicao_li2 !== false)  {
         // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
@@ -732,9 +737,11 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         echo '<p class="text-cargo">' . $parte1 . '</p>';
         echo '</div>';
 
+        if(strlen($parte2 > 10)){
         echo '<div class="page">';
         echo '<p class="text-cargo">' . $parte2 . '</p>';
         echo '</div>';
+        }
     }else{
               // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
         $posicao_lit += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
@@ -771,10 +778,11 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         echo '</div>';
         echo '<p class="text-cargo">' . $parte1 . '</p>';
         echo '</div>';
-
+      if(strlen($parte2 > 10)){
         echo '<div class="page">';
         echo '<p class="text-cargo">' . $parte2 . '</p>';
         echo '</div>';
+        }
     }
 } else {
 
@@ -829,7 +837,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
 
       <div class="page">
          <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">Análise da Atividade</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DA ATIVIDADE</p>
          </div>
 
             <p><?= $subsetor->analiseAtividade->analise ?></p>
@@ -1177,7 +1185,7 @@ chart.column(chartData);
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DADOS DE SAÚDE</p>
          </div>
-         <p style="font-size: 21px;">Por meio de uma entrevista individualizada (com participação de 100% dos trabalhadores do setor) foi aplicado um questionário com questões abertas com a finalidade de identificar os principais desconfortos referidos pelos
+         <p style="font-size: 16px;">Por meio de uma entrevista individualizada (com participação de 100% dos trabalhadores do setor) foi aplicado um questionário com questões abertas com a finalidade de identificar os principais desconfortos referidos pelos
             trabalhadores e que podem influenciar o seu desempenho durante o processo de trabalho.</li>
          <p>
        
