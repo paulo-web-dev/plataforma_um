@@ -1,6 +1,7 @@
 @extends('layouts.header')
 
 @section('content')
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@1.5.3"></script>
 <!-- BEGIN: Personal Information -->
     <div class="intro-y box mt-5">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
@@ -45,11 +46,59 @@
                                 placeholder="Identidade de Trabalho. EX: CREFITO 3/131278 F" value="">
                         </div>
                    
+                        <div class="mt-3">
+    <!-- ... Seu HTML existente ... -->
 
+<!-- Campo de assinatura -->
+<canvas id="signatureCanvas" width="400" height="200" style="border: 1px solid #000;"></canvas>
+
+<!-- Botão para salvar a assinatura como imagem -->
+<button onclick="saveSignature()">Salvar Assinatura</button>
+
+<!-- Input oculto para armazenar a imagem da assinatura -->
+<input type="hidden" id="signatureImage" name="signatureImage">
+
+<script>
+    // Inicialize o SignaturePad
+    var canvas = document.getElementById('signatureCanvas');
+    var signaturePad = new SignaturePad(canvas);
+
+    // Função para salvar a assinatura como imagem
+    function saveSignature() {
+        if (signaturePad.isEmpty()) {
+            alert("Assine antes de salvar.");
+        } else {
+            // Obtenha a imagem da assinatura como base64
+            var signatureImage = signaturePad.toDataURL();
+
+            // Atualize o valor do input oculto
+            document.getElementById('signatureImage').value = signatureImage;
+
+            // Aqui, você pode enviar a imagem para o servidor ou fazer o que for necessário
+            console.log("Assinatura salva:", signatureImage);
+        }
+    }
+
+    // Adicione este código para incluir o valor da assinatura no formulário ao enviar
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        // Certifique-se de que o valor da assinatura esteja incluído nos dados do formulário
+        var signatureImage = document.getElementById('signatureImage').value;
+        var signatureInput = document.createElement('input');
+        signatureInput.type = 'hidden';
+        signatureInput.name = 'signatureImage';
+        signatureInput.value = signatureImage;
+        form.appendChild(signatureInput);
+    });
+</script>
+
+<!-- ... Seu HTML existente ... -->
+
+                        </div>
                     
-                <div class="flex justify-end mt-4">
+                {{-- <div class="flex justify-end mt-4">
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Cadastrar Responsável</button>
-                </div>
+                </div> --}}
             </div>
         </form>
     </div>
