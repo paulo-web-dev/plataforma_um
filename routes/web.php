@@ -103,6 +103,7 @@ Route::post('/update/setor', [SetoresController::class, 'updSetor'])->name('upd-
 Route::get('/subsetores', [SubSetoresController::class, 'show'])->name('show-subsetor');
 Route::get('/form/subsetores/{idsetor}', [SubSetoresController::class, 'formSubSetores'])->name('form-subsetores');
 Route::get('/info/subsetor/{id}', [SubSetoresController::class, 'infoSubSetores'])->name('info-subsetor'); 
+Route::get('/duplicar/subsetor/{id}', [SubSetoresController::class, 'duplicarSubSetores'])->name('duplicar-subsetor'); 
 Route::get('/delete/subsetor/{id}', [SubSetoresController::class, 'delete'])->name('delete-subsetor'); 
 Route::post('/cadastrar/subsetor', [SubSetoresController::class, 'cadSubSetor'])->name('cad-subsetor');
 Route::post('/update/subsetor', [SubSetoresController::class, 'updSubSetor'])->name('upd-subsetor');

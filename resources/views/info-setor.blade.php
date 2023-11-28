@@ -70,6 +70,7 @@
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Posto de Trabalho</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Duplicar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                 </tr>
@@ -80,6 +81,16 @@
                                     <tr class="hover:bg-gray-200">
                                         <td class="border">{{$subsetor->id}}</td>
                                         <td class="border">{{$subsetor->nome}}</td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('duplicar-subsetor', ['id' => $subsetor->id])}}">
+                                                    <i data-feather="share-2" class="w-4 h-4 mr-1"></i> Duplicar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
                                         <td class="border">
                                             <div class="flex justify-center">
                                                 <a class="flex text-theme-1 mr-3"
