@@ -700,7 +700,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
         echo '</div>';
 
         echo '<div class="page">';
-        echo '<p class="text-cargo"> aa' . $parte2 . '</p>';
+        echo '<p class="text-cargo">' . $parte2 . '</p>';
         echo '</div>';
     } elseif($posicao_li2 !== false)  {
         // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
