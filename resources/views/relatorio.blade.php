@@ -1415,14 +1415,29 @@ chart.column(chartData);
             @endforeach
      
          </ul>
+             {{-- Pré diagnosticos --}}
+         <div class="subcabecalho2" style="margin-top:35px">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">PRÉ DIAGNÓSTICO</p>
+         </div>
 
+         @if (count($subsetor->preDiagnostico) < 7)
+            
+         <ul>
+           
+            @foreach ($subsetor->preDiagnostico as $diagnostico)  
+            <li><b>{{$diagnostico->titulo}}</b> {{$diagnostico->descricao}}</li>
+            @endforeach
+          
+         </ul>
+
+         @endif
       </div>
 @endif
 	    <div class="paginacao">
          <script>paginacao()</script>
       </div>
 
-        @if(count($subsetor->preDiagnostico) >= 1)
+        @if(count($subsetor->preDiagnostico) > 6 )
     <div class="page">
    
          {{-- Pré diagnosticos --}}
