@@ -51,7 +51,7 @@ class PopulacaoSubSetorController extends Controller
         $path = $request->file('file')->store('diretorio'); 
         $tempFilePath = storage_path('app/'.$path);
         $dados_planilha = fopen($tempFilePath, "r");
-        while($linha = fgetcsv($dados_planilha, 1000, ",")){
+        while($linha = fgetcsv($dados_planilha, 1000, ";")){
             if($i > 0){
                 if($linha[0] != ''){
                 $populacao = new PopulacaoSubsetor();
@@ -71,7 +71,7 @@ class PopulacaoSubSetorController extends Controller
         return redirect()->route('info-subsetor', ['id' => $request->id_subsetor])->with('secao', 'populacao'); 
 
     } catch(\Exception $e){
-        dd($e);
+      dd($e);
         return redirect()->route('info-subsetor', ['id' => $request->id_subsetor])->with('message', 'erro_planilha'); 
     }
     }
