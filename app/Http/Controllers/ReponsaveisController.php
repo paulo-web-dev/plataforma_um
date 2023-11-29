@@ -62,11 +62,31 @@ class ReponsaveisController extends Controller
     
     public function updResponsaveis(Request $request){
 
-        $responsavel =  Responsaveis::where('id', $request->id)->first();
-        $responsavel->nome = $request->nome;
-        $responsavel->cargo = $request->cargo;
-        $responsavel->identidade_trabalho = $request->identidade_trabalho;
-        $responsavel->save();
+   
+     // Obtenha a imagem da assinatura do pedido
+     $assinaturaBase64 = $request->input('signatureImage');
+
+     // Decodifique a imagem da assinatura da codificação base64
+     $assinaturaDecodificada = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $assinaturaBase64));
+ 
+     // Gere um nome de arquivo único para a imagem da assinatura
+     $nomeArquivo = 'assinatura'.$request->id_empresa.'_' . $request->nome. '.png';
+ 
+     // Salve a imagem da assinatura no sistema de arquivos do Laravel
+     $destinationPath = public_path('fotos-assinaturas/');
+ 
+     // Crie um arquivo temporário e escreva os dados da assinatura nele
+     $tempFile = tempnam(sys_get_temp_dir(), 'assinatura_temp');
+     file_put_contents($tempFile, $assinaturaDecodificada);
+ 
+     rename($tempFile, $destinationPath . $nomeArquivo);
+    // Crie um novo responsável e atribua o caminho do arquivo da assinatura ao modelo
+    $responsavel = Responsaveis::where('id', $request->id)->first();
+    $responsavel->nome = $request->input('nome');
+    $responsavel->cargo = $request->input('cargo');
+    $responsavel->identidade_trabalho = $request->input('identidade_trabalho');
+    $responsavel->foto =  $nomeArquivo; // Campo no modelo para armazenar o caminho do arquivo da assinatura
+    $responsavel->save();
         
         return redirect()->route('infoempresa', ['id' => $responsavel->id_empresa]);
     } 

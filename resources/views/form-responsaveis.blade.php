@@ -31,19 +31,19 @@
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Nome</strong></label>
                             <input id="update-profile-form-7" type="text" name="nome" class="form-control"
-                                placeholder="Nome" value="">
+                                placeholder="Nome" value="" required>
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Cargo</strong></label>
                             <input id="update-profile-form-7" type="text" name="cargo" class="form-control"
-                                placeholder="Cargo" value="">
+                                placeholder="Cargo" value="" required>
                         </div>
 
                         <div class="mt-3">
                             <label for="update-profile-form-7" class="form-label"><strong>Identidade de Trabalho</strong></label>
                             <input id="update-profile-form-7" type="text" name="identidade_trabalho" class="form-control"
-                                placeholder="Identidade de Trabalho. EX: CREFITO 3/131278 F" value="">
+                                placeholder="Identidade de Trabalho. EX: CREFITO 3/131278 F" value="" required>
                         </div>
                    
                         <div class="mt-3">
