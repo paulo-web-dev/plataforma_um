@@ -13,6 +13,7 @@ use App\Models\Setores;
 use App\Models\Textos;
 use App\Models\Mapeamento;
 use App\Models\PlanoDeAcao;
+use App\Models\Demanda;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
@@ -124,6 +125,10 @@ class EmpresaController extends Controller
         $introducao->save();
         $metodologia->save();
 
+        $demanda = new Demanda();
+        $demanda->demanda = 'O departamento de recursos humanos da empresa '. $request->nome .', solicitou a análise ergonômica dos postos de trabalho, interessada em identificar as condições ergonômicas que os trabalhadores estão submetidos e as oportunidades de melhorias para a eliminação e/ou minimização dos mesmos.';
+        $demanda->id_empresa =  $empresa->id;
+        $demanda->save();
         
         return redirect()->route('infoempresa', ['id' => $empresa->id]);
     }

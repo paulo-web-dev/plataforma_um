@@ -613,7 +613,9 @@ subsetor.forEach((populacao) => {
         escolaridadesg += 1;
     } else if (populacao.escolaridade == 'TERCEIRO GRAU COMPLETO' || 'ENSINO SUPERIOR COMPLETO') {
         escolaridadetg += 1;
-    } else {
+    } else if(populacao.escolaridade == 'PRIMEIRO GRAU COMPLETO') {
+        escolaridadepg += 1;
+    }else{
         escolaridadepg += 1;
     }
 });
