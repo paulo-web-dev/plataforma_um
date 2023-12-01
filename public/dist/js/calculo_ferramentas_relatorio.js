@@ -611,13 +611,17 @@ subsetor.forEach((populacao) => {
 
     if (populacao.escolaridade == 'SEGUNDO GRAU COMPLETO') {
         escolaridadesg += 1;
-    } else if (populacao.escolaridade == 'TERCEIRO GRAU COMPLETO' || 'ENSINO SUPERIOR COMPLETO') {
+        
+    } else if (populacao.escolaridade == 'TERCEIRO GRAU COMPLETO' || populacao.escolaridade == 'ENSINO SUPERIOR COMPLETO') {
         escolaridadetg += 1;
-    } else if(populacao.escolaridade == 'PRIMEIRO GRAU COMPLETO') {
+        
+    } else if (populacao.escolaridade == 'PRIMEIRO GRAU COMPLETO') {
         escolaridadepg += 1;
-    }else{
+       
+    } else {
         escolaridadepg += 1;
     }
+    
 });
 
 

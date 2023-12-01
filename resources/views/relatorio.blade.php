@@ -895,6 +895,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
       {{-- Pegar dados Populacionais --}}
  
       @php $populacaoSubsetor = $subsetor->populacaosubsetor; @endphp
+      
       <script>
          var populacaoSubsetor = @json($populacaoSubsetor);
          var graficos{{$subsetor->id}} = calcularEstatisticas(populacaoSubsetor, {{$subsetor->id}});
