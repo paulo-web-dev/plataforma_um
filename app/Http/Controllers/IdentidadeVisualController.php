@@ -31,6 +31,13 @@ class IdentidadeVisualController extends Controller
         return view('form-identidade',['empresas' =>$empresas,]); 
     }
 
+    public function duplicarIdentidade($id){
+        $identidade = IdentidadeVisual::where('id', $id)->first();
+       
+        $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->with('identidade')->get();
+        return view('duplicar-identidade',['empresas' =>$empresas, 'identidade' => $identidade]); 
+    }
+
     public function cadIdentidade(Request $request){
   
 
@@ -44,6 +51,8 @@ class IdentidadeVisualController extends Controller
             $image = $request->file('file');
             $destinationPath = public_path('fotos-identidade/');
             $image->move($destinationPath, $photoname);
+           }else{
+            $identidade->foto_empresa = $request->foto;
            }
            $identidade->save();
            return redirect()->route('info-identidade');

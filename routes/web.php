@@ -77,6 +77,7 @@ Route::post('/alteracao/plano', [EmpresaController::class, 'alteraplano'])->name
 //Rotas Pertinentes a cadastro de Identidade visual 
 Route::get('/identidades', [IdentidadeVisualController::class, 'show'])->name('show-identidade');
 Route::get('/form/identidade-visual', [IdentidadeVisualController::class, 'formIdentidade'])->name('form-identidade');
+Route::get('/duplicar/identidade-visual/{id}', [IdentidadeVisualController::class, 'duplicarIdentidade'])->name('duplicar-identidade');
 Route::get('/info/identidade-visual', [IdentidadeVisualController::class, 'infoIdentidade'])->name('info-identidade'); 
 Route::post('/cadastrar/identidade-visual', [IdentidadeVisualController::class, 'cadIdentidade'])->name('cad-identidade-visual');
 Route::post('/update/identidade-visual', [IdentidadeVisualController::class, 'updIdentidade'])->name('upd-identidade-visual');

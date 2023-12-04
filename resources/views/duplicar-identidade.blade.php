@@ -4,7 +4,7 @@
 
  <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Atualizar Identidade Visual
+            Cadastrar Identidade Visual
         </h2>
     </div>
     <div class="grid grid-cols-12 gap-6 mt-5">
@@ -30,7 +30,11 @@
                     </button>
                 </div>
             @endforeach
-            
+            <form action="{{route('cad-identidade-visual')}}" method="post" enctype="multipart/form-data" data-single="true"
+                method="post">
+                @csrf
+                <div id="informacoes-pessoais" role="tabpanel" aria-labelledby="informacoes-pessoais-tab"
+                    class="grid grid-cols-12 gap-6 tab-pane active">
                     <!-- BEGIN: Products -->
                     <div class="intro-y box col-span-12 xxl:col-span-12">
                         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
@@ -38,66 +42,46 @@
                                Informações da Identidade Visual
                             </h2><br>
                              <a href="{{ route('home') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
-                              <a href="{{ route('form-identidade') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Cadastrar Nova Identidade Visual</a>
                         </div>
 
                               
                                 
                         
                     </div> 
-                    @foreach ($empresass as $empresa)
-                    @if(isset($empresa->identidade))
-               <form action="{{route('upd-identidade-visual')}}" method="post" enctype="multipart/form-data" data-single="true"
-                method="post">
-                @csrf
-                <div id="informacoes-pessoais" role="tabpanel" aria-labelledby="informacoes-pessoais-tab"
-                    class="grid grid-cols-12 gap-6 tab-pane active">
                     <div class="intro-y box col-span-12 xxl:col-span-12 p-5">
                         <div class="grid grid-cols-12 gap-x-5">
                             <div class="col-span-12 xl:col-span-6">
-                              <h3>Identidade visual do relatório da empresa: {{$empresa->nome}}</h3>
                                 <div class="mt-3">
                                     <label for="cor_principal" class="form-label"><strong>Cor Principal</strong></label>
                                     <input id="cor_principal" type="color" name="cor_principal" class="form-control"
-                                      value="{{$empresa->identidade->cor_principal}}"  required>
+                                       value{{$identidade->cor_principal}} required>
                                 </div>
                                 <div class="mt-3">
                                     <label for="cor_secundaria" class="form-label"><strong>Cor Secundaria</strong></label>
                                     <input id="cor_secundaria" type="color" name="cor_secundaria" class="form-control"
-                                     value="{{$empresa->identidade->cor_secundaria}}"   required>
+                                       value="{{$identidade->cor_secundaria}}" required>
                                 </div>
-                                   <div class="mt-3">
+                                  <div class="mt-3">
                                 <label for="empresa" class="form-label"><strong>Estado</strong></label>
-                                
+                                <input type="hidden" value="{{$identidade->foto_empresa}}" name="foto">
                                     <select class="form-control" name="empresa" id="empresa"
-                                        onchange="buscarCidades()">
-                                        <option value="{{$empresa->id}}">{{$empresa->nome}}</option>
-                                        @foreach ($empresass as $empresas)
-                                             <option value="{{$empresas->id}}">{{$empresas->nome}}</option>
+                                         required>
+                                         <option >Escolha a Empresa</option>
+                                        @foreach ($empresas as $empresa)
+                                             <option value="{{$empresa->id}}">{{$empresa->nome}}</option>
                                         @endforeach
                                        
                                        
                                     </select>
                                     <br><br>
                                 </div>
-                                <img src="/fotos-identidade/{{$empresa->identidade->foto_empresa}}" style="max-width:200px">
-                                    
-                            </div>
+                               
                             
-                       <input type="hidden" name="id" value="{{$empresa->identidade->id}}" >
-                        
-                           
-                    <div class="col-span-12 xl:col-span-6">
-                        <label class="form-label"><strong>Trocar Imagem</strong></label>
-                        <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
-                            <div class="px-4 pt-24 pb-24 flex items-center justify-center cursor-pointer relative">
-                                <div id="areaArquivo">
-                                    <i data-feather="image" class="w-4 h-4 mr-2"></i>
-                                    <span class="mr-1 font-bold">Trocar Imagem</span>
-                                </div>
-                                <input type="file" id="file" name="file"
-                                    class="w-full h-full top-0 left-0 absolute opacity-0">
                             </div>
+                    <div class="col-span-12 xl:col-span-6">
+                        <label class="form-label"><strong>Imagem</strong></label>
+                        <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
+                          <img src="/fotos-identidade/{{$identidade->foto_empresa}}" style="max-width:200px">
                         </div>
                     </div>
                         </div>
@@ -108,16 +92,10 @@
                         <div class="intro-y box col-span-12 xxl:col-span-12">
                             <button type="submit" class="btn btn-primary w-full  mr-2 mb-2"> <i data-feather="activity"
                                     class="w-4 h-4 mr-2"></i>
-                                Alterar Identidade Visual </button>
+                                Adicionar Identidade Visual </button>
                         </div>
                     </div>
             </form>
-            <a href="/duplicar/identidade-visual/{{$empresa->identidade->id}}">
-             <button type="button" class="btn btn-primary w-full  mr-2 mb-2"> <i data-feather="activity"
-                                    class="w-4 h-4 mr-2"></i>
-                                Duplicar Identidade Visual Para Outra Empresa </button></a>
-               @endif
-                    @endforeach
         </div>
     </div>
 @endsection
