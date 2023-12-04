@@ -352,7 +352,7 @@ li{
             </div>
  
          @if(isset($empresa->photo))
-            <center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa "></center><br>
+            <center><img src="/fotos-empresas/{{$empresa->photo}}" class="img-empresa " style="max-width: 80%"></center><br>
          @endif
             <p style="font-size:30px" class="text-center"><b>{{$empresa->titulo}}</b></p>
 
