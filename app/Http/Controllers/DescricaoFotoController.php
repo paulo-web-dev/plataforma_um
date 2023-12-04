@@ -49,6 +49,6 @@ class DescricaoFotoController extends Controller
 
     public function delete($id){
         DescricaoFoto::destroy($id);
-        return back();
+        return back()->with('secao', 'legenda-fotos');;
     }
 }

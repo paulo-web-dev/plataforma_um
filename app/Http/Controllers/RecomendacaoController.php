@@ -77,7 +77,7 @@ class RecomendacaoController extends Controller
 
     public function delete($id){
         Recomendacao::destroy($id);
-        return back();
+        return back()->with('secao', 'recomendacao'); ;
     }
 
     public function alteraordem(Request $request){

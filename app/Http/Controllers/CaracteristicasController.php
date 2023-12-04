@@ -64,7 +64,7 @@ class CaracteristicasController extends Controller
     
     public function delete($id){
         Caracteristicas::destroy($id);
-        return back();
+        return back()->with('secao', 'caracteristicas-do-ambiente'); ;
     }
 
     public function alteraordem(Request $request){

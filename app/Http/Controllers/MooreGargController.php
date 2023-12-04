@@ -83,7 +83,7 @@ class MooreGargController extends Controller
 
     public function delete($id){
         MooreGarg::destroy($id);
-        return back();
+        return back()->with('secao', 'moore'); 
     }
 }
 

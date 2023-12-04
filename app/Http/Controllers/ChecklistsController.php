@@ -623,6 +623,6 @@ $total = $totalCadeira +
 
 
 
-        return back();
+        return back()->with('secao', 'checklist'); ;
     }
 }

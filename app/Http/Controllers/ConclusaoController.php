@@ -116,6 +116,6 @@ class ConclusaoController extends Controller
     
     public function delete($id){
         Conclusoes::destroy($id);
-        return back();
+        return back()->with('secao', 'moore');;
     }
 }

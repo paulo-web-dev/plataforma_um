@@ -65,6 +65,6 @@ class DadosOrganizacionaisController extends Controller
 
     public function delete($id){
         DadosOrganizacionais::destroy($id);
-        return back();
+        return back()->with('secao', 'caracteristicas');
     }
 }

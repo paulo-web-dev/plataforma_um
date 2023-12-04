@@ -49,6 +49,6 @@ class TarefaController extends Controller
     
     public function delete($id){
         Tarefa::destroy($id);
-        return back();
+        return back()->with('secao', 'tarefa');
     }
 }

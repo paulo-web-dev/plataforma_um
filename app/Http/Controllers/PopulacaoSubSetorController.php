@@ -110,6 +110,6 @@ class PopulacaoSubSetorController extends Controller
     
     public function delete($id){
         PopulacaoSubsetor::destroy($id);
-        return back();
+        return back()->with('secao', 'populacao');
     }
 }

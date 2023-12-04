@@ -37,7 +37,7 @@ class FotosAtividadesController extends Controller
 
     public function deleteFoto($id){
         FotosAtividades::destroy($id);
-        return back();
+        return back()->with('secao', 'fotos'); ;
     }
 }
   

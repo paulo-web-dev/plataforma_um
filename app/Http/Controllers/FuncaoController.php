@@ -51,6 +51,6 @@ class FuncaoController extends Controller
 
     public function delete($id){
         Funcao::destroy($id);
-        return back();
+        return back()->with('secao', 'função'); ;
     }
 }

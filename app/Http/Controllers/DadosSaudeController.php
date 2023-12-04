@@ -93,6 +93,6 @@ class DadosSaudeController extends Controller
 
     public function delete($id){
         DadosSaude::destroy($id);
-        return back();
+        return back()->with('secao', 'saude');  ;
     }
 }

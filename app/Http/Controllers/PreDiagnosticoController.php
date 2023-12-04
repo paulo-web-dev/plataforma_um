@@ -67,6 +67,6 @@ class PreDiagnosticoController extends Controller
 
     public function delete($id){
         PreDiagnostico::destroy($id);
-        return back();
+        return back()->with('secao', 'pre-diagnosticos'); ;
     }
 }

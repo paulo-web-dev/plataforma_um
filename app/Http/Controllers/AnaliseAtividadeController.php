@@ -51,6 +51,6 @@ class AnaliseAtividadeController extends Controller
 
     public function delete($id){
         AnaliseAtividade::destroy($id);
-        return back();
+        return back()->with('secao', 'analise-atividade');
     }
 }
