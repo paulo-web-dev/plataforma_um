@@ -42,6 +42,7 @@ use App\Http\Controllers\DescricaoFotoController;
 use App\Http\Controllers\ChecklistsController;
 use App\Http\Controllers\TextosController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InscricaoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -64,6 +65,9 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/upload/audio', [AudioController::class, 'uploadAudio'])->name('upload-audio');
+//Rotas Referentes a Inscrição do Usuário
+Route::get('/inscricao', [InscricaoController::class, 'show'])->name('show-inscricao');
+Route::post('/cad/inscricao', [InscricaoController::class, 'cadInscricao'])->name('cad-inscricao');
 
 //Rotas Perinentes a cadastro de empresas
 Route::get('/empresas', [EmpresaController::class, 'show'])->name('show-empresas');
