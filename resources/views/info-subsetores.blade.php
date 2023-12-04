@@ -1,5 +1,9 @@
 @extends('layouts.header')
-
+<style>
+.menubutton{
+    margin:5px;
+}
+</style>
 @section('content')
 <!-- BEGIN: Personal Information -->
     <div class="intro-y box mt-5">
@@ -44,12 +48,34 @@
                             <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15">{{$subsetor->descricao}}</textarea>
                         </div> --}}
                     
+            <!-- Buttons -->
+           
                 <div class="flex justify-end mt-4">
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Atualizar Posto de Trabalho</button>
+                    
                 </div>
+                 
             </div>
         </form>
+          <div class="col-span-12 xl:col-span-6">
+                        <div class="mt-3">
+                           <a href="#função" class="btn btn-primary w-40 mr-auto menubutton">Função </a>
+                           <a href="#tarefa" class="btn btn-primary w-40 mr-auto menubutton">Tarefa </a>
+                           <a href="#analise-atividade" class="btn btn-primary w-40 mr-auto menubutton">Ánalise de Atividade </a>
+                           <a href="#legenda-fotos" class="btn btn-primary w-40 mr-auto menubutton">Descrição de Fotos </a>
+                           <a href="#caracteristicas" class="btn btn-primary w-40 mr-auto menubutton">Características da Organização do Trabalho </a>
+                             <a href="#caracteristicas-do-ambiente" class="btn btn-primary w-40 mr-auto menubutton">Caracteristicas do Ambiente de trabalho </a>
+                           <a href="#saude" class="btn btn-primary w-40 mr-auto menubutton">Dados de Saúde </a>
+                         
+                           <a href="#pre-diagnostico" class="btn btn-primary w-40 mr-auto menubutton">Pré Diagnosticos </a>
+                           <a href="#moore" class="btn btn-primary w-40 mr-auto menubutton">Ferramentas de Análise </a>
+                           <a href="#recomendacoes" class="btn btn-primary w-40 mr-auto menubutton">Recomendações Técnicas </a>
+                           
+                        </div>
+
+            </div>
     </div>
+    
     <!-- END: Personal Information -->
     <!-- END: Users Layout -->
     </div>
