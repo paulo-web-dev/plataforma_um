@@ -58,7 +58,7 @@ class DadosOrganizacionaisController extends Controller
         $dados->dado = $request->dado;
         $dados->save();
 
-        return redirect()->route('info-dadosorganizacionais', ['id' => $dados->id])->with('secao', 'caracteristicas');
+        return redirect()->route('info-subsetor', ['id' => $dados->id])->with('secao', 'caracteristicas');
        
 
     }
