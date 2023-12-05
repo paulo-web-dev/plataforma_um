@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Empresas;
 use App\Models\Setores;
 use App\Models\Area;
-
+use App\Models\Mapeamento;
+use App\Models\PlanoDeAcao;
+use Auth;
 class SetoresController extends Controller
 {
     public function __construct()
@@ -51,6 +53,24 @@ class SetoresController extends Controller
     public function updSetor(Request $request){
 
         $setor =  Setores::where('id', $request->id)->first();
+        $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->get();
+        $idsEmpresas = $empresas->pluck('id');
+
+        $mapeamentos = Mapeamento::whereIn('id_empresa', $idsEmpresas)
+        ->where('setor', $setor->nome)
+        ->get();
+        $planos = PlanoDeAcao::whereIn('id_empresa', $idsEmpresas)
+        ->where('setor', $setor->nome)
+        ->get();
+        foreach ($mapeamentos as $key => $mapeamento) {
+            $mapeamento->setor = $request->nome;
+            $mapeamento->save();
+        }
+
+        foreach ($planos as $key => $plano) {
+            $plano->setor = $request->nome;
+            $plano->save();
+        }
         $setor->nome = $request->nome;
         $setor->id_area = $request->area;
         $setor->descricao = $request->descricao;

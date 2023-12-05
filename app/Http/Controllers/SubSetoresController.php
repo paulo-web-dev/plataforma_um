@@ -15,7 +15,9 @@ use App\Models\DadosSaude;
 use App\Models\SegmentoCorporal;
 use App\Models\Caracteristicas;
 use App\Models\PreDiagnostico;
-
+use App\Models\Mapeamento;
+use App\Models\PlanoDeAcao;
+use Auth;
 class SubSetoresController extends Controller
 {
     public function __construct()
@@ -226,10 +228,28 @@ class SubSetoresController extends Controller
     public function updSubSetor(Request $request){
 
         $subsetor =  SubSetores::where('id', $request->id)->first();
+        $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->get();
+        $idsEmpresas = $empresas->pluck('id');
+
+        $mapeamentos = Mapeamento::whereIn('id_empresa', $idsEmpresas)
+        ->where('posto_trabalho', $subsetor->nome)
+        ->get();
+        $planos = PlanoDeAcao::whereIn('id_empresa', $idsEmpresas)
+        ->where('posto_trabalho', $subsetor->nome)
+        ->get();
+        foreach ($mapeamentos as $key => $mapeamento) {
+            $mapeamento->posto_trabalho = $request->nome;
+            $mapeamento->save();
+        }
+
+        foreach ($planos as $key => $plano) {
+            $plano->posto_trabalho = $request->nome;
+            $plano->save();
+        }
         $subsetor->nome = $request->nome;
         $subsetor->descricao = $request->descricao;
         $subsetor->save();
-        
+
         return redirect()->route('info-subsetor', ['id' => $subsetor->id]); 
     }
 
