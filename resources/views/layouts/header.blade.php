@@ -159,6 +159,14 @@
                         </div>
                         <div class="side-menu__title">Textos Padrão</div>
                     </a>
+
+                    <a href="{{route('logout')}}" target="_blank"
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
+                                data-icon="grommet-icons:logout" style="font-size:30px"></span>
+                        </div>
+                        <div class="side-menu__title">Logout</div>
+                    </a>
            
           
            

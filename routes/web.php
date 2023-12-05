@@ -64,6 +64,7 @@ Route::get('/', function () {
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/upload/audio', [AudioController::class, 'uploadAudio'])->name('upload-audio');
 //Rotas Referentes a Inscrição do Usuário
 Route::get('/inscricao', [InscricaoController::class, 'show'])->name('show-inscricao');

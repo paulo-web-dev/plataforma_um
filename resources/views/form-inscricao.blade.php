@@ -58,7 +58,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         Cadastro
                     </h2>
                     <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">Faça Agora Seu Cadastro e Aproveite Hoje Mesmo!</div>
-                               <form method="POST" action="{{route('cad-inscricao')}}">
+                               <form method="POST" action="{{route('cad-inscricao')}}" onsubmit="return validatePassword()">
                         @csrf
                            <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">Nome</label>
@@ -84,20 +84,43 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">Senha</label>
+    <label for="password" class="col-md-4 col-form-label text-md-end">Senha</label>
+    <div class="col-md-6">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+        @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+<div class="row mb-3">
+    <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">Confirmar Senha</label>
+    <div class="col-md-6">
+        <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+    </div>
+</div>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
-                       
+           <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var password = document.getElementById("password");
+        var confirmPassword = document.getElementById("password_confirmation");
+
+        function validatePassword() {
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity("As senhas não coincidem");
+            } else {
+                confirmPassword.setCustomValidity("");
+            }
+        }
+
+        password.addEventListener("change", validatePassword);
+        confirmPassword.addEventListener("keyup", validatePassword);
+    });
+</script>
+            
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
