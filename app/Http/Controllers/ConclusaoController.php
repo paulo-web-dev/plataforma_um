@@ -97,7 +97,7 @@ class ConclusaoController extends Controller
     }
     
 
-    dd($mapeamento);
+
         return redirect()->route('info-subsetor', ['id' => $id_subsetor])->with('secao', 'moore'); 
     } 
 
