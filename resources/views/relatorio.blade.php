@@ -653,140 +653,85 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
     <?php
 $descricao = $subsetor->descricao;
-$maxCaracteres = 2000;
+$maxCaracteres = 1000;
+
+// Definir a função apenas se não existir
+if (!function_exists('findNextBreakPosition')) {
+    // Função para encontrar a próxima posição de quebra de página
+    function findNextBreakPosition($text, $maxCharacters) {
+        $closingTagPosition = mb_strpos(mb_substr($text, $maxCharacters), "</p>");
+        $dotPosition = mb_strpos(mb_substr($text, $maxCharacters), ".");
+        $brPosition = mb_strpos(mb_substr($text, $maxCharacters), "<br>");
+
+        // Escolher a posição apropriada para a quebra de página
+        return $closingTagPosition !== false ? $closingTagPosition :
+               ($dotPosition !== false ? $dotPosition : $brPosition);
+    }
+}
 
 if (mb_strlen($descricao) > $maxCaracteres) {
-    // Encontrar a posição de "</li>" após 2000 caracteres
-    $posicao_li = mb_strpos(mb_substr($descricao, $maxCaracteres), "</p>");
-    $posicao_lit = mb_strpos(mb_substr($descricao, $maxCaracteres), ".");
-    $posicao_li2 = mb_strpos(mb_substr($descricao, $maxCaracteres), "<br>");  
-    if ($posicao_li !== false) {
-        // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
-        $posicao_li += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
-        $parte1 = mb_substr($descricao, 0, $posicao_li + 4); // +4 para incluir "</li>"
-        $parte2 = mb_substr($descricao, $posicao_li + 4);
-         
-        echo '<div class="page">';
-        echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>';
-        echo '</div>';
-        echo '<table style="margin-left:10px; margin-right:10px">';
-        echo '<tr>';
-        echo '<td><b>Posto de Trabalho:</b></td>';
-        echo '<td>' . $subsetor->nome . '</td>';
-        echo '</tr>';
-             if(isset($subsetor->funcao)){
-        echo ' <tr>
-               <td><b>Função:</b></td>
-               <td>'.$subsetor->funcao->funcao.'</td>
-            </tr>';
-          }
+    $startPosition = 0;
+      $ij = 0;
+    while ($startPosition < mb_strlen($descricao)) {
+        // Encontrar a posição para a quebra de página
+        $breakPosition = findNextBreakPosition(mb_substr($descricao, $startPosition), $maxCaracteres);
 
-           if(isset($subsetor->tarefa)){
-              echo '<tr>
-               <td><b>Tarefa:</b></td>
-               <td>'.$subsetor->tarefa->tarefa.'</td>
-            </tr>';
-            }
-        echo '</tr>';
-        // Adicione mais linhas conforme necessário
+        // Se encontrarmos uma posição, dividir e exibir a página
+        if ($breakPosition !== false) {
+            $breakPosition += $maxCaracteres;
+            $parte = mb_substr($descricao, $startPosition, $breakPosition + 4);
 
+            // Saída do conteúdo HTML
+            echo '
+<div class="page">';
 
-        echo '</table>';
-        echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>';
-        echo '</div>';
-        echo '<p class="text-cargo">' . $parte1 . '</p>';
-        echo '</div>';
+if($ij == 0){
+echo '
+    <div class="subcabecalho2">
+        <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>
+    </div>
+    <table style="margin-left:10px; margin-right:10px">
+        <tr>
+            <td><b>Posto de Trabalho:</b></td>
+            <td>' . $subsetor->nome . '</td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+    </table>';
+}
+echo '
+    <div class="subcabecalho2">
+        <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
+    </div>
+    <p class="text-cargo">' . $parte . '</p>
+</div>';
+            $startPosition += $breakPosition + 4;
+            $ij++;
+        } else {
+            // Se não houver mais quebras de página, exibir o restante do texto e sair do loop
+            $parte = mb_substr($descricao, $startPosition);
 
-        echo '<div class="page">';
-        echo '<p class="text-cargo">' . $parte2 . '</p>';
-        echo '</div>';
-    } elseif($posicao_li2 !== false)  {
-        // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
-        $posicao_li2 += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
-        $parte1 = mb_substr($descricao, 0, $posicao_li2 + 5); // +5 para incluir "</li>"
-        $parte2 = mb_substr($descricao, $posicao_li2 + 5);
-         
-        echo '<div class="page">';
-        echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>';
-        echo '</div>';
-        echo '<table style="margin-left:10px; margin-right:10px">';
-        echo '<tr>';
-        echo '<td><b>Posto de Trabalho:</b></td>';
-        echo '<td>' . $subsetor->nome . '</td>';
-           if(isset($subsetor->funcao)){
-        echo ' <tr>
-               <td><b>Função:</b></td>
-               <td>'.$subsetor->funcao->funcao.'</td>
-            </tr>';
-          }
-
-           if(isset($subsetor->tarefa)){
-              echo '<tr>
-               <td><b>Tarefa:</b></td>
-               <td>'.$subsetor->tarefa->tarefa.'</td>
-            </tr>';
-            }
-        echo '</tr>';
-        // Adicione mais linhas conforme necessário
-
-        echo '</table>';
-        echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>';
-        echo '</div>';
-        echo '<p class="text-cargo">' . $parte1 . '</p>';
-        echo '</div>';
-
-        if(strlen($parte2 > 10)){
-        echo '<div class="page">';
-        echo '<p class="text-cargo">' . $parte2 . '</p>';
-        echo '</div>';
-        }
-    }else{
-              // Se "</li>" estiver dentro da segunda parte, dividir na posição de "</li>"
-        $posicao_lit += $maxCaracteres; // Ajustar a posição para levar em conta os primeiros 2000 caracteres
-        $parte1 = mb_substr($descricao, 0, $posicao_lit + 1); // +5 para incluir "</li>"
-        $parte2 = mb_substr($descricao, $posicao_lit + 1);
-         
-        echo '<div class="page">';
-        echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>';
-        echo '</div>';
-        echo '<table style="margin-left:10px; margin-right:10px">';
-        echo '<tr>';
-        echo '<td><b>Posto de Trabalho:</b></td>';
-        echo '<td>' . $subsetor->nome . '</td>';
-           if(isset($subsetor->funcao)){
-        echo ' <tr>
-               <td><b>Função:</b></td>
-               <td>'.$subsetor->funcao->funcao.'</td>
-            </tr>';
-          }
-
-           if(isset($subsetor->tarefa)){
-              echo '<tr>
-               <td><b>Tarefa:</b></td>
-               <td>'.$subsetor->tarefa->tarefa.'</td>
-            </tr>';
-            }
-        echo '</tr>';
-        // Adicione mais linhas conforme necessário
-
-        echo '</table>';
-        echo '<div class="subcabecalho2">';
-        echo '<p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>';
-        echo '</div>';
-        echo '<p class="text-cargo">' . $parte1 . '</p>';
-        echo '</div>';
-      if(strlen($parte2 > 10)){
-        echo '<div class="page">';
-        echo '<p class="text-cargo">' . $parte2 . '</p>';
-        echo '</div>';
+/*            echo '
+<div class="page">
+    <div class="subcabecalho2">
+        <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>
+    </div>
+    <table style="margin-left:10px; margin-right:10px">
+        <tr>
+            <td><b>Posto de Trabalho:</b></td>
+            <td>' . $subsetor->nome . '</td>
+        </tr>
+        <!-- Adicione mais linhas conforme necessário -->
+    </table>
+    <div class="subcabecalho2">
+        <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
+    </div>
+    <p class="text-cargo">' . $parte . '</p>
+</div>';*/
+            break;
         }
     }
 } else {
+    // Caso em que o conteúdo não precisa ser quebrado em páginas
 
 ?>
 
@@ -1663,7 +1608,7 @@ chart.column(chartData);
                   <td class="border">{{$mapeamento->area}}</td>
                   <td class="border">{{$mapeamento->setor}}</td>
                   <td class="border">{{$mapeamento->posto_trabalho}}</td>
-                  <td class="border">{{$mapeamento->funcao}}</td>
+                  <td class="border">{{substr($mapeamento->funcao, 0, 60)}}...</td>
                   <td class="border">{{$mapeamento->atividade}}</td>
                   <td class="border">{{$mapeamento->postura}}</td>
                   <td class="border">{{$mapeamento->exigencia}}</td>
@@ -1712,7 +1657,7 @@ chart.column(chartData);
                   <td class="border">{{$plano->area}}</td>
                   <td class="border">{{$plano->setor}}</td>
                   <td class="border">{{$plano->posto_trabalho}}</td>
-                  <td class="border">{{$plano->funcao}}</td>
+                  <td class="border">{{substr($plano->funcao, 0, 60)}}...</td>
                   <td class="border">{{$plano->exigencia}}</td>
                   <td class="border">{{$plano->recomendacao}}</td>
                   <td class="border">{{$plano->viabilidade}}</td>
