@@ -46,7 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                        Plataforma Geradora de AET
                     </div>
-                    <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-gray-500">Faça Agora Seu Cadastro e Aproveite Hoje Mesmo!</div>
+                    <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-gray-500">Faça Agora Seu Cadastro e Aproveite Hoje Mesmo!!</div>
                 </div>
             </div>
             <!-- END: Login Info -->
