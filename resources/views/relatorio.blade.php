@@ -1362,10 +1362,11 @@ chart.column(chartData);
      
          </ul>
              {{-- Pré diagnosticos --}}
+              @if (count($subsetor->preDiagnostico) > 0)
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">PRÉ DIAGNÓSTICO</p>
          </div>
-
+@endif
          @if (count($subsetor->preDiagnostico) < 7)
             
          <ul>
