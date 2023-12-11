@@ -43,6 +43,7 @@ use App\Http\Controllers\ChecklistsController;
 use App\Http\Controllers\TextosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InscricaoController;
+use App\Http\Controllers\InstitucionalController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -382,4 +383,10 @@ Route::get('/laravel-version', function() {
     $laravel = app();
     return "Your Laravel version is ".$laravel::VERSION;
 });
+
+
+//ROTAS REFERENTES AO SITE INSTITUICIONAL
+Route::get('/index', [InstitucionalController::class, 'index'])->name('index');
+
+
 require __DIR__.'/auth.php';
