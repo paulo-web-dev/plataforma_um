@@ -34,11 +34,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Links Úteis</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">Sobre</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#why-us">Porque Nós?</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Preços</a></li>
+              <li><a class="getstarted scrollto" href="{{route('show-inscricao')}}">Teste Grátis</a></li>
             </ul>
           </div>
 
@@ -56,16 +56,17 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets_institucional/vendor/aos/aos.js"></script>
-  <script src="assets_institucional/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets_institucional/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets_institucional/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets_institucional/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets_institucional/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets_institucional/vendor/php-email-form/validate.js"></script>
+<script src="{{url('assets_institucional/vendor/aos/aos.js')}}"></script>
+<script src="{{url('assets_institucional/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('assets_institucional/vendor/glightbox/js/glightbox.min.js')}}"></script>
+<script src="{{url('assets_institucional/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{url('assets_institucional/vendor/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{url('assets_institucional/vendor/waypoints/noframework.waypoints.js')}}"></script>
+<script src="{{url('assets_institucional/vendor/php-email-form/validate.js')}}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets_institucional/js/main.js"></script>
+<!-- Template Main JS File -->
+<script src="{{url('assets_institucional/js/main.js')}}"></script>
+
 
 </body>
 

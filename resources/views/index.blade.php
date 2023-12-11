@@ -1,4 +1,6 @@
 @include('layouts.header-institucional')
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -16,7 +18,7 @@
           <li><a class="nav-link scrollto" href="#why-us">Porque Nós?</a></li>
           <li><a class="nav-link   scrollto" href="#pricing">Preços</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
-          <li><a class="getstarted scrollto" href="#about">Teste Grátis</a></li>
+          <li><a class="getstarted scrollto" href="{{route('show-inscricao')}}">Teste Grátis</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -33,7 +35,7 @@
           <h1>PLataforma Geradora de AET e Análise Ergonômica</h1>
           <h2>Uma plataforma completa para fisioterapeutas e empresas do ramo de ergonômia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Comece Já</a>
+            <a href="{{route('plano', ['plano' => 'Performance Fisio Pro'])}}" class="btn-get-started scrollto">Comece Já</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Introdução</span></a>
           </div>
         </div>
@@ -54,28 +56,22 @@
         <div class="row" data-aos="zoom-in">
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_institucional/img/clients/client-1.png" class="img-fluid" alt="">
+            <img src="https://www.star-su.com/wp-content/uploads/star-su-logo.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_institucional/img/clients/client-2.png" class="img-fluid" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa9g6SbSy6ncMJ_lAGlQ3YwZ8rQoiCcYaZjvkhmkuZVgCB8V4IPEZXfAMuhQ1WsbNsDA&usqp=CAU" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_institucional/img/clients/client-3.png" class="img-fluid" alt="">
+            <img src="https://www.grupogandini.com/pt-br/assets/grupogandini-ptbr/media/logo/source/20200127165756515_100067.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_institucional/img/clients/client-4.png" class="img-fluid" alt="">
+            <img src="https://braztrading.com.br/wp-content/uploads/2022/07/logo-brazilian-trade-1.svg" class="img-fluid" alt="">
           </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_institucional/img/clients/client-5.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_institucional/img/clients/client-6.png" class="img-fluid" alt="">
-          </div>
+    
 
         </div>
 
@@ -505,7 +501,7 @@
                 <li class="na"><i class="bx bx-x"></i> <span>Ferramentas Personalizadas</span></li>
                 <li class="na"><i class="bx bx-x"></i> <span>Armazenamento Ilimitado de Arquivos e AETS no sistema</span></li>
               </ul>
-              <a href="#" class="buy-btn">Comece Já</a>
+              <a href="{{route('plano', ['plano' => 'Fundamentos Fisio'])}}" class="buy-btn">Comece Já</a>
             </div>
           </div>
 
@@ -520,7 +516,7 @@
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
                 <li><i class="bx bx-check"></i>Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
               </ul>
-              <a href="#" class="buy-btn">Comece Já</a>
+              <a href="{{route('plano', ['plano' => 'Performance Fisio Pro'])}}" class="buy-btn">Comece Já</a>
             </div>
           </div>
 
@@ -535,7 +531,7 @@
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
                 <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
               </ul>
-              <a href="#" class="buy-btn">Comece Já</a>
+              <a href="{{route('plano', ['plano' => 'Fisio Total Care'])}}" class="buy-btn">Comece Já</a>
             </div>
           </div>
 
