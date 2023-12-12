@@ -23,7 +23,7 @@ class InstitucionalController extends Controller
                  'title'      => 'Cursos Unyflex',
                  'quantity'   => 1,
                  'currency_id'=> 'BRL',
-                 'unit_price' => 0.5,
+                 'unit_price' => 0.6, 
                  'installments' => 12   
              ],
              // Adicione mais itens conforme necessário
