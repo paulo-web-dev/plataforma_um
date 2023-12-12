@@ -82,7 +82,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                 @enderror
                             </div>
                         </div>
-
+                    @if(isset($plano))
+                        <input type="hidden" name="plano" value="{{$plano}}"> 
+                    @endif
                         <div class="row mb-3">
     <label for="password" class="col-md-4 col-form-label text-md-end">Senha</label>
     <div class="col-md-6">

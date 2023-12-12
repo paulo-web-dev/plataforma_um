@@ -69,6 +69,7 @@ Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/upload/audio', [AudioController::class, 'uploadAudio'])->name('upload-audio');
 //Rotas Referentes a Inscrição do Usuário
 Route::get('/inscricao', [InscricaoController::class, 'show'])->name('show-inscricao');
+Route::get('/inscricao/{plano}', [InscricaoController::class, 'inscricaoplano'])->name('plano-inscricao');
 Route::post('/cad/inscricao', [InscricaoController::class, 'cadInscricao'])->name('cad-inscricao');
 
 //Rotas Perinentes a cadastro de empresas

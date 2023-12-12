@@ -10,18 +10,32 @@ use Auth;
 class InscricaoController extends Controller
 {
     public function show()
-    {
+    { 
+     
         return view('form-inscricao');
+    }
+
+    public function inscricaoplano($plano)
+    { 
+     
+        return view('form-inscricao', ['plano' => $plano] );
     }
 
     public function cadInscricao(Request $request)
     {
         $hoje = date("Y-m-d");
         $semana = date("Y-m-d", strtotime($hoje . " +1 week"));
+        $mes = date("Y-m-d", strtotime($hoje . " +1 month"));
         $instituicao = new Instituicao();
         $instituicao->nome = $request->nome;
         $instituicao->num_usuarios = 1;
-        $instituicao->final_assinatura = $semana;
+        if(isset($request->plano)){
+            $instituicao->final_assinatura = $mes;
+            $instituicao->plano = $request->plano;
+        }else{
+            $instituicao->final_assinatura = $semana;
+        }
+       
         $instituicao->save();
         $usuario = new User();
         $usuario->password = Hash::make($request->password);

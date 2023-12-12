@@ -7,7 +7,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Plataforma Um</a></h1>
+      <h1 class="logo me-auto"><a href="{{route("index")}}">Plataforma Um</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets_institucional/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -17,7 +17,6 @@
           <li><a class="nav-link scrollto" href="#about">Sobre</a></li>
           <li><a class="nav-link scrollto" href="#why-us">Porque Nós?</a></li>
           <li><a class="nav-link   scrollto" href="#pricing">Preços</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
           <li><a class="getstarted scrollto" href="{{route('show-inscricao')}}">Teste Grátis</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -275,7 +274,7 @@
             <p>Contrate agora um de nossos planos e ganhe tempo e aumente a produtividade de suas analises ergonômicas</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Teste Gratis</a>
+            <a class="cta-btn align-middle" href="{{route('show-inscricao')}}">Teste Gratis</a>
           </div>
         </div>
 

@@ -19,7 +19,7 @@ class InstitucionalController extends Controller
          // Criar uma preferência com as informações do produto
          $preference = new Preference();
          $preference->items = [
-             [    'id'          => Uuid::uuid4()->toString(),
+             [   'id'          => Uuid::uuid4()->toString(),
                  'title'      => 'Cursos Unyflex',
                  'quantity'   => 1,
                  'currency_id'=> 'BRL',
@@ -29,7 +29,7 @@ class InstitucionalController extends Controller
              // Adicione mais itens conforme necessário
          ];
          $preference->back_urls = array(
-            "success" => "https://online.unyflex.com.br/finalizacao/success/",
+            "success" => route('plano-inscricao', ['plano' => $plano]),
             "failure" => "https://online.unyflex.com.br/finalizacao/failure/0",
             "pending" => "https://online.unyflex.com.br/finalizacao/pending/0"
         ); 
@@ -43,6 +43,9 @@ class InstitucionalController extends Controller
         $preference->payment_methods = $payment_methods; 
           
          $preference->save();
-        return view('plano', ['plano' => $plano, 'preference' => $preference]);
+        return view('plano', [
+            'plano' => $plano, 
+            'preference' => $preference
+        ]);
     }
 }
