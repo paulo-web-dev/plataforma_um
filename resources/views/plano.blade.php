@@ -24,7 +24,9 @@
           <h1>PLataforma Geradora de AET e Análise Ergonômica</h1>
           <h2>Uma plataforma completa para fisioterapeutas e empresas do ramo de ergonômia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#pricing" class="btn-get-started scrollto">Comece Já</a>
+         <a href="#pricing" class="btn-get-started">Comece Já</a>
+
+
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Introdução</span></a>
           </div>
         </div>
@@ -38,12 +40,16 @@
   <main id="main">
   <script>
                 
-    const mp = new MercadoPago('APP_USR-b0820842-a6fb-44fe-b59b-ead639377144');
+   
+    const mp = new MercadoPago('APP_USR-b0820842-a6fb-44fe-b59b-ead639377144', {
+    locale: 'pt-BR', 
+    });
     const bricksBuilder = mp.bricks();
 
                 </script>
   <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
+
       <div class="container" data-aos="fade-up">
 <center>
        
@@ -59,7 +65,7 @@
                 <li class="na"><i class="bx bx-x"></i> <span>Ferramentas Personalizadas</span></li>
                 <li class="na"><i class="bx bx-x"></i> <span>Armazenamento Ilimitado de Arquivos e AETS no sistema</span></li>
               </ul>
-             <div id="wallet_container"></div>
+             <div id="wallet_container" data-msg-preference="ab"></div>
             </div>
           </div>
 
