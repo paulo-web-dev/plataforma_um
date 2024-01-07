@@ -121,8 +121,8 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" style="margin-left: 40px;">
               <div class="member">
                 <img src="fotos/bruna.jpeg" alt="" style="width: 100%; height: 200px; object-fit: cover;">
-                <h4>Dra. Bruna Sgotti</h4>
-                <p>Dra. Bruna Sgotti BPC – LOAS
+                <h4>Dra. Bruna C. O. Sgotti</h4>
+                <p>Dra. Bruna C. O. Sgotti Especialista Em BPC – LOAS
 
                   Atende Online em Todo o Brasil.</p>
                 <span>OAB 367600/SP</span>
@@ -132,8 +132,8 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" style="margin-left: 40px;">
               <div class="member">
                 <img src="fotos/betete.jpeg" alt="" style="width: 100%; height: 200px; object-fit: cover;">
-                <h4>Dr. Vinicius Betete</h4>
-                <p>Dr. Vinicius Betete BPC – LOAS
+                <h4>Dr. Vinicius Torres Betete</h4>
+                <p>Dr. Vinicius Torres Betete Especialista Em BPC – LOAS
 
                   Atende Online em Todo o Brasil</p>
                 <span>OAB 429974/SP</span>
