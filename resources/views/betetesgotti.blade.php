@@ -120,7 +120,7 @@
           <div class="row justify-content-center align-items-center">
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" style="margin-left: 40px;">
               <div class="member">
-                <img src="fotos/bsgotti.jpg" alt="" style="width: 100%; height: 200px; object-fit: cover;">
+                <img src="fotos/bruna.jpeg" alt="" style="width: 100%; height: 200px; object-fit: cover;">
                 <h4>Dra. Bruna Sgotti</h4>
                 <p>Dra. Bruna Sgotti BPC – LOAS
 
