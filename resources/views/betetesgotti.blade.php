@@ -23,6 +23,7 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-...." crossorigin="anonymous">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -132,8 +133,8 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" style="margin-left: 40px;">
               <div class="member">
                 <img src="fotos/betete.jpeg" alt="" style="width: 100%; height: 200px; object-fit: cover;">
-                <h4>Dr. Vinicius Torres Betete</h4>
-                <p>Dr. Vinicius Torres Betete Especialista Em BPC – LOAS
+                <h4>Dr. Vinicius T. Betete</h4>
+                <p>Dr. Vinicius T, Betete 
 
                   Atende Online em Todo o Brasil</p>
                 <span>OAB 429974/SP</span>
@@ -222,7 +223,7 @@
             <div class="info-box  mb-4">
               <i class="bx bx-phone-call"></i>
               <h3>Contato</h3>
-              <p> (17) 99614-1870</p>
+              <p> <a href="https://api.whatsapp.com/send?phone=551799614-1870&text=Gostaria de entrada no meu processo de BPC/LOAS"><i class="fab fa-whatsapp"></i> (17) 99614-1870 </a></p>
             </div>
           </div>
 
@@ -251,7 +252,20 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ <div style="position: relative; display: flex; align-items: flex-start;">
+  <div style="position: relative; z-index: 1;">
+    <a href="https://api.whatsapp.com/send?phone=551799614-1870&text=Gostaria de entrada no meu processo de BPC/LOAS" class="back-to-top d-flex align-items-center justify-content-center" style="text-decoration: none;">
+      <img src="https://testes.plataformaum.unysystens.com.br/fotos/bruna.jpeg" style="max-width: 100px; border-radius: 51%; margin-right: 20px; margin-bottom: 50px;">
+       <div style="position: absolute; background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 8px 8px 40px 8px; width: 200px; margin-right: 300px; margin-bottom: 80px;">
+  <p style="margin: 0;">Quer falar agora com um <b>advogado online</b>?</p>
+</div>
+
+    </a>
+  
+  </div>
+  
+</div>
+
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
