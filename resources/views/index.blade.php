@@ -18,6 +18,7 @@
           <li><a class="nav-link scrollto" href="#why-us">Porque Nós?</a></li>
           <li><a class="nav-link   scrollto" href="#pricing">Preços</a></li>
           <li><a class="getstarted scrollto" href="{{route('show-inscricao')}}">Teste Grátis</a></li>
+          <li><a class="getstarted scrollto" href="{{route('login')}}">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

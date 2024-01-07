@@ -48,4 +48,6 @@ class InstitucionalController extends Controller
             'preference' => $preference
         ]);
     }
+
+    
 }
