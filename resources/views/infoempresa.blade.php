@@ -268,7 +268,7 @@
                                 <tr>
                                    
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
-                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Introducao</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Introdução</th>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Editar</th>
 <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
                                    
