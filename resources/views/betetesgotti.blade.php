@@ -100,7 +100,7 @@
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
       <h1 style="font-size: 36px;">VOCÊ SABIA QUE PODE RECEBER ATÉ UM 1 SALÁRIO MÍNIMO SEM NUNCA TER CONTRIBUÍDO COM O INSS?</h1>
-      <h2>Precisa solicita o BPC/LOAS ou teve pedido negado pelo INSS?</h2>
+      <h2>Precisa solicitar o BPC/LOAS ou teve pedido negado pelo INSS?</h2>
       <a href="https://api.whatsapp.com/send?phone=551799614-1870&text=Gostaria de entrada no meu processo de BPC/LOAS" class="btn-get-started scrollto">Fale Com um Advogado Especialista</a>
     </div>
   </section><!-- End Hero -->
@@ -125,7 +125,7 @@
                 <h4>Dra. Bruna C. O. Sgotti</h4>
                 <p>Dra. Bruna C. O. Sgotti Especialista Em BPC – LOAS
 
-                  Atende Online em Todo o Brasil.</p>
+                 </p>
                 <span>OAB 367600/SP</span>
               </div>
             </div>
@@ -134,9 +134,9 @@
               <div class="member">
                 <img src="fotos/betete.jpeg" alt="" style="width: 100%; height: 200px; object-fit: cover;">
                 <h4>Dr. Vinicius T. Betete</h4>
-                <p>Dr. Vinicius T, Betete 
+                <p>Dr. Vinicius T. Betete 
 
-                  Atende Online em Todo o Brasil</p>
+                  </p>
                 <span>OAB 429974/SP</span>
               </div>
             </div>
