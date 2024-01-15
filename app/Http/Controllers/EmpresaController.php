@@ -99,13 +99,19 @@ class EmpresaController extends Controller
         $equipe = new Equipe();
         $disposicao = new Disposicoes();
         $metodologia = new Metodologia();
-
+        $objetivo = new Objetivos();
+        
+       
+      
         //Insere ID Empresa
         $introducao->id_empresa = $empresa->id;
         $equipe->id_empresa = $empresa->id;
         $disposicao->id_empresa = $empresa->id;
         $metodologia->id_empresa = $empresa->id;
+        $objetivo->id_empresa = $empresa->id;
          //Insere Textos
+
+         $objetivo->objetivo = '<p>•&nbsp;Atender a Norma Regulamentadora nº. 17 da Portaria 3214/78</p><p>•&nbsp;Estabelecer diretrizes a serem tomadas minimizando ou eliminando riscos ergonômicos existentes no setor</p><p>•&nbsp;&nbsp;Melhoria do processo produtivo e a preservação da integridade física e mental do trabalhador; &nbsp;</p><p>•&nbsp;Apontar fatores potenciais de lesões ocupacionais e acidentes;</p><p>•&nbsp;Apontar situações ou pontos de fadiga física e mental exacerbada;</p><p>•&nbsp;Sugerir medidas de minimização dessas ocorrências</p><p>•Apontar riscos para o cumprimento NR1.</p>';
          if(isset($textos)){
         
             $introducao->introducao = $textos->introducao;
@@ -124,6 +130,8 @@ class EmpresaController extends Controller
         $disposicao->save();
         $introducao->save();
         $metodologia->save();
+        $objetivo->save();
+
 
         $demanda = new Demanda();
         $demanda->demanda = 'O departamento de recursos humanos da empresa '. $request->nome .', solicitou a análise ergonômica dos postos de trabalho, interessada em identificar as condições ergonômicas que os trabalhadores estão submetidos e as oportunidades de melhorias para a eliminação e/ou minimização dos mesmos.';
