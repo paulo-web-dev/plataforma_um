@@ -1226,10 +1226,10 @@
                 <a href="{{route('form-plano-de-acao-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Plano de Ação campo a campo</a>
             </div>  
 
-            
+{{--             
             <div class="flex justify-end mt-4">
                 <a href="{{route('gerar-plano-de-acao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Gerar  Plano de Ação Com Base No Relatório</a>
-            </div> 
+            </div>  --}}
         </div>
 
         <script>
