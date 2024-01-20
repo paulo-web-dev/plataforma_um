@@ -53,28 +53,28 @@
                                         <option value="Faixa Segura">Faixa Segura</option>
                                         <option value="Faixa é considerada de risco moderado">Faixa é considerada de risco moderado</option>
                                         <option value="Faixa é considerada de alto risco">Faixa é considerada de alto risco</option>
-                                          @elseif($ferramenta == 'OCRA')
+                                          @elseif($conclusao->ferramenta == 'OCRA')
                                         <option value="Ausente ou Aceitável">Ausente ou Aceitável</option>
                                         <option value="Limite">Limite</option>
                                         <option value="Baixo">Baixo</option>
                                         <option value="Médio">Médio</option>
                                         <option value="Alto">Alto</option>
-                                        @elseif($ferramenta == 'ROSA')
+                                        @elseif($conclusao->ferramenta == 'ROSA')
                                         <option value="Improvável">Improvável</option>
                                         <option value="Alto">Alto</option>
                                         <option value="Muito Alto">Muito Alto</option>
                                         <option value="Extremo">Extremo</option>
-                                        @elseif($ferramenta == 'REBA')
+                                        @elseif($conclusao->ferramenta == 'REBA')
                                         <option value="Risco inexistente">Risco inexistente</option>
                                         <option value="Risco Baixo">Risco Baixo</option>
                                         <option value="Risco Médio">Risco Médio</option>
                                         <option value="Risco Alto">Risco Alto</option>
                                         <option value="Risco Muito Alto">Risco Muito Alto</option>
-                                        @elseif($ferramenta == 'HAL')
+                                        @elseif($conclusao->ferramenta == 'HAL')
                                         <option value="Sem Risco">Sem Risco </option>
                                         <option value="Duvidoso"> Duvidoso</option>
                                         <option value="Risco">Risco</option>
-                                        @elseif($ferramenta == 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR')
+                                        @elseif($conclusao->ferramenta == 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR')
                                         <option value="Risco Leve">Risco Leve</option>
                                         <option value="Risco Moderado"> Risco Moderado</option>
                                         <option value="Risco Alto">Risco Alto</option>
