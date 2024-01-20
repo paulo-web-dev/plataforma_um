@@ -67,7 +67,7 @@
                              <a href="#caracteristicas-do-ambiente" class="btn btn-primary w-40 mr-auto menubutton">Caracteristicas do Ambiente de trabalho </a>
                            <a href="#saude" class="btn btn-primary w-40 mr-auto menubutton">Dados de Saúde </a>
                          
-                           <a href="#pre-diagnostico" class="btn btn-primary w-40 mr-auto menubutton">Pré Diagnosticos </a>
+                           <a href="#pre-diagnosticos" class="btn btn-primary w-40 mr-auto menubutton">Pré Diagnosticos </a>
                            <a href="#moore" class="btn btn-primary w-40 mr-auto menubutton">Ferramentas de Análise </a>
                            <a href="#recomendacoes" class="btn btn-primary w-40 mr-auto menubutton">Recomendações Técnicas </a>
                            
@@ -706,7 +706,7 @@
     });
 </script>
   <!-- Lista de Pré Diasgnosticos -->
-    <div class="intro-y box mt-5" id="pre-diagnosticos" id="pre-diagnostico">
+    <div class="intro-y box mt-5" id="pre-diagnosticos">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                 <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Pré Diagnosticos do Posto de Trabalho">Lista de Pré Diagnosticos<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
