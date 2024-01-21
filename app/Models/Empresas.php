@@ -72,12 +72,12 @@ class Empresas extends Model
 
     public function mapeamento()
     {
-        return $this->hasMany(Mapeamento::class, 'id_empresa', 'id')->orderBy('area');
+        return $this->hasMany(Mapeamento::class, 'id_empresa', 'id')->orderBy('area')->orderBy('setor')->orderBy('posto_trabalho')->orderBy('funcao');
     }
     
     public function planodeacao()
     {
-        return $this->hasMany(PlanoDeAcao::class, 'id_empresa', 'id')->orderBy('area');
+        return $this->hasMany(PlanoDeAcao::class, 'id_empresa', 'id')->orderBy('area')->orderBy('setor')->orderBy('posto_trabalho')->orderBy('funcao');
     }
     
     public function responsaveis()
