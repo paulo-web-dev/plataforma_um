@@ -1644,7 +1644,7 @@
 
 
        <!-- Lista de Recomendações Técnicas -->
-    <div class="intro-y box mt-5" id="recomendacao">
+    <div class="intro-y box mt-5" id="recomendacoes">
         <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
             <h2 class="font-medium text-base mr-auto">
                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Avaliação Recomendações Técnicas">Lista de Recomendações Técnicas<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>

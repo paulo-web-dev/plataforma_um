@@ -817,6 +817,9 @@ echo '
          <script>paginacao()</script>
       </div>
       {{-- Características do Trabalho  --}}
+      @if (count($subsetor->dadosOrganizacionais) > 0)
+          
+     
       <div class="page">
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DA ORGANIZAÇÃO DO TRABALHO</p>
@@ -836,6 +839,7 @@ echo '
        
       </div>
    @endif
+    @endif
   {{-- POPULAÇÃO --}}
       {{-- Pegar dados Populacionais --}}
  
@@ -1401,7 +1405,9 @@ chart.column(chartData);
       </div>
 
 @endif
-
+ @if (count($subsetor->conclusoes) > 0)
+     
+ 
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DIAGNÓSTICO</p>
@@ -1557,6 +1563,7 @@ chart.column(chartData);
 	    <div class="paginacao">
          <script>paginacao()</script>
       </div>
+      @endif
          @if(count($subsetor->recomendacao) >= 1)
     <div class="page">
          {{-- Pré diagnosticos --}}
