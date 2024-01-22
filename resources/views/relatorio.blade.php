@@ -660,7 +660,7 @@ if (!function_exists('findNextBreakPosition')) {
     // Função para encontrar a próxima posição de quebra de página
     function findNextBreakPosition($text, $maxCharacters) {
         $closingTagPosition = mb_strpos(mb_substr($text, $maxCharacters), "</p>");
-        $dotPosition = mb_strpos(mb_substr($text, $maxCharacters), ".");
+        $dotPosition = mb_strpos(mb_substr($text, $maxCharacters), ";");
         $brPosition = mb_strpos(mb_substr($text, $maxCharacters), "<br>");
 
         // Escolher a posição apropriada para a quebra de página
