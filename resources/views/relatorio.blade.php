@@ -1374,9 +1374,18 @@ chart.column(chartData);
          @if (count($subsetor->preDiagnostico) < 7)
             
          <ul>
-           
+              @php
+            $titulodiagnostico = $diagnostico->titulo;
+
+            // Verifica se o último caractere é diferente de ":"
+            if (substr($titulodiagnostico, -1) !== ':') {
+               $titulodiagnostico .= ':';
+            }
+
+        
+            @endphp
             @foreach ($subsetor->preDiagnostico as $diagnostico)  
-            <li><b>{{$diagnostico->titulo}}</b> {{$diagnostico->descricao}}</li>
+            <li><b>{{$titulodiagnostico}}</b> {{$diagnostico->descricao}}</li>
             @endforeach
           
          </ul>
