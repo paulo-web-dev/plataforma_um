@@ -653,7 +653,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
     <?php
 $descricao = $subsetor->descricao;
-$maxCaracteres = 1400;
+$maxCaracteres = 800;
 
 // Definir a função apenas se não existir
 if (!function_exists('findNextBreakPosition')) {
