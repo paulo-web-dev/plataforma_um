@@ -712,14 +712,7 @@ echo '
 
             echo '
 <div class="page">
-   
-    <table style="margin-left:10px; margin-right:10px">
-        <tr>
-            <td><b>Posto de Trabalho:</b></td>
-            <td>' . $subsetor->nome . '</td>
-        </tr>
-        <!-- Adicione mais linhas conforme necessário -->
-    </table>
+    
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
     </div>
