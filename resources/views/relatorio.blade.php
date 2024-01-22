@@ -769,7 +769,7 @@ echo '
             <!-- Adicione mais linhas conforme necessário -->
          </table>
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA!</p>
          </div>
          
          <p class="text-cargo" ><?= $subsetor->descricao?>. </p>
