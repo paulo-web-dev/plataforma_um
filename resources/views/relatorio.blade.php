@@ -707,11 +707,10 @@ echo '
             $startPosition += $breakPosition + 4;
             $ij++;
         } else {
-         echo "AAAbb";
             // Se não houver mais quebras de página, exibir o restante do texto e sair do loop
             $parte = mb_substr($descricao, $startPosition);
 
-/*            echo '
+            echo '
 <div class="page">
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>
@@ -727,7 +726,7 @@ echo '
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
     </div>
     <p class="text-cargo">' . $parte . '</p>
-</div>';*/
+</div>';
             break;
         }
     }
