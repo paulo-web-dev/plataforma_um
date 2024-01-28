@@ -61,7 +61,7 @@ class ConclusaoController extends Controller
             $novomapeamento->exigencia = $mapeamento->exigencia.'.';
             $novomapeamento->classificacao = $mapeamento->classificacao;
             $novomapeamento->sobrecarga = $conclu->membro;
-            $novomapeamento->save();
+            // $novomapeamento->save();
             
             echo $i.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->area.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->classificacao.'<br>';
             
@@ -70,9 +70,9 @@ class ConclusaoController extends Controller
 
           
         }
-if(isset($mapeamento)){
-        $mapeamento->delete();
-}
+// if(isset($mapeamento)){
+//         $mapeamento->delete();
+// }
     }
 
 
