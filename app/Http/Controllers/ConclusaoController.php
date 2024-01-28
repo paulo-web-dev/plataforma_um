@@ -48,19 +48,30 @@ class ConclusaoController extends Controller
             $novomapeamento = new Mapeamento();
             $novomapeamento->id_empresa = $mapeamento->id_empresa;
             $novomapeamento->area = $mapeamento->area;
+            if(isset($subsetor->funcao->funcao)){
+                $novomapeamento->funcao = $subsetor->funcao->funcao.'.';
+            }else{
+                $novomapeamento->funcao = '.';
+            }
+            
             $novomapeamento->setor = $mapeamento->setor;
+            $novomapeamento->atividade = $mapeamento->atividade;
             $novomapeamento->posto_trabalho = $mapeamento->posto_trabalho;
             $novomapeamento->postura = $mapeamento->postura;
             $novomapeamento->exigencia = $mapeamento->exigencia.'.';
             $novomapeamento->classificacao = $mapeamento->classificacao;
             $novomapeamento->sobrecarga = $conclu->membro;
-            dd($novomapeamento);
+            $novomapeamento->save();
+            
             echo $i.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->area.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->classificacao.'<br>';
+            
            $i++;
             }
+
+          
         }
 
-        
+        $mapeamento->delete();
     }
 
 
