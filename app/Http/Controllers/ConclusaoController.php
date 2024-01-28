@@ -45,7 +45,7 @@ class ConclusaoController extends Controller
             $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('classificacao', $conclusao[$count_array - 1]->conclusao)->first();
             if(isset($mapeamento)){
                 $i++;
-            echo $i.' - '.$mapeamento->id.'<br>';
+            echo $i.' - '.$mapeamento->id.' - '.$mapeamento->sobrecarga.'<br>';
         }
         
     }
