@@ -70,8 +70,9 @@ class ConclusaoController extends Controller
 
           
         }
-
+if(isset($mapeamento)){
         $mapeamento->delete();
+}
     }
 
 
