@@ -46,7 +46,7 @@ class ConclusaoController extends Controller
             if(isset($mapeamento)){
             foreach ($conclusao as $key => $conclu) {
            
-            echo $i.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->area.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->sobrecarga.' - '.$mapeamento->classificacao.'<br>';
+            echo $i.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->area.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->classificacao.'<br>';
            $i++;
             }
         }
@@ -88,9 +88,9 @@ class ConclusaoController extends Controller
               $mapeamento->funcao = '';
           }
             $mapeamento->atividade = $request->atividade;
-            $mapeamento->postura = ' -'.$membros[$i];
+            $mapeamento->postura = ' -';
             $mapeamento->exigencia = '';
-            $mapeamento->sobrecarga = '';
+            $mapeamento->sobrecarga = $membros[$i];
             $mapeamento->classificacao =  $conclusoes[$i];
             $mapeamento->save();
         }
