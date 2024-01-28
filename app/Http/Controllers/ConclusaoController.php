@@ -35,7 +35,7 @@ class ConclusaoController extends Controller
         
         $conclusoes = Conclusoes::where('ferramenta', 'Sue Rodgers')->get();
         $conclusoessubsetor = Conclusoes::where('ferramenta', 'Sue Rodgers')->get()->groupBy('id_subsetor');
-        $i = 0; 
+        $i = 1; 
         foreach ($conclusoessubsetor as $key => $conclusao) {
             $count_array = count($conclusao);
            
@@ -44,6 +44,7 @@ class ConclusaoController extends Controller
             
             $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('classificacao', $conclusao[$count_array - 1]->conclusao)->first();
             if(isset($mapeamento)){
+                $i++;
             echo $i.' - '.$mapeamento->id.'<br>';
         }
         
