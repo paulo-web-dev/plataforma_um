@@ -186,7 +186,7 @@ Route::get('/info/conlusao/{conclusao}', [ConclusaoController::class, 'infoConcl
 Route::get('/delete/conlusao/{conclusao}', [ConclusaoController::class, 'delete'])->name('delete-conclusao');
 Route::post('/cadastrar/conclusao', [ConclusaoController::class, 'cadConclusao'])->name('cad-conclusao');
 Route::post('/upd/conclusao', [ConclusaoController::class, 'updConclusao'])->name('upd-conclusao');
-
+Route::get('/atualiza/suerodgers', [ConclusaoController::class, 'atualizasue'])->name('atualiza-sue');
 //Rotas Pertinentes ao cadastro de Moore e Garg
 Route::get('/moore', [MooreGargController::class, 'show'])->name('show-pre-diagnosticos');
 Route::get('/form/moore/{idsubsetor}', [MooreGargController::class, 'formMoore'])->name('form-moore');

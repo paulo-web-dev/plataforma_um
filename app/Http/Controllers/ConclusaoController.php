@@ -30,7 +30,27 @@ class ConclusaoController extends Controller
             'conclusao' => $conclusao,
     ]);
     }
+
+    public function atualizasue(){
         
+        $conclusoes = Conclusoes::where('ferramenta', 'Sue Rodgers')->get();
+        $conclusoessubsetor = Conclusoes::where('ferramenta', 'Sue Rodgers')->get()->groupBy('id_subsetor');
+        $i = 0; 
+        foreach ($conclusoessubsetor as $key => $conclusao) {
+            $count_array = count($conclusao);
+           
+            $subsetor = SubSetores::where('id', $conclusao[$count_array - 1]->id_subsetor)->with('setor')->with('funcao')->first();
+
+            
+            $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('classificacao', $conclusao[$count_array - 1]->conclusao)->first();
+            if(isset($mapeamento)){
+            echo $i.' - '.$mapeamento->id.'<br>';
+        }
+        
+    }
+
+    dd($conclusoessubsetor);
+}
     public function cadConclusao(Request $request){
 
         $id_subsetor = $request->input('id_subsetor');
@@ -40,7 +60,7 @@ class ConclusaoController extends Controller
         $conclusoes = $request->input('conclusao', []);
         $ferramenta = $request->input('ferramenta');
         $atributos = count($membros);
-
+        $subsetor = SubSetores::where('id', $id_subsetor)->with('setor')->with('funcao')->first();
         for ($i=0; $i < $atributos ; $i++) {   
             $conclusao = new Conclusoes();
             $conclusao->id_subsetor = $id_subsetor;
@@ -49,24 +69,26 @@ class ConclusaoController extends Controller
             $conclusao->ferramenta = $ferramenta;
             $conclusao->atividade = $request->atividade;
             $conclusao->save();
+
+            $mapeamento = new Mapeamento();
+            $mapeamento->id_empresa = $subsetor->setor->empresa->id;
+            $mapeamento->area = $subsetor->setor->area->nome;
+            $mapeamento->setor = $subsetor->setor->nome;
+            $mapeamento->posto_trabalho = $subsetor->nome;
+            if(isset($subsetor->funcao->funcao)){
+            $mapeamento->funcao = $subsetor->funcao->funcao;
+          }else{
+              $mapeamento->funcao = '';
+          }
+            $mapeamento->atividade = $request->atividade;
+            $mapeamento->postura = ' -'.$membros[$i];
+            $mapeamento->exigencia = '';
+            $mapeamento->sobrecarga = '';
+            $mapeamento->classificacao =  $conclusoes[$i];
+            $mapeamento->save();
         }
-        $subsetor = SubSetores::where('id', $conclusao->id_subsetor)->with('setor')->with('funcao')->first();
-        $mapeamento = new Mapeamento();
-        $mapeamento->id_empresa = $subsetor->setor->empresa->id;
-        $mapeamento->area = $subsetor->setor->area->nome;
-        $mapeamento->setor = $subsetor->setor->nome;
-        $mapeamento->posto_trabalho = $subsetor->nome;
-        if(isset($subsetor->funcao->funcao)){
-        $mapeamento->funcao = $subsetor->funcao->funcao;
-      }else{
-          $mapeamento->funcao = '';
-      }
-        $mapeamento->atividade = $request->atividade;
-        $mapeamento->postura = '';
-        $mapeamento->exigencia = '';
-        $mapeamento->sobrecarga = '';
-        $mapeamento->classificacao =  $conclusoes[$i - 1];
-        $mapeamento->save();
+      
+      
         }else{
         $conclusao = new Conclusoes();
         $conclusao->id_subsetor = $request->id_subsetor;
