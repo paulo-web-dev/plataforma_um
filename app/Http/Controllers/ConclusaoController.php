@@ -47,7 +47,7 @@ class ConclusaoController extends Controller
             if(isset($mapeamento)){
             $mapeamento->classificacao = $conclu->conclusao;
           
-            $mapeamento->save();
+            // $mapeamento->save();
             
             echo $mapeamento->id.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->funcao.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->classificacao.'<br>';
             
