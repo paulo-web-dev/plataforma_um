@@ -44,7 +44,7 @@ class ConclusaoController extends Controller
             foreach ($conclusoes as $key => $conclu) {
                 $subsetor = SubSetores::where('id', $conclu->id_subsetor)->with('setor')->with('funcao')->first();
             $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('sobrecarga', $conclu->membro)->first();
-            
+            if(isset($mapeamento)){
             $mapeamento->classificacao = $conclu->conclusao;
           
             // $mapeamento->save();
@@ -52,7 +52,7 @@ class ConclusaoController extends Controller
             echo $mapeamento->id.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->area.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->classificacao.'<br>';
             
            $i++;
-            
+        }
 
           
         }
