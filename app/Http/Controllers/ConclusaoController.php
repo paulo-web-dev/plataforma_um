@@ -34,46 +34,32 @@ class ConclusaoController extends Controller
     public function atualizasue(){
         
         $conclusoes = Conclusoes::where('ferramenta', 'Sue Rodgers')->get();
-        $conclusoessubsetor = Conclusoes::where('ferramenta', 'Sue Rodgers')->get()->groupBy('id_subsetor');
+        $conclusoessubsetor = Conclusoes::where('ferramenta', 'Sue Rodgers')->orderByDesc('id')->get()->groupBy('id_subsetor');
+        
         $i = 1; 
-        foreach ($conclusoessubsetor as $key => $conclusao) {
-            $count_array = count($conclusao);
+      
            
-            $subsetor = SubSetores::where('id', $conclusao[$count_array - 1]->id_subsetor)->with('setor')->with('funcao')->first();
-
+           
             
-            $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('classificacao', $conclusao[$count_array - 1]->conclusao)->first();
-            if(isset($mapeamento)){
-            foreach ($conclusao as $key => $conclu) {
-            $novomapeamento = new Mapeamento();
-            $novomapeamento->id_empresa = $mapeamento->id_empresa;
-            $novomapeamento->area = $mapeamento->area;
-            if(isset($subsetor->funcao->funcao)){
-                $novomapeamento->funcao = $subsetor->funcao->funcao.'.';
-            }else{
-                $novomapeamento->funcao = '.';
-            }
+            foreach ($conclusoes as $key => $conclu) {
+                $subsetor = SubSetores::where('id', $conclu->id_subsetor)->with('setor')->with('funcao')->first();
+            $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('sobrecarga', $conclu->membro)->first();
             
-            $novomapeamento->setor = $mapeamento->setor;
-            $novomapeamento->atividade = $mapeamento->atividade;
-            $novomapeamento->posto_trabalho = $mapeamento->posto_trabalho;
-            $novomapeamento->postura = $mapeamento->postura;
-            $novomapeamento->exigencia = $mapeamento->exigencia.'.';
-            $novomapeamento->classificacao = $mapeamento->classificacao;
-            $novomapeamento->sobrecarga = $conclu->membro;
-            // $novomapeamento->save();
+            $mapeamento->classificacao = $conclu->conclusao;
+          
+            // $mapeamento->save();
             
-            echo $i.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->area.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->classificacao.'<br>';
+            echo $mapeamento->id.' --- '.$mapeamento->id_empresa.' - '.$mapeamento->area.' - '.$mapeamento->setor.' - '.$mapeamento->posto_trabalho.' - '.$mapeamento->postura.' '.$conclu->membro.' - '.$mapeamento->exigencia.' - '.$mapeamento->classificacao.'<br>';
             
            $i++;
-            }
+            
 
           
         }
 // if(isset($mapeamento)){
 //         $mapeamento->delete();
 // }
-    }
+
 
 
 
