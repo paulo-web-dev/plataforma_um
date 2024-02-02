@@ -16,11 +16,12 @@ class ConclusaoController extends Controller
         $this->middleware('auth');
     }
     public function formConclusao($idsubsetor, $ferramenta){
-        
+        $subsetor = SubSetores::where('id', $idsubsetor)->with('setor')->with('funcao')->first();
    
         return view('form-conclusao',[
             'id_subsetor' => $idsubsetor,
             'ferramenta' => $ferramenta,
+            'subsetor' => $subsetor,
     ]);
     }
     public function infoConclusao(Conclusoes $conclusao){

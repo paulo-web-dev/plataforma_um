@@ -218,7 +218,14 @@
                                     <input id="atividade" type="text" name="atividade" class="form-control"
                                         placeholder="Atividade avaliada" required>
                                 </div>
+
+                                
                         @endif  
+                         <div class="mt-3">
+                                    <label for="funcao" class="form-label"><strong>Função</strong></label>
+                                    <input id="funcao" type="text" name="funcao" class="form-control"
+                                       disabled placeholder="Função" @if(isset($subsetor->funcao->funcao)) value="{{$subsetor->funcao->funcao}}" @endif>
+                                </div>
                 <div class="flex justify-end mt-4">
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Cadastrar Conclusão Simplificado</button>
                 </div>
