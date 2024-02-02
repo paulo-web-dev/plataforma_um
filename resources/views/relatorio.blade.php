@@ -695,6 +695,11 @@ echo '
             <td><b>Posto de Trabalho:</b></td>
             <td>' . $subsetor->nome . '</td>
         </tr>
+
+         <tr>
+               <td><b>Função:</b></td>
+               <td>' . $subsetor->funcao->funcao. '</td>
+         </tr>
         <!-- Adicione mais linhas conforme necessário -->
     </table>';
 }
