@@ -54,7 +54,7 @@
                                 <div class="mt-3">
                                     <label for="cor_principal" class="form-label"><strong>Cor Principal</strong></label>
                                     <input id="cor_principal" type="color" name="cor_principal" class="form-control"
-                                       value{{$identidade->cor_principal}} required>
+                                       value="{{$identidade->cor_principal}}" required>
                                 </div>
                                 <div class="mt-3">
                                     <label for="cor_secundaria" class="form-label"><strong>Cor Secundaria</strong></label>
