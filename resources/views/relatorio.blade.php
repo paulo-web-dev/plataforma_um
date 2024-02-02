@@ -652,6 +652,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>paginacao()</script>
       </div>
     <?php
+<?php
 $descricao = $subsetor->descricao;
 $maxCaracteres = 899;
 
@@ -659,9 +660,9 @@ $maxCaracteres = 899;
 if (!function_exists('findNextBreakPosition')) {
     // Função para encontrar a próxima posição de quebra de página
     function findNextBreakPosition($text, $maxCharacters) {
-        $closingTagPosition = mb_strpos(mb_substr($text, $maxCharacters), "</p>");
-        $dotPosition = mb_strpos(mb_substr($text, $maxCharacters), ";");
-        $brPosition = mb_strpos(mb_substr($text, $maxCharacters), "<br>");
+        $closingTagPosition = mb_strpos($text, "</p>");
+        $dotPosition = mb_strpos($text, ";");
+        $brPosition = mb_strpos($text, "<br>");
 
         // Escolher a posição apropriada para a quebra de página
         return $closingTagPosition !== false ? $closingTagPosition :
@@ -671,22 +672,21 @@ if (!function_exists('findNextBreakPosition')) {
 
 if (mb_strlen($descricao) > $maxCaracteres) {
     $startPosition = 0;
-      $ij = 0;
+    $ij = 0;
     while ($startPosition < mb_strlen($descricao)) {
         // Encontrar a posição para a quebra de página
         $breakPosition = findNextBreakPosition(mb_substr($descricao, $startPosition), $maxCaracteres);
 
         // Se encontrarmos uma posição, dividir e exibir a página
         if ($breakPosition !== false) {
-            $breakPosition += $maxCaracteres;
-            $parte = mb_substr($descricao, $startPosition, $breakPosition + 4);
+            $breakPosition += $startPosition; // Ajuste aqui
+            $parte = mb_substr($descricao, $startPosition, $breakPosition - $startPosition + 4);
 
             // Saída do conteúdo HTML
             echo '
 <div class="page">';
-
-if($ij == 0){
-echo '
+            if($ij == 0){
+                echo '
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>
     </div>
@@ -695,30 +695,29 @@ echo '
             <td><b>Posto de Trabalho:</b></td>
             <td>' . $subsetor->nome . '</td>
         </tr>
-
-         <tr>
-               <td><b>Função:</b></td>
-               <td>' . $subsetor->funcao->funcao. '</td>
-         </tr>
+        <tr>
+            <td><b>Função:</b></td>
+            <td>' . $subsetor->funcao->funcao. '</td>
+        </tr>
         <!-- Adicione mais linhas conforme necessário -->
     </table>';
-}
-if(strlen($parte) > 10){
-echo '
+            }
+            if(strlen($parte) > 10){
+                echo '
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
     </div>
     <p class="text-cargo">' . $parte . '</p>
 </div>';
-            $startPosition += $breakPosition + 4;
-            $ij++;
-       } } else {
+                $startPosition += $breakPosition + 4;
+                $ij++;
+            }
+        } else {
             // Se não houver mais quebras de página, exibir o restante do texto e sair do loop
             $parte = mb_substr($descricao, $startPosition);
-if(strlen($parte) > 10){
-            echo '
+            if(strlen($parte) > 10){
+                echo '
 <div class="page">
-    
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
     </div>
@@ -729,7 +728,8 @@ if(strlen($parte) > 10){
     }
 } else {
     // Caso em que o conteúdo não precisa ser quebrado em páginas
-
+    // ... (seu código continua)
+}
 ?>
 
 
@@ -768,7 +768,7 @@ if(strlen($parte) > 10){
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
          </div>
-         
+       
          <p class="text-cargo" ><?= $subsetor->descricao?>. </p>
      
       </div>
