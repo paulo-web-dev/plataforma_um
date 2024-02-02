@@ -703,6 +703,7 @@ echo '
         <!-- Adicione mais linhas conforme necessário -->
     </table>';
 }
+if(strlen($parte) > 10){
 echo '
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
@@ -711,10 +712,10 @@ echo '
 </div>';
             $startPosition += $breakPosition + 4;
             $ij++;
-        } else {
+       } } else {
             // Se não houver mais quebras de página, exibir o restante do texto e sair do loop
             $parte = mb_substr($descricao, $startPosition);
-
+if(strlen($parte) > 10){
             echo '
 <div class="page">
     
@@ -722,7 +723,7 @@ echo '
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
     </div>
     <p class="text-cargo">' . $parte . '</p>
-</div>';
+</div>';}
             break;
         }
     }
