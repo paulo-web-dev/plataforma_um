@@ -704,6 +704,7 @@ echo '
     </table>';
 }
 if(strlen($parte) > 10){
+   var_dump($parte);
 echo '
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
