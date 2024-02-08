@@ -87,7 +87,7 @@
                                 <div class="mt-3">
                                     <label for="nome" class="form-label"><strong>Dado:</strong></label>
                                     <input id="num_funcionarios" type="text" name="dado[]" class="form-control"
-                                        placeholder="Dado Organizacional" value="Ritimo de Trabalho:" required>
+                                        placeholder="Dado Organizacional" value="Ritmo de Trabalho:" required>
                                         <span class="input-group-append close-icon close-button" onclick="removeInput(this)" >
                                             <i data-feather="x-circle" class="w-4 h-4 mr-2"></i>
                                         </span>

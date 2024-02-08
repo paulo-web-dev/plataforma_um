@@ -639,10 +639,10 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{mb_strtoupper($setor->nome, 'UTF-8')}}</p>
          </div>
-         <p style="font-size: 25px;">No setor {{$setor->nome}},  foi realizado o levantamento ergonômico das atividades nos seguintes postos de trabalho:</p>
+         <p>No setor {{$setor->nome}},  foi realizado o levantamento ergonômico das atividades nos seguintes postos de trabalho:</p>
          <ul>
             @foreach ($setor->subsetores as $subsetor)
-            <li style="font-size: 25px;">{{$subsetor->nome}}</li>
+            <li>{{$subsetor->nome}}</li>
             @endforeach
          </ul>
       </div>
@@ -688,9 +688,13 @@ if (mb_strlen($descricao) > $maxCaracteres) {
 if($ij == 0){
 echo '
     <div class="subcabecalho2">
-        <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: ' . mb_strtoupper($setor->nome, 'UTF-8') . '</p>
+        <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: ' . mb_strtoupper($area->nome, 'UTF-8') . '</p>
     </div>
     <table style="margin-left:10px; margin-right:10px">
+       <tr>
+            <td><b>Setor:</b></td>
+            <td>' . $setor->nome . '</td>
+        </tr>
         <tr>
             <td><b>Posto de Trabalho:</b></td>
             <td>' . $subsetor->nome . '</td>
@@ -739,13 +743,13 @@ if(strlen($parte) > 50){
     
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{mb_strtoupper($setor->nome, 'UTF-8')}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{mb_strtoupper($area->nome, 'UTF-8')}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
-            {{-- <tr>
+            <tr>
                <td><b>Setor:</b></td>
                <td>{{$setor->nome}}</td>
-            </tr> --}}
+            </tr>
             <tr>
                <td><b>Posto de Trabalho:</b></td>
                <td>{{$subsetor->nome}}</td>
@@ -1582,7 +1586,7 @@ chart.column(chartData);
          <ul>
            
           @foreach ($subsetor->recomendacao as $recomendacao)
-            <li>{{$recomendacao->recomendacao}}</li>
+            <li style="margin: 5px">{{$recomendacao->recomendacao}}</li>
             @endforeach
           
          </ul>
@@ -1620,7 +1624,7 @@ chart.column(chartData);
                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
             </thead>
             <tbody>
-               @foreach ($mapeamentos->take(6) as $mapeamento)
+               @foreach ($mapeamentos->take(8) as $mapeamento)
                <tr class="hover:bg-gray-200">
                   <td class="border">{{$mapeamento->area}}</td>
                   <td class="border">{{$mapeamento->setor}}</td>
@@ -1637,7 +1641,7 @@ chart.column(chartData);
             </tbody>
          </table>
          @php
-         $mapeamentos = $mapeamentos->slice(6); // Remove os primeiros 8 elementos
+         $mapeamentos = $mapeamentos->slice(8); // Remove os primeiros 8 elementos
          @endphp
       </div>
       <div class="paginacao">
