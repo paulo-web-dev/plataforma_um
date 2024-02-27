@@ -123,16 +123,46 @@
     <div class="flex">
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
-           
-         
-                <a href="{{route('show-empresas')}}" 
-                        class="side-menu side-menu-active">
-                        <div class="side-menu__icon"> <span class="iconify"
+           <ul class="list-itens dropdown-content">
+                    <a href="{{ route('show-empresas') }}"
+                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
+                             <div class="side-menu__icon"> <span class="iconify"
                                 data-icon="material-symbols:drive-folder-upload" style="font-size:30px"></span>
                         </div>
                         <div class="side-menu__title"> Empresas </div>
                     </a>
-
+                                        <a href="{{ route('show-empresas') }}"
+                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> </div>
+                        <div class="side-menu__title">Entrada Facial</div>
+                    </a>
+                    <a href="{{ route('show-empresas') }}"
+                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> </div>
+                        <div class="side-menu__title">Saida Facial</div>
+                    </a>
+                    <a href="{{ route('show-empresas') }}"
+                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> </div>
+                        <div class="side-menu__title">Entrada Facial</div>
+                    </a>
+                    <a href="{{ route('show-empresas') }}"
+                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> </div>
+                        <div class="side-menu__title">Saida Facial</div>
+                    </a>
+                    <a href="{{ route('show-empresas') }}"
+                        class="side-menu {{ request()->is('painel/homologar*') ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> </div>
+                        <div class="side-menu__title"> Homologação</div>
+                    </a>
+                    <a href="{{ route('show-empresas') }}"
+                        class="side-menu {{ request()->is('painel/homologar*') ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> </div>
+                        <div class="side-menu__title">Check-In</div>  
+                    </a>
+                </ul>
+         
                     
                 <a href="{{route('show-identidade')}}" 
                         class="side-menu side-menu-active">
@@ -220,12 +250,7 @@
             .rotated {
                 transform: rotate(180deg);
             }
-            .close-button{
-                 position:absolute !important;
-                 margin:5px;
-            }
         </style>
-
 </body>
 
 </html>

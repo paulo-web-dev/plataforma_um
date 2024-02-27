@@ -17,8 +17,16 @@ class RecomendacaoController extends Controller
     }
     public function formRecomendacao($id_subsetor){
 
+        $recomendacoes = Recomendacao::selectRaw('TRIM(REPLACE(REPLACE(recomendacao, ".", ""), ";", "")) AS recomendacao_limpa')
+        ->selectRaw('COUNT(*) AS total')
+        ->groupByRaw('TRIM(REPLACE(REPLACE(recomendacao, ".", ""), ";", ""))')
+        ->havingRaw('COUNT(*) > 5')
+        ->orderByDesc('total')
+        ->get(); 
+        
         return view('form-recomendacao',[
             'id_subsetor' => $id_subsetor,
+            'recomendacoes' => $recomendacoes,
     ]);
     } 
 

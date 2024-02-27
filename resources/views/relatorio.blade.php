@@ -599,10 +599,10 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DOS POSTOS DE TRABALHO</p>
          </div>
-         <p style="font-size: 25px;">O documento contempla o levantamento ergonômico @if(count($empresa->area) > 1) das seguintes áreas:@else da seguinte área: @endif </p>
+         <p >O documento contempla o levantamento ergonômico @if(count($empresa->area) > 1) das seguintes áreas:@else da seguinte área: @endif </p>
          <ul>
             @foreach ($empresa->area as $area)
-            <li style="font-size: 25px;">{{$area->nome}}</li>
+            <li >{{$area->nome}}</li>
             @endforeach
          </ul>
       </div>
@@ -617,10 +617,10 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{$area->nome}}</p>
          </div>
-         <p style="font-size: 25px;">As avaliações ocorreram nos seguintes setores da empresa:</p>
+         <p>As avaliações ocorreram nos seguintes setores da empresa:</p>
          <ul>
            @foreach ($area->setores as $setor)
-            <li style="font-size: 25px;">{{$setor->nome}}</li>
+            <li>{{$setor->nome}}</li>
             @endforeach
          </ul>
       </div>
@@ -637,11 +637,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          </script>
       <div class="page">
          <div class="subcabecalho2">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SETOR: {{mb_strtoupper($setor->nome, 'UTF-8')}}</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{mb_strtoupper($area->nome, 'UTF-8')}}</p>
          </div>
          <p>No setor {{$setor->nome}},  foi realizado o levantamento ergonômico das atividades nos seguintes postos de trabalho:</p>
          <ul>
-            @foreach ($setor->subsetores as $subsetor)
+            @foreach ($setor->subsetores as $subsetor) 
             <li>{{$subsetor->nome}}</li>
             @endforeach
          </ul>
@@ -1718,7 +1718,7 @@ chart.column(chartData);
             disposicoes.innerHTML = paginacao();
          </script>
       </div>
-      {{-- Encerramento --}}
+      {{-- Encerramento --}} 
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ENCERRAMENTO: {{$empresa->nome}}</p>
