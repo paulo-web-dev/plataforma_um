@@ -43,6 +43,7 @@ use App\Http\Controllers\ChecklistsController;
 use App\Http\Controllers\TextosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InscricaoController;
+use App\Http\Controllers\ListasRecomendacoesController;
 use App\Http\Controllers\InstitucionalController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -376,6 +377,14 @@ Route::get('/info/textos/{id}', [TextosController::class, 'infoTextos'])->name('
 Route::get('/delete/textos/{id}', [TextosController::class, 'delete'])->name('delete-textos'); 
 Route::post('/cadastrar/textos', [TextosController::class, 'cadTextos'])->name('cad-textos');
 Route::post('/update/textos', [TextosController::class, 'updTextos'])->name('upd-textos');
+
+//Rotas pertinentes ao cadastro de lista de recomendação
+Route::get('/lista-recomendacoes', [ListasRecomendacoesController::class, 'show'])->name('show-lista-recomendacoes');
+Route::get('/form/lista-recomendacoes', [ListasRecomendacoesController::class, 'formListaRecomendacoes'])->name('form-lista-recomendacoes');
+Route::get('/info/lista-recomendacoes/{id}', [ListasRecomendacoesController::class, 'infoListaRecomendacoes'])->name('recomendacao'); 
+Route::get('/delete/lista-recomendacoes/{id}', [ListasRecomendacoesController::class, 'delete'])->name('delete-lista-recomendacoes'); 
+Route::post('/cadastrar/lista-recomendacoes', [ListasRecomendacoesController::class, 'cadListaRecomendacoes'])->name('cad-lista-recomendacoes');
+Route::post('/update/lista-recomendacoes', [ListasRecomendacoesController::class, 'updListaRecomendacoes'])->name('upd-lista-recomendacoes');
 
 //Rotas referentes ao relatório
 

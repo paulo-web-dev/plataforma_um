@@ -30,7 +30,7 @@
                     <label for="update-profile-form-7" class="form-label"><strong>Recomendação</strong></label>
                    <select  class="tom-select w-full" id="post-form-3"  name="recomendacao[]" id="conclusao">
                     @foreach ($recomendacoes as $recomendacao )
-                        <option>{{$recomendacao->recomendacao_limpa}}</option>
+                        <option>{{$recomendacao->recomendacao}}</option>
                     @endforeach
                     </select>
                     {{-- <input type="text" class="form-control editor" name="recomendacao[]" placeholder="Recomendação" required>  --}}
@@ -105,7 +105,7 @@ function changeType(element) {
            <label for="update-profile-form-7" class="form-label"><strong>Recomendação</strong></label>
                    <select  class="tom-select w-full" id="post-form-3"  name="recomendacao[]" id="conclusao">
                     @foreach ($recomendacoes as $recomendacao )
-                        <option>{{$recomendacao->recomendacao_limpa}}</option>
+                        <option>{{$recomendacao->recomendacao}}</option>
                     @endforeach
                     </select>
                     {{-- <input type="text" class="form-control editor" name="recomendacao[]" placeholder="Recomendação" required>  --}}

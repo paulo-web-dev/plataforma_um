@@ -7,6 +7,7 @@ use App\Models\Empresas;
 use App\Models\Recomendacao;
 use App\Models\PlanoDeAcao;
 use App\Models\Area;
+use App\Models\ListaRecomendacoes;
 use App\Models\Setores;
 use App\Models\SubSetores; 
 class RecomendacaoController extends Controller
@@ -17,14 +18,9 @@ class RecomendacaoController extends Controller
     }
     public function formRecomendacao($id_subsetor){
 
-        $recomendacoes = Recomendacao::selectRaw('TRIM(REPLACE(REPLACE(recomendacao, ".", ""), ";", "")) AS recomendacao_limpa')
-        ->selectRaw('COUNT(*) AS total')
-        ->groupByRaw('TRIM(REPLACE(REPLACE(recomendacao, ".", ""), ";", ""))')
-        ->havingRaw('COUNT(*) > 5')
-        ->orderByDesc('total')
-        ->get(); 
+        $recomendacoes = ListaRecomendacoes::all();
         
-        return view('form-recomendacao',[
+        return view('form-recomendacao',[ 
             'id_subsetor' => $id_subsetor,
             'recomendacoes' => $recomendacoes,
     ]);

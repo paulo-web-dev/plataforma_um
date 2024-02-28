@@ -160,6 +160,15 @@
                         <div class="side-menu__title">Textos Padrão</div>
                     </a>
 
+                     <a href="{{route('show-lista-recomendacoes')}}" 
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
+                                data-icon="ph:list-fill" style="font-size:30px"></span>
+                        </div>
+                        <div class="side-menu__title">Listas</div>
+                    </a>
+
+
                     <a href="{{route('logout')}}" 
                         class="side-menu side-menu-active">
                         <div class="side-menu__icon"> <span class="iconify"
