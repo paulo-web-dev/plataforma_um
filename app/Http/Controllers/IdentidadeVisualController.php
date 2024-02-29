@@ -54,6 +54,14 @@ class IdentidadeVisualController extends Controller
            }else{
             $identidade->foto_empresa = $request->foto;
            }
+
+           if(isset($request->marca)){
+            $photoname = $request->marca->getClientOriginalName();
+            $identidade->marca_dagua = $photoname;
+            $image = $request->file('marca');
+            $destinationPath = public_path('marcadagua/');
+            $image->move($destinationPath, $photoname);
+           }
            $identidade->save();
            return redirect()->route('info-identidade');
     }
@@ -83,6 +91,14 @@ class IdentidadeVisualController extends Controller
             $identidade->foto_empresa = $photoname;
             $image = $request->file('file');
             $destinationPath = public_path('fotos-identidade/');
+            $image->move($destinationPath, $photoname);
+           }
+
+           if(isset($request->marca)){
+            $photoname = $request->marca->getClientOriginalName();
+            $identidade->marca_dagua = $photoname;
+            $image = $request->file('marca');
+            $destinationPath = public_path('marcadagua/');
             $image->move($destinationPath, $photoname);
            }
            $identidade->save();

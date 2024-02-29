@@ -298,6 +298,22 @@ li{
     display: none;
 }
 
+    .page2 {
+    border: 3px solid {{$identidade->cor_principal}};
+    width: 800px ;
+    height:1150px;
+    border-radius: 10px;
+        position: relative;
+      
+        background-image: url('http://127.0.0.1:8000/marcadagua/{{$identidade->marca_dagua}}');
+        background-repeat: no-repeat;
+        background-size:50%;
+        background-position: center;
+       background-color: rgba(255, 255, 255, 0.1);
+       
+    }
+
+   
 </style>
    </head>
    @if($alert != 0)
@@ -398,7 +414,7 @@ li{
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">IDENTIFICAÇÃO DA EMPRESA</p>
          </div>
@@ -426,7 +442,7 @@ li{
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">INTRODUÇÃO</p>
          </div>
@@ -437,7 +453,7 @@ li{
          <script>paginacao()</script>
       </div>
      
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE ERGONÔMICA DO TRABALHO </p>
          </div>
@@ -496,7 +512,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Objetivos --}}
       @if (count($empresa->objetivos) > 0)
           
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">OBJETIVOS DA ÁNALISE ERGONÔMICA DO TRABALHO</p>
          </div>
@@ -511,7 +527,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
       @endif
       {{-- Metodologia --}}
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">METODOLOGIA EMPREGADA </p>
          </div>
@@ -534,7 +550,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>paginacao()</script>
       </div>
       {{-- Metodologia2 --}}
-      <div class="page">
+      <div class="page2">
          
          <p style="font-size: 16px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS - FERRAMENTAS ERGONÔMICAS</p>
          <p>Inicialmente foram realizadas as observações referentes à ergonomia dos postos
@@ -576,7 +592,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>paginacao()</script>
       </div>
 
-      <div class="page">
+      <div class="page2">
  
 {{-- Ánalise GLobal --}}
 
@@ -595,7 +611,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>paginacao()</script>
       </div>
       {{-- Postos/Subsetores/Cargos que foram avaliados --}}
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DOS POSTOS DE TRABALHO</p>
          </div>
@@ -613,7 +629,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>paginacao()</script>
       </div>
       {{-- Postos/Subsetores/Cargos que foram avaliados --}}
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{$area->nome}}</p>
          </div>
@@ -635,7 +651,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             var pagina = document.getElementsByClassName('page').length;
             postos.innerHTML +=  '<li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
          </script>
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{mb_strtoupper($area->nome, 'UTF-8')}}</p>
          </div>
@@ -683,7 +699,7 @@ if (mb_strlen($descricao) > $maxCaracteres) {
 
             // Saída do conteúdo HTML
             echo '
-<div class="page">';
+<div class="page2">';
 
 if($ij == 0){
 echo '
@@ -723,7 +739,7 @@ echo '
           
 if(strlen($parte) > 50){
             echo '
-<div class="page">
+<div class="page2">
     
     <div class="subcabecalho2">
         <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
@@ -741,7 +757,7 @@ if(strlen($parte) > 50){
 
 
     
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{mb_strtoupper($area->nome, 'UTF-8')}}</p>
          </div>
@@ -785,7 +801,7 @@ if(strlen($parte) > 50){
       @if(isset($subsetor->analiseAtividade))
       {{-- Ánalise da Atividade --}}
 
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DA ATIVIDADE</p>
          </div>
@@ -1346,7 +1362,7 @@ chart.column(chartData);
      
      {{-- Caracteristicas do ambiente de trabalho --}}
      @if(count($subsetor->caracteristicas) >= 1)
-      <div class="page">
+      <div class="page2">
 
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DO AMBIENTE DE TRABALHO</p>
@@ -1402,7 +1418,7 @@ chart.column(chartData);
       </div>
 
         @if(count($subsetor->preDiagnostico) > 6 )
-    <div class="page">
+    <div class="page2">
    
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
@@ -1578,7 +1594,7 @@ chart.column(chartData);
       </div>
       @endif
          @if(count($subsetor->recomendacao) >= 1)
-    <div class="page">
+    <div class="page2">
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">RECOMENDAÇÕES TÉCNICAS E SUGESTÕES DE ADEQUAÇÕES</p>
@@ -1702,7 +1718,7 @@ chart.column(chartData);
          <script>paginacao()</script>
       </div>
       {{-- Disposições Finais --}}
-      <div class="page">
+      <div class="page2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DISPOSIÇÕES FINAIS</p>
          </div>
