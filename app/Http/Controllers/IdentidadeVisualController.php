@@ -105,7 +105,7 @@ class IdentidadeVisualController extends Controller
             $destinationPath = public_path('fotos-identidade/');
             $image->move($destinationPath, $photoname);
            }
-           dd($request->capa);
+         
            if(isset($request->capa)){
             $photoname = $request->capa->getClientOriginalName();
             $identidade->foto_capa = $photoname;
