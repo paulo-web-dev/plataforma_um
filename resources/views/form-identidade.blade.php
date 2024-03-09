@@ -62,7 +62,7 @@
                                         required>
                                 </div>
                                   <div class="mt-3">
-                                <label for="empresa" class="form-label"><strong>Estado</strong></label>
+                                <label for="empresa" class="form-label"><strong>Empresa</strong></label>
                                 
                                     <select class="form-control" name="empresa" id="empresa"
                                         onchange="buscarCidades()">
@@ -74,11 +74,61 @@
                                     </select>
                                     <br><br>
                                 </div>
+
+
+                                                                  <div class="mt-3">
+                                <label for="empresa" class="form-label"><strong>Tipo de Capa</strong></label>
+                                
+                                    <select class="form-control" name="tipo" id="empresa"
+                                        onchange="mudacapa(this.value)">
+                                        
+                                        <option value="1">Capa Normal</option>
+                                        <option value="2">Capa Ondulada</option>
+                                        <option value="3">Capa Por Foto</option>
+                                                                               
+                                       
+                                    </select>
+                                    <br><br>
+                            <div id="capa2" style="display: none">
+                                <div class="mt-3">
+                                    <label for="cor_principal" class="form-label"><strong>Cor 1° Onda</strong></label>
+                                    <input id="cor_principal" type="color" name="cor_1" class="form-control"
+                                        required>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="cor_secundaria" class="form-label"><strong>Cor 2° Onda</strong></label>
+                                    <input id="cor_secundaria" type="color" name="cor_2" class="form-control"
+                                        required>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="cor_secundaria" class="form-label"><strong>Cor 3° Onda</strong></label>
+                                    <input id="cor_secundaria" type="color" name="cor_3" class="form-control"
+                                        required>
+                                </div>
+                                </div>
+                            </div>
+
+
+                        <div id="capa3" style="display: none">
+                            <div class="col-span-12 xl:col-span-6">
+                                <label class="form-label"><strong>Upload de Foto Da Capa</strong></label>
+                                <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
+                                    <div class="px-4 pt-24 pb-24 flex items-center justify-center cursor-pointer relative">
+                                        <div id="areaArquivo">
+                                            <i data-feather="image" class="w-4 h-4 mr-2"></i>
+                                            <span class="mr-1 font-bold">Adicionar Imagem</span>
+                                        </div>
+                                        <input type="file" id="capa" name="capa"
+                                            class="w-full h-full top-0 left-0 absolute opacity-0" >
+                                    </div>
+                                </div>
+                             </div>
+                            </div>  
                                
                             
                             </div>
-                    <div class="col-span-12 xl:col-span-6">
-                        <label class="form-label"><strong>Upload de Imagem</strong></label>
+                    <div class="col-span-12 xl:col-span-6" id="cabecalho">
+                        <label class="form-label"><strong>Upload de Imagem Cabeçalho</strong></label>
                         <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
                             <div class="px-4 pt-24 pb-24 flex items-center justify-center cursor-pointer relative">
                                 <div id="areaArquivo">
@@ -86,7 +136,7 @@
                                     <span class="mr-1 font-bold">Adicionar Imagem</span>
                                 </div>
                                 <input type="file" id="file" name="file"
-                                    class="w-full h-full top-0 left-0 absolute opacity-0" required>
+                                    class="w-full h-full top-0 left-0 absolute opacity-0"> 
                             </div>
                         </div>
                     </div>
@@ -101,7 +151,7 @@
                                     <span class="mr-1 font-bold">Adicionar Imagem</span>
                                 </div>
                                 <input type="file" id="file" name="marca"
-                                    class="w-full h-full top-0 left-0 absolute opacity-0" required>
+                                    class="w-full h-full top-0 left-0 absolute opacity-0" >
                             </div>
                         </div>
                     </div>
@@ -149,73 +199,27 @@
 
     <!-- Adicionando Javascript -->
     <script>
-        function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value = ("");
-            document.getElementById('bairro').value = ("");
-            document.getElementById('cidade').value = ("");
-            document.getElementById('uf').value = ("");
-            document.getElementById('ibge').value = ("");
-        }
+        function mudacapa(capa) {  
+            const capa2 = document.getElementById('capa2');
+            const capa3 = document.getElementById('capa3');
+            const cabecalho = document.getElementById('cabecalho');
+            if (capa == 2) {
+                 capa3.style.display = 'none';
+                capa2.style.display = 'block';
+                cabecalho.style.display = 'none'
+            }else if(capa == 3){
 
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('rua').value = (conteudo.logradouro);
-                document.getElementById('bairro').value = (conteudo.bairro);
-                document.getElementById('cidade').value = (conteudo.localidade);
-                document.getElementById('uf').value = (conteudo.uf);
-                document.getElementById('ibge').value = (conteudo.ibge);
-            } //end if.
-            else {
-                //CEP não Encontrado.
-                limpa_formulário_cep();
-                alert("CEP não encontrado.");
+                capa3.style.display = 'block';
+                capa2.style.display = 'none';
+                cabecalho.style.display = 'none'
+            }else{
+                capa3.style.display = 'none';
+                capa2.style.display = 'none';
+                cabecalho.style.display = 'block'
             }
         }
 
-        function pesquisacep(valor) {
-
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-                    document.getElementById('uf').value = "...";
- 
-
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        };
+  
     </script>
 
          <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>  <!--Script do iconify-->

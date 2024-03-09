@@ -313,7 +313,13 @@ li{
        
     }
 
-   
+  .footercapa {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 800px;
+            height: 50px; /* Altura do rodapé */
+        }
 </style>
    </head>
    @if($alert != 0)
@@ -345,6 +351,7 @@ li{
       {{-- Contra capa com informações da empresa --}}
       <div class="content" id="content">
       <script>
+      
       document.addEventListener("DOMContentLoaded", function () {
     // Simule o tempo de carregamento da página
     setTimeout(function () {
@@ -356,6 +363,32 @@ li{
 });
 
       </script>
+@if($identidade->tipo == 2)
+ 
+            <div class="page">
+<svg viewBox="0 0 500 320">
+  <path d="M 0 80 C 150 240 300 0 500 128 L 500 0 L 0 0" fill="{{$identidade->cor_3}}"></path>
+  <path d="M 0 80 C 150 240 330 -48 500 80 L 500 0 L 0 0" fill="{{$identidade->cor_1}}" opacity="0.8"></path>
+  <path d="M 0 80 C 215 240 250 0 500 160 L 500 0 L 0 0" fill="{{$identidade->cor_2}}" opacity="0.5"></path>
+</svg>  
+
+<div style="margin-top:54px">
+ <p style="font-size:30px" class="text-center"><b>{{$empresa->titulo}}</b></p>
+<svg viewBox="0 0 500 300">
+  <path d="M 0 225 C 150 75 300 300 500 180 L 500 300 L 0 300" fill="{{$identidade->cor_3}}"></path>
+  <path d="M 0 225 C 150 75 330 345 500 225 L 500 300 L 0 300" fill="{{$identidade->cor_1}}" opacity="0.8"></path>
+  <path d="M 0 225 C 215 75 250 300 500 150 L 500 300 L 0 300" fill="{{$identidade->cor_2}}" opacity="0.5"></path>
+</svg>
+</div>
+
+       
+         </div>
+      </div>
+      @elseif($identidade->tipo == 3)
+      <div class="page">
+         <img src="/capa/{{$identidade->foto_capa}}" style="width: 100%; height: 100%">
+      </div>
+      @else
       <div class="page">
          <div class="cabecalho">
             <img src="/fotos-identidade/{{$identidade->foto_empresa}}" class="img-cabecalho">
@@ -375,8 +408,11 @@ li{
  
          </div>
       </div>
+    
       {{-- Súmario --}}
       {{-- Objetivos --}}
+@endif
+   
       <div class="page">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">SUMÁRIO</p>
@@ -1792,4 +1828,4 @@ chart.column(chartData);
       
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    </body>
-</html>
+</html>  

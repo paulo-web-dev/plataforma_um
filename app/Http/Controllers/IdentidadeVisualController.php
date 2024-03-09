@@ -33,7 +33,7 @@ class IdentidadeVisualController extends Controller
 
     public function duplicarIdentidade($id){
         $identidade = IdentidadeVisual::where('id', $id)->first();
-       
+        
         $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->with('identidade')->get();
         return view('duplicar-identidade',['empresas' =>$empresas, 'identidade' => $identidade]); 
     }
@@ -45,6 +45,10 @@ class IdentidadeVisualController extends Controller
         $identidade->id_user = $request->empresa;
         $identidade->cor_principal = $request->cor_principal;
         $identidade->cor_secundaria = $request->cor_secundaria;
+        $identidade->tipo = $request->tipo;
+        $identidade->cor_1 = $request->cor_1;
+        $identidade->cor_2 = $request->cor_2;
+        $identidade->cor_3 = $request->cor_3;
         if(isset($request->file)){
             $photoname = $request->file->getClientOriginalName();
             $identidade->foto_empresa = $photoname;
@@ -62,7 +66,15 @@ class IdentidadeVisualController extends Controller
             $destinationPath = public_path('marcadagua/');
             $image->move($destinationPath, $photoname);
            }
-           $identidade->save();
+
+           if(isset($request->capa)){
+            $photoname = $request->capa->getClientOriginalName();
+            $identidade->foto_capa = $photoname;
+            $image = $request->file('capa');
+            $destinationPath = public_path('capa/');
+            $image->move($destinationPath, $photoname);
+           }
+           $identidade->save();  
            return redirect()->route('info-identidade');
     }
 
@@ -94,6 +106,13 @@ class IdentidadeVisualController extends Controller
             $image->move($destinationPath, $photoname);
            }
 
+           if(isset($request->capa)){
+            $photoname = $request->capa->getClientOriginalName();
+            $identidade->foto_capa = $photoname;
+            $image = $request->file('capa');
+            $destinationPath = public_path('capa/');
+            $image->move($destinationPath, $photoname);
+           }
            if(isset($request->marca)){
             $photoname = $request->marca->getClientOriginalName();
             $identidade->marca_dagua = $photoname;
