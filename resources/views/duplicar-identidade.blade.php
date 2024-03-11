@@ -93,7 +93,7 @@
                                     <span class="mr-1 font-bold">Adicionar Imagem</span>
                                 </div>
                                 <input type="file" id="file" name="marca"
-                                    class="w-full h-full top-0 left-0 absolute opacity-0" required>
+                                    class="w-full h-full top-0 left-0 absolute opacity-0">
                             </div>
                         </div>
                     </div>
