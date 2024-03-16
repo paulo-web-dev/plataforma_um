@@ -113,6 +113,23 @@ class Empresas extends Model
 
     }
 
+    public function cabecalho()
+
+    {
+
+        return $this->hasOne(Cabecalho::class, 'id_empresa', 'id');
+
+    }
+
+
+    public function rodape()
+
+    {
+
+        return $this->hasOne(Rodape::class, 'id_empresa', 'id');
+
+    }
+
     public function area()
 
     {

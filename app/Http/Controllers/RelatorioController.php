@@ -43,6 +43,8 @@ class RelatorioController extends Controller
         ->with('demanda')
         ->with('analise')
         ->with('area')
+        ->with('rodape')
+        ->with('cabecalho')
         ->first();
         return view('relatorio',[
             'empresa' => $empresa,

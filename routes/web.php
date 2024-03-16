@@ -45,6 +45,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\InscricaoController;
 use App\Http\Controllers\ListasRecomendacoesController;
 use App\Http\Controllers\InstitucionalController;
+use App\Http\Controllers\CabecalhoController;
+use App\Http\Controllers\RodapeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -385,6 +387,22 @@ Route::get('/info/lista-recomendacoes/{id}', [ListasRecomendacoesController::cla
 Route::get('/delete/lista-recomendacoes/{id}', [ListasRecomendacoesController::class, 'delete'])->name('delete-lista-recomendacoes'); 
 Route::post('/cadastrar/lista-recomendacoes', [ListasRecomendacoesController::class, 'cadListaRecomendacoes'])->name('cad-lista-recomendacoes');
 Route::post('/update/lista-recomendacoes', [ListasRecomendacoesController::class, 'updListaRecomendacoes'])->name('upd-lista-recomendacoes');
+
+//Rotas referentes ao cadastro de cabeçalhos
+Route::get('/cabecalho', [CabecalhoController::class, 'show'])->name('show-cabecalho');
+Route::get('/form/cabecalho/{idempresa}', [CabecalhoController::class, 'formCabecalho'])->name('form-cabecalho');
+Route::get('/info/cabecalho/{id}', [CabecalhoController::class, 'infoCabecalho'])->name('info-cabecalho'); 
+Route::get('/delete/cabecalho/{id}', [CabecalhoController::class, 'delete'])->name('delete-cabecalho');
+Route::post('/cadastrar/cabecalho', [CabecalhoController::class, 'cadCabecalho'])->name('cad-cabecalho');
+Route::post('/update/cabecalho', [CabecalhoController::class, 'updCabecalho'])->name('upd-cabecalho');
+
+//Rotas referentes ao cadastro de cabeçalhos
+Route::get('/rodape', [RodapeController::class, 'show'])->name('show-rodape');
+Route::get('/form/rodape/{idempresa}', [RodapeController::class, 'formRodape'])->name('form-rodape');
+Route::get('/info/rodape/{id}', [RodapeController::class, 'infoRodape'])->name('info-rodape'); 
+Route::get('/delete/rodape/{id}', [RodapeController::class, 'delete'])->name('delete-rodape');
+Route::post('/cadastrar/rodape', [RodapeController::class, 'cadRodape'])->name('cad-rodape');
+Route::post('/update/rodape', [RodapeController::class, 'updRodape'])->name('upd-rodape');
 
 //Rotas referentes ao relatório
 

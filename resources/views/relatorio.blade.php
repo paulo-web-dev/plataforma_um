@@ -182,7 +182,17 @@
   left: 740px; 
   margin-top: -40px;
 }
+.rodape {
+    font-size: 22px;
+    position: absolute;
+    margin-top: -70px;
+    left: 25%;
+    width: 100px;
+}
 
+.imgrodape{
+   width: 40px;
+}
 
 .border{
   max-width: 80px; /* Ajuste conforme necessário */
@@ -446,7 +456,11 @@ li{
          </div>
       </div>
 
-          {{-- Identificação da Empresa --}}
+       @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif   {{-- Identificação da Empresa --}}
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -475,6 +489,11 @@ li{
         
       </div>
       {{-- Introdução --}}
+      @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -485,11 +504,41 @@ li{
          <p><?= $empresa->introducao->introducao?></p>
       </div>
       {{-- AET (Análise Ergonomica do Trabalho) --}}
+      @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
        <div class="paginacao">
          <script>paginacao()</script>
       </div>
      
       <div class="page2">
+         @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
+
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE ERGONÔMICA DO TRABALHO </p>
          </div>
@@ -523,7 +572,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
   <li>Consideração da variabilidade, tanto decorrente da tecnologia e da produção quanto a dos trabalhadores</li>
 </ul>
       </div>
-  
+  @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -549,6 +602,31 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       @if (count($empresa->objetivos) > 0)
           
       <div class="page2">
+         @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
+
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">OBJETIVOS DA ÁNALISE ERGONÔMICA DO TRABALHO</p>
          </div>
@@ -558,12 +636,42 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             @endforeach
          </ul>
       </div>
+      @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       @endif
       {{-- Metodologia --}}
       <div class="page2">
+         @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
+
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">METODOLOGIA EMPREGADA </p>
          </div>
@@ -582,13 +690,44 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             ?>
 
       </div>
+      @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       {{-- Metodologia2 --}}
       <div class="page2">
-         
-         <p style="font-size: 16px;" class="text-center">OBSERVAÇÕES IN LOCO E FOTOS - FERRAMENTAS ERGONÔMICAS</p>
+         @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
+
+         <p id="" class="ferramenta"><b>RITMO DE TRABALHO </b>– Existe uma distinção entre ritmo e cadência. A cadência tem um aspecto quantitativo, o ritmo qualitativo. A cadência refere-se à velocidade dos movimentos quase repete em uma dada unidade de tempo, o ritmo é a maneira como as cadências são ajustadas ou arranjadas: pode ser livre (quando o indivíduo tem autonomia para determinar sua própria cadência) ou imposto (por uma máquina, pela esteira da linha de montagem e até por incentivos à Operação) - Teiger, 1985. Na empresa encontramos: o trabalho livre.</p>
+         <p id="" class="ferramenta"><b>EXIGÊNCIAS COGNITIVAS </b> – Detectamos que quanto ao conhecimento, à percepção para a realização das atividades, a maioria dos colaboradores tinha um bom preparo para a efetivação do trabalho</p>
+         <p style="font-size: 16px;" class="text-center ferramenta">OBSERVAÇÕES IN LOCO E FOTOS - FERRAMENTAS ERGONÔMICAS</p>
          <p>Inicialmente foram realizadas as observações referentes à ergonomia dos postos
             de trabalho (condições dos mobiliários, das ferramentas, dos equipamentos, das
             posturas de trabalho, da iluminação, do ruído).<br><br>
@@ -607,12 +746,42 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <p id="metodologia_reba" class="ferramenta"></p>
          <p id="metodologia_hal" class="ferramenta"></p>
       </div>
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
 
       {{-- Demanda --}}
       <div class="page">
+   @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
+
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DEMANDA</p>
          </div>
@@ -621,9 +790,14 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             <p><?= $empresa->demanda->demanda ?></p>
             @endif
          </ul> <br>
-
+   
       </div>
  @if(isset($empresa->analise))
+       @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
        <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -631,7 +805,30 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       <div class="page2">
  
 {{-- Ánalise GLobal --}}
+ @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
 
+@endif
       <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE  GLOBAL DA EMPRESA </p>
          </div>
@@ -642,12 +839,41 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          </ul>
       </div>
 @endif
+@if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
    {{-- Ánalise Dos Postos de Trabalho --}}
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       {{-- Postos/Subsetores/Cargos que foram avaliados --}}
       <div class="page2">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DOS POSTOS DE TRABALHO</p>
          </div>
@@ -660,12 +886,40 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
      
  @foreach ($empresa->area as $area)
-  
+        @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       {{-- Postos/Subsetores/Cargos que foram avaliados --}}
       <div class="page2">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{$area->nome}}</p>
          </div>
@@ -679,6 +933,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
              
       {{-- Loop Setores --}}
     @foreach ($area->setores as $setor)
+          @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -688,6 +947,30 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
             postos.innerHTML +=  '<li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
          </script>
       <div class="page2">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{mb_strtoupper($area->nome, 'UTF-8')}}</p>
          </div>
@@ -700,6 +983,11 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
       {{-- Começo de descrição geral subsetores --}}
 	 @foreach ($setor->subsetores as $subsetor)
+          @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -735,7 +1023,9 @@ if (mb_strlen($descricao) > $maxCaracteres) {
 
             // Saída do conteúdo HTML
             echo '
-<div class="page2">';
+<div class="page2"> 
+
+';
 
 if($ij == 0){
 echo '
@@ -795,6 +1085,7 @@ if(strlen($parte) > 50){
     
       <div class="page2">
          <div class="subcabecalho2">
+        
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ÁREA: {{mb_strtoupper($area->nome, 'UTF-8')}}</p>
          </div>
          <table style="margin-left:10px; margin-right:10px">
@@ -824,12 +1115,41 @@ if(strlen($parte) > 50){
             <!-- Adicione mais linhas conforme necessário -->
          </table>
          <div class="subcabecalho2">
+          @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DESCRIÇÃO DA TAREFA</p>
          </div>
        
          <p class="text-cargo" ><?= $subsetor->descricao?>. </p>
      
       </div>
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -838,6 +1158,30 @@ if(strlen($parte) > 50){
       {{-- Ánalise da Atividade --}}
 
       <div class="page2">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ANÁLISE DA ATIVIDADE</p>
          </div>
@@ -848,11 +1192,41 @@ if(strlen($parte) > 50){
       @endif
       {{-- Fotos Atividade --}}
       @if(count($subsetor->fotosatividade) >= 1)
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       <div class="page">
+               @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
+ 
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">FOTOS</p>
          </div>
          <div class="imagem-container">
@@ -868,6 +1242,11 @@ if(strlen($parte) > 50){
             @endif
          </div>
       </div>
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -876,6 +1255,30 @@ if(strlen($parte) > 50){
           
      
       <div class="page">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DA ORGANIZAÇÃO DO TRABALHO</p>
          </div>
@@ -905,13 +1308,18 @@ if(strlen($parte) > 50){
          var graficos{{$subsetor->id}} = calcularEstatisticas(populacaoSubsetor, {{$subsetor->id}});
          console.log(graficos{{$subsetor->id}});
       </script>
-     
+         @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       {{-- Gráficos Populacionais --}}
        @if(count($subsetor->populacaosubsetor) >= 1)
       <div class="page">
+   
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DA POPULAÇÃO</p>
          </div>
@@ -936,6 +1344,7 @@ if(strlen($parte) > 50){
          </div>
   </center>
       </div>
+ 
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -1189,6 +1598,30 @@ chart.column(chartData);
    @if(isset($subsetor->dadossaude))
       {{-- Dados de Saúde --}}
       <div class="page">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DADOS DE SAÚDE</p>
          </div>
@@ -1213,11 +1646,11 @@ chart.column(chartData);
          <div style="margin-left: 10%; margin-top: 50px">
 		 	<p class="text-center" style="font-size: 22px; font-weight: bold;">{{$subsetor->dadossaude->titulo}}</p>
             <div class="grafico-container">
-               <div id="dadosaude{{$subsetor->id}}" style="height: 280px; width: 160%; margin-left: -70px"></div>
+               <div id="dadosaude{{$subsetor->id}}" style="height: 230px; width: 160%; margin-left: -70px"></div>
             </div>
          <p class="text-center" style="font-size: 22px; font-weight: bold;" id="segmentocorporal{{$subsetor->id}}">Segmento Corporal</p>
             <div class="grafico-container">
-               <div id="segmento{{$subsetor->id}}" style="height: 280px; width: 160%; margin-left: -70px" ></div>
+               <div id="segmento{{$subsetor->id}}" style="height: 230px; width: 160%; margin-left: -70px" ></div>
             </div>
          </div> 
          <script>
@@ -1392,6 +1825,12 @@ chart.column(chartData);
           @endif
       </div>
        @endif
+
+             @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -1399,6 +1838,30 @@ chart.column(chartData);
      {{-- Caracteristicas do ambiente de trabalho --}}
      @if(count($subsetor->caracteristicas) >= 1)
       <div class="page2">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
 
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CARACTERÍSTICAS DO AMBIENTE DE TRABALHO</p>
@@ -1422,6 +1885,7 @@ chart.column(chartData);
          </ul>
              {{-- Pré diagnosticos --}}
               @if (count($subsetor->preDiagnostico) > 0)
+       
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">PRÉ DIAGNÓSTICO</p>
          </div>
@@ -1449,6 +1913,11 @@ chart.column(chartData);
          @endif
       </div>
 @endif
+      @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
 	    <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -1457,6 +1926,30 @@ chart.column(chartData);
     <div class="page2">
    
          {{-- Pré diagnosticos --}}
+          @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">PRÉ DIAGNÓSTICO</p>
          </div>
@@ -1474,7 +1967,32 @@ chart.column(chartData);
      
  
       <div class="page">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
+         
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DIAGNÓSTICO</p>
          </div>
          {{-- Tabela com Resultados de ferramentas --}}
@@ -1532,11 +2050,40 @@ chart.column(chartData);
                 </table>
             </div>
             </div>
+                  @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
               <div class="paginacao">
          <script>paginacao()</script>
       </div>
             {{-- Open a new page here --}}
             <div class="page">
+             @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
                 <div class="subcabecalho2">
                     <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DIAGNÓSTICO</p>
                 </div>
@@ -1624,13 +2171,41 @@ chart.column(chartData);
          </div>
       </div>
  
-
+      @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
 	    <div class="paginacao">
          <script>paginacao()</script>
       </div>
       @endif
          @if(count($subsetor->recomendacao) >= 1)
     <div class="page2">
+     @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">RECOMENDAÇÕES TÉCNICAS E SUGESTÕES DE ADEQUAÇÕES</p>
@@ -1651,6 +2226,12 @@ chart.column(chartData);
       @endforeach
     
       @endforeach
+
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
@@ -1660,6 +2241,30 @@ chart.column(chartData);
       @endphp
       @while(count($mapeamentos) > 0)
       <div class="page">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">MAPEAMENTO ERGONÔMICO</p>
          </div>
@@ -1696,6 +2301,11 @@ chart.column(chartData);
          $mapeamentos = $mapeamentos->slice(8); // Remove os primeiros 8 elementos
          @endphp
       </div>
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>
             var mapeamento = document.getElementById('mapeamento'); 
@@ -1709,6 +2319,30 @@ chart.column(chartData);
       @endphp
       @while(count($planos) > 0)
       <div class="page">
+       @if(isset($empresa->cabecalho))
+      <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
+    <tr style="height: 32.5px;">
+        <td style="width: 60px"><img src="/fotos-empresa-cabecalho/{{$empresa->cabecalho->foto_empresa}}" alt="Imagem 1" style="width: 100px"></td>
+        <td>
+            <center> 
+                <table style="margin-top: 1px; width: 90%">
+                    <tr>
+                        <td><b> Análise Ergonômica do Trabalho</b></td> 
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->nome}} - CNPJ:{{$empresa->cnpj}}</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>{{$empresa->periodo_inspecao}}</b></td>
+                    </tr>  
+                </table>
+            </center>
+        </td>
+        <td style="width: 60px"><img src="/fotos-empresa-produtor/{{$empresa->cabecalho->foto_produtor}}" alt="Imagem 2" style="width: 100px"></td>
+    </tr>
+</table>
+
+@endif
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size: 22px; color: #fff; margin-top: 5px">PLANO DE AÇÃO</p>
          </div>
@@ -1743,6 +2377,11 @@ chart.column(chartData);
          $planos = $planos->slice(5); // Remove os primeiros 8 elementos
          @endphp
       </div>
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>
             var plano = document.getElementById('plano_de_acao'); 
@@ -1750,11 +2389,17 @@ chart.column(chartData);
          </script>
       </div>
       @endwhile
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
       {{-- Disposições Finais --}}
       <div class="page2">
+      
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DISPOSIÇÕES FINAIS</p>
          </div>
@@ -1764,6 +2409,11 @@ chart.column(chartData);
             @endif
          </ul>
       </div>
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>
             var disposicoes = document.getElementById('disposicoes'); 
@@ -1806,6 +2456,11 @@ chart.column(chartData);
             </div>
          </center>
       </div>
+            @if(isset($empresa->rodape))
+ <div class="rodape">
+      <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
+   </div>
+@endif
       <div class="paginacao">
          <script>
             var encerramento = document.getElementById('encerramento'); 
