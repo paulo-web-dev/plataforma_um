@@ -192,7 +192,7 @@ fetch('https://sandbox.asaas.com/api/v3/customers', options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
-
+    }
   </script>
   </main><!-- End #main -->
 @include('layouts.footer-institucional')
