@@ -413,6 +413,7 @@ Route::get('/laravel-version', function() {
 });
 
 
+
 //ROTAS REFERENTES AO SITE INSTITUICIONAL
 Route::get('/index', [InstitucionalController::class, 'index'])->name('index');
 Route::get('/plano/{plano}', [InstitucionalController::class, 'plano'])->name('plano');

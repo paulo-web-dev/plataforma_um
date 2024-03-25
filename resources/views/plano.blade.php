@@ -172,14 +172,16 @@
   </div>
 </div>         
 
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
 const options = {
   method: 'POST',
   headers: {
-   
-    'Content-Type': 'application/json',
-    'access_token': '$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwNzY5OTg6OiRhYWNoXzY2YTg2MWY5LWUyMDUtNGJlMS05MmMxLTA3NTBmYTIxY2I0Yg=='
-  }, 
+    accept: 'application/json',
+    'content-type': 'application/json',
+    access_token: '$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwNzY5OTg6OiRhYWNoXzY2YTg2MWY5LWUyMDUtNGJlMS05MmMxLTA3NTBmYTIxY2I0Yg=='
+  },
   body: JSON.stringify({name: 'paulo', cpfCnpj: '24971563792'})
 };
 
@@ -187,6 +189,6 @@ fetch('https://sandbox.asaas.com/api/v3/customers', options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
-  </script>
+</script>
   </main><!-- End #main -->
 @include('layouts.footer-institucional')
