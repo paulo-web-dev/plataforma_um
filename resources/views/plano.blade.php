@@ -19,7 +19,7 @@
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container">
-      <div class="row">
+      <div class="row"> 
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>PLataforma Geradora de AET e Análise Ergonômica</h1>
           <h2>Uma plataforma completa para fisioterapeutas e empresas do ramo de ergonômia</h2>
@@ -38,15 +38,7 @@
 
   </section><!-- End Hero -->
   <main id="main">
-  <script>
-                
-   
-    const mp = new MercadoPago('APP_USR-b0820842-a6fb-44fe-b59b-ead639377144', {
-    locale: 'pt-BR', 
-    });
-    const bricksBuilder = mp.bricks();
 
-                </script>
   <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
 
@@ -65,7 +57,7 @@
                 <li class="na"><i class="bx bx-x"></i> <span>Ferramentas Personalizadas</span></li>
                 <li class="na"><i class="bx bx-x"></i> <span>Armazenamento Ilimitado de Arquivos e AETS no sistema</span></li>
               </ul>
-             <div id="wallet_container" data-msg-preference="ab"></div>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalpgto" class="btn-get-started">Contratar</a>
             </div>
           </div>
 
@@ -82,7 +74,7 @@
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
                 <li><i class="bx bx-check"></i>Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
               </ul>
-               <div id="wallet_container"></div>
+               <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalpgto" class="btn-get-started">Contratar</a>
             </div>
           </div>
 @elseif($plano == 'Fisio Total Care')
@@ -97,24 +89,110 @@
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
                 <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
               </ul>
-                 <div id="wallet_container"></div>
+               
+                  <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalpgto" class="btn-get-started">Contratar</a>
             </div>
           </div>
 @endif
       </center>
     </section><!-- End Pricing Section -->
        
-                 
+<div class="modal fade" id="modalpgto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Nome -->
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" class="form-control"  >
+        
+        <!-- CPF -->
+        <label for="cpf">CPF</label>
+        <input type="number" id="cpf" class="form-control" >
+{{--         
+        <!-- Credit Card Holder Info -->
+        <label for="holderName">Holder Name</label>
+        <input type="text" id="holderName" class="form-control" value="Paulo Sérgio Cardeliquio Orfanelli" >
+        
+        <label for="number">Card Number</label>
+        <input type="text" id="number" class="form-control" value="5226260068461430" >
+        
+        <label for="expiryMonth">Expiry Month</label>
+        <input type="text" id="expiryMonth" class="form-control" value="12" >
+        
+        <label for="expiryYear">Expiry Year</label>
+        <input type="text" id="expiryYear" class="form-control" value="2031" >
+        
+        <label for="ccv">CCV</label>
+        <input type="text" id="ccv" class="form-control" value="550" >
+        
+        <!-- Credit Card Holder Info -->
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" value="Paulo Sérgio Cardeliquio Orfanelli" >
+        
+        <label for="cpfCnpj">CPF/CNPJ</label>
+        <input type="text" id="cpfCnpj" class="form-control" value="41743114800" >
+        
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-control" value="paulosergioorfanelli@gmail.com" >
+        
+        <label for="postalCode">Postal Code</label>
+        <input type="text" id="postalCode" class="form-control" value="13224230" >
+        
+        <label for="addressNumber">Address Number</label>
+        <input type="text" id="addressNumber" class="form-control" value="Rua Mercúrio, 452" >
+        
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" class="form-control" value="11941766319" >
+        
+        <!-- Customer -->
+        <label for="customer">Customer</label>
+        <input type="text" id="customer" class="form-control" value="cus_000005938273" >
+        
+        <!-- Value -->
+        <label for="value">Value</label>
+        <input type="text" id="value" class="form-control" value="5" >
+        
+        <!-- Due Date -->
+        <label for="dueDate">Due Date</label>
+        <input type="text" id="dueDate" class="form-control" value="2024-05-05" >
+        
+        <!-- Remote IP -->
+        <label for="remoteIp">Remote IP</label>
+        <input type="text" id="remoteIp" class="form-control" value="179.48.51.27" > --}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="confirmModal()">Confirmar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>         
 
-<script>
+  <script>
+    function confirmModal() {
+    var nome = document.getElementById('nome').value;
+    var cpf = document.getElementById('cpf').value;
+    // Pegue os outros valores da mesma forma
+    
+const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: '$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwNzY5OTg6OiRhYWNoXzY2YTg2MWY5LWUyMDUtNGJlMS05MmMxLTA3NTBmYTIxY2I0Yg=='
+  },
+  body: JSON.stringify({name: 'paulo', cpfCnpj: '24971563792'})
+};
 
-mp.bricks().create("wallet", "wallet_container", {
-   initialization: {
-       preferenceId: "{{$preference->id}}",
-   }, 
-});
+fetch('https://sandbox.asaas.com/api/v3/customers', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
 
-</script>
-  
+  </script>
   </main><!-- End #main -->
 @include('layouts.footer-institucional')

@@ -80,8 +80,8 @@ class CabecalhoController extends Controller
 
     
         
-    public function delete($id){
+    public function delete($id, $empresa){
         Cabecalho::destroy($id);
-        return back();
+        return redirect()->route('infoempresa', ['id' => $empresa]); 
     }
 }

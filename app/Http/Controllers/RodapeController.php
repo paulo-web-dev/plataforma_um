@@ -65,8 +65,8 @@ class RodapeController extends Controller
         return redirect()->route('infoempresa', ['id' => $rodape->id_empresa]); 
     } 
 
-    public function delete($id){
+    public function delete($id, $empresa){
         Rodape::destroy($id);
-        return back();
+        return redirect()->route('infoempresa', ['id' => $empresa]); 
     }
 }

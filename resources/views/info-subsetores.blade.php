@@ -64,9 +64,8 @@
                            <a href="#analise-atividade" class="btn btn-primary w-40 mr-auto menubutton">Ánalise de Atividade </a>
                            <a href="#legenda-fotos" class="btn btn-primary w-40 mr-auto menubutton">Descrição de Fotos </a>
                            <a href="#caracteristicas" class="btn btn-primary w-40 mr-auto menubutton">Características da Organização do Trabalho </a>
-                             <a href="#caracteristicas-do-ambiente" class="btn btn-primary w-40 mr-auto menubutton">Caracteristicas do Ambiente de trabalho </a>
+                           <a href="#caracteristicas-do-ambiente" class="btn btn-primary w-40 mr-auto menubutton">Caracteristicas do Ambiente de trabalho </a>
                            <a href="#saude" class="btn btn-primary w-40 mr-auto menubutton">Dados de Saúde </a>
-                         
                            <a href="#pre-diagnosticos" class="btn btn-primary w-40 mr-auto menubutton">Pré Diagnosticos </a>
                            <a href="#moore" class="btn btn-primary w-40 mr-auto menubutton">Ferramentas de Análise </a>
                            <a href="#recomendacoes" class="btn btn-primary w-40 mr-auto menubutton">Recomendações Técnicas </a>

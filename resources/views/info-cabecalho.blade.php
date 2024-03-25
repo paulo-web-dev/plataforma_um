@@ -7,6 +7,7 @@
             <h2 class="font-medium text-base mr-auto">
                 Informação Fotos  de Cabeçalho
             </h2>
+              <a href="{{ route('delete-cabecalho',  ['id' => $cabecalho->id, 'empresa' => $cabecalho->id_empresa]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="trash" class="w-4 h-4 mr-2"></i>Excluir Cabeçalho</a>
               <a href="{{ route('infoempresa',  ['id' => $cabecalho->id_empresa]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
         </div>
 

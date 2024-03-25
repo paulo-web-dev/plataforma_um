@@ -53,6 +53,10 @@
         .mr-2{
             margin-left: 8px; /* Ajuste conforme necessário */
         }
+
+          .closed {
+        display: none;
+    }
   
     /* .side-menu--active {
         border: 1px solid white;
@@ -97,7 +101,7 @@
         <div class="top-bar-boxed flex items-center">
             <!-- BEGIN: Logo -->
             <a href="#" class="-intro-x hidden md:flex">
-                <span class="text-white text-lg font-light ml-3"> Painel <span class="font-bold">PlataformaUm</span>
+                <span class="text-white text-lg font-light ml-3"> Painel <span class="font-bold">SGE</span> - Sistema de Gestão Ergonômica
                 </span>
             </a>
             <!-- END: Logo -->
@@ -125,15 +129,210 @@
         <nav class="side-nav">
            
          
+  <li>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
+                            <div class="side-menu__title">
+                               Opções 
+                                <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                            </div>
+                        </a>
+                        <ul class="closed">
+                     
+                      
+                            <ul>
+                             <li>
+                                <a href="#introducao" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Introdução</div>
+                                </a>
+                            </li>
+                              <li>
+                                <a href="#objetivos" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Objetivos</div>
+                                </a>
+                            </li>
+                              <li>
+                                <a href="#metodologia" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Metodologia</div>
+                                </a>
+                            </li>
+                              <li>
+                                <a href="#demanda" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Demanda</div>
+                                </a>
+                            </li>
+                              
+                         
+
+                              <li>
+                                <a href="#analise" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Ánalise Global</div>
+                                </a>
+                            </li>
+
+                             <li>
+                                <a href="#areas" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Áreas</div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#setores" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Setores</div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#equipe" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Equipe Técnica</div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#disposicoes" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Disposições Finais</div>
+                                </a>
+                            </li>
+
+                              <li>
+                                <a href="#responsaveis" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Responsáveis</div>
+                                </a>
+                            </li>
+
+                              <li>
+                                <a href="#mapeamento" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Mapeamento Ergonômico</div>
+                                </a>
+                            </li>
+
+                              <li>
+                                <a href="#plano" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Plano de Ação</div>
+                                </a>
+                            </li>
+                         
+                        </ul>
+                    </li>
+                </ul>
+                             
+                             
+  <li>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
+                            <div class="side-menu__title">
+                               Opções 
+                                <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                            </div>
+                        </a>
+                        <ul class="closed">
+                     
+                      
+                            <ul>
+                             <li>
+                                <a href="#função" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Função</div>
+                                </a>
+                            </li>
+                              <li>
+                                <a href="#tarefa" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Tarefa</div>
+                                </a>
+                            </li>
+                              <li>
+                                <a href="#analise-atividade" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Ánalise de Atividade</div>
+                                </a>
+                            </li>
+                              <li>
+                                <a href="#legenda-fotos" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Descrição de Fotos</div>
+                                </a>
+                            </li>
+                              
+                         
+
+                              <li>
+                                <a href="#caracteristicas" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Características da Organização do Trabalho</div>
+                                </a>
+                            </li>
+
+                             <li>
+                                <a href="#caracteristicas-do-ambiente" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Caracteristicas do Ambiente de trabalho</div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#saude" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Dados de Saúde</div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#pre-diagnosticos" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Pré Diagnosticos</div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#disposicoes" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Disposições Finais</div>
+                                </a>
+                            </li>
+
+                              <li>
+                                <a href="#moore" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Ferramentas de Análise</div>
+                                </a>
+                            </li>
+
+                              <li>
+                                <a href="#recomendacoes" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Recomendações Técnicas</div>
+                                </a>
+                            </li>
+
+                              
+                         
+                        </ul>
+                    </li>
+                </ul>
                 <a href="{{route('show-empresas')}}" 
                         class="side-menu side-menu-active">
                         <div class="side-menu__icon"> <span class="iconify"
                                 data-icon="material-symbols:drive-folder-upload" style="font-size:30px"></span>
                         </div>
-                        <div class="side-menu__title"> Empresas </div>
+                        <div class="side-menu__title">Ver Empresas </div>
                     </a>
-
-                    
                 <a href="{{route('show-identidade')}}" 
                         class="side-menu side-menu-active">
                         <div class="side-menu__icon"> <span class="iconify"
@@ -177,7 +376,7 @@
                         <div class="side-menu__title">Logout</div>
                     </a>
            
-          
+                           
            
         </nav>
         <!-- END: Top Menu -->
@@ -192,48 +391,21 @@
         <!--Script do iconify-->
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
-        <script src="dist/js/app.js"></script>
+        {{-- <script src="dist/js/app.js"></script> --}}
         <script src="{{ url('dist/js/app.js') }}"></script>
         <!-- END: JS Assets-->
         @stack('custom-scripts')
-
-
-        <script>
-            const dropdownBtns = document.querySelectorAll('.arrow_img');
-            for (dropdownBtn of dropdownBtns) {
-                dropdownBtn.onclick = dropDown;
-            }
-
-            function dropDown(e) {
-                let alvo = e.target.parentNode.nextElementSibling;
-                alvo.classList.toggle('show');
-            }
-        </script>
-        <script>
-            // Captura todos os elementos de menu desejados usando a classe
-            var menuItems = document.querySelectorAll('.side-menu');
-
-            // Adiciona um ouvinte de eventos de clique a cada elemento de menu
-            menuItems.forEach(function(menuItem) {
-                menuItem.addEventListener('click', function() {
-                    // Obtém o ícone de seta dentro do menu clicado
-                    var chevronIcon = this.querySelector('.side-menu__sub-icon');
-
-                    // Alterna a classe do ícone de seta quando o menu é clicado
-                    chevronIcon.classList.toggle('rotated');
-                });
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.side-menu__title').forEach(function (element) {
+            element.addEventListener('click', function () {
+                var submenu = this.nextElementSibling;
+                submenu.classList.toggle('closed');
             });
-        </script>
+        });
+    });
+</script>
 
-        <style>
-            .rotated {
-                transform: rotate(180deg);
-            }
-            .close-button{
-                 position:absolute !important;
-                 margin:5px;
-            }
-        </style>
 
 </body>
 

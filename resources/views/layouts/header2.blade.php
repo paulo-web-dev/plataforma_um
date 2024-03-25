@@ -53,6 +53,10 @@
         .mr-2{
             margin-left: 8px; /* Ajuste conforme necessário */
         }
+
+          .closed {
+        display: none;
+    }
   
     /* .side-menu--active {
         border: 1px solid white;
@@ -97,7 +101,7 @@
         <div class="top-bar-boxed flex items-center">
             <!-- BEGIN: Logo -->
             <a href="#" class="-intro-x hidden md:flex">
-                <span class="text-white text-lg font-light ml-3"> Painel <span class="font-bold">PlataformaUm</span>
+                <span class="text-white text-lg font-light ml-3"> Painel <span class="font-bold">SGE - Sistema de Gestão Ergonômica</span>
                 </span>
             </a>
             <!-- END: Logo -->
@@ -123,47 +127,116 @@
     <div class="flex">
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
-           <ul class="list-itens dropdown-content">
-                    <a href="{{ route('show-empresas') }}"
-                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
-                             <div class="side-menu__icon"> <span class="iconify"
+           
+         
+  <li>
+                        <a href="javascript:;" class="side-menu">
+                            <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
+                            <div class="side-menu__title">
+                               Empresas 
+                                <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                            </div>
+                        </a>
+                        <ul class="closed">
+                        @foreach ($empresas as $empresa )
+                      
+                            <li>
+                                <a href="javascript:;" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title">
+                                         
+                                        {{substr($empresa->nome, 0, 20)}}
+                                        <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                                    </div>
+                                </a>
+                                <ul class="closed">
+                                   <li>
+                                <a href="{{route('infoempresa', ['id' => $empresa->id])}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">Abrir Empresa</div>
+                                </a>
+                            </li>
+                                       <li>
+                                <a href="javascript:;" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title">
+                                      Áreas
+                                        <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                                    </div>
+                                </a>
+                                <ul class="closed">
+                                @foreach ($empresa->area as $area)
+                                    
+                            <li>
+                                <a href="{{route('info-areas', ['id' => $area->id])}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title">{{$area->nome}}</div>
+                                </a>
+                            </li>
+                                   
+                                    @endforeach
+                                    
+                                </ul>
+                            </li>
+
+
+                                 <li>
+                                <a href="javascript:;" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title">
+                                      Setores
+                                        <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                                    </div>
+                                </a>
+                                <ul class="closed">
+                                @foreach ($empresa->setores as $setor)
+                                <li>
+                                <a href="{{route('info-setor', ['id' => $setor->id])}}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="arrow-right-circle"></i> </div>
+                                    <div class="side-menu__title"> {{substr($setor->nome, 0, 20)}}</div>
+                                </a>
+                            </li>
+                                
+                                           <li>
+                                <a href="javascript:;" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title">
+                                   +{{substr($setor->nome, 0, 18)}}+
+                                        <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
+                                    </div>
+                                </a>
+                                <ul class="closed">
+                                @foreach ($setor->subsetores as $subsetor)
+                                    
+                                
+                                    <li>
+                                        <a href="{{route('info-subsetor', ['id' => $subsetor->id])}}" class="side-menu">
+                                            <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
+                                            <div class="side-menu__title">{{$subsetor->nome}}</div>
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                    
+                                </ul>
+                            </li>
+                                    @endforeach
+                                    
+                                </ul>
+                            </li>
+
+                            
+                                </ul>
+                            </li>
+                            @endforeach
+                        </ul>
+                    
+                <a href="{{route('show-empresas')}}" 
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
                                 data-icon="material-symbols:drive-folder-upload" style="font-size:30px"></span>
                         </div>
-                        <div class="side-menu__title"> Empresas </div>
+                        <div class="side-menu__title">Ver Empresas </div>
                     </a>
-                                        <a href="{{ route('show-empresas') }}"
-                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
-                        <div class="side-menu__icon"> </div>
-                        <div class="side-menu__title">Entrada Facial</div>
-                    </a>
-                    <a href="{{ route('show-empresas') }}"
-                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
-                        <div class="side-menu__icon"> </div>
-                        <div class="side-menu__title">Saida Facial</div>
-                    </a>
-                    <a href="{{ route('show-empresas') }}"
-                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
-                        <div class="side-menu__icon"> </div>
-                        <div class="side-menu__title">Entrada Facial</div>
-                    </a>
-                    <a href="{{ route('show-empresas') }}"
-                        class="side-menu {{ request()->is('painel/atividades/novos') ? 'side-menu--active' : '' }}">
-                        <div class="side-menu__icon"> </div>
-                        <div class="side-menu__title">Saida Facial</div>
-                    </a>
-                    <a href="{{ route('show-empresas') }}"
-                        class="side-menu {{ request()->is('painel/homologar*') ? 'side-menu--active' : '' }}">
-                        <div class="side-menu__icon"> </div>
-                        <div class="side-menu__title"> Homologação</div>
-                    </a>
-                    <a href="{{ route('show-empresas') }}"
-                        class="side-menu {{ request()->is('painel/homologar*') ? 'side-menu--active' : '' }}">
-                        <div class="side-menu__icon"> </div>
-                        <div class="side-menu__title">Check-In</div>  
-                    </a>
-                </ul>
-         
-                    
                 <a href="{{route('show-identidade')}}" 
                         class="side-menu side-menu-active">
                         <div class="side-menu__icon"> <span class="iconify"
@@ -190,6 +263,15 @@
                         <div class="side-menu__title">Textos Padrão</div>
                     </a>
 
+                     <a href="{{route('show-lista-recomendacoes')}}" 
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
+                                data-icon="ph:list-fill" style="font-size:30px"></span>
+                        </div>
+                        <div class="side-menu__title">Listas</div>
+                    </a>
+
+
                     <a href="{{route('logout')}}" 
                         class="side-menu side-menu-active">
                         <div class="side-menu__icon"> <span class="iconify"
@@ -198,7 +280,7 @@
                         <div class="side-menu__title">Logout</div>
                     </a>
            
-          
+                           
            
         </nav>
         <!-- END: Top Menu -->
@@ -213,44 +295,22 @@
         <!--Script do iconify-->
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
-        <script src="dist/js/app.js"></script>
+        {{-- <script src="dist/js/app.js"></script> --}}
         <script src="{{ url('dist/js/app.js') }}"></script>
         <!-- END: JS Assets-->
         @stack('custom-scripts')
-
-
-        <script>
-            const dropdownBtns = document.querySelectorAll('.arrow_img');
-            for (dropdownBtn of dropdownBtns) {
-                dropdownBtn.onclick = dropDown;
-            }
-
-            function dropDown(e) {
-                let alvo = e.target.parentNode.nextElementSibling;
-                alvo.classList.toggle('show');
-            }
-        </script>
-        <script>
-            // Captura todos os elementos de menu desejados usando a classe
-            var menuItems = document.querySelectorAll('.side-menu');
-
-            // Adiciona um ouvinte de eventos de clique a cada elemento de menu
-            menuItems.forEach(function(menuItem) {
-                menuItem.addEventListener('click', function() {
-                    // Obtém o ícone de seta dentro do menu clicado
-                    var chevronIcon = this.querySelector('.side-menu__sub-icon');
-
-                    // Alterna a classe do ícone de seta quando o menu é clicado
-                    chevronIcon.classList.toggle('rotated');
-                });
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.side-menu__title').forEach(function (element) {
+            element.addEventListener('click', function () {
+                var submenu = this.nextElementSibling;
+                submenu.classList.toggle('closed');
             });
-        </script>
+        });
+    });
+</script>
 
-        <style>
-            .rotated {
-                transform: rotate(180deg);
-            }
-        </style>
+
 </body>
 
 </html>

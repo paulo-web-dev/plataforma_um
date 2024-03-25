@@ -1,118 +1,95 @@
-@extends('layouts.app')
-
-@section('content')
-<!DOCTYPE html> 
-<!--
-Template Name: Rubick - HTML Admin Dashboard Template
-Author: Left4code
-Website: http://www.left4code.com/
-Contact: muhammadrizki@left4code.com
-Purchase: https://themeforest.net/user/left4code/portfolio
-Renew Support: https://themeforest.net/user/left4code/portfolio
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<html lang="en" class="light">
-<!-- BEGIN: Head -->
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link href="{{ url('dist/images/logo.svg') }}" rel="shortcut icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Rubick admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
-    <meta name="keywords"
-        content="admin template, Rubick Admin Template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="LEFT4CODE">
-    <title>Plataforma Um </title>
-    <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" href="{{ url('dist/css/app.css') }}" />
-    <!-- END: CSS Assets-->
+	<title>Login SGE</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
-<!-- END: Head -->
-
-<body class="login">
-    <div class="container sm:px-10">
-        <div class="block xl:grid grid-cols-2 gap-4">
-            <!-- BEGIN: Login Info -->
-            <div class="hidden xl:flex flex-col min-h-screen">
-                <a href="" class="-intro-x flex items-center pt-5">
-                    <img alt="Rubick Tailwind HTML Admin Template" class="w-6"
-                        src="{{ url('dist/images/logo.svg') }}">
-                    <span class="text-white text-lg ml-3"> Plataforma<span class="font-medium">Um</span> </span>
-                </a>
-                <div class="my-auto">
-                    <img alt="Rubick Tailwind HTML Admin Template" class="-intro-x w-1/2 -mt-16"
-                        src="{{ url('dist/images/illustration.svg') }}">
-                    <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
-                       Plataforma Administrativa
-                    </div>
-                    <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-gray-500">controle e relatórios</div>
-                </div>
-            </div>
-            <!-- END: Login Info -->
-            <!-- BEGIN: Login Form -->
-            <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
-                <div
-                    class="my-auto mx-auto xl:ml-20 bg-white dark:bg-dark-1 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
-                    <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
-                        Login
-                    </h2>
-                    <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">controle e relatórios.</div>
-                               <form method="POST" action="{{route('login')}}">
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('https://blog.safesst.com.br/wp-content/uploads/2017/09/125620-entregar-revisao-quinta-219-16h-entenda-agora-a-importancia-da-ergonomia-no-ambiente-de-trabalho.jpg');">
+			<div class="wrap-login100">
+               <form method="POST" action="{{route('login')}}" class="login100-form validate-form">
                         @csrf
+				
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">Email</label>
+					<span class="login100-form-title p-b-34 p-t-27">
+						Login SGE					</span>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Email">
+						<input class="input100" type="text" id="email" type="email" name="email" placeholder="Email">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+					<div class="wrap-input100 validate-input" data-validate="Enter Senha">
+						<input class="input100" type="password" name="password" placeholder="Senha">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">Senha</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                        <button class="login100-form-btn" style="margin-left: 5px">
+							Cadastre-se
+						</button>
+					</div>
 
-                       
+					<div class="text-center p-t-90">
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
-                             <a class="btn btn-link" href="/inscricao">
-                                       Inscreva-se
-                                    </a>
-                           
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- END: Login Form -->
-        </div>
-    </div>
-    <!-- BEGIN: JS Assets-->
-    <script src="{{ url('dist/js/app.js') }}"></script>
-    <!-- END: JS Assets-->
 </body>
-
 </html>
-@endsection

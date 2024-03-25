@@ -392,7 +392,7 @@ Route::post('/update/lista-recomendacoes', [ListasRecomendacoesController::class
 Route::get('/cabecalho', [CabecalhoController::class, 'show'])->name('show-cabecalho');
 Route::get('/form/cabecalho/{idempresa}', [CabecalhoController::class, 'formCabecalho'])->name('form-cabecalho');
 Route::get('/info/cabecalho/{id}', [CabecalhoController::class, 'infoCabecalho'])->name('info-cabecalho'); 
-Route::get('/delete/cabecalho/{id}', [CabecalhoController::class, 'delete'])->name('delete-cabecalho');
+Route::get('/delete/cabecalho/{id}/{empresa}', [CabecalhoController::class, 'delete'])->name('delete-cabecalho');
 Route::post('/cadastrar/cabecalho', [CabecalhoController::class, 'cadCabecalho'])->name('cad-cabecalho');
 Route::post('/update/cabecalho', [CabecalhoController::class, 'updCabecalho'])->name('upd-cabecalho');
 
@@ -400,7 +400,7 @@ Route::post('/update/cabecalho', [CabecalhoController::class, 'updCabecalho'])->
 Route::get('/rodape', [RodapeController::class, 'show'])->name('show-rodape');
 Route::get('/form/rodape/{idempresa}', [RodapeController::class, 'formRodape'])->name('form-rodape');
 Route::get('/info/rodape/{id}', [RodapeController::class, 'infoRodape'])->name('info-rodape'); 
-Route::get('/delete/rodape/{id}', [RodapeController::class, 'delete'])->name('delete-rodape');
+Route::get('/delete/rodape/{id}/{empresa}', [RodapeController::class, 'delete'])->name('delete-rodape');
 Route::post('/cadastrar/rodape', [RodapeController::class, 'cadRodape'])->name('cad-rodape');
 Route::post('/update/rodape', [RodapeController::class, 'updRodape'])->name('upd-rodape');
 

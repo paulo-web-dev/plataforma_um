@@ -14,6 +14,7 @@ class ListasRecomendacoesController extends Controller
 
     public function show(){
         $recomendacoes = ListaRecomendacoes::all();
+        
         return view('show-lista-recomendacoes', [
             'recomendacoes' => $recomendacoes,
         ]);

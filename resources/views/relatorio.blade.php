@@ -308,20 +308,30 @@ li{
     display: none;
 }
 
-    .page2 {
+.page2 {
     border: 3px solid {{$identidade->cor_principal}};
     width: 800px ;
-    height:1150px;
+    height: 1150px;
     border-radius: 10px;
-        position: relative;
-      
-        background-image: url('http://127.0.0.1:8000/marcadagua/{{$identidade->marca_dagua}}');
-        background-repeat: no-repeat;
-        background-size:50%;
-        background-position: center;
-       background-color: rgba(255, 255, 255, 0.1);
-       
-    }
+    position: relative;
+    overflow: hidden; /* Para esconder qualquer conteúdo que ultrapasse a div */
+}
+
+.page2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('http://127.0.0.1:8000/marcadagua/{{$identidade->marca_dagua}}');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    opacity: 0.2; /* Opacidade de 50% */
+}
+
+ 
 
   .footercapa {
             position: absolute;

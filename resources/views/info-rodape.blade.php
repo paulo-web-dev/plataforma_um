@@ -7,6 +7,7 @@
             <h2 class="font-medium text-base mr-auto">
                 Atualizar foto de Rodapé
             </h2>
+             <a href="{{ route('delete-rodape',  ['id' => $rodape->id, 'empresa' => $rodape->id_empresa]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="trash" class="w-4 h-4 mr-2"></i>Excluir Rodape</a>
               <a href="{{ route('infoempresa',  ['id' => $rodape->id_empresa]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
         </div>
 
