@@ -96,73 +96,42 @@
 @endif
       </center>
     </section><!-- End Pricing Section -->
-       
 <div class="modal fade" id="modalpgto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Finalização de compra</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <!-- Nome -->
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" class="form-control"  >
-        
-        <!-- CPF -->
-        <label for="cpf">CPF</label>
-        <input type="number" id="cpf" class="form-control" >
-{{--         
-        <!-- Credit Card Holder Info -->
-        <label for="holderName">Holder Name</label>
-        <input type="text" id="holderName" class="form-control" value="Paulo Sérgio Cardeliquio Orfanelli" >
-        
-        <label for="number">Card Number</label>
-        <input type="text" id="number" class="form-control" value="5226260068461430" >
-        
-        <label for="expiryMonth">Expiry Month</label>
-        <input type="text" id="expiryMonth" class="form-control" value="12" >
-        
-        <label for="expiryYear">Expiry Year</label>
-        <input type="text" id="expiryYear" class="form-control" value="2031" >
-        
-        <label for="ccv">CCV</label>
-        <input type="text" id="ccv" class="form-control" value="550" >
-        
-        <!-- Credit Card Holder Info -->
-        <label for="name">Name</label>
-        <input type="text" id="name" class="form-control" value="Paulo Sérgio Cardeliquio Orfanelli" >
-        
-        <label for="cpfCnpj">CPF/CNPJ</label>
-        <input type="text" id="cpfCnpj" class="form-control" value="41743114800" >
-        
-        <label for="email">Email</label>
-        <input type="text" id="email" class="form-control" value="paulosergioorfanelli@gmail.com" >
-        
-        <label for="postalCode">Postal Code</label>
-        <input type="text" id="postalCode" class="form-control" value="13224230" >
-        
-        <label for="addressNumber">Address Number</label>
-        <input type="text" id="addressNumber" class="form-control" value="Rua Mercúrio, 452" >
-        
-        <label for="phone">Phone</label>
-        <input type="text" id="phone" class="form-control" value="11941766319" >
-        
-        <!-- Customer -->
-        <label for="customer">Customer</label>
-        <input type="text" id="customer" class="form-control" value="cus_000005938273" >
-        
-        <!-- Value -->
-        <label for="value">Value</label>
-        <input type="text" id="value" class="form-control" value="5" >
-        
-        <!-- Due Date -->
-        <label for="dueDate">Due Date</label>
-        <input type="text" id="dueDate" class="form-control" value="2024-05-05" >
-        
-        <!-- Remote IP -->
-        <label for="remoteIp">Remote IP</label>
-        <input type="text" id="remoteIp" class="form-control" value="179.48.51.27" > --}}
+        <div class="row">
+          <!-- Informações do comprador -->
+          <div class="col-md-6">
+            <h6 class="mb-3">Dados do Comprador</h6>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" class="form-control">
+            
+            <label for="cpf">CPF</label>
+            <input type="number" id="cpf" class="form-control">
+            
+            <!-- Mais campos do comprador aqui -->
+          </div>
+          
+          <!-- Informações do cartão -->
+          <div class="col-md-6">
+            <h6 class="mb-3">Dados do Cartão</h6>
+          <label for="numero_cartao">Número do Cartão</label>
+            <input type="text" id="numero_cartao" class="form-control">
+            
+            <label for="validade">Validade</label>
+            <input type="text" id="validade" class="form-control">
+            
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" class="form-control">
+            
+            <!-- Campos genéricos do cartão -->
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="confirmModal()">Confirmar</button>
@@ -170,25 +139,32 @@
       </div>
     </div>
   </div>
-</div>         
+</div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      
 
 <script>
-const options = {
-  method: 'POST',
-  headers: {
-    accept: 'application/json',
-    'content-type': 'application/json',
-    access_token: '$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwNzY5OTg6OiRhYWNoXzY2YTg2MWY5LWUyMDUtNGJlMS05MmMxLTA3NTBmYTIxY2I0Yg=='
-  },
-  body: JSON.stringify({name: 'paulo', cpfCnpj: '24971563792'})
-};
+ function confirmModal(){
 
-fetch('https://sandbox.asaas.com/api/v3/customers', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+    var nome = $("#nome").val();
+    var cpf = $("#cpf").val();
+
+    $.ajax({
+        url: "/api/asaas/cartao",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ nome: nome, cpf: cpf }),
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+
+ }
 </script>
+
+
   </main><!-- End #main -->
 @include('layouts.footer-institucional')

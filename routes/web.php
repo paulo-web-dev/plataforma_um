@@ -412,7 +412,8 @@ Route::get('/laravel-version', function() {
     return "Your Laravel version is ".$laravel::VERSION;
 });
 
-
+//Rotas referente a integração de pagamento ASAAS
+Route::post('/api/asaas/cartao', [InstitucionalController::class, 'apiAsaas'])->name('apiAsaas');
 
 //ROTAS REFERENTES AO SITE INSTITUICIONAL
 Route::get('/index', [InstitucionalController::class, 'index'])->name('index');
