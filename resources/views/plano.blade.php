@@ -96,9 +96,11 @@
 @endif
       </center>
     </section><!-- End Pricing Section -->
+
+{{-- Modal Checkout --}}
 <div class="modal fade" id="modalpgto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
+    <div class="modal-content" style="background-color: #36517e; color: #fff;">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Finalização de compra</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -108,27 +110,60 @@
           <!-- Informações do comprador -->
           <div class="col-md-6">
             <h6 class="mb-3">Dados do Comprador</h6>
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" class="form-control">
+            <label for="nome" style="color: #fff;">Nome</label>
+            <input type="text" id="nome" class="form-control" style="background-color: #fff; color: #000;">
             
-            <label for="cpf">CPF</label>
-            <input type="number" id="cpf" class="form-control">
+            <label for="cpfcpnjp" style="color: #fff;">CPF/CNPJ</label>
+            <input type="number" id="cpfcpnjp" class="form-control" style="background-color: #fff; color: #000;">
+
+            <label for="celular" style="color: #fff;">Celular</label>
+            <input type="number" id="celular" class="form-control" style="background-color: #fff; color: #000;">
             
+            <label for="email_titular" style="color: #fff;">Email</label>
+            <input type="email" id="email_titular" class="form-control" style="background-color: #fff; color: #000;">
+            
+            <label for="CEP" style="color: #fff;">CEP</label>
+            <input type="number" id="CEP" class="form-control" style="background-color: #fff; color: #000;">
+            
+            <label for="num_endereco" style="color: #fff;">Número do Endereço</label>
+            <input type="number" id="num_endereco" class="form-control" style="background-color: #fff; color: #000;">
             <!-- Mais campos do comprador aqui -->
           </div>
           
           <!-- Informações do cartão -->
           <div class="col-md-6">
             <h6 class="mb-3">Dados do Cartão</h6>
-          <label for="numero_cartao">Número do Cartão</label>
-            <input type="text" id="numero_cartao" class="form-control">
+
+            <label for="nome_titular" style="color: #fff;">Nome do Titular do Cartão</label>
+            <input type="text" id="nome_titular" class="form-control" style="background-color: #fff; color: #000;">
             
-            <label for="validade">Validade</label>
-            <input type="text" id="validade" class="form-control">
+            <label for="cpfcnpj_titular" style="color: #fff;">CPF/CNPJ do Titular do Cartão</label>
+            <input type="number" id="cpfcnpj_titular" class="form-control" style="background-color: #fff; color: #000;">
+
+            <label for="numero_cartao" style="color: #fff;">Número do Cartão</label>
+            <input type="text" id="numero_cartao" class="form-control" style="background-color: #fff; color: #000;">
             
-            <label for="cvv">CVV</label>
-            <input type="text" id="cvv" class="form-control">
+            <label for="validade_mes" style="color: #fff;">Mês de Validade</label>
+            <select id="validade_mes" class="form-select" style="background-color: #fff; color: #000;">
+                @for ($mes = 1; $mes <= 12; $mes++)
+                    <option value="{{ str_pad($mes, 2, '0', STR_PAD_LEFT) }}">{{ str_pad($mes, 2, '0', STR_PAD_LEFT) }}</option>
+                @endfor
+            </select>
             
+            <label for="validade_ano" style="color: #fff;">Ano de Validade</label>
+            <select id="validade_ano" class="form-select" style="background-color: #fff; color: #000;">
+                @php
+                    $anoAtual = date("Y");
+                @endphp
+                @for ($ano = $anoAtual; $ano <= $anoAtual + 11; $ano++)
+                    <option value="{{ $ano }}">{{ $ano }}</option>
+                @endfor
+            </select>
+
+            <label for="cvv" style="color: #fff;">CVV</label>
+            <input type="password" id="cvv" class="form-control" style="background-color: #fff; color: #000;">
+            <input type="hidden" id="plano" value="{{$plano}}" class="form-control">
+            <input type="hidden" id="valor" value="{{$valor}}" class="form-control">
             <!-- Campos genéricos do cartão -->
           </div>
         </div>
@@ -141,24 +176,102 @@
   </div>
 </div>
 
-      
-
+  {{-- Modal Loading --}}
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="https://i.gifer.com/ZKZg.gif" alt="Carregando...">
+      </div>
+    </div>
+  </div>
+</div>
+  {{-- Modal erro --}}
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Erro Na Finalização Confira Seus Dados</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="https://media0.giphy.com/media/8L0Pky6C83SzkzU55a/200w.gif?cid=6c09b952orr5our88zymwdgx7lpi6l92pkljjlhmvx0u1fek&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Carregando...">
+      </div>
+    </div>
+  </div>
+</div>
+{{-- Modal Sucesso --}}
+<div class="modal fade" id="sucssesModal" tabindex="-1" role="dialog" aria-labelledby="sucssesModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+        <h5 class="modal-title" id="sucssesModalLabel">Assinatura Realizada com sucesso, iremos te redirecionar a</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="https://i.pinimg.com/originals/90/13/f7/9013f7b5eb6db0f41f4fd51d989491e7.gif" alt="Carregando..." style="width: 80%">
+      </div>
+    </div>
+  </div>
+</div>
 <script>
  function confirmModal(){
 
-    var nome = $("#nome").val();
-    var cpf = $("#cpf").val();
 
+      $('#loadingModal').modal('show');
+  // Aqui você colocaria a lógica para confirmar algo ou realizar alguma ação
+  // Por exemplo, enviar uma requisição AJAX
+
+  // Depois que a ação for concluída, você pode ocultar o modal
+ 
+
+
+    var nome = $("#nome").val();
+    var cpfcpnjp = $("#cpfcpnjp").val();
+    var celular = $("#celular").val();
+    var email_titular = $("#email_titular").val();
+    var cep = $("#CEP").val();
+    var num_endereco = $("#num_endereco").val();
+    var nome_titular = $("#nome_titular").val();
+    var cpfcnpj_titular = $("#cpfcnpj_titular").val();
+    var numero_cartao = $("#numero_cartao").val();
+    var validade_mes = $("#validade_mes").val();
+    var validade_ano = $("#validade_ano").val();
+    var cvv = $("#cvv").val();
+    var plano = $("#plano").val();
+    var valor = $("#valor").val();
     $.ajax({
         url: "/api/asaas/cartao",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify({ nome: nome, cpf: cpf }),
+           data: JSON.stringify({ 
+        nome: nome,
+        cpfcpnjp: cpfcpnjp,
+        celular: celular,
+        email_titular: email_titular,
+        cep: cep,
+        num_endereco: num_endereco,
+        nome_titular: nome_titular,
+        cpfcnpj_titular: cpfcnpj_titular,
+        numero_cartao: numero_cartao,
+        validade_mes: validade_mes,
+        validade_ano: validade_ano,
+        cvv: cvv,
+        plano: plano,
+        valor: valor,
+    }),
         success: function(response) {
-            console.log(response);
+            console.log(response); 
+            $('#loadingModal').modal('hide');
+            $('#sucssesModal').modal('show');
+              setTimeout(function() {
+              window.location.href = '/login';
+          }, 3000);
         },
         error: function(xhr, status, error) {
-            console.error(error);
+            console.error(xhr);
+             $('#loadingModal').modal('hide');
+             $('#errorModal').modal('show');
         }
     });
 
