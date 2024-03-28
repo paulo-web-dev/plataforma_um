@@ -2449,7 +2449,7 @@ chart.column(chartData);
             <h3>Responsabilidade pela elaboração</h3>
             <div class="responsaveis">
                @foreach ($empresa->responsaveis as $responsavel)
-                    @if (isset($responsavel->foto))
+                    @if (isset($responsavel->foto) && $responsavel->nome != 'Camila Rodrigues Sarafian')
                       
                            <img src="/fotos-assinaturas/{{$responsavel->foto}}" style="width: 200px; height: 80px">
                        

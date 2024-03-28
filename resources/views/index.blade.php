@@ -492,8 +492,8 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
-              <h3>Fundamentos Fisio</h3>
-              <h4><sup>$</sup>29<span>/Mês</span></h4>
+              <h3>Basic</h3>
+              <h4><sup>$</sup>299<span>/Mês</span></h4>
               <ul>
                 <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
@@ -507,8 +507,8 @@
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
-              <h3>Performance Fisio Pro</h3>
-              <h4><sup>$</sup>49<span>/Mês</span></h4>
+              <h3>Plus</h3>
+              <h4><sup>$</sup>499<span>/Mês</span></h4>
               <ul>
              <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
@@ -516,14 +516,14 @@
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
                 <li><i class="bx bx-check"></i>Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
               </ul>
-              <a href="{{route('plano', ['plano' => 'Performance Fisio Pro'])}}" class="buy-btn">Comece Já</a>
+              <a href="{{route('plano', ['plano' => 'Plus'])}}" class="buy-btn">Comece Já</a>
             </div>
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="box">
-              <h3>Fisio Total Care</h3>
-              <h4><sup>$</sup>79<span>/Mês</span></h4>
+              <h3>Premium</h3>
+              <h4><sup>$</sup>999<span>/Mês</span></h4>
               <ul>
               <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
@@ -531,7 +531,7 @@
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
                 <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
               </ul>
-              <a href="{{route('plano', ['plano' => 'Fisio Total Care'])}}" class="buy-btn">Comece Já</a>
+              <a href="{{route('plano', ['plano' => 'Premium'])}}" class="buy-btn">Comece Já</a>
             </div>
           </div>
 

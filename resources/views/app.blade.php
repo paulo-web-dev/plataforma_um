@@ -58,11 +58,9 @@
 							Login
 						</button>
 
-                        <button class="login100-form-btn" style="margin-left: 5px">
-							Cadastre-se
-						</button>
-					</div>
-
+                       
+					</div><br>
+						<center><p>*Por padrão sua senha é seu cpf</p><center>
 					<div class="text-center p-t-90">
 						
 					</div>

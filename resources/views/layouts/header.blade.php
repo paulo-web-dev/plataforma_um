@@ -94,15 +94,17 @@
                     <div class="menu__icon"> <i data-feather="user"></i> </div>
                     <div class="menu__title">Textos Padrão </div>
                 </a>  
+
+                
         </ul>
     </div>
     <!-- BEGIN: Top Bar -->
     <div class="border-b border-theme-29 -mt-10 md:-mt-5 -mx-3 sm:-mx-8 px-3 sm:px-8 pt-3 md:pt-0 mb-10">
         <div class="top-bar-boxed flex items-center">
             <!-- BEGIN: Logo -->
-            <a href="#" class="-intro-x hidden md:flex">
-                <span class="text-white text-lg font-light ml-3"> Painel <span class="font-bold">SGE</span> - Sistema de Gestão Ergonômica
-                </span>
+            <a href="{{route('home')}}" class="-intro-x hidden md:flex">
+                <span class="text-white text-lg font-light ml-3"> Painel <span class="font-bold">SGE</span> - Sistema de Gestão Ergonômica 
+                </span> 
             </a>
             <!-- END: Logo -->
             <!-- BEGIN: Breadcrumb -->
@@ -122,14 +124,21 @@
             <!-- END: Account Menu -->
         </div>
     </div>
+      <script>
+    window.addEventListener('offline', function() {
+      alert('Você está offline. Verifique sua conexão com a internet.');
+    });
+  </script>
     <!-- END: Top Bar -->
     <!-- END: Mobile Menu -->
     <div class="flex">
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
            
-         
+
+      
   <li>
+    @if(Config::get('app.explode_path.2')  == 'empresa') 
                         <a href="javascript:;" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
                             <div class="side-menu__title">
@@ -230,8 +239,10 @@
                     </li>
                 </ul>
                              
-                             
+                @endif             
   <li>
+                @if (Config::get('app.explode_path.2') == 'subsetor')
+
                         <a href="javascript:;" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
                             <div class="side-menu__title">
@@ -326,6 +337,7 @@
                         </ul>
                     </li>
                 </ul>
+                 @endif
                 <a href="{{route('show-empresas')}}" 
                         class="side-menu side-menu-active">
                         <div class="side-menu__icon"> <span class="iconify"
@@ -367,6 +379,15 @@
                         <div class="side-menu__title">Listas</div>
                     </a>
 
+                    
+                     <a href="/info/usuario/{{Auth::user()->id}}" 
+                        class="side-menu side-menu-active">
+                        <div class="side-menu__icon"> <span class="iconify"
+                                data-icon="ep:user" style="font-size:30px"></span>
+                        </div>
+                        <div class="side-menu__title">Alterar Senha </div> 
+                    </a>
+        
 
                     <a href="{{route('logout')}}" 
                         class="side-menu side-menu-active">

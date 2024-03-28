@@ -1,4 +1,4 @@
-@extends('layouts.header2')
+@extends('layouts.header')
 
 @section('content')
 
@@ -37,7 +37,8 @@
                         
                         <div class="mt-6 lg:mt-0 flex-1 px-5 border-t lg:border-0 border-slate-200/60 dark:border-darkmode-400 pt-5 lg:pt-0">
                             <div class="font-medium text-center lg:text-left lg:mt-5">Informações</div>
-                            <div class="truncate sm:whitespace-normal flex items-center">Instituição: {{$user->instituicao->nome}}</div>
+                            <div class="truncate sm:whitespace-normal flex items-center">Instituição: {{$user->instituicao->nome}}</div> 
+                            <div class="truncate sm:whitespace-normal flex items-center">Sua Assinatura Vence em: {{$user->instituicao->final_assinatura}}</div>
                             <div class="truncate sm:whitespace-normal flex items-center">Número de Colaboradores: {{$user->instituicao->num_usuarios}}</div>
                         </div>
 

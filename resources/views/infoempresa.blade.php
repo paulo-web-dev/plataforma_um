@@ -1,5 +1,6 @@
 @extends('layouts.header')
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 
 
 @section('content')
@@ -1039,7 +1040,7 @@
             <div class="grid grid-cols-12 gap-x-5">
                 <div class="col-span-12 xl:col-span-12">
                     <div class="overflow-x-auto">
-                        <table class="table">
+                        <table class="table" id="mapeamento_table">
                             <thead>
                                 <tr>
                                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap" >Editar</th>
@@ -1151,6 +1152,7 @@
             <div class="flex justify-end mt-4">
                 <a href="{{route('form-mapeamento', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Mapeamento Via Planilha</a>
             </div>    
+           
 
              <div class="flex justify-end mt-4">
                 <a href="{{route('form-mapeamento-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Mapeamento Campo a Campo</a>
@@ -1233,9 +1235,58 @@
             <div class="flex justify-end mt-4">
                 <a href="{{route('form-plano-de-acao', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Plano de Ação via Planilha</a>
             </div>    
+             <button class="btn btn-primary mr-auto mb-2" onclick="exportToExcel()">Exportar para Excel</button>
             <div class="flex justify-end mt-4">
+            
                 <a href="{{route('form-plano-de-acao-campos', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar Plano de Ação campo a campo</a>
             </div>  
+
+
+    <div class="intro-y box mt-5" style="display: none">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Cadastro de Plano de Ação" id="">Plano de Ação <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table" id="plano_de_acao_exportacao">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Exigência da Atividade</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Melhoria</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Viabilidade</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Prazo</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Data</th>
+                            </thead>
+                            <tbody>
+                             
+                                @foreach ($empresa->planodeacao as $plano) 
+                                    <tr class="hover:bg-gray-200">
+                                        
+                                        <td class="border">{{$plano->area}}</td>
+                                        <td class="border">{{$plano->setor}}</td>
+                                        <td class="border">{{$plano->posto_trabalho}}</td>
+                                        <td class="border">{{$plano->funcao}}</td>
+                                        <td class="border" id="">{{$plano->exigencia}}"</td>
+                                        <td class="border" id="">{{$plano->recomendacao}}"</td>
+                                        <td class="border" id="">{{$plano->viabilidade}}"</td>
+                                        <td class="border" id="">{{$plano->prazo}}"</td>
+                                        <td class="border"></td>
+                                    </tr>
+                                    
+                                @endforeach 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
 {{--             
             <div class="flex justify-end mt-4">
@@ -1403,6 +1454,17 @@
 
     <!-- Adicionando Javascript -->
     <script>
+
+    function exportToExcel() {
+    const table = document.querySelector('#plano_de_acao_exportacao');
+    console.log(table); // Verifique se a tabela está sendo selecionada corretamente
+
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.table_to_sheet(table);
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Planilha1');
+    XLSX.writeFile(wb, 'planodeacao.xlsx');
+}
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('rua').value = ("");
@@ -1496,6 +1558,9 @@ $secao = session('secao');
             caracteristicasSection.scrollIntoView({ behavior: 'smooth' });
         } 
     });
+
+
+  
 </script>
 @endif
 
