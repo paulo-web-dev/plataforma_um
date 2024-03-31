@@ -46,7 +46,7 @@
 <center>
        
 @if($plano == 'Basic')
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100" id="plano">
             <div class="box">
               <h3>Basic</h3>
               <h4><sup>$</sup>399<span>/Mês</span></h4>
@@ -63,7 +63,7 @@
 
 
 @elseif($plano == 'Plus')
-  <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+  <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200" id="plano">
             <div class="box featured">
               <h3>Performance Fisio Pro</h3>
               <h4><sup>$</sup>499<span>/Mês</span></h4>
@@ -78,7 +78,7 @@
             </div>
           </div>
 @elseif($plano == 'Premium')
- <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+ <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300" id="plano">
             <div class="box">
               <h3>Fisio Total Care</h3>
               <h4><sup>$</sup>999<span>/Mês</span></h4>

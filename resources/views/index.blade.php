@@ -35,7 +35,7 @@
           <h1>PLataforma Geradora de AET e Análise Ergonômica</h1>
           <h2>Uma plataforma completa para fisioterapeutas e empresas do ramo de ergonômia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="{{route('plano', ['plano' => 'Performance Fisio Pro'])}}" class="btn-get-started scrollto">Comece Já</a>
+            <a href="{{route('plano', ['plano' => 'Basic'])}}" class="btn-get-started scrollto">Comece Já</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Introdução</span></a>
           </div>
         </div>
@@ -501,7 +501,7 @@
                 <li class="na"><i class="bx bx-x"></i> <span>Ferramentas Personalizadas</span></li>
                 <li class="na"><i class="bx bx-x"></i> <span>Armazenamento Ilimitado de Arquivos e AETS no sistema</span></li>
               </ul>
-              <a href="{{route('plano', ['plano' => 'Fundamentos Fisio'])}}" class="buy-btn">Comece Já</a>
+              <a href="{{route('plano', ['plano' => 'Basic'])}}" class="buy-btn">Comece Já</a>
             </div>
           </div>
 
