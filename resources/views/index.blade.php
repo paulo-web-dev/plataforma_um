@@ -35,8 +35,8 @@
           <h1>PLataforma Geradora de AET e Análise Ergonômica</h1>
           <h2>Uma plataforma completa para fisioterapeutas e empresas do ramo de ergonômia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="{{route('plano', ['plano' => 'Basic'])}}" class="btn-get-started scrollto">Comece Já</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Introdução</span></a>
+            <a  href="#pricing" class="btn-get-started scrollto">Comece Já</a>
+            {{-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Introdução</span></a> --}}
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -102,7 +102,7 @@
             <p>
               Com a Plataforma Um, você cadastra os dados da empresa, e pode fazer o cadastro simultano na própria empresa, e ir gerando o arquivo da AET parcial e total com todos os dados.
             </p>
-            <a href="#" class="btn-learn-more">Começa Já</a>
+            <a href="#" class="btn-learn-more">Começe Já</a>
           </div>
         </div>
 
