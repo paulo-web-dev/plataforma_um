@@ -2462,8 +2462,9 @@ chart.column(chartData);
                <p>{{$responsavel->cargo}}</p>
                <p>{{$responsavel->identidade_trabalho}}</p>
                <br><br><br>
+               @endif
                @endforeach
-               @endforeach
+               
             </div>
          </center>
       </div>
