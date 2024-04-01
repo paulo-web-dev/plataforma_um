@@ -66,10 +66,24 @@ class InstitucionalController extends Controller
         //   ],
         // ]);
         
+        function encontradado($user, $cpfcnpj, $email){
+        
+            if ($user->cpfcnpj == $cpfcnpj && $user->email == $email) {
+                return "CPF/CNPJ e Email, Já cadastrado, faça o login ou entre em contato para a liberação";
+            }elseif($user->cpfcnpj == $cpfcnpj) {
+               return "CPF/CNPJ Já cadastrado, faça o login ou entre em contato para a liberação";
+            }else{
+                return "Email Já cadastrado, faça o login ou entre em contato para a liberação";
+            }
+        }
  
         
         $semana = date("Y-m-d", strtotime($hoje . " +1 week"));
         $mes = date("Y-m-d", strtotime($hoje . " +1 month"));
+        $user = User::where('cpfcnpj', $request->cpfcpnjp)->orWhere('email', $request->email_titular)->first();
+        if(isset($user)){
+            return encontradado($user, $request->cpfcpnjp, $request->email_titular);
+        }
         $instituicao = new Instituicao();
         $instituicao->nome = $request->nome;
         $instituicao->num_usuarios = 5;

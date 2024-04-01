@@ -4,6 +4,9 @@
 	<title>Login SGE</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdOD6spAAAAAPm0BlfIY_umojjIrLebKZzXpfOf"></script>
+ 
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
@@ -54,6 +57,8 @@
 
 
 					<div class="container-login100-form-btn">
+					<div class="g-recaptcha" data-sitekey="6LdOD6spAAAAAPm0BlfIY_umojjIrLebKZzXpfOf"></div>
+
 						<button class="login100-form-btn">
 							Login
 						</button>
@@ -68,7 +73,14 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LdOD6spAAAAAPm0BlfIY_umojjIrLebKZzXpfOf', {action: 'LOGIN'});
+    });
+  }
+</script>
 
 	<div id="dropDownSelect1"></div>
 	

@@ -213,10 +213,16 @@
         success: function(response) {
            
             $('#loadingModal').modal('hide');
+            var mensagem = response; 
+            if(mensagem == 'CPF/CNPJ e Email, Já cadastrado, faça o login ou entre em contato para a liberação' || mensagem == 'CPF/CNPJ Já cadastrado, faça o login ou entre em contato para a liberação' || mensagem == 'Email Já cadastrado, faça o login ou entre em contato para a liberação'){
+            $('#errorModal').find('.modal-title').text(mensagem);
+            $('#errorModal').modal('show');
+            }else{
             $('#sucssesModal').modal('show');
-             setTimeout(function() {
+            setTimeout(function() {
               window.location.href = linkpgto;
-          }, 3000); 
+          }, 1500);
+            }
         },
         error: function(xhr, status, error) {
             console.error(xhr.responseJSON.message);
