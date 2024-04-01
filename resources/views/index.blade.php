@@ -493,12 +493,13 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <h3>Basic</h3>
-              <h4><sup>$</sup>299<span>/Mês</span></h4>
+              <h4><sup>R$</sup>399<span>/Mês</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
+                <li><i class="bx bx-check"></i>Limitado a 1 AET</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
-                <li><i class="bx bx-check"></i> 1 Usuário</li>
+                <li><i class="bx bx-check"></i>1 Usuário</li>
                 <li class="na"><i class="bx bx-x"></i> <span>Ferramentas Personalizadas</span></li>
+                 <li class="na"><i class="bx bx-x"></i> <span>Versão Mobile</span></li>
                 <li class="na"><i class="bx bx-x"></i> <span>Armazenamento Ilimitado de Arquivos e AETS no sistema</span></li>
               </ul>
               <a href="{{route('plano', ['plano' => 'Basic'])}}" class="buy-btn">Comece Já</a>
@@ -508,9 +509,9 @@
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
               <h3>Plus</h3>
-              <h4><sup>$</sup>499<span>/Mês</span></h4>
+              <h4><sup>$</sup>899<span>/Mês</span></h4>
               <ul>
-             <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
+             <li><i class="bx bx-check"></i>Até 3 AETS</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
                 <li><i class="bx bx-check"></i> 5 Usuários</li>
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
@@ -525,11 +526,11 @@
               <h3>Premium</h3>
               <h4><sup>$</sup>999<span>/Mês</span></h4>
               <ul>
-              <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
+              <li><i class="bx bx-check"></i>Até 5 AETS Ilimitadas</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
                 <li><i class="bx bx-check"></i>Usuários Ilimitados</li>
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
-                <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
+                <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos no sistema</li>
               </ul>
               <a href="{{route('plano', ['plano' => 'Premium'])}}" class="buy-btn">Comece Já</a>
             </div>
