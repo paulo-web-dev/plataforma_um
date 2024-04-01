@@ -2468,7 +2468,7 @@ chart.column(chartData);
             </div>
          </center>
       </div>
-            @if(isset($empresa->rodape))
+            @if(isset($empresa->rodape)) 
  <div class="rodape">
       <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
    </div>

@@ -65,14 +65,19 @@ class IdentidadeVisualController extends Controller
             $image = $request->file('marca');
             $destinationPath = public_path('marcadagua/');
             $image->move($destinationPath, $photoname);
+           }else{
+            $identidade->marca_dagua = $request->marcaft;
            }
 
            if(isset($request->capa)){
             $photoname = $request->capa->getClientOriginalName();
             $identidade->foto_capa = $photoname;
+            $identidade->tipo = 3;
             $image = $request->file('capa');
             $destinationPath = public_path('capa/');
             $image->move($destinationPath, $photoname);
+           }else{
+            $identidade->foto_capa = $request->capaft;
            }
            $identidade->save();  
            return redirect()->route('info-identidade');

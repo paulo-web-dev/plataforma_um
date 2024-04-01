@@ -33,57 +33,85 @@
             <form action="{{route('cad-identidade-visual')}}" method="post" enctype="multipart/form-data" data-single="true"
                 method="post">
                 @csrf
-                <div id="informacoes-pessoais" role="tabpanel" aria-labelledby="informacoes-pessoais-tab"
+                  <div id="informacoes-pessoais" role="tabpanel" aria-labelledby="informacoes-pessoais-tab"
                     class="grid grid-cols-12 gap-6 tab-pane active">
-                    <!-- BEGIN: Products -->
-                    <div class="intro-y box col-span-12 xxl:col-span-12">
-                        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                            <h2 class="font-medium text-base mr-auto">
-                               Informações da Identidade Visual
-                            </h2><br>
-                             <a href="{{ route('home') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
-                        </div>
-
-                              
-                                
-                        
-                    </div> 
                     <div class="intro-y box col-span-12 xxl:col-span-12 p-5">
                         <div class="grid grid-cols-12 gap-x-5">
                             <div class="col-span-12 xl:col-span-6">
+                              <h3>Identidade visual do relatório da empresa</h3>
                                 <div class="mt-3">
                                     <label for="cor_principal" class="form-label"><strong>Cor Principal</strong></label>
                                     <input id="cor_principal" type="color" name="cor_principal" class="form-control"
-                                       value="{{$identidade->cor_principal}}" required>
+                                      value="{{$identidade->cor_principal}}"  required>
                                 </div>
                                 <div class="mt-3">
                                     <label for="cor_secundaria" class="form-label"><strong>Cor Secundaria</strong></label>
                                     <input id="cor_secundaria" type="color" name="cor_secundaria" class="form-control"
-                                       value="{{$identidade->cor_secundaria}}" required>
+                                     value="{{$identidade->cor_secundaria}}"   required>
                                 </div>
-                                  <div class="mt-3">
-                                <label for="empresa" class="form-label"><strong>Estado</strong></label>
-                                <input type="hidden" value="{{$identidade->foto_empresa}}" name="foto">
+                                   <div class="mt-3">
+                                <label for="empresa" class="form-label"><strong>Empresa</strong></label>
+                                
                                     <select class="form-control" name="empresa" id="empresa"
-                                         required>
-                                         <option >Escolha a Empresa</option>
-                                        @foreach ($empresas as $empresa)
-                                             <option value="{{$empresa->id}}">{{$empresa->nome}}</option>
+                                        onchange="buscarCidades()">
+                                      
+                                        @foreach ($empresas as $empresas)
+                                             <option value="{{$empresas->id}}">{{$empresas->nome}}</option>
                                         @endforeach
                                        
                                        
                                     </select>
                                     <br><br>
                                 </div>
-                               
-                            
-                            </div>
-                    <div class="col-span-12 xl:col-span-6">
-                        <label class="form-label"><strong>Imagem</strong></label>
+                                @if (isset($identidade->foto_empresa)) 
+                                 <label for="empresa" class="form-label"><strong>Foto de cabeçalho</strong></label>
+                                <img src="/fotos-identidade/{{$identidade->foto_empresa}}" style="max-width:200px">
+                                  <br>
+                                  
+                                     <div class="col-span-12 xl:col-span-6">
+                        <label class="form-label"><strong>Trocar Imagem</strong></label>
                         <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
-                          <img src="/fotos-identidade/{{$identidade->foto_empresa}}" style="max-width:200px">
+                            <div class="px-4 pt-24 pb-24 flex items-center justify-center cursor-pointer relative">
+                                <div id="areaArquivo">
+                                    <i data-feather="image" class="w-4 h-4 mr-2"></i>
+                                    <span class="mr-1 font-bold">Trocar Imagem</span>
+                                </div>
+                                <input type="file" id="file" name="file"
+                                    class="w-full h-full top-0 left-0 absolute opacity-0">
+                            </div>
                         </div>
                     </div>
+                                  @endif
+                                     @if (isset($identidade->foto_capa)) 
+                                 <label for="empresa" class="form-label"><strong>Foto de Capa</strong></label>
+                                <img src="/capa/{{$identidade->foto_capa}}" style="max-width:200px">
+                                <input type="hidden" value="{{$identidade->foto_capa}}" name="capaft">
+                                  <br>
+
+                                     <div class="col-span-12 xl:col-span-6">
+                        <label class="form-label"><strong>Trocar Foto de Capa</strong></label>
+                        <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
+                            <div class="px-4 pt-24 pb-24 flex items-center justify-center cursor-pointer relative">
+                                <div id="areaArquivo">
+                                    <i data-feather="image" class="w-4 h-4 mr-2"></i>
+                                    <span class="mr-1 font-bold">Trocar Foto de Capa</span>
+                                </div>
+                                <input type="file" id="capa" name="capa"
+                                    class="w-full h-full top-0 left-0 absolute opacity-0">
+                            </div>
+                        </div>
+                    </div>
+                                  @endif
+                                  @if (isset($identidade->marca_dagua)) 
+                                  <label for="empresa" class="form-label"><strong>Marca D'agua</strong></label>
+                                <img src="/marcadagua/{{$identidade->marca_dagua}}" style="max-width:200px">  
+                                <input type="hidden" value="{{$identidade->marca_dagua}}" name="marcaft">
+                                @endif
+                            </div>
+                            
+                        
+                           
+                 
                        <div class="col-span-12 xl:col-span-6">
                         <label class="form-label"><strong>Upload de Marca D'agua</strong></label>
                         <div class="border-2 border-dashed dark:border-dark-5 rounded-md pt-4">
@@ -93,13 +121,13 @@
                                     <span class="mr-1 font-bold">Adicionar Imagem</span>
                                 </div>
                                 <input type="file" id="file" name="marca"
-                                    class="w-full h-full top-0 left-0 absolute opacity-0">
+                                    class="w-full h-full top-0 left-0 absolute opacity-0" >
                             </div>
                         </div>
                     </div>
                         </div>
                     </div>
-                 
+                                 
                  
 
                         <div class="intro-y box col-span-12 xxl:col-span-12">
