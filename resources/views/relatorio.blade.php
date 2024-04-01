@@ -2462,7 +2462,7 @@ chart.column(chartData);
                <p>{{$responsavel->cargo}}</p>
                <p>{{$responsavel->identidade_trabalho}}</p>
                <br><br><br>
-               @endif
+               
                @endforeach
                
             </div>
@@ -2496,3 +2496,4 @@ chart.column(chartData);
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>  
+@endif
