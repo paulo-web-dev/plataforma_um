@@ -2449,20 +2449,14 @@ chart.column(chartData);
             <h3>Responsabilidade pela elaboração</h3>
             <div class="responsaveis">
                @foreach ($empresa->responsaveis as $responsavel)
-                    @if (isset($responsavel->foto) && $responsavel->nome != 'Camila Rodrigues Sarafian')
-                      
-                           <img src="/fotos-assinaturas/{{$responsavel->foto}}" style="width: 200px; height: 80px">
-                       
-               @else
-               <img src="https://unyflex.com.br/storage/alunos/assinatura.jpg" style="width: 200px; height: 80px"> 
-               @endif
+            
                <div class="linha-assinatura">
                </div>
                <p>{{$responsavel->nome}}</p>
                <p>{{$responsavel->cargo}}</p>
                <p>{{$responsavel->identidade_trabalho}}</p>
                <br><br><br>
-               
+             
                @endforeach
                
             </div>
@@ -2496,4 +2490,3 @@ chart.column(chartData);
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>  
-@endif
