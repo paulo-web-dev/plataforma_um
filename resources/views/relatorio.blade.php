@@ -2387,7 +2387,7 @@ chart.column(chartData);
          $planos = $planos->slice(5); // Remove os primeiros 8 elementos
          @endphp
       </div>
-            @if(isset($empresa->rodape))
+            @if(isset($empresa->rodape)) 
  <div class="rodape">
       <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
    </div>
