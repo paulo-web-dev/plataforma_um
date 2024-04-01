@@ -65,14 +65,14 @@
 @elseif($plano == 'Plus')
   <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200" id="plano">
             <div class="box featured">
-              <h3>Performance Fisio Pro</h3>
-              <h4><sup>$</sup>499<span>/Mês</span></h4>
+              <h3>Plus</h3>
+              <h4><sup>$</sup>899<span>/Mês</span></h4>
               <ul>
-             <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
+             <li><i class="bx bx-check"></i>Até 3 AETs</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
                 <li><i class="bx bx-check"></i> 5 Usuários</li>
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
-                <li><i class="bx bx-check"></i>Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
+                <li><i class="bx bx-check"></i>Armazenamento Ilimitado de Arquivos  no sistema</li>
               </ul>
                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalpgto" class="btn-get-started">Contratar</a>
             </div>
@@ -80,14 +80,14 @@
 @elseif($plano == 'Premium')
  <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300" id="plano">
             <div class="box">
-              <h3>Fisio Total Care</h3>
+              <h3>Premium</h3>
               <h4><sup>$</sup>999<span>/Mês</span></h4>
               <ul>
-              <li><i class="bx bx-check"></i>AETS Ilimitadas</li>
+              <li><i class="bx bx-check"></i>até 10 AETs </li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
                 <li><i class="bx bx-check"></i>Usuários Ilimitados</li>
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
-                <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
+                <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos e no sistema</li>
               </ul>
                
                   <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalpgto" class="btn-get-started">Contratar</a>
