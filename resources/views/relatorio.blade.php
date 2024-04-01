@@ -2463,6 +2463,7 @@ chart.column(chartData);
                <p>{{$responsavel->identidade_trabalho}}</p>
                <br><br><br>
                @endforeach
+               @endforeach
             </div>
          </center>
       </div>
