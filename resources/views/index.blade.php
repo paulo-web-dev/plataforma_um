@@ -46,7 +46,7 @@
     </div>
 
   </section><!-- End Hero -->
-
+{{-- 
   <main id="main">
 
     <!-- ======= Clients Section ======= -->
@@ -76,7 +76,7 @@
         </div>
 
       </div>
-    </section><!-- End Cliens Section -->
+    </section><!-- End Cliens Section --> --}}
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
