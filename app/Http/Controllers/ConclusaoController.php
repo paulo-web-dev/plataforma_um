@@ -43,7 +43,7 @@ class ConclusaoController extends Controller
            
             
             foreach ($conclusoes as $key => $conclu) {
-                $subsetor = SubSetores::where('id', $conclu->id_subsetor)->with('setor')->with('funcao')->first();
+            $subsetor = SubSetores::where('id', $conclu->id_subsetor)->with('setor')->with('funcao')->first();
             $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('sobrecarga', $conclu->membro)->first();
             if(isset($mapeamento)){
             $mapeamento->classificacao = $conclu->conclusao;
@@ -144,8 +144,11 @@ class ConclusaoController extends Controller
         $conclusao = Conclusoes::where('id', $request->id)->first();
         $conclusao->conclusao = $request->conclusao;
         $conclusao->atividade = $request->atividade;
+        $subsetor = SubSetores::where('id', $conclusao->id_subsetor)->with('setor')->with('funcao')->first();
+        $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('sobrecarga', $conclusao->membro)->first();
+        $mapeamento->classificacao = $conclusao->conclusao;
+        $mapeamento->save();
         $conclusao->save();
-        
         
         return redirect()->route('info-subsetor', ['id' => $conclusao->id_subsetor])->with('secao', 'moore'); 
     } 
