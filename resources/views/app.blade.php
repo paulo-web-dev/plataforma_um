@@ -4,9 +4,7 @@
 	<title>Login SGE</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdOD6spAAAAAPm0BlfIY_umojjIrLebKZzXpfOf"></script>
- 
+ <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
@@ -35,7 +33,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('https://blog.safesst.com.br/wp-content/uploads/2017/09/125620-entregar-revisao-quinta-219-16h-entenda-agora-a-importancia-da-ergonomia-no-ambiente-de-trabalho.jpg');">
 			<div class="wrap-login100">
-               <form method="POST" action="{{route('login')}}" class="login100-form validate-form">
+               <form id="form" method="POST" action="{{route('login')}}" class="login100-form validate-form">
                         @csrf
 				
 					<span class="login100-form-logo">
@@ -57,9 +55,10 @@
 
 
 					<div class="container-login100-form-btn">
-					<div class="g-recaptcha" data-sitekey="6LdOD6spAAAAAPm0BlfIY_umojjIrLebKZzXpfOf"></div>
-
-						<button class="login100-form-btn">
+				
+      <div class="g-recaptcha" data-sitekey="6LdlEaspAAAAAAVfRmpMCkcrD9z9xBQKE4WW5_XS" data-action="LOGIN"></div>
+     
+						<button class="login100-form-btn" onclick="validateForm(event)" style="margin-top: 10px">
 							Login
 						</button>
 
@@ -73,15 +72,23 @@
 			</div>
 		</div>
 	</div>
-	<script>
-  function onClick(e) {
-    e.preventDefault();
-    grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LdOD6spAAAAAPm0BlfIY_umojjIrLebKZzXpfOf', {action: 'LOGIN'});
-    });
-  }
-</script>
 
+ <script>
+        function onSubmit(token) {
+            document.getElementById("form").submit();
+        }
+
+        function validateForm(event) {
+            event.preventDefault(); // Evita o envio automático do formulário
+            var recaptcha = document.querySelector('.g-recaptcha-response');
+
+            if (recaptcha.value == '') {
+                alert('Por favor, marque o captcha antes de enviar o formulário.');
+            } else {
+                document.getElementById("form").submit();
+            }
+        }
+    </script>
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
