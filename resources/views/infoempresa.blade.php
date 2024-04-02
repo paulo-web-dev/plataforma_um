@@ -5,24 +5,25 @@
 
 @section('content')
    
- <div class="intro-y flex items-center mt-8">
+ <div class="intro-y flex items-center mt-8 ">
         <h2 class="text-lg font-medium mr-auto">
             Informações da Empresa
         </h2>
-        <a href="{{ route('show-empresas') }}" class="btn btn-primary shadow-md mr-2"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
-        <a href="{{ route('gera-relatorio', ['id' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Gerar Relatório</a>
+    <div class="flex-wrap">
+        <a href="{{ route('show-empresas') }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
+        <a href="{{ route('gera-relatorio', ['id' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Gerar Relatório</a>
         @if(isset($empresa->cabecalho))
-          <a href="{{ route('info-cabecalho', ['id' => $empresa->cabecalho->id]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Atualizar/Ver Cabeçalho</a>  
+          <a href="{{ route('info-cabecalho', ['id' => $empresa->cabecalho->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Atualizar/Ver Cabeçalho</a>  
         @else
-           <a href="{{ route('form-cabecalho', ['idempresa' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Cadastrar Cabeçalho</a>  
+           <a href="{{ route('form-cabecalho', ['idempresa' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Cadastrar Cabeçalho</a>  
         @endif
 
         @if(isset($empresa->rodape))
-          <a href="{{ route('info-rodape', ['id' => $empresa->rodape->id]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Atualizar/Ver Rodapé</a>  
+          <a href="{{ route('info-rodape', ['id' => $empresa->rodape->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Atualizar/Ver Rodapé</a>  
         @else
-           <a href="{{ route('form-rodape', ['idempresa' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Cadastrar Rodapé</a>  
+           <a href="{{ route('form-rodape', ['idempresa' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Cadastrar Rodapé</a>  
         @endif
-   
+     </div>
     </div>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <!-- BEGIN: Profile Menu -->

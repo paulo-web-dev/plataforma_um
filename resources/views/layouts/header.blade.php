@@ -72,28 +72,42 @@
         </div>
         <ul class="border-t border-white/[0.08] py-5 ">
             <li>
-                <a href="{{route('show-empresas')}}" class="menu">
-                    <div class="menu__icon"> <i data-feather="user-check"></i> </div>
-                    <div class="menu__title"> Empresas  </div>
-                </a> 
+               <a href="{{route('show-empresas')}}" class="menu">
+    <div class="menu__icon"> <span class="iconify" data-icon="material-symbols:drive-folder-upload"></span> </div>
+    <div class="menu__title"> Ver Empresas </div>
+</a>
 
-                 <a href="{{route('show-identidade')}}" class="menu">
-                    <div class="menu__icon"> <i data-feather="user"></i> </div>
-                    <div class="menu__title"> Identidade Visual  </div>
-                </a>     
-                @if (Auth::user()->power == 1)
-                    
-               
-                <a href="{{route('show-usuario')}}" class="menu">
-                    <div class="menu__icon"> <i data-feather="user"></i> </div>
-                    <div class="menu__title">Controle de Usuários  </div>
-                </a>     
+<a href="{{route('show-identidade')}}" class="menu">
+    <div class="menu__icon"> <span class="iconify" data-icon="mdi:subscriber-identity-module-outline"></span> </div>
+    <div class="menu__title"> Identidade Visual </div>
+</a>
 
-                 @endif  
-                <a href="{{route('show-textos')}}" class="menu">
-                    <div class="menu__icon"> <i data-feather="user"></i> </div>
-                    <div class="menu__title">Textos Padrão </div>
-                </a>  
+@if (Auth::user()->power == 1)
+<a href="{{route('show-usuario')}}" class="menu">
+    <div class="menu__icon"> <span class="iconify" data-icon="ep:user"></span> </div>
+    <div class="menu__title"> Controle de Usuários </div>
+</a>
+@endif
+
+<a href="{{route('show-textos')}}" class="menu">
+    <div class="menu__icon"> <span class="iconify" data-icon="jam:text"></span> </div>
+    <div class="menu__title"> Textos Padrão </div>
+</a>
+
+<a href="{{route('show-lista-recomendacoes')}}" class="menu">
+    <div class="menu__icon"> <span class="iconify" data-icon="ph:list-fill"></span> </div>
+    <div class="menu__title"> Listas </div>
+</a>
+
+<a href="/info/usuario/{{Auth::user()->id}}" class="menu">
+    <div class="menu__icon"> <span class="iconify" data-icon="ep:user"></span> </div>
+    <div class="menu__title"> Alterar Senha </div>
+</a>
+
+<a href="{{route('logout')}}" class="menu">
+    <div class="menu__icon"> <span class="iconify" data-icon="grommet-icons:logout"></span> </div>
+    <div class="menu__title"> Logout </div>
+</a>
 
                 
         </ul>
@@ -135,10 +149,8 @@
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
            
-
-      
   <li>
-    @if(Config::get('app.explode_path.2')  == 'empresa') 
+             @if(Config::get('app.explode_path.2')  == 'empresa') 
                         <a href="javascript:;" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
                             <div class="side-menu__title">
@@ -338,6 +350,7 @@
                     </li>
                 </ul>
                  @endif
+   
                 <a href="{{route('show-empresas')}}" 
                         class="side-menu side-menu-active">
                         <div class="side-menu__icon"> <span class="iconify"
