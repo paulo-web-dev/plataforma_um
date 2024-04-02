@@ -31,20 +31,27 @@
                             <input id="update-profile-form-7" type="text" name="nome" class="form-control"
                                 placeholder="Nome do Posto de Trabalho" value="" required>
                         </div>
-                   
-                                   
-              <div class="mt-6">
+                         <div class="mt-6">
+                            <label for="conteudo" class="form-label">Descrição da tarefa</label>
+                            <div class="mt-2">
+                                <textarea class="form-control editor" name="descricao" id="transcricao"  cols="30" rows="15"></textarea>
+                            </div>
+                        </div>
+                        
+                     
+              {{-- <div class="mt-6">
         <label for="conteudo" class="form-label">Descrição da tarefa</label>
         <div class="mt-2">
             <textarea class="form-control editor" name="descricao" id="editor" cols="30" rows="15"></textarea>
         </div>
-    </div>
+    </div> --}}
                          {{-- <div class="mt-3"  id="link">
                             <label for="update-profile-form-7" class="form-label"><strong>Descrição do SubSetor</strong></label>
                             <textarea class="form-control editor" name="descricao" id="descricao" cols="30" rows="15"></textarea>
                         </div>
                      --}}
                 <div class="flex justify-end mt-4">
+                     <input id="startButton" class="btn btn-primary w-40 mr-auto" value="Gravar/Pausar Áudio">
                     <button type="submit" class="btn btn-primary w-40 mr-auto">Cadastrar Posto de Trabalho</button>
                 </div>
             </div>
@@ -58,9 +65,56 @@
     <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 @push('custom-scripts')
 
+<script>
+    const startButton = document.getElementById('startButton');
+    const textarea = document.getElementById('transcricao');
+    let recognition;
+    let transcricoesAnteriores = [];
 
+    startButton.addEventListener('click', () => {
+        if (!('webkitSpeechRecognition' in window)) {
+            console.error('Seu navegador não suporta a API de reconhecimento de fala');
+            return;
+        }
 
+        recognition = new webkitSpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = 'pt-BR';
 
+        recognition.onstart = () => {
+            console.log('Transcrição iniciada');
+        };
+
+        recognition.onresult = (event) => {
+            let transcript = '';
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                if (event.results[i].isFinal) {
+                    const novaTranscricao = event.results[i][0].transcript.trim();
+                    if (!transcricoesAnteriores.includes(novaTranscricao)) {
+                        transcript += novaTranscricao + ' ';
+                        transcricoesAnteriores.push(novaTranscricao);
+                    }
+                } else {
+                    transcript += event.results[i][0].transcript;
+                }
+            }
+            textarea.value = transcript;
+        };
+
+        recognition.onerror = (event) => {
+            console.error('Erro ao transcrever a fala:', event.error);
+            recognition.stop();
+        };
+
+        recognition.onend = () => {
+            console.log('Transcrição finalizada');
+            recognition.stop();
+        };
+
+        recognition.start();
+    });
+</script>
 <script>
                         ClassicEditor
                                 .create( document.querySelector( '#editor' ) )
