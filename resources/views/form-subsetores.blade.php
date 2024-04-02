@@ -104,12 +104,12 @@
 
         recognition.onerror = (event) => {
             console.error('Erro ao transcrever a fala:', event.error);
-            recognition.stop();
+          /*  recognition.stop(); */
         };
 
         recognition.onend = () => {
             console.log('Transcrição finalizada');
-            recognition.stop();
+           /* recognition.stop();*/
         };
 
         recognition.start();
