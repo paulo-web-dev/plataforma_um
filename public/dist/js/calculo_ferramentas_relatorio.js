@@ -523,15 +523,15 @@ var ilm = (fdh + fav + fdc) * (1 - frlt) * (1 - ffl) * (1 - fqpc) * peso;
 }
 
 function paginacao(){
-var classeAlvo = "page";
-var elementos = document.getElementsByClassName(classeAlvo);
+var classeAlvo = "page";  
+var elementos = document.querySelectorAll(".page, .page2");
 document.write(elementos.length);
 return elementos.length;
 }
 
 function paginacao2(){
     var classeAlvo = "page";
-    var elementos = document.getElementsByClassName(classeAlvo);
+    var elementos = document.querySelectorAll(".page, .page2");
 
     return elementos.length;
     }
