@@ -953,7 +953,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
          <script>
             var postos = document.getElementById('postos'); 
-            var pagina = document.getElementsByClassName('page').length;
+            var pagina = document.getElementsByClassName('page').length + document.getElementsByClassName('page2').length; 
             postos.innerHTML +=  '<li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
          </script>
       <div class="page2">
