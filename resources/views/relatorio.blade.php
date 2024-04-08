@@ -2248,8 +2248,12 @@ chart.column(chartData);
       {{-- Mapeamento Ergonomico --}}
       @php
       $mapeamentos = $empresa->mapeamento;
+      $contador_first = 0;
       @endphp
       @while(count($mapeamentos) > 0)
+      @php 
+      $contador_first ++;
+      @endphp
       <div class="page">
        @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
@@ -2319,8 +2323,13 @@ chart.column(chartData);
       <div class="paginacao">
          <script>
             var mapeamento = document.getElementById('mapeamento'); 
-            mapeamento.innerHTML = paginacao() -1;
+             paginacao()
          </script>
+         @if ($contador_first == 1)
+             <script>
+             mapeamento.innerHTML = paginacao() -1;
+             </script>
+         @endif
       </div>
       @endwhile
       {{-- Plano de ação --}}
