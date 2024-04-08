@@ -954,7 +954,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>
             var postos = document.getElementById('postos'); 
             var pagina = document.getElementsByClassName('page').length + document.getElementsByClassName('page2').length; 
-            postos.innerHTML +=  '<li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
+            postos.innerHTML +=  '<li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ paginacao() +'</span></li>';
          </script>
       <div class="page2">
        @if(isset($empresa->cabecalho))
