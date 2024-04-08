@@ -2327,7 +2327,7 @@ chart.column(chartData);
          </script>
          @if ($contador_first == 1)
              <script>
-             mapeamento.innerHTML = paginacao() -1;
+             mapeamento.innerHTML = paginacao();
              </script>
          @endif
       </div>
