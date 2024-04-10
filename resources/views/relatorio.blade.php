@@ -439,29 +439,29 @@ li{
          </div>
          <div class="sumario">
             <ul>
-               <li><span class="titulo">Identificação da Empresa</span> <span class="pagina">3</span></li>
-               <li><span class="titulo">Introdução</span> <span class="pagina">4</span></li>
-               <li><span class="titulo">Análise Ergônomica Do Trabalho.</span> <span class="pagina">5</span></li>
+               <a href="#identificacao"><li><span class="titulo">Identificação da Empresa</span> <span class="pagina">3</span></li></a>
+               <a href="#introducao"><li><span class="titulo">Introdução</span> <span class="pagina">4</span></li></a>
+               <a href="#analise"><li><span class="titulo">Análise Ergônomica Do Trabalho.</span> <span class="pagina">5</span></li></a>
                {{-- <li><span class="titulo">Equipe Técnica</span> <span class="pagina">5</span></li> --}}
-               <li><span class="titulo">Objetivos Da Análise Ergônomica Do Trabalho</span> <span class="pagina">6</span></li>
-               <li><span class="titulo">Metodologia Empregada</span> <span class="pagina">7</span></li>
-               <li><span class="titulo">Demanda</span> <span class="pagina">9</span></li>
+               <a href="#objetivos"><li><span class="titulo">Objetivos Da Análise Ergônomica Do Trabalho</span> <span class="pagina">6</span></li></a>
+               <a href="#metodologia"><li><span class="titulo">Metodologia Empregada</span> <span class="pagina">7</span></li></a>
+               <a href="#demanda"><li><span class="titulo">Demanda</span> <span class="pagina">9</span></li></a>
                @if(isset($empresa->analise))
-               <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">10</span></li>
-               <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">11</span></li>
+              <a href="#analiseglobal"> <li><span class="titulo">Ánalise Global da Empresa</span> <span class="pagina">10</span></li></a>
+              <a href="#posto"><li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">11</span></li></a>
                @else
-               <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">10</span></li>
+              <a href="#posto"> <li><span class="titulo">Análise dos postos de trabalho</span><span class="pagina">10</span></li></a>
                @endif
                <div id="postos" style="margin-left:20px"></div>
                @if (count($empresa->mapeamento) > 1)
-               <li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li>
+              <a href="#mapeamentoergo"> <li><span class="titulo">Mapeamento Ergonômico</span> <span class="pagina" id="mapeamento"></span></li></a>
                @endif
                 @if (count($empresa->planodeacao) > 1)
-               <li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li>
+              <a href="#planoacao"> <li><span class="titulo">Plano de Ação</span> <span class="pagina" id="plano_de_acao"></span></li></a>
                 @endif
-               <li><span class="titulo">Disposições Finais</span> <span class="pagina" id="disposicoes"></span></li>
-               <li><span class="titulo">Encerramento</span> <span class="pagina" id="encerramento"></span></li>
-               <li><span class="titulo">Anexos</span> <span class="pagina" id="anexos"></span></li>
+              <a href="#disposicoes2"><li><span class="titulo">Disposições Finais</span> <span class="pagina" id="disposicoes"></span></li></a>
+              <a href="#encerramento2"><li><span class="titulo">Encerramento</span> <span class="pagina" id="encerramento"></span></li></a>
+              <a href="#anexospage"><li><span class="titulo">Anexos</span> <span class="pagina" id="anexos"></span></li></a>
             </ul>
          </div>
       </div>
@@ -470,11 +470,11 @@ li{
  <div class="rodape">
       <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
    </div>
-@endif   {{-- Identificação da Empresa --}}
+@endif  {{-- Identificação da Empresa --}}
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-      <div class="page2">
+      <div class="page2" id="identificacao">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">IDENTIFICAÇÃO DA EMPRESA</p>
          </div>
@@ -507,7 +507,7 @@ li{
       <div class="paginacao">
          <script>paginacao()</script>
       </div>
-      <div class="page2">
+      <div class="page2" id="introducao">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">INTRODUÇÃO</p>
          </div>
@@ -522,8 +522,7 @@ li{
        <div class="paginacao">
          <script>paginacao()</script>
       </div>
-     
-      <div class="page2">
+      <div class="page2" id="analise">
          @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
     <tr style="height: 32.5px;">
@@ -611,7 +610,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       {{-- Objetivos --}}
       @if (count($empresa->objetivos) > 0)
           
-      <div class="page2">
+      <div class="page2" id="objetivos">
          @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
     <tr style="height: 32.5px;">
@@ -656,7 +655,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
       @endif
       {{-- Metodologia --}}
-      <div class="page2">
+      <div class="page2" id="metodologia">
          @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
     <tr style="height: 32.5px;">
@@ -766,7 +765,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
       </div>
 
       {{-- Demanda --}}
-      <div class="page">
+      <div class="page" id="demanda">
    @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
     <tr style="height: 32.5px;">
@@ -812,7 +811,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>paginacao()</script>
       </div>
 
-      <div class="page2">
+      <div class="page2" id="analiseglobal">
  
 {{-- Ánalise GLobal --}}
  @if(isset($empresa->cabecalho))
@@ -855,7 +854,7 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
    </div>
 @endif
    {{-- Ánalise Dos Postos de Trabalho --}}
-      <div class="paginacao">
+      <div class="paginacao" id="posto">
          <script>paginacao()</script>
       </div>
       {{-- Postos/Subsetores/Cargos que foram avaliados --}}
@@ -954,9 +953,9 @@ Cada uma das fases deve integrar as bases da abordagem ergonômica que pressupõ
          <script>
             var postos = document.getElementById('postos'); 
             var pagina = document.getElementsByClassName('page').length + document.getElementsByClassName('page2').length + 2; 
-            postos.innerHTML +=  '<li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ pagina +'</span></li>';
+            postos.innerHTML +=  '<a href="#{{$setor->nome}}"> <li><span class="titulo">{{$setor->nome}}</span><span class="pagina">'+ pagina +'</span></li></a>';
          </script>
-      <div class="page2">
+      <div class="page2" id="{{$setor->nome}}">
        @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
     <tr style="height: 32.5px;">
@@ -2242,7 +2241,7 @@ chart.column(chartData);
       <img src="/fotos-empresa-rodape/{{$empresa->rodape->foto}}" class="imgrodape">
    </div>
 @endif
-      <div class="paginacao">
+      <div class="paginacao" >
          <script>paginacao()</script>
       </div>
       {{-- Mapeamento Ergonomico --}}
@@ -2254,7 +2253,9 @@ chart.column(chartData);
       @php 
       $contador_first ++;
       @endphp
-      <div class="page">
+      <div class="page" @if ($contador_first == 1) 
+          id="mapeamentoergo"
+      @endif>
        @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
     <tr style="height: 32.5px;">
@@ -2323,11 +2324,11 @@ chart.column(chartData);
       <div class="paginacao">
          <script>
             var mapeamento = document.getElementById('mapeamento'); 
-             paginacao()
+           var pag = paginacao();
          </script>
          @if ($contador_first == 1)
              <script>
-             mapeamento.innerHTML = paginacao();
+             mapeamento.innerHTML = pag;
              </script>
          @endif
       </div>
@@ -2336,8 +2337,16 @@ chart.column(chartData);
       @php
       $planos = $empresa->planodeacao;
       @endphp
+      @php 
+      $contador_first =0;
+      @endphp
       @while(count($planos) > 0)
-      <div class="page">
+          @php 
+      $contador_first ++;
+      @endphp
+      <div class="page"  @if ($contador_first == 1) 
+          id="planoacao"
+      @endif>
        @if(isset($empresa->cabecalho))
       <table style="margin-left:10px; margin-right:10px; margin-top: 10px;">
     <tr style="height: 32.5px;">
@@ -2417,7 +2426,7 @@ chart.column(chartData);
          <script>paginacao()</script>
       </div>
       {{-- Disposições Finais --}}
-      <div class="page2">
+      <div class="page2" id="disposicoes2">
       
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">DISPOSIÇÕES FINAIS</p>
@@ -2440,7 +2449,7 @@ chart.column(chartData);
          </script>
       </div>
       {{-- Encerramento --}} 
-      <div class="page">
+      <div class="page" id="encerramento2">
          <div class="subcabecalho2">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">ENCERRAMENTO: {{$empresa->nome}}</p>
          </div>
