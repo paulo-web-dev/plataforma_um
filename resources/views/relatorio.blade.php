@@ -340,6 +340,15 @@ li{
             width: 800px;
             height: 50px; /* Altura do rodapé */
         }
+
+   a {
+  text-decoration: none; /* remove o sublinhado */
+  color: #000; /* define a cor do link */
+}
+
+a:hover {
+  text-decoration: underline; /* sublinhado ao passar o mouse */
+}
 </style>
    </head>
    @if($alert != 0)
