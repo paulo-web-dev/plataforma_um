@@ -204,6 +204,11 @@
                                         <option value="Sem Risco">Sem Risco </option>
                                         <option value="Duvidoso"> Duvidoso</option>
                                         <option value="Risco">Risco</option>
+                                        @elseif($ferramenta == 'KIM')
+                                        <option value="Risco inexistente">Risco inexistente</option>
+                                        <option value="Risco Baixo">Risco Baixo</option>
+                                        <option value="Risco Médio">Risco Médio</option>
+                                        <option value="Risco Alto">Risco Alto</option>
                                         @elseif($ferramenta == 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR')
                                         <option value="Risco Leve">Risco Leve</option>
                                         <option value="Risco Moderado"> Risco Moderado</option>

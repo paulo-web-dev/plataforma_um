@@ -47,6 +47,7 @@ use App\Http\Controllers\ListasRecomendacoesController;
 use App\Http\Controllers\InstitucionalController;
 use App\Http\Controllers\CabecalhoController;
 use App\Http\Controllers\RodapeController;
+use App\Http\Controllers\KimController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -216,6 +217,13 @@ Route::get('/delete/owas/{id}', [OwasController::class, 'delete'])->name('delete
 Route::post('/cadastrar/owas', [OwasController::class, 'cadOwas'])->name('cad-owas');
 Route::post('/update/owas', [OwasController::class, 'updOwas'])->name('upd-owas');
 
+//Rotas Pertinentes ao cadastro de KIM
+Route::get('/kim', [OwasController::class, 'show'])->name('show-pre-diagnosticos');
+Route::get('/form/kim/{idsubsetor}', [KimController::class, 'formKim'])->name('form-kim');
+Route::get('/info/owas/{id}', [OwasController::class, 'infoOwas'])->name('info-owas'); 
+Route::get('/delete/owas/{id}', [OwasController::class, 'delete'])->name('delete-owas'); 
+Route::post('/cadastrar/owas', [OwasController::class, 'cadOwas'])->name('cad-owas');
+Route::post('/update/owas', [OwasController::class, 'updOwas'])->name('upd-owas');
 
 //Rotas Pertinentes ao cadastro de Sue Rodgers
 Route::get('/suerodgers', [SueRodgersController::class, 'show'])->name('show-pre-diagnosticos');

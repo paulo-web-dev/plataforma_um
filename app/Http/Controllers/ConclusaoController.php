@@ -142,11 +142,19 @@ class ConclusaoController extends Controller
 
     
         $conclusao = Conclusoes::where('id', $request->id)->first();
+        $atividade = $conclusao->atividade;
         $conclusao->conclusao = $request->conclusao;
         $conclusao->atividade = $request->atividade;
+      
         $subsetor = SubSetores::where('id', $conclusao->id_subsetor)->with('setor')->with('funcao')->first();
+        if(isset($conclusao->membro)){
         $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('sobrecarga', $conclusao->membro)->first();
+    }else{
+        $mapeamento = Mapeamento::where('posto_trabalho', $subsetor->nome)->where('atividade', $atividade)->first();
+       
+    }
         $mapeamento->classificacao = $conclusao->conclusao;
+        $mapeamento->atividade = $conclusao->atividade;
         $mapeamento->save();
         $conclusao->save();
         
