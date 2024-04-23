@@ -243,7 +243,7 @@
 }
 
 .sumario {
-  font-size: 16px;
+  font-size: 13px;
   margin-bottom: 20px;
 }
 .titulo {
