@@ -124,6 +124,17 @@ class PlanoDeAcaoController extends Controller
 
         return redirect()->route('infoempresa', ['id' => $request->empresa]);
     }
+
+    public function scriptplano(){
+
+       
+    $planos = PlanoDeAcao::where('funcao', '')->get();
+    foreach ($planos as $key => $plano) {
+        $subsetor = SubSetores::where('nome', $plano->posto_trabalho)->with('funcao')->first();
+        $plano->funcao = $subsetor->funcao->funcao;
+        $plano->save();
+    }
+    }
     public function gerarPlanoDeAcao($empresa){
         $areas = Area::where('id_empresa', $empresa)->with('setores')->get();
 

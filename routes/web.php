@@ -78,7 +78,7 @@ Route::post('/cad/inscricao', [InscricaoController::class, 'cadInscricao'])->nam
 
 //Rotas Perinentes a cadastro de empresas
 Route::get('/empresas', [EmpresaController::class, 'show'])->name('show-empresas');
-Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('formempresa');
+Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('formemprNesa');
 Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
@@ -347,6 +347,7 @@ Route::get('/form/campos/plano-de-acao/{empresa}', [PlanoDeAcaoController::class
 Route::get('/info/plano-de-acao/{id}', [PlanoDeAcaoController::class, 'infoPlanoDeAcao'])->name('info-plano-de-acao');
 Route::post('/upload/plano-de-acao', [PlanoDeAcaoController::class, 'uploadPlanoDeAcao'])->name('upload-plano-de-acao');
 Route::post('/cadastrar/plano-de-acao', [PlanoDeAcaoController::class, 'cadPlanoDeAcao'])->name('cad-plano-de-acao');
+Route::get('/script/planos', [PlanoDeAcaoController::class, 'scriptplano'])->name('scriptPlanos');
 Route::post('/upd/plano-de-acao', [PlanoDeAcaoController::class, 'updPlanoDeAcao'])->name('upd-plano-de-acao');
 Route::get('/delete/plano-de-acao/{id}', [PlanoDeAcaoController::class, 'delete'])->name('delete-plano-de-acao');
 
