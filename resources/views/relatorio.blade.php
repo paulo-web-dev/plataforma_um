@@ -256,7 +256,7 @@ td{
    font-size: 12px;
 }
 li{
-    font-size: 16px;
+    font-size: 13px;
 }
 .pagina {
   float: right;
