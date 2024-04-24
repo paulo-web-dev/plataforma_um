@@ -133,7 +133,7 @@ class PlanoDeAcaoController extends Controller
         $subsetor = SubSetores::where('nome', $plano->posto_trabalho)->with('funcao')->first();
         if(isset($subsetor->funcao->funcao)){
         $plano->funcao = $subsetor->funcao->funcao;
-        $plano->save();}
+        $plano->save();}    
     }
     }
     public function gerarPlanoDeAcao($empresa){

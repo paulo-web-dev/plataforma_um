@@ -336,6 +336,7 @@ Route::get('/gerar/mapeamento/{empresa}', [MapeamentoController::class, 'gerarMa
 Route::get('/form/campos/mapeamento/{empresa}', [MapeamentoController::class, 'formMapeamentocampos'])->name('form-mapeamento-campos');
 Route::get('/info/mapeamento/{id}', [MapeamentoController::class, 'infoMapeamento'])->name('info-mapeamento');
 Route::get('/delete/mapeamento/{id}', [MapeamentoController::class, 'delete'])->name('delete-mapeamento');
+Route::get('/script/mapeamento', [MapeamentoController::class, 'scriptMapeamento'])->name('script-mapeamento');
 Route::post('/update/mapeamento', [MapeamentoController::class, 'updMapeamento'])->name('upd-mapeamento');
 Route::post('/cadastrar/mapeamento', [MapeamentoController::class, 'cadMapeamento'])->name('cad-mapeamento');
 Route::post('/upload/mapeamento', [MapeamentoController::class, 'uploadMapeamento'])->name('upload-mapeamento');

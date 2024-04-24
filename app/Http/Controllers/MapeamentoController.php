@@ -29,6 +29,26 @@ class MapeamentoController extends Controller
         ]);
     }
 
+    public function scriptMapeamento(){
+        $mapeamentos = Mapeamento::where('id_empresa', 24)->get();
+        foreach ($mapeamentos as $key => $mapeamento) {
+            if($mapeamento->sobrecarga == 'Todas as regiões corporais'){
+                $mapeamento->exigencia = 'Adaptação do posto para o trabalhador';
+                echo $mapeamento->exigencia.'<br>';
+            }
+
+            if($mapeamento->sobrecarga == 'Membros Superiores'){
+                $mapeamento->exigencia = 'Desordens Músculoesqueléticas - repetitividade';
+                echo $mapeamento->exigencia.'<br>';
+            }
+
+            if($mapeamento->sobrecarga == 'Punhos, Mãos e Dedos' || $mapeamento->sobrecarga == 'Pernas, Pés e Dedos' || $mapeamento->sobrecarga == 'Pescoço' || $mapeamento->sobrecarga == 'Ombros' || $mapeamento->sobrecarga == 'Tronco' || $mapeamento->sobrecarga == 'Braços e Antebraços'  ){
+                $mapeamento->exigencia = 'Exigência muscular';
+                echo $mapeamento->exigencia.'<br>';
+            }
+            $mapeamento->save();
+        }
+        }
 
     public function infoMapeamento($id){
 

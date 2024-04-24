@@ -2156,7 +2156,7 @@ chart.column(chartData);
                   @foreach ($subsetor->suerodgers as $sue)
                   <tr>
                      <td>Sue Rodgers
-                        <br>(análise de esforço para segmentos corpóreos)
+                   
                         <br> Atividade: {{$sue->atividade}}.
                      </td>
                      <td id="conclusaosue{{$loop->index}}"></td>
