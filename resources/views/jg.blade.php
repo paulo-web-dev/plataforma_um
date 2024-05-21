@@ -30,7 +30,7 @@
 <body style="background-color: green">
 <h1>Você ainda me ama?</h1><br>
     <div class="container">
-        <button id="yes-btn" onclick="alert('te amo mil milhões minha princesa. obs: viu que não tem a opção de clicar em não né kakaksks te amo te amo te amo')">Sim</button>
+        <button id="yes-btn" onclick="alert('te amo mil milhões minha princesa. obs: viu que não tem a opção de clicar em não né kakaksks te amo te amo te amo')">Sim</button><br>
         <button id="no-btn">Não</button>
     </div>
 
