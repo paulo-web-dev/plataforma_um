@@ -26,6 +26,8 @@ class IdentidadeVisualController extends Controller
 
     }
 
+    
+
     public function formIdentidade(){
         $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->with('identidade')->get();
         return view('form-identidade',['empresas' =>$empresas,]); 

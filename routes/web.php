@@ -64,11 +64,12 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return redirect()->route('home');
+    return redirect()->route('home'); 
 });
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/julia/garcia/voce/ainda/me/ama', [HomeController::class, 'jg'])->name('jg');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/upload/audio', [AudioController::class, 'uploadAudio'])->name('upload-audio');
 //Rotas Referentes a Inscrição do Usuário
