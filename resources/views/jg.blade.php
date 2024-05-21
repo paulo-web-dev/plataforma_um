@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botões Sim e Não</title>
+    <title>Julia garcia ainda me ama?</title>
     <style>
         body {
             display: flex;
@@ -28,7 +28,7 @@
     </style>
 </head>
 <body style="background-color: green">
-<h1>Você ainda me ama?</h1>
+<h1>Você ainda me ama?</h1><br>
     <div class="container">
         <button id="yes-btn" onclick="alert('te amo mil milhões minha princesa. obs: viu que não tem a opção de clicar em não né kakaksks te amo te amo te amo')">Sim</button>
         <button id="no-btn">Não</button>
