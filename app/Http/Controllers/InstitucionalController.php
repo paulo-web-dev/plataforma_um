@@ -12,6 +12,10 @@ class InstitucionalController extends Controller
     public function index(){
         return view('index');
     }
+    public function jg()
+    {
+        return view('jg');
+    }
     public function plano($plano){
       
    
