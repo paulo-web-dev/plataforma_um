@@ -30,7 +30,7 @@ class FotosAtividadesController extends Controller
             $foto->id_subsetor = $request->id_subsetor;
             $foto->photo = $photoname;
             $arquivo->move($destinationPath, $photoname);
-            // $foto->save();  
+            $foto->save();  
         }
         return redirect()->route('info-subsetor', ['id' => $foto->id_subsetor])->with('secao', 'fotos'); 
     }
