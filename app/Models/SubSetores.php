@@ -259,4 +259,12 @@ class SubSetores extends Model
         return $this->hasOne(ChecklistTeclado::class, 'id_empresa', 'id');
 
     }
+
+    public function conclusao()
+
+    {
+
+        return $this->hasOne(ConclusaoSubsetor::class, 'id_subsetor', 'id');
+
+    }
 }

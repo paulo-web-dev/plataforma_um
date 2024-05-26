@@ -76,9 +76,10 @@ class SubSetoresController extends Controller
         ->with('ChecklistSistema')
         ->with('ChecklistSuporteTeclado')
         ->with('ChecklistTeclado')
+        ->with('conclusao')
         ->first();  
         
-        
+       
         return view('info-subsetores',[
             'subsetor' => $subsetor,
             

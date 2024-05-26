@@ -46,7 +46,8 @@ class Setores extends Model
         ->with('ChecklistNotebook')
         ->with('ChecklistSistema')
         ->with('ChecklistSuporteTeclado')
-        ->with('ChecklistTeclado');
+        ->with('ChecklistTeclado')
+        ->with('conclusao');
 
     }
     

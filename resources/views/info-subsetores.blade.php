@@ -1706,6 +1706,68 @@
     </div>
 
 
+       <!-- Lista de Conclusão -->
+    <div class="intro-y box mt-5" id="ocra">
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                <a href="javascript:;" data-theme="light" class="tooltip"  title="Adicionar Conclusão">Lista de Conclusão<i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+            </h2>
+        </div>
+        <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+                <div class="col-span-12 xl:col-span-12">
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">#</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Conclusão</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Ações</th>
+                                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Excluir</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody> 
+
+                                  @if(isset($subsetor->conclusao)) 
+                                  
+                                    <tr class="hover:bg-gray-200">
+                                        <td class="border">{{$subsetor->conclusao->id}}</td>
+                                        <td class="border"><?= $subsetor->conclusao->conclusao ?></td>
+                                        <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('infoconclusao-subsetor', ['id' => $subsetor->conclusao->id])}}">
+                                                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                           <td class="border">
+                                            <div class="flex justify-center">
+                                                <a class="flex text-theme-1 mr-3"
+                                                    href="{{route('delete-conclusao-subsetor', ['id' => $subsetor->conclusao->id])}}">
+                                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                                </a>
+                                              
+                                            </div>
+                                           
+                                        </td>
+                                    </tr>
+                          
+                                @endif 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="flex justify-end mt-4">
+                <a href="{{route('form-conclusao-subsetores', ['subsetor' => $subsetor->id])}}" class="btn btn-primary mr-auto mb-2 simplificado">Cadastrar Conclusão das ferramentas</a>
+            </div>    
+        </div>
+    </div>
 
        <!-- Lista de Recomendações Técnicas -->
     <div class="intro-y box mt-5" id="recomendacoes">

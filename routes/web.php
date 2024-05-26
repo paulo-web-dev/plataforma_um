@@ -48,6 +48,7 @@ use App\Http\Controllers\InstitucionalController;
 use App\Http\Controllers\CabecalhoController;
 use App\Http\Controllers\RodapeController;
 use App\Http\Controllers\KimController;
+use App\Http\Controllers\ConclusaoSubsetorController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -120,6 +121,14 @@ Route::get('/duplicar/subsetor/{id}', [SubSetoresController::class, 'duplicarSub
 Route::get('/delete/subsetor/{id}', [SubSetoresController::class, 'delete'])->name('delete-subsetor'); 
 Route::post('/cadastrar/subsetor', [SubSetoresController::class, 'cadSubSetor'])->name('cad-subsetor');
 Route::post('/update/subsetor', [SubSetoresController::class, 'updSubSetor'])->name('upd-subsetor');
+
+//Rotas Pèrtinentes a conclusoes de subsetor 
+
+Route::get('/form/conclusao/subsetores/{subsetor}', [ConclusaoSubsetorController::class, 'formConclusaoSubsetores'])->name('form-conclusao-subsetores');
+Route::get('/info/conclusao/conclusaosubsetor/{id}', [ConclusaoSubsetorController::class, 'infoConclusaoSubsetores'])->name('infoconclusao-subsetor'); 
+Route::get('/delete/subsetorconclusao/{id}', [ConclusaoSubsetorController::class, 'delete'])->name('delete-conclusao-subsetor'); 
+Route::post('/cadastrar/conclusaosubsetor', [ConclusaoSubsetorController::class, 'cadConclusaoSubSetor'])->name('cad-consluao-subsetor');
+Route::post('/update/conclusaosubsetor', [ConclusaoSubsetorController::class, 'updConclusaoSubSetor'])->name('upd-subsetor-conclusao');
 
 //Rotas Pertinentes aos cargos
 Route::get('/cargos', [CargosController::class, 'show'])->name('show-cargos');

@@ -2224,6 +2224,19 @@ chart.column(chartData);
 </table>
 
 @endif
+   @if(isset($subsetor->conclusao->conclusao))
+   {{-- CONCLUSÃO FERRAMENTA --}}
+         <div class="subcabecalho2" style="margin-top:35px">
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CONCLUSÃO"!</p>
+         </div>
+      
+           <p><?= $subsetor->conclusao->conclusao ?></P>
+          
+        
+      </div>
+    
+      </div>
+    @endif
          {{-- Pré diagnosticos --}}
          <div class="subcabecalho2" style="margin-top:35px">
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">RECOMENDAÇÕES TÉCNICAS E SUGESTÕES DE ADEQUAÇÕES</p>
