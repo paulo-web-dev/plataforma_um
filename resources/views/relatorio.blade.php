@@ -2227,7 +2227,7 @@ chart.column(chartData);
    @if(isset($subsetor->conclusao->conclusao))
    {{-- CONCLUSÃO FERRAMENTA --}}
          <div class="subcabecalho2" style="margin-top:35px">
-            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CONCLUSÃO"!</p>
+            <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">CONCLUSÃO</p>
          </div>
       
            <p><?= $subsetor->conclusao->conclusao ?></P>
