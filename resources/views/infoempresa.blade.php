@@ -1078,7 +1078,7 @@
                                         <td class="border">{{$mapeamento->funcao}}</td>
                                         <td class="border" id="postura"><input type="text"  value="{{$mapeamento->postura}}" > </td>
                                         <td class="border">{{$mapeamento->atividade}}</td>
-                                        <td class="border" id="exigencia"><input type="text"  value="{{$mapeamento->exigencia}}"></td>
+                                        <td class="border" id="exigenciam"><input type="text"  value="{{$mapeamento->exigencia}}"></td>
                                         <td class="border" id="sobrecarga"><input type="text"  value="{{$mapeamento->sobrecarga}}"></td>
                                         <td class="border" id="classificacao{{$loop->index}}">{{$mapeamento->classificacao}}</td>
                                     
@@ -1104,7 +1104,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Get all input fields with id "postura," "exigencia," and "sobrecarga"
         var posturaInput = document.querySelectorAll('#postura input');
-        var exigenciaInput = document.querySelectorAll('#exigencia input');
+        var exigenciaInput = document.querySelectorAll('#exigenciam input');
         var sobrecargaInput = document.querySelectorAll('#sobrecarga input');
 
         // Add event listeners to each input field
@@ -1116,7 +1116,7 @@
 
         exigenciaInput.forEach(function (input) {
             input.addEventListener('input', function () {
-                showAlert(input, 'exigencia');
+                showAlert(input, 'exigenciam');
             });
         });
 
