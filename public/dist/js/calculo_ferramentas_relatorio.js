@@ -548,6 +548,8 @@ function paginacao2(){
         }else if(classificacao == 'RISCO ALTO' || classificacao == ' Alto Risco'  ||  classificacao == 'Risco Alto'  || classificacao == 'Muito Alto' || classificacao == 'Risco' || classificacao == 'São necessárias pesquisas e mudanças imediatamente' || classificacao == 'são necessárias pesquisas e mudanças imediatamente' || classificacao == 'Ações corretivas imediatas' || classificacao == 'Faixa é considerada de alto risco' || classificacao == 'Condição Ergonômica Pessima' || classificacao == 'Condição Ergonômica Ruim' || classificacao == 'Ações corretivas são necessária a curto prazo' || classificacao == 'Risco Alto') {
             
          conclusao.style.backgroundColor = "red";
+        }else{
+            alert(classificacao);
         }
         
         }
