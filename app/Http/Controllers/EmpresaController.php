@@ -225,7 +225,7 @@ class EmpresaController extends Controller
         $mapeamento = Mapeamento::where('id', $id)->first();
         if($campo == 'postura'){
             $mapeamento->postura = $valor;
-        }elseif($campo == 'exigencia'){
+        }elseif($campo == 'exigenciam'){ 
             $mapeamento->exigencia = $valor;
         }elseif($campo == 'sobrecarga'){
             $mapeamento->sobrecarga = $valor;
