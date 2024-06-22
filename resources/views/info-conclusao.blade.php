@@ -79,10 +79,12 @@
                                         <option value="Risco Baixo">Risco Baixo</option>
                                         <option value="Risco Médio">Risco Médio</option>
                                         <option value="Risco Alto">Risco Alto</option>
-                                        @elseif($conclusao->ferramenta == 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR')
-                                        <option value="Risco Leve">Risco Leve</option>
-                                        <option value="Risco Moderado"> Risco Moderado</option>
-                                        <option value="Risco Alto">Risco Alto</option>
+                                     @elseif($ferramenta == 'CHECK LIST DE ANÁLISE DAS CONDIÇÕES DO POSTO DE TRABALHO AO COMPUTADOR')
+                                        <option value="péssima condição ergonômica">péssima condição ergonômica</option>
+                                        <option value="condição ergonômica ruim"> condição ergonômica ruim</option>
+                                        <option value="condição ergonômica razoável">condição ergonômica razoável</option>
+                                        <option value="boa condição ergonômica">boa condição ergonômica</option>
+                                        <option value="condição ergonômica em geral excelente">condição ergonômica em geral excelente</option>
                                         @endif
                             </select>
                         </div>
