@@ -273,7 +273,7 @@ function mooregarg(fit, fde, ffe, fpmp, fri, fdt, index){
                 
              conclusao.style.backgroundColor = "red";
             }else{
-                alert(classificacao);
+                // alert(classificacao);
             }
             
             }

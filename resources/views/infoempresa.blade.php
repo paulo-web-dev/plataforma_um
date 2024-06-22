@@ -1104,7 +1104,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Get all input fields with id "postura," "exigencia," and "sobrecarga"
         var posturaInput = document.querySelectorAll('#postura input');
-        var exigenciaInput = document.querySelectorAll('#exigenciam input');
+        var exigenciamInput = document.querySelectorAll('#exigenciam input');
         var sobrecargaInput = document.querySelectorAll('#sobrecarga input');
 
         // Add event listeners to each input field
@@ -1114,7 +1114,7 @@
             });
         });
 
-        exigenciaInput.forEach(function (input) {
+        exigenciamInput.forEach(function (input) {
             input.addEventListener('input', function () {
                 showAlert(input, 'exigenciam');
             });

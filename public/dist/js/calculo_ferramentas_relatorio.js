@@ -549,7 +549,7 @@ function paginacao2(){
             
          conclusao.style.backgroundColor = "red";
         }else{
-            alert(classificacao);
+            // alert(classificacao);
         }
         
         }
