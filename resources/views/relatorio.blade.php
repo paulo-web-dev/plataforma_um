@@ -1770,20 +1770,17 @@ chart.column(chartData);
 
  
 <script>
-
-
 //GRÁFICO SEGMENTOS CORPORAIS
- //Gráfico Faixa Etaria
-   anychart.onDocumentReady(function () {
+//Gráfico Faixa Etaria
+anychart.onDocumentReady(function () {
   // create column chart
   var chart = anychart.column3d();
 
   // turn on chart animation
   chart.animation(true);
     
-var chartData = [];
+  var chartData = [];
   var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
-
 
   var chartData = [
     { x: 'C. Cervical', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
@@ -1794,17 +1791,21 @@ var chartData = [];
     { x: 'Punho/Mão', value: {{$porcentagemPunhoMao}}, fill: '#66CCCC' },
     { x: 'Quadril', value: {{$porcentagemQuadril}}, fill: '#993366' },
     { x: 'Joelho', value: {{$porcentagemJoelho}}, fill: '#996633' },
-   { x: 'Pé/Torn', value: {{$porcentagemTornozeloPe}}, fill: '#0099CC' },
+    { x: 'Pé/Torn', value: {{$porcentagemTornozeloPe}}, fill: '#0099CC' },
   ];
-   
 
   // create area series with passed data e atribuir cores da paleta personalizada
-chart.column(chartData);
+  chart.column(chartData);
 
   // Adicionar rótulos no topo de cada barra
   chart.getSeries(0).labels().enabled(true);
   chart.getSeries(0).labels().position('top');
   chart.getSeries(0).labels().format('{%Value} %');
+  chart.getSeries(0).labels().fontSize(10); // Definir o tamanho da fonte dos rótulos
+
+  // Definir o tamanho da fonte dos rótulos do eixo x
+  chart.xAxis().labels().fontSize(10);
+
   chart.background().fill("#f0f0f0");
   chart
     .tooltip()
@@ -1831,7 +1832,7 @@ chart.column(chartData);
   // initiate chart drawing
   chart.draw();
 });
-          
+         
          </script>
 
          @else
