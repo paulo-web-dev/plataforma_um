@@ -1794,7 +1794,7 @@ var chartData = [];
     { x: 'Punho/Mão', value: {{$porcentagemPunhoMao}}, fill: '#66CCCC' },
     { x: 'Quadril', value: {{$porcentagemQuadril}}, fill: '#993366' },
     { x: 'Joelho', value: {{$porcentagemJoelho}}, fill: '#996633' },
-   { x: 'Tornozelo/Pé', value: {{$porcentagemTornozeloPe}}, fill: '#0099CC' },
+   { x: 'Pé/Torn', value: {{$porcentagemTornozeloPe}}, fill: '#0099CC' },
   ];
    
 
