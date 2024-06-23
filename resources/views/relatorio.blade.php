@@ -1783,7 +1783,7 @@ anychart.onDocumentReady(function () {
   var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
 
   var chartData = [
-    { x: 'C. Cervical', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
+    { x: 'D', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
     { x: 'C. Toracica', value: {{$porcentagemColunaToracica}}, fill: '#FFC300' },
     { x: 'C. Lombar', value: {{$porcentagemColunaLombar}}, fill: '#3498DB' },
     { x: 'Ombro', value: {{$porcentagemOmbro}}, fill: '#32CD32' },
