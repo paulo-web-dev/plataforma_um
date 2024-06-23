@@ -1786,7 +1786,7 @@ var chartData = [];
 
 
   var chartData = [
-    { x: 'Coluna Cervical', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
+    { x: 'C. Cervical', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
     { x: 'C. Toracica', value: {{$porcentagemColunaToracica}}, fill: '#FFC300' },
     { x: 'C. Lombar', value: {{$porcentagemColunaLombar}}, fill: '#3498DB' },
     { x: 'Ombro', value: {{$porcentagemOmbro}}, fill: '#32CD32' },
