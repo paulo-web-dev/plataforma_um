@@ -1783,15 +1783,15 @@ anychart.onDocumentReady(function () {
   var customColors = ['#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733', '#FFC300', '#3498DB', '#32CD32', '#FF5733'];
 
   var chartData = [
-    { x: 'D', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
-    { x: 'C. Toracica', value: {{$porcentagemColunaToracica}}, fill: '#FFC300' },
-    { x: 'C. Lombar', value: {{$porcentagemColunaLombar}}, fill: '#3498DB' },
+    { x: 'Coluna Cervical', value: {{$porcentagemColunaCervical}}, fill: '#FF5733' },
+    { x: 'Coluna Toracica', value: {{$porcentagemColunaToracica}}, fill: '#FFC300' },
+    { x: 'Coluna Lombar', value: {{$porcentagemColunaLombar}}, fill: '#3498DB' },
     { x: 'Ombro', value: {{$porcentagemOmbro}}, fill: '#32CD32' },
     { x: 'Cotovelo', value: {{$porcentagemCotovelo}}, fill: '#FF9900' },
     { x: 'Punho/Mão', value: {{$porcentagemPunhoMao}}, fill: '#66CCCC' },
     { x: 'Quadril', value: {{$porcentagemQuadril}}, fill: '#993366' },
     { x: 'Joelho', value: {{$porcentagemJoelho}}, fill: '#996633' },
-    { x: 'Pé/Torn', value: {{$porcentagemTornozeloPe}}, fill: '#0099CC' },
+    { x: 'Pé/Tornozelo', value: {{$porcentagemTornozeloPe}}, fill: '#0099CC' },
   ];
 
   // create area series with passed data e atribuir cores da paleta personalizada
@@ -1801,10 +1801,10 @@ anychart.onDocumentReady(function () {
   chart.getSeries(0).labels().enabled(true);
   chart.getSeries(0).labels().position('top');
   chart.getSeries(0).labels().format('{%Value} %');
-  chart.getSeries(0).labels().fontSize(8); // Definir o tamanho da fonte dos rótulos
+  chart.getSeries(0).labels().fontSize(10); // Definir o tamanho da fonte dos rótulos
 
   // Definir o tamanho da fonte dos rótulos do eixo x
-  chart.xAxis().labels().fontSize(8);
+  chart.xAxis().labels().fontSize(10);
 
   chart.background().fill("#f0f0f0");
   chart
