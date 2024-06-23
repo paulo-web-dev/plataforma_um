@@ -1801,10 +1801,10 @@ anychart.onDocumentReady(function () {
   chart.getSeries(0).labels().enabled(true);
   chart.getSeries(0).labels().position('top');
   chart.getSeries(0).labels().format('{%Value} %');
-  chart.getSeries(0).labels().fontSize(10); // Definir o tamanho da fonte dos rótulos
+  chart.getSeries(0).labels().fontSize(9); // Definir o tamanho da fonte dos rótulos
 
   // Definir o tamanho da fonte dos rótulos do eixo x
-  chart.xAxis().labels().fontSize(10);
+  chart.xAxis().labels().fontSize(9);
 
   chart.background().fill("#f0f0f0");
   chart
