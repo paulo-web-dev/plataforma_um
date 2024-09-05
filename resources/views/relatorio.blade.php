@@ -1305,7 +1305,7 @@ if(strlen($parte) > 50){
             @foreach ($subsetor->dadosOrganizacionais as $dados)  
 
                @php
-                  $partes = explode(":", $dados->dado);
+                    $partes = explode(":", $dados->dado, 2); 
              
                @endphp
             <li><b>{{$partes[0]}}:</b>@if(isset($partes[1])) {{$partes[1]}} @endif</li>
