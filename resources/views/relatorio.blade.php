@@ -2422,7 +2422,7 @@ anychart.onDocumentReady(function () {
                   <td class="border">{{$plano->posto_trabalho}}</td>
                   <td class="border">{{substr($plano->funcao, 0, 60)}}...</td>
                   <td class="border">{{$plano->exigencia}}</td>
-                  <td class="border">{{substr($plano->recomendacao, 0, 60)}}...</td>
+                  <td class="border">{{substr($plano->recomendacao, 0, 200)}}...</td>
                   <td class="border">{{$plano->viabilidade}}</td>
                   <td class="border">{{$plano->prazo}}</td>
                </tr>
