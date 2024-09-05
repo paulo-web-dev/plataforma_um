@@ -1898,7 +1898,7 @@ anychart.onDocumentReady(function () {
 
         
             @endphp
-            <li><b>{{$titulo}} </b><?= $caracteristica->descricao ?></li>
+            <li><b>{{$titulo}} </b><?= $caracteristica->descricao ?>!</li>
             @endforeach
      
          </ul>
