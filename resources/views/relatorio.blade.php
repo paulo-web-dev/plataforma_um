@@ -1887,20 +1887,53 @@ anychart.onDocumentReady(function () {
          </div>
          <ul>
            
-            @foreach ($subsetor->caracteristicas as $caracteristica)  
-            @php
-            $titulo = $caracteristica->titulo;
+           @php
+// Lista de títulos na ordem desejada
+$titulosOrdenados = [
+    'Postura de Trabalho:',
+    'Descrição do Posto de Trabalho:',
+    'Medidas da Bancada de Trabalho:',
+    'Altura:',
+    'Descrição dos Equipamentos/Ferramentas de Trabalho:',
+    'Descrição dos Equipamentos de Segurança:',
+    'Acessórios Ergonômicos:'
+];
 
+// Inicializa um array para armazenar as características na ordem correta
+$caracteristicasOrdenadas = [];
+
+// Itera sobre os títulos na ordem desejada e organiza as características
+foreach ($titulosOrdenados as $tituloEsperado) {
+    foreach ($subsetor->caracteristicas as $caracteristica) {
+        $titulo = $caracteristica->titulo;
+
+        // Verifica se o último caractere é diferente de ":"
+        if (substr($titulo, -1) !== ':') {
+            $titulo .= ':';
+        }
+
+        // Se o título da característica corresponder ao título esperado, adiciona ao array ordenado
+        if ($titulo === $tituloEsperado) {
+            $caracteristicasOrdenadas[] = $caracteristica;
+        }
+    }
+}
+@endphp
+
+<ul>
+    @foreach ($caracteristicasOrdenadas as $caracteristica)
+        @php
+            $titulo = $caracteristica->titulo;
+            
             // Verifica se o último caractere é diferente de ":"
             if (substr($titulo, -1) !== ':') {
                $titulo .= ':';
             }
+        @endphp
+        <li><b>{{$titulo}} </b><?= strip_tags($caracteristica->descricao) ?></li>
+    @endforeach
+</ul>
 
-        
-            @endphp
-            <li><b>{{$titulo}} </b><?= strip_tags($caracteristica->descricao) ?></li>
-            @endforeach
-     
          </ul>
              {{-- Pré diagnosticos --}}
               @if (count($subsetor->preDiagnostico) > 0)
