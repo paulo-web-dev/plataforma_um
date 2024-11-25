@@ -61,8 +61,6 @@ class EmpresaController extends Controller
                  
                 }
             }
-          
-            dd($mapeamentos, $setor[0]->subsetores[0]->funcao, $funcao); 
             
         }
     
