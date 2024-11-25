@@ -54,8 +54,11 @@ class EmpresaController extends Controller
             foreach ($setor as $key => $set) {
                 foreach ($set->subsetores as $key => $subsetor) {
                     $funcao = $subsetor->funcao->funcao;
-                    $mapeamento->funcao = $funcao;
-                    $mapeamento->save();
+                    if(isset($funcao)){
+                        $mapeamento->funcao = $funcao;
+                        $mapeamento->save();
+                    }
+                 
                 }
             }
           
