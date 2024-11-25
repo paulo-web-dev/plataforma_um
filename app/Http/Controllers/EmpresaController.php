@@ -46,7 +46,7 @@ class EmpresaController extends Controller
         ->with('rodape')
         ->with('cabecalho')
         ->first();
-
+      
         foreach ($empresa->mapeamento as $key => $mapeamentos) {
             
             $subsetor = SubSetores::where('nome', $mapeamentos->posto_trabalho)->with('funcao')->get();
@@ -55,8 +55,8 @@ class EmpresaController extends Controller
                 foreach ($set->subsetores as $key => $subsetor) {
                     $funcao = $subsetor->funcao->funcao;
                     if(isset($funcao)){
-                        $mapeamento->funcao = $funcao;
-                        $mapeamento->save();
+                        $mapeamentos->funcao = $funcao;
+                        $mapeamentos->save();
                     }
                  
                 }
