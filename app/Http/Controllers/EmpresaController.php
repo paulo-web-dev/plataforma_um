@@ -51,7 +51,12 @@ class EmpresaController extends Controller
             
             $subsetor = SubSetores::where('nome', $mapeamentos->posto_trabalho)->with('funcao')->get();
             $setor = Setores::where('nome', $mapeamentos->setor)->where('id_empresa', $id)->with('subsetores')->get();
-            dd($mapeamentos, $setor[0]->subsetores[0]->funcao); 
+            foreach ($setor as $key => $set) {
+                foreach ($set->subsetores as $key => $subsetor) {
+                    $funcao = $subsetor->funcao->funcao;
+                }
+            }
+            dd($mapeamentos, $setor[0]->subsetores[0]->funcao, $funcao); 
             
         }
     
