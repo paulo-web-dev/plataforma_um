@@ -14,6 +14,7 @@ use App\Models\Textos;
 use App\Models\Mapeamento;
 use App\Models\PlanoDeAcao;
 use App\Models\Demanda;
+use App\Models\SubSetores;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
@@ -47,7 +48,8 @@ class EmpresaController extends Controller
         ->first();
 
         foreach ($empresa->mapeamento as $key => $mapeamentos) {
-            dd($mapeamentos);
+            $subsetor = SubSetores::where('nome', $mapeamento->posto_trabalho)->with('funcao')->get();
+            dd($subsetor);
         }
     
         return view('infoempresa',

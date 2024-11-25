@@ -40,7 +40,7 @@ class SubSetoresController extends Controller
         $subsetor->save();
         
         return redirect()->route('info-setor', ['id' => $subsetor->id_setor]); 
-    } 
+    }  
 
     public function infoSubSetores($id){
 
