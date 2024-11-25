@@ -48,7 +48,7 @@ class EmpresaController extends Controller
         ->first();
 
         foreach ($empresa->mapeamento as $key => $mapeamentos) {
-            $subsetor = SubSetores::where('nome', $mapeamento->posto_trabalho)->with('funcao')->get();
+            $subsetor = SubSetores::where('nome', $mapeamentos->posto_trabalho)->with('funcao')->get();
             dd($subsetor);
         }
     
