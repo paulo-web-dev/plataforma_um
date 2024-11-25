@@ -22,7 +22,39 @@ class EmpresaController extends Controller
     {
         $this->middleware('auth');
     }
+    public function ajustamapeamento(){
+        
+        $id = 28;
 
+        function porcentagem($numero, $key){
+            $porcentagem = ($numero/$key) * 100;
+
+            return round($porcentagem);
+        }
+        $empresa = Empresas::where('id', $id)
+        ->with('setores')
+        ->with('populacao')
+        ->with('introducao')
+        ->with('equipe')
+        ->with('objetivos')
+        ->with('disposicao')
+        ->with('mapeamento')
+        ->with('planodeacao')
+        ->with('responsaveis')
+        ->with('area')
+        ->with('rodape')
+        ->with('cabecalho')
+        ->first();
+
+        foreach ($empresa->mapeamento as $key => $mapeamentos) {
+            dd($mapeamentos);
+        }
+    
+        return view('infoempresa',
+        [   
+            'empresa' => $empresa
+        ]); 
+    }
     public function show(){
 
         $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->get();
