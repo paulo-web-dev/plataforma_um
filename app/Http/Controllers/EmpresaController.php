@@ -15,6 +15,7 @@ use App\Models\Mapeamento;
 use App\Models\PlanoDeAcao;
 use App\Models\Demanda;
 use App\Models\SubSetores;
+
 use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
@@ -47,10 +48,10 @@ class EmpresaController extends Controller
         ->with('cabecalho')
         ->first();
       
-        foreach ($empresa->mapeamento as $key => $mapeamentos) {
-            
-            $subsetor = SubSetores::where('nome', $mapeamentos->posto_trabalho)->with('funcao')->get();
-            $setor = Setores::where('nome', $mapeamentos->setor)->where('id_empresa', $id)->with('subsetores')->get();
+        foreach ($empresa->planodeacao as $key => $planodeacao) {
+            dd($planodeacao);
+            $subsetor = SubSetores::where('nome', $planodeacao->posto_trabalho)->with('funcao')->get();
+            $setor = Setores::where('nome', $planodeacao->setor)->where('id_empresa', $id)->with('subsetores')->get();
             foreach ($setor as $key => $set) {
                 foreach ($set->subsetores as $key => $subsetor) {
                     $funcao = $subsetor->funcao->funcao;
