@@ -49,7 +49,7 @@ class EmpresaController extends Controller
         ->first();
       
         foreach ($empresa->planodeacao as $key => $planodeacao) {
-            dd($planodeacao);
+            dd($planodeacao); 
             $subsetor = SubSetores::where('nome', $planodeacao->posto_trabalho)->with('funcao')->get();
             $setor = Setores::where('nome', $planodeacao->setor)->where('id_empresa', $id)->with('subsetores')->get();
             foreach ($setor as $key => $set) {
