@@ -1648,6 +1648,9 @@ chart.column(chartData);
          <p>
        
             @php
+            if($total == 0){
+                $total = 1;
+            }
             $sim = $subsetor->dadossaude->sim;
             $nao = $subsetor->dadossaude->nao;
             $total = $sim + $nao;
