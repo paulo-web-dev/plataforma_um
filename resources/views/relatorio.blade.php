@@ -1648,12 +1648,13 @@ chart.column(chartData);
          <p>
        
             @php
-            if($total == 0){
-                $total = 1;
-            }
+           
             $sim = $subsetor->dadossaude->sim;
             $nao = $subsetor->dadossaude->nao;
             $total = $sim + $nao;
+            if($total == 0){
+                $total = 1;
+            }
             $porcentagemSim = round(($sim / $total) * 100);
             $porcentagemNao = round(($nao / $total) * 100);
             $dataSaude = [
