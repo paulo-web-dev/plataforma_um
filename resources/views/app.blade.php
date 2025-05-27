@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login SGE</title>
+	<title>Login Ergo.One</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
  <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
@@ -37,11 +37,11 @@
                         @csrf
 				
 					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+						<img src="{{url('/fotos/Ergoonelogo.png')}}" style="max-width: 160px">
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
-						Login SGE					</span>
+						Login Ergo.One					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter Email">
 						<input class="input100" type="text" id="email" type="email" name="email" placeholder="Email">

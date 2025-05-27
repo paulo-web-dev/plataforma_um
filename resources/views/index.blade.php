@@ -7,7 +7,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="{{route("index")}}">Plataforma Um</a></h1>
+      <h1 class="logo me-auto"><a href="{{route("index")}}">Ergo.One</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets_institucional/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -89,8 +89,8 @@
         <div class="row content">
           <div class="col-lg-6">
             <p>
-                Plataforma Um, é uma ferramenta completa com o intuito de agilizar e facilitar todo o processo de uma AET
-                (Análise Ergonômica do Trabalho), desde sua documentação até calculos de ferramentas ergonômicas.
+              Ergo.One uma plataforma completa para profissionais de ergonomia, fisioterapeutas, técnicos de segurança e departamentos de RH. 
+Desenvolvido para otimizar o processo de análise ergonômica, gestão de dados e emissão do arquivo AET com máxima eficiência.
             </p>
             <ul>
               <li><i class="ri-check-double-line"></i>Calculo de Ferramentas Ergônomicas </li>
@@ -100,7 +100,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              Com a Plataforma Um, você cadastra os dados da empresa, e pode fazer o cadastro simultano na própria empresa, e ir gerando o arquivo da AET parcial e total com todos os dados.
+              Com a Ergo.One, você cadastra os dados da empresa, e pode fazer o cadastro simultano na própria empresa, e ir gerando o arquivo da AET parcial e total com todos os dados.
             </p>
             <a href="#" class="btn-learn-more">Começe Já</a>
           </div>
@@ -118,7 +118,7 @@
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content">
-              <h3>Porque Escolher a <strong>Plataforma Um?</strong></h3>
+              <h3>Porque Escolher a <strong>Ergo.One?</strong></h3>
               <p>
                 Além de termos uma ferramenta completa para você, damos suporte total a novos usuários, 
                 moldando o sistema para atender as suas necessidades, adicionando ferrramentas e novas features para melhor atende-lo :)
@@ -493,14 +493,14 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <h3>Basic</h3>
-              <h4><sup>R$</sup>399<span>/Mês</span></h4>
+              <h4><sup>R$</sup>399<span>Adesão</span></h4>
               <ul>
                 <li><i class="bx bx-check"></i>Limitado a 1 AET</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
                 <li><i class="bx bx-check"></i>1 Usuário</li>
                 <li class="na"><i class="bx bx-x"></i> <span>Ferramentas Personalizadas</span></li>
                  <li class="na"><i class="bx bx-x"></i> <span>Versão Mobile</span></li>
-                <li class="na"><i class="bx bx-x"></i> <span>Armazenamento Ilimitado de Arquivos e AETS no sistema</span></li>
+                {{-- <li class="na"><i class="bx bx-x"></i> <span>Armazenamento Ilimitado de Arquivos e AETS no sistema</span></li> --}}
               </ul>
               <a href="{{route('plano', ['plano' => 'Basic'])}}" class="buy-btn">Comece Já</a>
             </div>
@@ -509,13 +509,13 @@
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
               <h3>Plus</h3>
-              <h4><sup>$</sup>899<span>/Mês</span></h4>
+              <h4><sup>R$</sup>899<span>Adesão</span></h4>
               <ul>
-             <li><i class="bx bx-check"></i>Até 3 AETS</li>
+             <li><i class="bx bx-check"></i>2 a 4 AETs</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
                 <li><i class="bx bx-check"></i> 5 Usuários</li>
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
-                <li><i class="bx bx-check"></i>Armazenamento Ilimitado de Arquivos e AETS no sistema</li>
+                {{-- <li><i class="bx bx-check"></i>Armazenamento Ilimitado de Arquivos e AETS no sistema</li> --}}
               </ul>
               <a href="{{route('plano', ['plano' => 'Plus'])}}" class="buy-btn">Comece Já</a>
             </div>
@@ -524,13 +524,13 @@
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="box">
               <h3>Premium</h3>
-              <h4><sup>$</sup>999<span>/Mês</span></h4>
+              <h4><sup>R$</sup>999<span>Adesão</span></h4>
               <ul>
-              <li><i class="bx bx-check"></i>Até 5 AETS Ilimitadas</li>
+              <li><i class="bx bx-check"></i>5 a 10 AETS Ilimitadas</li>
                 <li><i class="bx bx-check"></i>Suporte e Treinamento no Sistema</li>
                 <li><i class="bx bx-check"></i>Usuários Ilimitados</li>
                 <li><i class="bx bx-check"></i> Ferramentas Personalizadas</li>
-                <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos no sistema</li>
+                {{-- <li><i class="bx bx-check"></i> Armazenamento Ilimitado de Arquivos no sistema</li> --}}
               </ul>
               <a href="{{route('plano', ['plano' => 'Premium'])}}" class="buy-btn">Comece Já</a>
             </div>

@@ -23,7 +23,7 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Plataforma Um</h3>
             <p>
-              Rua Carlos Gomes 709 <br>
+              Rua Carlos Gomes 749 <br>
               Ponte São João, Jundiaí - SP<br>
              <br>
               {{-- <strong>Phone:</strong> +1 5589 55488 55<br>
@@ -53,7 +53,7 @@
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> --}}
 
   <!-- Vendor JS Files -->
 <script src="{{url('assets_institucional/vendor/aos/aos.js')}}"></script>
@@ -66,7 +66,37 @@
 
 <!-- Template Main JS File -->
 <script src="{{url('assets_institucional/js/main.js')}}"></script>
+<style>
+  .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .whatsapp-float img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .whatsapp-float:hover {
+    background-color: #1ebe5d;
+  }
+</style>
+
+<a href="https://wa.me/5511963379494" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
 
 </body>
 
