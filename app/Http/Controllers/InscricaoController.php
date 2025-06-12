@@ -46,7 +46,7 @@ class InscricaoController extends Controller
         $usuario->power = 1;
         $usuario->save();
        
-
+        $reg_cumpom = new RegCupom();
         $reg_cumpom->id_user = $usuario->id;
         $reg_cumpom->cupom = $request->cupom;
         $reg_cumpom->save();
