@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Instituicao;
+use App\Models\RegCupom;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 class InscricaoController extends Controller
@@ -45,6 +46,10 @@ class InscricaoController extends Controller
         $usuario->power = 1;
         $usuario->save();
        
+
+        $reg_cumpom->id_user = $usuario->id;
+        $reg_cumpom->cupom = $request->cupom;
+        $reg_cumpom->save();
         $credentials = [
             'email' => $usuario->email,
             'password' => $request->password,

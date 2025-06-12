@@ -63,7 +63,11 @@
 						<input class="input100" type="password" id="password_confirmation" name="password_confirmation" placeholder="Senha">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
-
+					
+					<div class="wrap-input100 validate-input" data-validate="Enter Senha">
+						<input class="input100" type="text" name="cupom" placeholder="Tem Algum Cupom?">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var password = document.getElementById("password");
