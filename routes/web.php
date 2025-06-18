@@ -49,6 +49,7 @@ use App\Http\Controllers\CabecalhoController;
 use App\Http\Controllers\RodapeController;
 use App\Http\Controllers\KimController;
 use App\Http\Controllers\ConclusaoSubsetorController;
+use App\Http\Controllers\ArpController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -67,6 +68,10 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return redirect()->route('home'); 
 });
+//*Formulário de ARP
+Route::get('/formulario/arp/{id}', [ArpController::class, 'formArp'])->name('form-arp');
+Route::post('/formulario/cad/respostas/arp', [ArpController::class, 'cadForm'])->name('cad-form-arp');
+Route::get('/formulario/enviado/arp', [ArpController::class, 'formArpEnviado'])->name('form-arp-enviado');
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
@@ -83,6 +88,7 @@ Route::get('/empresas', [EmpresaController::class, 'show'])->name('show-empresas
 Route::get('/ajusta/mapeamento', [EmpresaController::class, 'ajustamapeamento'])->name('ajustamapeamento');
 Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('formempresa');
 Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
+ 
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
 Route::post('/alteracao/ordem/setor', [EmpresaController::class, 'alteraordem'])->name('alteraordem-setor');

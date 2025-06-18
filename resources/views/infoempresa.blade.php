@@ -11,6 +11,9 @@
         </h2>
     <div class="flex-wrap">
         <a href="{{ route('show-empresas') }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="skip-back" class="w-4 h-4 mr-2"></i>Voltar</a>
+
+        <a href="{{ route('form-arp', ['id' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Gerar Link Para Pesquisa ARP</a>
+
         <a href="{{ route('gera-relatorio', ['id' => $empresa->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Gerar Relatório</a>
         @if(isset($empresa->cabecalho))
           <a href="{{ route('info-cabecalho', ['id' => $empresa->cabecalho->id]) }}" class="btn btn-primary shadow-md mr-2" style="margin: 5px"><i data-feather="plus" class="w-4 h-4 mr-2"></i> Atualizar/Ver Cabeçalho</a>  
