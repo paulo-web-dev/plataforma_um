@@ -79,7 +79,7 @@ Route::get('/julia/garcia/voce/ainda/me/ama', [InstitucionalController::class, '
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('/upload/audio', [AudioController::class, 'uploadAudio'])->name('upload-audio');
 //Rotas Referentes a Inscrição do Usuário
-Route::get('/inscricao', [InscricaoController::class, 'show'])->name('show-inscricao');
+Route::get('/inscricao', [InscricaoController::class, 'show'])->name('show-inscricaophp ');
 Route::get('/inscricao/{plano}', [InscricaoController::class, 'inscricaoplano'])->name('plano-inscricao');
 Route::post('/cad/inscricao', [InscricaoController::class, 'cadInscricao'])->name('cad-inscricao');
 
@@ -88,6 +88,8 @@ Route::get('/empresas', [EmpresaController::class, 'show'])->name('show-empresas
 Route::get('/ajusta/mapeamento', [EmpresaController::class, 'ajustamapeamento'])->name('ajustamapeamento');
 Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('formempresa');
 Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
+Route::get('/info/dashboard/empresa/{id}', [EmpresaController::class, 'dashboard'])->name('dashboardempresa'); 
+Route::get('/info/imprime/dashboard/empresa/{id}', [EmpresaController::class, 'imprimedashboard'])->name('imprimedashboardempresa'); 
  
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
