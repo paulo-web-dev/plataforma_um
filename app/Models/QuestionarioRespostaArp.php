@@ -19,5 +19,16 @@ class QuestionarioRespostaArp extends Model
         return $this->hasOne(QuestionarioPerguntaArp::class, 'id_pergunta', 'id');
 
     }
+
+
+    public function resposta()
+
+    {
+
+        return $this->hasOne(QuestionarioPerguntaArp::class, 'id', 'id_pergunta');
+
+    }
+
+    
 }
 

@@ -18,6 +18,16 @@ class QuestionarioPerguntaArp extends Model
 
         return $this->hasMany(QuestionarioRespostaArp::class, 'id_pergunta', 'id');
 
+        
+    }
+
+    
+    public function categoria()
+
+    {
+
+        return $this->hasOne(QuestionarioPerguntaCategoriaArp::class, 'id_pergunta', 'id')->with('categoria');
+
     }
 }
 

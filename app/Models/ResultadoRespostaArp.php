@@ -16,7 +16,7 @@ class ResultadoRespostaArp extends Model
 
     {
 
-        return $this->hasOne(QuestionarioPerguntaArp::class, 'id_pergunta', 'id');
+        return $this->hasOne(QuestionarioPerguntaArp::class, 'id', 'id_pergunta')->with('categoria');
 
     }
     
@@ -24,7 +24,7 @@ class ResultadoRespostaArp extends Model
 
     {
 
-        return $this->hasOne(Empresas::class, 'id_empresa', 'id');
+        return $this->hasOne(Empresas::class, 'id', 'id_empresa');
 
     }
     
@@ -32,7 +32,7 @@ class ResultadoRespostaArp extends Model
 
     {
 
-        return $this->hasOne(QuestionarioRespostaArp::class, 'id_resposta', 'id');
+        return $this->hasOne(QuestionarioRespostaArp::class, 'id', 'id_resposta')->with('resposta');
 
     }
     
@@ -40,7 +40,7 @@ class ResultadoRespostaArp extends Model
 
     {
 
-        return $this->hasOne(FuncionarioQuestionarioArp::class, 'id_func', 'id');
+        return $this->hasOne(FuncionarioQuestionarioArp::class, 'id', 'id_func');
 
     }
 }
