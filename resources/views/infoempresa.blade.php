@@ -1035,50 +1035,86 @@
     }
 </style> --}}
 <div class="intro-y box mt-5">
-    <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+    <div
+        class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5"
+    >
         <h2 class="font-medium text-base mr-auto">
-            <a href="javascript:;" data-theme="light" class="tooltip" title="Cadastro de Mapeamento Ergonômico" id="mapeamento">Mapeamento Ergonômico <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> </a>
+            <a
+                href="javascript:;"
+                data-theme="light"
+                class="tooltip"
+                title="Cadastro de Mapeamento Ergonômico"
+                id="mapeamento"
+                >Mapeamento Ergonômico
+                <i data-feather="help-circle" class="w-4 h-4 mr-2"></i>
+            </a>
         </h2>
+        <a href="{{route('dashboardempresa', ['id' => $empresa->id])}}" class="btn btn-primary  shadow-md mr-2" >
+            📊 Ver Dashboard
+        </a>
     </div>
     <div class="p-5">
-
-        <div class="flex justify-end mb-4">
-            <button id="verDadosBtn" class="btn btn-primary shadow-lg bg-indigo-600 hover:bg-indigo-700 text-white transition duration-200">📊 Ver Dashboard de Riscos</button>
-        </div>
-
-        <div id="dashboardModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-[99999] hidden transition-opacity duration-300 opacity-0">
-            <div class="bg-white dark:bg-dark-1 p-6 rounded-3xl shadow-2xl w-11/12 max-w-2xl transform scale-95 transition-transform duration-300 ease-out border border-indigo-200 dark:border-indigo-800">
-                <div class="flex justify-between items-center pb-4 mb-4 border-b-2 border-indigo-500 dark:border-indigo-400">
-                    <h2 class="text-2xl font-extrabold text-indigo-700 dark:text-indigo-400 flex items-center">
-                        <i data-feather="monitor" class="w-6 h-6 mr-3 text-red-500"></i> Dashboard de Classificações Ergonômicas
-                    </h2>
-                    <button id="closeModalBtn" class="text-gray-500 hover:text-red-600 transition-colors duration-200 text-4xl leading-none p-2 rounded-full hover:bg-red-100 dark:hover:bg-red-900 focus:outline-none">&times;</button>
-                </div>
-                <div id="dashboardContent" class="mt-4 max-h-[70vh] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-indigo-400 scrollbar-track-indigo-100">
-                    </div>
-                <div class="pt-4 mt-6 border-t border-gray-200 dark:border-dark-5 flex justify-end">
-                    <button id="closeModalBtn2" class="btn btn-secondary py-2 px-4 rounded-xl shadow-md transition duration-200">Fechar Análise</button>
-                </div>
-            </div>
-        </div>
-
         <div class="grid grid-cols-12 gap-x-5">
             <div class="col-span-12 xl:col-span-12">
                 <div class="overflow-x-auto">
                     <table class="table" id="mapeamento_table">
                         <thead>
                             <tr>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Editar</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Área</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Setor</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Posto Trabalho</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Função</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Postura</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Atividade</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Exigência da Atividade</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Sobrecarga</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Classificação</th>
-                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap">Excluir</th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Editar
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Área
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Setor
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center"
+                                >
+                                    Posto Trabalho
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Função
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Postura
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Atividade
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center"
+                                >
+                                    Exigência da Atividade
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Sobrecarga
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Classificação
+                                </th>
+                                <th
+                                    class="border border-b-2 dark:border-dark-5 whitespace-nowrap"
+                                >
+                                    Excluir
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1086,246 +1122,140 @@
                             <tr class="hover:bg-gray-200">
                                 <td class="border">
                                     <div class="flex justify-center">
-                                        <a class="flex text-theme-1 mr-3" href="{{route('info-mapeamento', ['id' => $mapeamento->id])}}">
-                                            <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar
+                                        <a
+                                            class="flex text-theme-1 mr-3"
+                                            href="{{route('info-mapeamento', ['id' => $mapeamento->id])}}"
+                                        >
+                                            <i
+                                                data-feather="check-square"
+                                                class="w-4 h-4 mr-1"
+                                            ></i>
+                                            Editar
                                         </a>
                                     </div>
                                 </td>
-                                <td class="border" style="display: none" id="id">{{$mapeamento->id}}</td>
-                                <td class="border area-cell">{{$mapeamento->area}}</td>
+                                <td
+                                    class="border"
+                                    style="display: none"
+                                    id="id"
+                                >
+                                    {{$mapeamento->id}}
+                                </td>
+                                <td class="border">{{$mapeamento->area}}</td>
                                 <td class="border">{{$mapeamento->setor}}</td>
-                                <td class="border">{{$mapeamento->posto_trabalho}}</td>
+                                <td class="border">
+                                    {{$mapeamento->posto_trabalho}}
+                                </td>
                                 <td class="border">{{$mapeamento->funcao}}</td>
-                                <td class="border" id="postura"><input type="text" value="{{$mapeamento->postura}}" class="w-full border-none focus:ring-0 bg-transparent"> </td>
-                                <td class="border">{{$mapeamento->atividade}}</td>
-                                <td class="border" id="exigenciam"><input type="text" value="{{$mapeamento->exigencia}}" class="w-full border-none focus:ring-0 bg-transparent"></td>
-                                <td class="border" id="sobrecarga"><input type="text" value="{{$mapeamento->sobrecarga}}" class="w-full border-none focus:ring-0 bg-transparent"></td>
-                                <td class="border classificacao-cell" id="classificacao{{$loop->index}}">{{$mapeamento->classificacao}}</td>
+                                <td class="border" id="postura">
+                                    <input
+                                        type="text"
+                                        value="{{$mapeamento->postura}}"
+                                    />
+                                </td>
+                                <td class="border">
+                                    {{$mapeamento->atividade}}
+                                </td>
+                                <td class="border" id="exigenciam">
+                                    <input
+                                        type="text"
+                                        value="{{$mapeamento->exigencia}}"
+                                    />
+                                </td>
+                                <td class="border" id="sobrecarga">
+                                    <input
+                                        type="text"
+                                        value="{{$mapeamento->sobrecarga}}"
+                                    />
+                                </td>
+                                <td
+                                    class="border"
+                                    id="classificacao{{$loop->index}}"
+                                >
+                                    {{$mapeamento->classificacao}}
+                                </td>
                                 <td class="border">
                                     <div class="flex justify-center">
-                                        <a class="flex text-theme-1 mr-3" href="{{route('delete-mapeamento', ['id' => $mapeamento->id])}}">
-                                            <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Excluir
+                                        <a
+                                            class="flex text-theme-1 mr-3"
+                                            href="{{route('delete-mapeamento', ['id' => $mapeamento->id])}}"
+                                        >
+                                            <i
+                                                data-feather="trash-2"
+                                                class="w-4 h-4 mr-1"
+                                            ></i>
+                                            Excluir
                                         </a>
                                     </div>
                                 </td>
                             </tr>
-                            <script> classificacao('{{$mapeamento->classificacao}}', '{{$loop->index}}'); </script>
+                            <script>
+                                classificacao('{{$mapeamento->classificacao}}', '{{$loop->index}}');
+                            </script>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <!-- Add this script at the end of your HTML body or in the head section -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get all input fields with id "postura," "exigenciam," and "sobrecarga"
+                var posturaInput = document.querySelectorAll('#postura input');
+                var exigenciamInput = document.querySelectorAll('#exigenciam input');
+                var sobrecargaInput = document.querySelectorAll('#sobrecarga input');
+        
+                // Add event listeners to each input field
+                posturaInput.forEach(function (input) {
+                    input.addEventListener('input', function () {
+                        showAlert(input, 'postura');
+                    });
+                });
+        
+                exigenciamInput.forEach(function (input) {
+                    input.addEventListener('input', function () {
+                        showAlert(input, 'exigenciam');
+                    });
+                });
+        
+                sobrecargaInput.forEach(function (input) {
+                    input.addEventListener('input', function () {
+                        showAlert(input, 'sobrecarga');
+                    });
+                });
+        
+                // Function to show an alert with the id attribute and field value
+                function showAlert(input, fieldName) {
+                    // Get the closest <tr> element (parent of the input)
+                    var closestTr = input.closest('tr');
+        
+                    // Get the value of the "id" cell in the same row
+                    var mapeamentoId = closestTr.querySelector('#id').textContent;
+        
+                    // Get the value of the input field
+                    var fieldValue = input.value;
+        
+                    // Send data via Axios
+                    axios.post('/alteracao/mapeamento', {
+                        id: mapeamentoId,
+                        valor: fieldValue,
+                        campo: fieldName,
+                        _token: '{{ csrf_token() }}',
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.error('Erro ao enviar a solicitação', error);
+                    });
+                }
+            });
+        </script>
+        
     </div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    // --- LÓGICA EXISTENTE PARA ATUALIZAÇÃO DOS INPUTS ---
-    var posturaInput = document.querySelectorAll('#postura input');
-    var exigenciamInput = document.querySelectorAll('#exigenciam input');
-    var sobrecargaInput = document.querySelectorAll('#sobrecarga input');
-
-    function setupInputListener(inputs, fieldName) {
-        inputs.forEach(function (input) {
-            // Adiciona classe para facilitar a estilização e focos
-            input.classList.add('p-1', 'rounded-md', 'border', 'border-gray-300', 'dark:border-dark-5', 'focus:border-indigo-500', 'focus:ring-indigo-500');
-
-            input.addEventListener('change', function () { // Mudei de 'input' para 'change' para só enviar ao focar e desfocar (mais performático)
-                var closestTr = input.closest('tr');
-                var mapeamentoId = closestTr.querySelector('#id').textContent;
-                var fieldValue = input.value;
-
-                // Aqui você deve usar o nome do campo correto que o backend espera: 'postura', 'exigencia' ou 'sobrecarga'
-                // Ajustei o campo exigenciam para 'exigencia' (assumindo que seja o nome real no DB)
-                const realFieldName = fieldName === 'exigenciam' ? 'exigencia' : fieldName; 
-
-                axios.post('/alteracao/mapeamento', {
-                    id: mapeamentoId,
-                    valor: fieldValue,
-                    campo: realFieldName, 
-                    _token: '{{ csrf_token() }}'
-                })
-                .then(response => console.log('Atualizado com sucesso:', response.data))
-                .catch(error => console.error('Erro ao enviar a solicitação', error));
-            });
-        });
-    }
-
-    setupInputListener(posturaInput, 'postura');
-    setupInputListener(exigenciamInput, 'exigenciam'); // Ajustado para ser 'exigencia' dentro da função
-    setupInputListener(sobrecargaInput, 'sobrecarga');
-
-    // --- NOVA LÓGICA PARA O MODAL DO DASHBOARD (Aprimorada) ---
-
-    const verDadosBtn = document.getElementById('verDadosBtn');
-    const dashboardModal = document.getElementById('dashboardModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const closeModalBtn2 = document.getElementById('closeModalBtn2');
-    const dashboardContent = document.getElementById('dashboardContent');
-    const modalInner = dashboardModal.querySelector('.max-w-2xl'); // Seletor para o conteúdo interno do modal (Ajustado max-w-2xl)
-
-    // Função para mostrar o modal com animação
-    function showModal() {
-        dashboardModal.classList.remove('hidden');
-        // Força o reflow para garantir que a transição ocorra
-        requestAnimationFrame(() => {
-            dashboardModal.classList.remove('opacity-0');
-            modalInner.classList.remove('scale-95');
-        });
-    }
-
-    // Função para esconder o modal com animação
-    function hideModal() {
-        dashboardModal.classList.add('opacity-0');
-        modalInner.classList.add('scale-95');
-
-        // Esconde o modal completamente após a transição (300ms)
-        setTimeout(() => {
-            dashboardModal.classList.add('hidden');
-        }, 300);
-    }
-
-    verDadosBtn.addEventListener('click', function () {
-        // 1. Coletar dados da tabela
-        const tableRows = document.querySelectorAll('#mapeamento_table tbody tr');
-        const data = [];
-
-        tableRows.forEach(row => {
-            // Usamos as classes que adicionamos para pegar os valores
-            const area = row.querySelector('.area-cell')?.textContent.trim();
-            const classificacao = row.querySelector('.classificacao-cell')?.textContent.trim();
-
-            if (area && classificacao) {
-                data.push({ area, classificacao });
-            }
-        });
-
-        // 2. Processar os dados para o dashboard
-        const stats = processarDados(data);
-
-        // 3. Gerar o HTML do dashboard e exibi-lo
-        renderDashboard(stats);
-
-        // 4. Mostrar o modal com animação
-        showModal();
-
-        // Se você estiver usando Feather Icons, precisa re-inicializá-los
-        if (typeof feather !== 'undefined') {
-            feather.replace();
-        }
-    });
-
-    closeModalBtn.addEventListener('click', hideModal);
-    closeModalBtn2.addEventListener('click', hideModal); 
-
-    // Fecha o modal se clicar fora da área de conteúdo
-    dashboardModal.addEventListener('click', function (event) {
-        if (event.target === dashboardModal) {
-            hideModal();
-        }
-    });
-
-    function processarDados(data) {
-        const areaStats = {};
-        // Ex: areaStats = { 'Produção': { 'Vermelho': 2, 'Amarelo': 1 }, 'Logística': { 'Verde': 3 } }
-
-        data.forEach(item => {
-            const areaKey = item.area || 'Não Classificado';
-            const classifKey = item.classificacao || 'Outra';
-
-            if (!areaStats[areaKey]) {
-                areaStats[areaKey] = { total: 0 }; // Adiciona um contador total por área
-            }
-            if (!areaStats[areaKey][classifKey]) {
-                areaStats[areaKey][classifKey] = 0; 
-            }
-            areaStats[areaKey][classifKey]++; 
-            areaStats[areaKey].total++;
-        });
-
-        return areaStats;
-    }
-
-    // FUNÇÃO REESCRITA PARA DASHBOARD MAIS BONITO
-    function renderDashboard(stats) {
-        let html = '';
-
-        const classificationColors = {
-            'Verde': { bg: 'bg-emerald-100 dark:bg-emerald-900', text: 'text-emerald-700 dark:text-emerald-300', icon: 'check-circle' },
-            'Amarelo': { bg: 'bg-amber-100 dark:bg-amber-900', text: 'text-amber-700 dark:text-amber-300', icon: 'alert-triangle' },
-            'Vermelho': { bg: 'bg-red-100 dark:bg-red-900', text: 'text-red-700 dark:text-red-300', icon: 'alert-octagon' },
-            'Outra': { bg: 'bg-gray-100 dark:bg-gray-700', text: 'text-gray-700 dark:text-gray-300', icon: 'info' },
-        };
-
-        if (Object.keys(stats).length === 0) {
-            html = '<div class="p-6 text-center text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-dark-2 rounded-xl shadow-inner"><i data-feather="alert-circle" class="w-8 h-8 mx-auto mb-3 text-red-500"></i><p class="text-lg font-semibold">Nenhum dado de mapeamento disponível para análise.</p></div>';
-        } else {
-            // Cálculos de Resumo
-            let areaMaisCritica = { nome: 'N/A', contagem: 0 };
-            let totalMapeamentos = 0;
-            let totalVermelho = 0;
-            
-            for (const area in stats) {
-                const contagemVermelho = stats[area]['Vermelho'] || 0;
-                totalVermelho += contagemVermelho;
-                totalMapeamentos += stats[area].total;
-
-                if (contagemVermelho > areaMaisCritica.contagem) {
-                    areaMaisCritica = { nome: area, contagem: contagemVermelho };
-                }
-            }
-
-            // Card de Resumo Principal
-            html += `<div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
-                        <div class="p-5 bg-indigo-50 dark:bg-dark-2 rounded-2xl shadow-xl border-b-4 border-indigo-500 transform hover:scale-[1.02] transition duration-300">
-                            <i data-feather="grid" class="w-6 h-6 text-indigo-600 mb-2"></i>
-                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total de Postos Mapeados</p>
-                            <p class="text-3xl font-extrabold text-indigo-800 dark:text-indigo-300 mt-1">${totalMapeamentos}</p>
-                        </div>
-                       
-                     
-                    </div>`;
-
-            html += '<h3 class="text-xl font-bold border-b-2 border-gray-300 pb-2 mb-4 dark:border-dark-5 text-gray-700 dark:text-gray-200">Detalhamento por Área de Trabalho</h3>';
-
-            // Monta os detalhes por área em cards
-            for (const area in stats) {
-                html += `<div class="mb-6 p-5 border border-gray-300 dark:border-dark-5 rounded-xl shadow-lg bg-white dark:bg-dark-2">`;
-                html += `<h4 class="font-extrabold text-xl mb-3 text-indigo-700 dark:text-indigo-400 flex items-center"><i data-feather="layers" class="w-5 h-5 mr-2"></i> ${area} <span class="ml-auto text-sm font-medium text-gray-500">Total: ${stats[area].total}</span></h4>`;
-                
-                // Remove o total para iterar apenas sobre as classificações
-                const { total, ...classifications } = stats[area]; 
-                
-                html += '<div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">';
-
-                for (const classificacao in classifications) {
-                    const count = classifications[classificacao];
-                    const color = classificationColors[classificacao] || classificationColors['Outra'];
-
-                    // Card de Classificação
-                    html += `<div class="p-3 ${color.bg} rounded-xl flex flex-col justify-center items-start border-l-4 border-current" style="border-color: ${color.text.replace('text-', '').replace('dark:text-', '').replace('-', ' ').split(' ')[0]}-500;">`;
-                    html += `   <div class="flex items-center">
-                                    <i data-feather="${color.icon}" class="w-4 h-4 mr-2 ${color.text}"></i>
-                                    <span class="font-semibold ${color.text} text-sm">${classificacao}</span>
-                                </div>`;
-                    html += `   <span class="text-3xl font-extrabold ${color.text} mt-1">${count}</span>`;
-                    html += `</div>`;
-                }
-                
-                html += '</div></div>';
-            }
-        }
-
-        dashboardContent.innerHTML = html;
-        // Re-inicializa Feather Icons após a injeção do HTML
-        if (typeof feather !== 'undefined') {
-            feather.replace();
-        }
-    }
-});
-</script>
             <div class="flex justify-end mt-4">
                 <a href="{{route('form-mapeamento', ['empresa' => $empresa->id])}}" class="btn btn-primary mr-auto mb-2">Cadastrar/Atualizar Mapeamento Via Planilha</a>
             </div>    
