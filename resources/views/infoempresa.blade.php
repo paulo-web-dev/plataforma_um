@@ -1509,7 +1509,7 @@
                                 } elseif ($dado['nivel'] === 'Moderado') { 
                                     $risco = 'Baixo';
                                 } elseif ($dado['nivel'] === 'Sério') { 
-                                    $risco = 'Alto'
+                                    $risco = 'Alto';
                                 } else { 
                                     
                                     $risco = 'Severo'; 
