@@ -91,7 +91,7 @@ Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->nam
 Route::get('/info/dashboard/empresa/{id}', [EmpresaController::class, 'dashboard'])->name('dashboardempresa'); 
 Route::get('/info/imprime/dashboard/empresa/{id}', [EmpresaController::class, 'imprimedashboard'])->name('imprimedashboardempresa'); 
 Route::get('/info/dashboardarp/empresa/{id}', [EmpresaController::class, 'dashboardarp'])->name('dashboardempresaarp'); 
-Route::get('/info/imprime/dashboardarp/empresa/{id}', [EmpresaController::class, 'imprimedashboardarp'])->name('imprimedashboardempresaarp'); 
+Route::get('/info/imprime/dashboardarp/empresa/{id}', [EmpresaController::class, 'imprimedashboardarpp'])->name('imprimedashboardempresaarp'); 
  
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');

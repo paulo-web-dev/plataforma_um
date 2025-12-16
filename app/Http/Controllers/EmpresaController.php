@@ -531,7 +531,7 @@ class EmpresaController extends Controller
     }     
 
     
-    public function imprimedashboardarp($id){
+    public function imprimedashboardarpp($id){
         
 
         $arp = ResultadoRespostaArp::where('id_empresa', $id)
