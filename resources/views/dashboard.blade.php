@@ -468,6 +468,266 @@
                 </tbody>
             </table>
         </div>
+        
+{{-- Verificamos se existem dados gerais para exibir --}}
+@if(!empty($mediasGerais))
+
+{{-- ================================================================= --}}
+{{-- ======================= TABELA DE DADOS GERAIS ==================== --}}
+{{-- ================================================================= --}}
+<div class="col-span-12 xl:col-span-12">
+    
+    <div class="overflow-x-auto">
+        {{-- Preparação dos Textos das Sugestões --}}
+        @php
+            $sugestoesDict = [
+                0 => [ // 1. Violência...
+                    'Leve' => 'Ambiente seguro e ético, ocorrências raras e tratadas imediatamente.',
+                    'Moderado' => 'Relatos pontuais de críticas públicas indevidas ou decisões discriminatórias isoladas.',
+                    'Sério' => 'Relatos frequentes de intimidação, violência verbal ou críticas públicas.',
+                    'Severo' => 'Violência, assédio e discriminação recorrentes, impactando saúde mental e física.',
+                ],
+                1 => [ // 2. Reconhecimento...
+                    'Leve' => 'Colaborador valorizado e reconhecido, recompensas justas e oportunas.',
+                    'Moderado' => 'Justiça na recompensa questionada ocasionalmente ou reconhecimento insuficiente.',
+                    'Sério' => 'Esforço não reconhecido, sentimento de desvalorização.',
+                    'Severo' => 'Reconhecimento inexistente, colaborador desvalorizado e injustiça crônica.',
+                ],
+                2 => [ // 3. Apoio Social
+                    'Leve' => 'Colaborador apoiado, serviços de suporte acessíveis e informação adequada.',
+                    'Moderado' => 'Falta de apoio em momentos de alta demanda ou problemas no acesso a serviços.',
+                    'Sério' => 'Falta de apoio crônica e ausência de treinamento impactando desempenho.',
+                    'Severo' => 'Colaborador sem apoio, serviços inacessíveis e falta de informação constante.',
+                ],
+                3 => [ // 4. Supervisão
+                    'Leve' => 'Supervisão justa, monitoramento razoável e feedback adequado.',
+                    'Moderado' => 'Feedback inconsistente ou injustiça nas decisões.',
+                    'Sério' => 'Feedback crônico ou inexistente, injustiça frequente.',
+                    'Severo' => 'Supervisão abusiva, omissão de feedback e excesso de vigilância.',
+                ],
+                4 => [ // 5. Civilidade
+                    'Leve' => 'Ambiente respeitoso e justo, civilidade é a regra.',
+                    'Moderado' => 'Falta de civilidade pontual ou interação desrespeitosa.',
+                    'Sério' => 'Falta de respeito frequente, abalando confiança e justiça.',
+                    'Severo' => 'Falta de civilidade e respeito é a norma cultural.',
+                ],
+                5 => [ // 6. Relações Interpessoais
+                    'Leve' => 'Comunicação clara e relacionamentos saudáveis.',
+                    'Moderado' => 'Comunicação falha ocasionalmente ou pequenos atritos.',
+                    'Sério' => 'Conflitos frequentes, comunicação crônica falha e baixo apoio.',
+                    'Severo' => 'Ambiente hostil, conflitos constantes e comunicação ineficaz.',
+                ],
+                6 => [ // 7. Liderança
+                    'Leve' => 'Líder claro, assume responsabilidades e atua com ética.',
+                    'Moderado' => 'Falha ocasional em dar feedback ou assumir responsabilidades.',
+                    'Sério' => 'Omissão frequente de informações ou falhas graves na responsabilidade.',
+                    'Severo' => 'Líder abusivo, omissão de informações e falta de responsabilidade.',
+                ],
+                7 => [ // 8. Cultura Organizacional
+                    'Leve' => 'Cultura transparente e justa, colaborador apoiado.',
+                    'Moderado' => 'Comunicação falha em momentos importantes ou suporte limitado.',
+                    'Sério' => 'Falhas crônicas de comunicação e normas injustas.',
+                    'Severo' => 'Cultura abusiva, comunicação caótica e tratamento injusto.',
+                ],
+                8 => [ // 9. Carga de Trabalho
+                    'Leve' => 'Colaborador lida bem com pressão ocasional, trabalho tem valor.',
+                    'Moderado' => 'Agenda instável ou horas extras não programadas.',
+                    'Sério' => 'Carga de horas extras longa e recorrente, instabilidade alta.',
+                    'Severo' => 'Colaborador vive em função da empresa, agenda caótica e metas impossíveis.',
+                ],
+                9 => [ // 10. Estabilidade
+                    'Leve' => 'Colaborador percebe estabilidade e remuneração justa.',
+                    'Moderado' => 'Percepção de insegurança ou incômodo com remuneração.',
+                    'Sério' => 'Medo de demissão alto, remuneração abaixo do mercado.',
+                    'Severo' => 'Colaborador em regime precário, medo de demissão e remuneração injusta.',
+                ],
+                10 => [ // 11. Condições
+                    'Leve' => 'Condições ambientais seguras e adequadas.',
+                    'Moderado' => 'Desconforto ocasional ou falta de recurso essencial.',
+                    'Sério' => 'Condições de risco ou equipamentos inadequados.',
+                    'Severo' => 'Ambiente cronicamente inseguro, risco à saúde e integridade.',
+                ],
+                11 => [ // 12. Controle
+                    'Leve' => 'Colaborador com domínio sobre ritmo e participa de decisões.',
+                    'Moderado' => 'Autonomia limitada ou volume de trabalho no limite.',
+                    'Sério' => 'Controle rígido e carga de trabalho excessiva.',
+                    'Severo' => 'Colaborador sem autonomia, pressão extrema e exaustão.',
+                ],
+                12 => [ // 13. Mudanças
+                    'Leve' => 'Mudanças raras e bem comunicadas.',
+                    'Moderado' => 'Mudanças com comunicação ou suporte falhos.',
+                    'Sério' => 'Frequência de mudanças desestabiliza rotina.',
+                    'Severo' => 'Mudanças constantes, comunicação precária e estresse crônico.',
+                ],
+                13 => [ // 14. Ritmo
+                    'Leve' => 'Colaborador lida bem com ritmo, pressão motivacional.',
+                    'Moderado' => 'Pressão frequente ou ritmo imposto incomoda.',
+                    'Sério' => 'Sobrecarga notória, metas irreais e ritmo imposto.',
+                    'Severo' => 'Ambiente sobrecarregado, exaustão e ritmo controlado por máquinas.',
+                ],
+                14 => [ // 15. Funções
+                    'Leve' => 'Colaborador com clareza sobre o que fazer e valor do trabalho.',
+                    'Moderado' => 'Dúvidas ocasionais sobre prioridades ou demandas extras.',
+                    'Sério' => 'Ordens contraditórias e papel descaracterizado.',
+                    'Severo' => 'Colaborador "perdido", trabalho sem propósito e rotina caótica.',
+                ],
+                15 => [ // 16. Exigências Emocionais (Repete para 17 e 18)
+                    'Leve' => 'Carga e exigências desafiadoras, mas gerenciáveis.',
+                    'Moderado' => 'Pressão com prazos ou interação intensa.',
+                    'Sério' => 'Sobrecarga quantitativa, subutilização de habilidades e alta demanda emocional.',
+                    'Severo' => 'Colaborador cronicamente exausto, metas impossíveis e subutilizado.',
+                ],
+            ];
+        @endphp
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Categoria</th>
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Média</th>
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Severidade</th>
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Risco</th>
+                    {{-- Nova Coluna --}}
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-left">Plano de Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($mediasGerais as $dado)
+                    <tr class="hover:bg-gray-200">
+                        <td class="border text-center">{{ $dado['categoria'] }}</td>
+                        <td class="border text-center font-bold">{{ number_format($dado['media'], 2, ',', '.') }}</td>
+                        
+                        {{-- Coluna Nível --}}
+                        <td class="border text-center">
+                            @php
+                                // Definição de Cores
+                                $corFundo = '#ccc';
+                                $corTexto = '#000';
+                                // Mapeamento do Nível (String)
+                                // Nota: Mapeei "Risco Médio" do seu texto para "Moderado" do código
+                                $nivelKey = $dado['nivel']; 
+
+                                if ($dado['nivel'] === 'Leve') { 
+                                    $corFundo = '#22c55e'; $corTexto = '#fff'; 
+                                } elseif ($dado['nivel'] === 'Moderado') { 
+                                    $corFundo = '#facc15'; $corTexto = '#000'; 
+                                } elseif ($dado['nivel'] === 'Sério') { 
+                                    $corFundo = '#f97316'; $corTexto = '#fff'; 
+                                } else { 
+                                    // Assumindo que o else é Severo
+                                    $corFundo = '#dc2626'; $corTexto = '#fff'; 
+                                    $nivelKey = 'Severo'; 
+                                }
+                            @endphp
+                            <span style="background-color: {{ $corFundo }}; color: {{ $corTexto }}; padding: 5px 10px; border-radius: 6px;">
+                                {{ $dado['nivel'] }}
+                            </span>
+                        </td>
+                        <td class="border text-center">
+                          @php
+                            if ($dado['nivel'] === 'Leve') { 
+                                    $risco = 'Insignificante';
+                                } elseif ($dado['nivel'] === 'Moderado') { 
+                                    $risco = 'Baixo';
+                                } elseif ($dado['nivel'] === 'Sério') { 
+                                    $risco = 'Alto';
+                                } else { 
+                                    
+                                    $risco = 'Severo'; 
+                                } 
+                          @endphp 
+                          {{$risco}}
+                        </td>
+                        {{-- Coluna Sugestão de Melhoria --}}
+                        <td class="border text-left p-3">
+                            @php
+                                // Lógica para o índice: 
+                                // O loop vai de 0 a 17. Se for maior que 15 (ou seja, 16 ou 17), força ser 15.
+                                $idxArr = $loop->index;
+                                if ($idxArr > 15) {
+                                    $idxArr = 15;
+                                }
+
+                                // Recupera a frase baseada no índice da categoria e na chave do nível
+                                $fraseSugestao = $sugestoesDict[$idxArr][$nivelKey] ?? 'Sem diagnóstico definido.';
+                            @endphp
+                            <span class="text-xs text-gray-700 dark:text-gray-300">
+                                {{ $fraseSugestao }}
+                            </span>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div> 
+
+{{-- ================================================================= --}}
+{{-- ==================== TABELAS DE DADOS POR SETOR =================== --}}
+{{-- ================================================================= --}}
+@foreach($mediasPorSetor as $setor => $dadosDoSetor)
+<div class="intro-y box mt-8"> {{-- mt-8 para dar um espaçamento maior entre as tabelas --}}
+    <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
+        <h2 class="font-medium text-base mr-auto">
+            <a href="javascript:;" data-theme="light" class="tooltip" title="Média por Categoria para o setor {{ $setor }}">
+                Resultados do Setor: <span class="font-bold">{{ $setor }}</span>
+                {{-- Exibe a quantidade de respondentes do setor --}}
+                <span class="text-gray-600 ml-2">({{ $dadosDoSetor['totalParticipantes'] }} respondente(s))</span>
+                <i data-feather="users" class="w-4 h-4 ml-2 inline-block"></i>
+            </a>
+        </h2>
+    </div>
+    <div class="p-5">
+        <div class="grid grid-cols-12 gap-x-5">
+            <div class="col-span-12 xl:col-span-12">
+                <div class="overflow-x-auto">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Categoria</th>
+                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Média</th>
+                                <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Nível</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($dadosDoSetor['medias'] as $dado)
+                                <tr class="hover:bg-gray-200">
+                                    <td class="border text-center">{{ $dado['categoria'] }}</td>
+                                    <td class="border text-center font-bold">{{ number_format($dado['media'], 2, ',', '.') }}</td>
+                                    <td class="border text-center">
+                                        @php
+                                            $corFundo = '#ccc';
+                                            $corTexto = '#000';
+                                            if ($dado['nivel'] === 'Leve') { $corFundo = '#22c55e'; $corTexto = '#fff'; }
+                                            elseif ($dado['nivel'] === 'Moderado') { $corFundo = '#facc15'; $corTexto = '#000'; }
+                                            elseif ($dado['nivel'] === 'Sério') { $corFundo = '#f97316'; $corTexto = '#fff'; }
+                                            else { $corFundo = '#dc2626'; $corTexto = '#fff'; }
+                                        @endphp
+                                        <span style="background-color: {{ $corFundo }}; color: {{ $corTexto }}; padding: 5px 10px; border-radius: 6px;">
+                                            {{ $dado['nivel'] }}
+                                        </span>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="3" class="text-center border p-3">Nenhum dado encontrado para este setor</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
+@else
+{{-- Mensagem para quando não há absolutamente nenhum dado --}}
+<div class="intro-y box mt-5 p-5">
+    <p class="text-center">Nenhum resultado de pesquisa encontrado para esta empresa.</p>
+</div>
+@endif
     </div>
 </div>
 @endsection

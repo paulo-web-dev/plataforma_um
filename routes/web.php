@@ -90,6 +90,8 @@ Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('fo
 Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
 Route::get('/info/dashboard/empresa/{id}', [EmpresaController::class, 'dashboard'])->name('dashboardempresa'); 
 Route::get('/info/imprime/dashboard/empresa/{id}', [EmpresaController::class, 'imprimedashboard'])->name('imprimedashboardempresa'); 
+Route::get('/info/dashboardarp/empresa/{id}', [EmpresaController::class, 'dashboardarp'])->name('dashboardempresaarp'); 
+Route::get('/info/imprime/dashboardarp/empresa/{id}', [EmpresaController::class, 'imprimedashboardarp'])->name('imprimedashboardempresaarp'); 
  
 Route::post('/cadastrar/empresa', [EmpresaController::class, 'cadempresa'])->name('cadempresa');
 Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('updempresa');
@@ -436,6 +438,8 @@ Route::post('/update/rodape', [RodapeController::class, 'updRodape'])->name('upd
 //Rotas referentes ao relatório
 
 Route::get('/relatorio/{id}', [RelatorioController::class, 'gerarRelatorio'])->name('gera-relatorio');
+Route::get('/relatorio/arp/{id}', [RelatorioController::class, 'gerarRelatorioarp'])->name('gera-relatorioarp');
+
 Route::get('/laravel-version', function() {
     $laravel = app();
     return "Your Laravel version is ".$laravel::VERSION;
