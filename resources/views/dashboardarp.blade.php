@@ -239,13 +239,7 @@
     </div>
 </div>
 @endforeach
-       
-@else
-{{-- Mensagem para quando não há absolutamente nenhum dado --}}
-<div class="intro-y box mt-5 p-5">
-    <p class="text-center">Nenhum resultado de pesquisa encontrado para esta empresa.</p>
-</div>
-@endif
+
         </div>
         
     </div>
