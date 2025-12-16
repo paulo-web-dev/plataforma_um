@@ -277,7 +277,9 @@
 {{-- ======================= TABELA DE DADOS GERAIS ==================== --}}
 {{-- ================================================================= --}}
 <div class="col-span-12 xl:col-span-12">
-    
+    <a href="{{route('dashboardempresaarp', ['id' => $empresa->id])}}" class="btn btn-primary  shadow-md mr-2" >
+        📊 Ver Dashboard arp
+    </a>
     <div class="overflow-x-auto">
         {{-- Preparação dos Textos das Sugestões --}}
         @php
