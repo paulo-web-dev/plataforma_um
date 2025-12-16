@@ -521,7 +521,7 @@ class EmpresaController extends Controller
 
 
     
-        return view('dashboard',
+        return view('dashboardarp',
         [   
             'empresa' => $empresa, 
             'mediasGerais' => $mediasGerais,
@@ -634,7 +634,7 @@ class EmpresaController extends Controller
 
 
     
-        return view('imprimedashboard',
+        return view('imprimedashboardarp',
         [   
             'empresa' => $empresa, 
             'mediasGerais' => $mediasGerais,
