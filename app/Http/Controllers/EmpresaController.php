@@ -528,7 +528,7 @@ class EmpresaController extends Controller
             'totalParticipantesGeral' => $totalParticipantesGeral,
             'mediasPorSetor' => $mediasPorSetor,
         ]); 
-    } 
+    }     
 
     
     public function imprimedashboardarp($id){
