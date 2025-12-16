@@ -1464,9 +1464,10 @@
                 <tr>
                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Categoria</th>
                     <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Média</th>
-                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Nível</th>
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Severidade</th>
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-center">Risco</th>
                     {{-- Nova Coluna --}}
-                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-left">Sugestão de Melhoria</th>
+                    <th class="border border-b-2 dark:border-dark-5 whitespace-nowrap text-left">Plano de Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -1501,7 +1502,21 @@
                                 {{ $dado['nivel'] }}
                             </span>
                         </td>
-
+                        <td class="border text-center">
+                          @php
+                            if ($dado['nivel'] === 'Leve') { 
+                                    $risco = 'Insignificante';
+                                } elseif ($dado['nivel'] === 'Moderado') { 
+                                    $risco = 'Baixo';
+                                } elseif ($dado['nivel'] === 'Sério') { 
+                                    $risco = 'Alto'
+                                } else { 
+                                    
+                                    $risco = 'Severo'; 
+                                } 
+                          @endphp 
+                          {{$risco}}
+                        </td>
                         {{-- Coluna Sugestão de Melhoria --}}
                         <td class="border text-left p-3">
                             @php
