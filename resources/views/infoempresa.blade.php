@@ -1356,6 +1356,11 @@
 {{-- ======================= TABELA DE DADOS GERAIS ==================== --}}
 {{-- ================================================================= --}}
 <div class="col-span-12 xl:col-span-12">
+    <div class="flex justify-end mb-4">
+        <button id="downloadResultsButton" class="btn btn-primary shadow-md">
+            <i data-lucide="download" class="w-4 h-4 mr-2"></i> Baixar Resultados
+        </button>
+    </div>
     <div class="overflow-x-auto">
         {{-- Preparação dos Textos das Sugestões --}}
         @php
@@ -1927,6 +1932,21 @@ $secao = session('secao');
 
 
   
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const downloadButton = document.getElementById('downloadResultsButton');
+        
+        if (downloadButton) {
+            downloadButton.addEventListener('click', function() {
+                // Coloque aqui a lógica para baixar os resultados (ex: chamar uma rota do Laravel)
+                alert('O botão "Baixar Resultados" foi clicado! Implemente a lógica de download aqui.');
+                
+                // Exemplo de como você poderia chamar uma rota:
+                // window.location.href = '/sua-rota-de-exportacao-de-dados';
+            });
+        }
+    });
 </script>
 @endif
 
