@@ -11,13 +11,20 @@ class FuncionarioQuestionarioArp extends Model
 
     protected $table = 'funcionario_questionario_arp';
 
-
+    protected $fillable = [
+        'nome',
+        'email'
+    ];
     public function empresa()
 
     {
 
         return $this->hasOne(Empresas::class, 'id_empresa', 'id');
 
+    }
+
+    public function respostas() {
+        return $this->hasMany(DiscRespostas::class, 'funcionario_id');
     }
 }
 

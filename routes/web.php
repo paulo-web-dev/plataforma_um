@@ -50,6 +50,7 @@ use App\Http\Controllers\RodapeController;
 use App\Http\Controllers\KimController;
 use App\Http\Controllers\ConclusaoSubsetorController;
 use App\Http\Controllers\ArpController;
+use App\Http\Controllers\DiscController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -98,6 +99,21 @@ Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('
 Route::post('/alteracao/ordem/setor', [EmpresaController::class, 'alteraordem'])->name('alteraordem-setor');
 Route::post('/alteracao/mapeamento', [EmpresaController::class, 'alteramapeamento'])->name('alteraordem-setor');
 Route::post('/alteracao/plano', [EmpresaController::class, 'alteraplano'])->name('alteraordem-plano');
+
+//Rotas Referentes a empresas ARP
+Route::middleware(['auth', 'power:11'])->group(function () {
+    Route::get('/arp/empresas', [EmpresaController::class, 'showarp'])->name('show-empresasarp');
+    Route::get('/arp/form/empresa', [EmpresaController::class, 'formempresaarp'])->name('formempresaarp');
+    Route::post('/arp/cadastrar/empresa', [EmpresaController::class, 'cadempresaarp'])->name('cadempresaarp');
+    Route::get('/arp/info/empresa/{id}', [EmpresaController::class, 'infoempresaarp'])->name('infoempresaarp'); 
+    Route::post('/arp/update/empresa', [EmpresaController::class, 'updempresaarp'])->name('updempresaarp');
+    Route::get('/arp/info/dashboard/empresa/{id}', [EmpresaController::class, 'dashboardarpn'])->name('dashboardempresaarpn'); 
+    
+
+
+});
+
+Route::get('/empresas', [EmpresaController::class, 'show'])->name('show-empresas');
 //Rotas Pertinentes a cadastro de Identidade visual 
 Route::get('/identidades', [IdentidadeVisualController::class, 'show'])->name('show-identidade');
 Route::get('/form/identidade-visual', [IdentidadeVisualController::class, 'formIdentidade'])->name('form-identidade');
@@ -451,5 +467,11 @@ Route::post('/api/asaas/cartao', [InstitucionalController::class, 'apiAsaas'])->
 //ROTAS REFERENTES AO SITE INSTITUICIONAL
 Route::get('/index', [InstitucionalController::class, 'index'])->name('index');
 Route::get('/plano/{plano}', [InstitucionalController::class, 'plano'])->name('plano');
+
+//Rotas Referentes ao DISC 
+Route::get('/disc', [DiscController::class, 'index'])->name('disc.index');
+Route::post('/disc', [DiscController::class, 'store'])->name('disc.store');
+Route::get('/disc/resultado/{id}', [DiscController::class, 'result'])->name('disc.result');
+
 
 require __DIR__.'/auth.php';

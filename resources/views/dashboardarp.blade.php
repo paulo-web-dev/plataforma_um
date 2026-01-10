@@ -155,102 +155,108 @@
         {{-- Preparação dos Textos das Sugestões --}}
         @php
             $sugestoesDict = [
-                0 => [ // 1. Violência...
-                    'Leve' => 'Ambiente seguro e ético, ocorrências raras e tratadas imediatamente.',
-                    'Moderado' => 'Relatos pontuais de críticas públicas indevidas ou decisões discriminatórias isoladas.',
-                    'Sério' => 'Relatos frequentes de intimidação, violência verbal ou críticas públicas.',
-                    'Severo' => 'Violência, assédio e discriminação recorrentes, impactando saúde mental e física.',
-                ],
-                1 => [ // 2. Reconhecimento...
-                    'Leve' => 'Colaborador valorizado e reconhecido, recompensas justas e oportunas.',
-                    'Moderado' => 'Justiça na recompensa questionada ocasionalmente ou reconhecimento insuficiente.',
-                    'Sério' => 'Esforço não reconhecido, sentimento de desvalorização.',
-                    'Severo' => 'Reconhecimento inexistente, colaborador desvalorizado e injustiça crônica.',
-                ],
-                2 => [ // 3. Apoio Social
-                    'Leve' => 'Colaborador apoiado, serviços de suporte acessíveis e informação adequada.',
-                    'Moderado' => 'Falta de apoio em momentos de alta demanda ou problemas no acesso a serviços.',
-                    'Sério' => 'Falta de apoio crônica e ausência de treinamento impactando desempenho.',
-                    'Severo' => 'Colaborador sem apoio, serviços inacessíveis e falta de informação constante.',
-                ],
-                3 => [ // 4. Supervisão
-                    'Leve' => 'Supervisão justa, monitoramento razoável e feedback adequado.',
-                    'Moderado' => 'Feedback inconsistente ou injustiça nas decisões.',
-                    'Sério' => 'Feedback crônico ou inexistente, injustiça frequente.',
-                    'Severo' => 'Supervisão abusiva, omissão de feedback e excesso de vigilância.',
-                ],
-                4 => [ // 5. Civilidade
-                    'Leve' => 'Ambiente respeitoso e justo, civilidade é a regra.',
-                    'Moderado' => 'Falta de civilidade pontual ou interação desrespeitosa.',
-                    'Sério' => 'Falta de respeito frequente, abalando confiança e justiça.',
-                    'Severo' => 'Falta de civilidade e respeito é a norma cultural.',
-                ],
-                5 => [ // 6. Relações Interpessoais
-                    'Leve' => 'Comunicação clara e relacionamentos saudáveis.',
-                    'Moderado' => 'Comunicação falha ocasionalmente ou pequenos atritos.',
-                    'Sério' => 'Conflitos frequentes, comunicação crônica falha e baixo apoio.',
-                    'Severo' => 'Ambiente hostil, conflitos constantes e comunicação ineficaz.',
-                ],
-                6 => [ // 7. Liderança
-                    'Leve' => 'Líder claro, assume responsabilidades e atua com ética.',
-                    'Moderado' => 'Falha ocasional em dar feedback ou assumir responsabilidades.',
-                    'Sério' => 'Omissão frequente de informações ou falhas graves na responsabilidade.',
-                    'Severo' => 'Líder abusivo, omissão de informações e falta de responsabilidade.',
-                ],
-                7 => [ // 8. Cultura Organizacional
-                    'Leve' => 'Cultura transparente e justa, colaborador apoiado.',
-                    'Moderado' => 'Comunicação falha em momentos importantes ou suporte limitado.',
-                    'Sério' => 'Falhas crônicas de comunicação e normas injustas.',
-                    'Severo' => 'Cultura abusiva, comunicação caótica e tratamento injusto.',
-                ],
-                8 => [ // 9. Carga de Trabalho
-                    'Leve' => 'Colaborador lida bem com pressão ocasional, trabalho tem valor.',
-                    'Moderado' => 'Agenda instável ou horas extras não programadas.',
-                    'Sério' => 'Carga de horas extras longa e recorrente, instabilidade alta.',
-                    'Severo' => 'Colaborador vive em função da empresa, agenda caótica e metas impossíveis.',
-                ],
-                9 => [ // 10. Estabilidade
-                    'Leve' => 'Colaborador percebe estabilidade e remuneração justa.',
-                    'Moderado' => 'Percepção de insegurança ou incômodo com remuneração.',
-                    'Sério' => 'Medo de demissão alto, remuneração abaixo do mercado.',
-                    'Severo' => 'Colaborador em regime precário, medo de demissão e remuneração injusta.',
-                ],
-                10 => [ // 11. Condições
-                    'Leve' => 'Condições ambientais seguras e adequadas.',
-                    'Moderado' => 'Desconforto ocasional ou falta de recurso essencial.',
-                    'Sério' => 'Condições de risco ou equipamentos inadequados.',
-                    'Severo' => 'Ambiente cronicamente inseguro, risco à saúde e integridade.',
-                ],
-                11 => [ // 12. Controle
-                    'Leve' => 'Colaborador com domínio sobre ritmo e participa de decisões.',
-                    'Moderado' => 'Autonomia limitada ou volume de trabalho no limite.',
-                    'Sério' => 'Controle rígido e carga de trabalho excessiva.',
-                    'Severo' => 'Colaborador sem autonomia, pressão extrema e exaustão.',
-                ],
-                12 => [ // 13. Mudanças
-                    'Leve' => 'Mudanças raras e bem comunicadas.',
-                    'Moderado' => 'Mudanças com comunicação ou suporte falhos.',
-                    'Sério' => 'Frequência de mudanças desestabiliza rotina.',
-                    'Severo' => 'Mudanças constantes, comunicação precária e estresse crônico.',
-                ],
-                13 => [ // 14. Ritmo
-                    'Leve' => 'Colaborador lida bem com ritmo, pressão motivacional.',
-                    'Moderado' => 'Pressão frequente ou ritmo imposto incomoda.',
-                    'Sério' => 'Sobrecarga notória, metas irreais e ritmo imposto.',
-                    'Severo' => 'Ambiente sobrecarregado, exaustão e ritmo controlado por máquinas.',
-                ],
-                14 => [ // 15. Funções
-                    'Leve' => 'Colaborador com clareza sobre o que fazer e valor do trabalho.',
-                    'Moderado' => 'Dúvidas ocasionais sobre prioridades ou demandas extras.',
-                    'Sério' => 'Ordens contraditórias e papel descaracterizado.',
-                    'Severo' => 'Colaborador "perdido", trabalho sem propósito e rotina caótica.',
-                ],
-                15 => [ // 16. Exigências Emocionais (Repete para 17 e 18)
-                    'Leve' => 'Carga e exigências desafiadoras, mas gerenciáveis.',
-                    'Moderado' => 'Pressão com prazos ou interação intensa.',
-                    'Sério' => 'Sobrecarga quantitativa, subutilização de habilidades e alta demanda emocional.',
-                    'Severo' => 'Colaborador cronicamente exausto, metas impossíveis e subutilizado.',
-                ],
+                0 => [
+        'Leve' => 'Realizar campanhas educativas sobre respeito mútuo e promover treinamentos periódicos de comunicação não violenta para todos os colaboradores.',
+        'Moderado' => 'Implementar treinamentos obrigatórios sobre comunicação não violenta, criar e divulgar canais de denúncia confidenciais, e realizar rodas de conversa para prevenção de conflitos.',
+        'Sério' => 'Adotar medidas disciplinares conforme política interna, garantir proteção e apoio psicológico às vítimas, e realizar investigação formal dos casos reportados.',
+        'Severo' => 'Acionar imediatamente o setor jurídico e órgãos competentes, afastar preventivamente os envolvidos, garantir suporte integral às vítimas e revisar políticas de compliance e tolerância zero.'
+    ],
+    1 => [
+        'Leve' => 'Incentivar o reconhecimento informal por meio de feedbacks positivos e celebrações de pequenas conquistas em reuniões de equipe.',
+        'Moderado' => 'Estruturar um programa formal de reconhecimento, com critérios claros e comunicação transparente, incluindo premiações e destaque em canais internos.',
+        'Sério' => 'Revisar políticas de carreira e remuneração, criar planos de desenvolvimento individual e realizar pesquisas de satisfação para identificar lacunas de reconhecimento.',
+        'Severo' => 'Elaborar um plano de recuperação de confiança, implementar ações de retenção de talentos e realizar reuniões individuais para escuta ativa e reconstrução do vínculo organizacional.'
+    ],
+    2 => [
+        'Leve' => 'Promover iniciativas de integração, como cafés da manhã e grupos de escuta, para fortalecer o senso de pertencimento.',
+        'Moderado' => 'Implementar programas de mentoring e grupos de apoio, além de disponibilizar canais de acolhimento para dúvidas e dificuldades pessoais.',
+        'Sério' => 'Acionar o RH para acompanhamento individualizado, oferecer suporte psicológico e monitorar casos de isolamento social.',
+        'Severo' => 'Adotar medidas de proteção, como afastamento temporário de envolvidos em conflitos graves, e garantir acompanhamento profissional especializado.'
+    ],
+   3 => [
+        'Leve' => 'Aprimorar o fluxo de informações com reuniões regulares e atualização de murais ou canais digitais internos.',
+        'Moderado' => 'Estabelecer canais formais de comunicação, como newsletters e reuniões de alinhamento, e implementar rotinas de feedback estruturado.',
+        'Sério' => 'Realizar auditoria dos processos de comunicação, criar um plano de crise e treinar líderes para comunicação assertiva em situações delicadas.',
+        'Severo' => 'Reestruturar os processos de comunicação interna, substituir ou capacitar lideranças e adotar ferramentas digitais para garantir transparência e agilidade.'
+    ],
+    4 => [
+        'Leve' => 'Oferecer capacitação básica em liderança e coaching para líderes, focando em escuta ativa e gestão de pessoas.',
+        'Moderado' => 'Desenvolver programas de desenvolvimento de competências de liderança, com avaliações periódicas de desempenho e feedbacks 360º.',
+        'Sério' => 'Elaborar planos de melhoria para líderes com desempenho insatisfatório ou realizar substituição, conforme avaliação de resultados.',
+        'Severo' => 'Aplicar medidas disciplinares, revisar a governança e, se necessário, reestruturar a equipe de liderança para garantir alinhamento com os valores organizacionais.'
+    ],
+   5 => [
+        'Leve' => 'Estabelecer rotinas de feedback informal entre líderes e equipes, incentivando a troca construtiva de percepções.',
+        'Moderado' => 'Implementar avaliações de desempenho formais, definir metas SMART e promover reuniões periódicas de acompanhamento.',
+        'Sério' => 'Revisar processos de avaliação, realizar calibragem dos resultados e capacitar avaliadores para garantir justiça e transparência.',
+        'Severo' => 'Contratar auditoria externa para revisar processos de avaliação e cargos, corrigindo distorções e promovendo equidade.'
+    ],
+   6 => [
+        'Leve' => 'Realizar pequenos ajustes de benefícios de baixo custo e comunicar claramente as vantagens oferecidas aos colaboradores.',
+        'Moderado' => 'Realizar benchmarking de mercado, ajustar benefícios para manter competitividade e envolver colaboradores na escolha de novos benefícios.',
+        'Sério' => 'Revisar a política salarial, criar um plano de compensação estruturado e comunicar as mudanças de forma transparente.',
+        'Severo' => 'Negociar pacotes de retenção, abrir diálogo com representantes sindicais e, se necessário, iniciar negociação coletiva.'
+    ],
+    7 => [
+        'Leve' => 'Realizar inspeções periódicas e treinamentos básicos de segurança para todos os colaboradores.',
+        'Moderado' => 'Conduzir auditoria de segurança, implementar melhorias na infraestrutura e atualizar equipamentos de proteção.',
+        'Sério' => 'Investigar incidentes, aplicar medidas corretivas imediatas e reforçar treinamentos obrigatórios conforme normas regulamentadoras.',
+        'Severo' => 'Suspender atividades de risco, garantir conformidade legal e acionar órgãos fiscalizadores quando necessário.'
+    ],
+    8 => [
+        'Leve' => 'Ajustar rotinas de trabalho, priorizar tarefas e promover reuniões de alinhamento para evitar sobrecarga.',
+        'Moderado' => 'Redistribuir tarefas, revisar metas e prazos, e implementar ferramentas de gestão de tempo.',
+        'Sério' => 'Reestruturar equipes, contratar reforços e revisar processos para equilibrar a carga de trabalho.',
+        'Severo' => 'Investigar casos de burnout, oferecer suporte de saúde mental e adotar medidas emergenciais para redução da carga.'
+    ],
+ 9 => [
+        'Leve' => 'Realizar manutenção preventiva e oferecer suporte técnico para resolução rápida de problemas.',
+        'Moderado' => 'Investir em atualização tecnológica, substituir equipamentos obsoletos e treinar colaboradores para uso eficiente.',
+        'Sério' => 'Realizar substituição urgente de equipamentos críticos e implementar planos de contingência para continuidade das operações.',
+        'Severo' => 'Conduzir auditoria de TI, reforçar a segurança da informação e revisar políticas de acesso e uso de ferramentas.'
+    ],
+    10 => [
+        'Leve' => 'Padronizar processos e documentar procedimentos operacionais para garantir clareza e previsibilidade.',
+        'Moderado' => 'Otimizar processos, automatizar tarefas repetitivas e revisar fluxos para eliminar gargalos.',
+        'Sério' => 'Revisar completamente os processos, promover treinamentos específicos e monitorar a aderência às novas práticas.',
+        'Severo' => 'Contratar consultoria externa para reengenharia de processos e implementar mudanças estruturais com acompanhamento especializado.'
+    ],
+   11 => [
+        'Leve' => 'Definir KPIs simples para acompanhamento do clima e desempenho das equipes.',
+        'Moderado' => 'Estabelecer metas SMART, utilizar ferramentas como 5W2H e realizar reuniões periódicas de acompanhamento.',
+        'Sério' => 'Conduzir auditoria dos resultados, ajustar indicadores e promover reuniões de alinhamento para correção de desvios.',
+        'Severo' => 'Solicitar avaliação externa, publicar relatório público de resultados e implementar plano de ação corretivo com acompanhamento independente.'
+    ],
+    12 => [
+        'Leve' => 'Oferecer microtreinamentos e workshops temáticos para atualização contínua dos colaboradores.',
+        'Moderado' => 'Implementar trilhas de desenvolvimento e incentivar certificações profissionais relevantes.',
+        'Sério' => 'Elaborar planos de desenvolvimento individual (PDI) e acompanhar a evolução dos colaboradores com feedbacks regulares.',
+        'Severo' => 'Promover programas de requalificação e recolocação, apoiando a transição de carreira dos colaboradores afetados.'
+    ],
+    13 => [
+        'Leve' => 'Reforçar os valores organizacionais em campanhas de comunicação interna e eventos corporativos.',
+        'Moderado' => 'Realizar workshops de alinhamento cultural, promover debates sobre missão, visão e valores.',
+        'Sério' => 'Revisar missão, visão e valores da empresa, envolvendo colaboradores no processo de redefinição.',
+        'Severo' => 'Implementar programa de transformação cultural, com liderança exemplar e acompanhamento de indicadores de engajamento.'
+    ],
+    14 => [
+        'Leve' => 'Reforçar os valores organizacionais em campanhas de comunicação interna e eventos corporativos.',
+        'Moderado' => 'Realizar workshops de alinhamento cultural, promover debates sobre missão, visão e valores.',
+        'Sério' => 'Revisar missão, visão e valores da empresa, envolvendo colaboradores no processo de redefinição.',
+        'Severo' => 'Implementar programa de transformação cultural, com liderança exemplar e acompanhamento de indicadores de engajamento.'
+    ],
+    15 => [
+        'Leve' => 'Reforçar os valores organizacionais em campanhas de comunicação interna e eventos corporativos.',
+        'Moderado' => 'Realizar workshops de alinhamento cultural, promover debates sobre missão, visão e valores.',
+        'Sério' => 'Revisar missão, visão e valores da empresa, envolvendo colaboradores no processo de redefinição.',
+        'Severo' => 'Implementar programa de transformação cultural, com liderança exemplar e acompanhamento de indicadores de engajamento.'
+    ],
+    16 => [
+        'Leve' => 'Reforçar os valores organizacionais em campanhas de comunicação interna e eventos corporativos.',
+        'Moderado' => 'Realizar workshops de alinhamento cultural, promover debates sobre missão, visão e valores.',
+        'Sério' => 'Revisar missão, visão e valores da empresa, envolvendo colaboradores no processo de redefinição.',
+        'Severo' => 'Implementar programa de transformação cultural, com liderança exemplar e acompanhamento de indicadores de engajamento.'
+    ],
             ];
         @endphp
 

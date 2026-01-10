@@ -82,10 +82,26 @@ class EmpresaController extends Controller
             'empresas' => $empresas
         ]); 
     }
+
+    public function showarp(){
+
+        $empresas = Empresas::where('id_user', Auth::user()->id_instituicao)->get();
+        
+        return view('show-empresas-arp',
+        [
+            'empresas' => $empresas
+        ]); 
+    }
  
     public function formempresa(){
 
         return view('form-empresa'); 
+    }
+
+    
+    public function formempresaarp(){
+
+        return view('form-empresaarp'); 
     }
 
     public function cadempresa(Request $request){
@@ -191,6 +207,40 @@ class EmpresaController extends Controller
         return redirect()->route('infoempresa', ['id' => $empresa->id]);
     }
 
+    public function cadempresaarp(Request $request){
+     
+    
+            $empresa = new Empresas(); 
+            $empresa->nome = $request->nome;
+            $empresa->id_user = Auth::user()->id_instituicao;
+            $empresa->titulo = $request->titulo;
+            $empresa->periodo_inspecao = $request->periodo_inspecao;
+            $empresa->cnpj = $request->cnpj;
+            $empresa->telefone = $request->telefone;
+            $empresa->responsavel =	$request->responsavel;
+            $empresa->num_funcionarios = $request->num_funcionarios;
+            $empresa->inscricao_estadual = $request->inscricao_estadual;
+            $empresa->setor	= $request->setor;
+            $empresa->rua = $request->rua;
+            $empresa->cidade = $request->cidade;
+            $empresa->numero = $request->num;
+            $empresa->estado = $request->uf;
+            $empresa->bairro = $request->bairro;
+            $empresa->cep = $request->cep;
+            $empresa->tipo =1;
+            $empresa->grau_de_risco = $request->grau_de_risco;
+            if(isset($request->file)){
+             $photoname = $request->file->getClientOriginalName();
+             $empresa->photo = $photoname;
+             $image = $request->file('file');
+             $destinationPath = public_path('fotos-empresas/');
+             $image->move($destinationPath, $photoname);
+            }
+            $empresa->save(); 
+     
+            return redirect()->route('infoempresaarp', ['id' => $empresa->id]);
+        }
+    
 
     public function infoempresa($id){
         
@@ -297,6 +347,106 @@ class EmpresaController extends Controller
 
     
         return view('infoempresa',
+        [   
+            'empresa' => $empresa, 
+            'mediasGerais' => $mediasGerais,
+            'totalParticipantesGeral' => $totalParticipantesGeral,
+            'mediasPorSetor' => $mediasPorSetor,
+        ]); 
+    }
+
+    public function infoempresaarp($id){
+        
+
+        $arp = ResultadoRespostaArp::where('id_empresa', $id)
+        ->with('pergunta.categoria.categoria', 'resposta', 'funcionario')
+        ->get();
+
+    if ($arp->isNotEmpty()) {
+        $categoriasGerais = [];
+        $dadosPorSetor = [];
+        $participantesGerais = [];
+
+        foreach ($arp as $item) {
+            // Pula o item se não houver funcionário ou resposta associada, para evitar erros.
+            if (!$item->funcionario || !$item->resposta) {
+                continue;
+            }
+
+            $categoria = $item->pergunta->categoria->categoria->nome ?? 'Sem categoria';
+            $setor = $item->funcionario->setor ?? 'Sem setor definido';
+            $idFuncionario = $item->funcionario->id;
+
+            preg_match('/^\d+/', $item->resposta->resposta ?? '', $matches);
+            $valor = isset($matches[0]) ? (int) $matches[0] : null;
+
+            if ($valor !== null) {
+                // 1. Agrupa os valores para o cálculo GERAL
+                $categoriasGerais[$categoria][] = $valor;
+                // Adiciona o ID do funcionário para contagem geral de participantes únicos
+                $participantesGerais[$idFuncionario] = true;
+
+                // 2. Agrupa os valores POR SETOR
+                $dadosPorSetor[$setor]['valores'][$categoria][] = $valor;
+                // Adiciona o ID do funcionário para contagem de participantes únicos POR SETOR
+                $dadosPorSetor[$setor]['participantes'][$idFuncionario] = true;
+            }
+        }
+
+        // Função auxiliar para calcular médias (evita repetição de código)
+        $calcularMedias = function ($categorias) {
+            $medias = [];
+            foreach ($categorias as $categoria => $valores) {
+                $media = count($valores) > 0 ? array_sum($valores) / count($valores) : 0;
+
+                if ($media <= 1) {
+                    $nivel = 'Leve';
+                } elseif ($media <= 2) {
+                    $nivel = 'Moderado';
+                } elseif ($media <= 3) {
+                    $nivel = 'Sério';
+                } else {
+                    $nivel = 'Severo';
+                }
+
+                $medias[] = [
+                    'categoria' => $categoria,
+                    'media' => $media,
+                    'nivel' => $nivel,
+                ];
+            }
+            return $medias;
+        };
+
+        // 3. Calcula as médias GERAIS
+        $mediasGerais = $calcularMedias($categoriasGerais);
+        $totalParticipantesGeral = count($participantesGerais);
+
+        // 4. Calcula as médias para CADA SETOR
+        $mediasPorSetor = [];
+        foreach ($dadosPorSetor as $setor => $dados) {
+            $mediasPorSetor[$setor] = [
+                'medias' => $calcularMedias($dados['valores']),
+                'totalParticipantes' => count($dados['participantes']),
+            ];
+        }
+
+    }else{
+        $mediasGerais = [];
+        $mediasPorSetor = [];
+        $totalParticipantesGeral = 0;
+    }
+
+        function porcentagem($numero, $key){
+            $porcentagem = ($numero/$key) * 100;
+
+            return round($porcentagem);
+        }
+        $empresa = Empresas::where('id', $id)->first();
+
+
+    
+        return view('infoempresa-arp',
         [   
             'empresa' => $empresa, 
             'mediasGerais' => $mediasGerais,
@@ -417,6 +567,8 @@ class EmpresaController extends Controller
             'mediasPorSetor' => $mediasPorSetor,
         ]); 
     } 
+
+    
     public function dashboardarp($id){
         
 
@@ -522,6 +674,119 @@ class EmpresaController extends Controller
 
     
         return view('dashboardarp',
+        [   
+            'empresa' => $empresa, 
+            'mediasGerais' => $mediasGerais,
+            'totalParticipantesGeral' => $totalParticipantesGeral,
+            'mediasPorSetor' => $mediasPorSetor,
+        ]); 
+    }     
+
+    public function dashboardarpn($id){
+        
+
+        $arp = ResultadoRespostaArp::where('id_empresa', $id)
+        ->with('pergunta.categoria.categoria', 'resposta', 'funcionario')
+        ->get();
+
+    if ($arp->isNotEmpty()) {
+        $categoriasGerais = [];
+        $dadosPorSetor = [];
+        $participantesGerais = [];
+
+        foreach ($arp as $item) {
+            // Pula o item se não houver funcionário ou resposta associada, para evitar erros.
+            if (!$item->funcionario || !$item->resposta) {
+                continue;
+            }
+
+            $categoria = $item->pergunta->categoria->categoria->nome ?? 'Sem categoria';
+            $setor = $item->funcionario->setor ?? 'Sem setor definido';
+            $idFuncionario = $item->funcionario->id;
+
+            preg_match('/^\d+/', $item->resposta->resposta ?? '', $matches);
+            $valor = isset($matches[0]) ? (int) $matches[0] : null;
+
+            if ($valor !== null) {
+                // 1. Agrupa os valores para o cálculo GERAL
+                $categoriasGerais[$categoria][] = $valor;
+                // Adiciona o ID do funcionário para contagem geral de participantes únicos
+                $participantesGerais[$idFuncionario] = true;
+
+                // 2. Agrupa os valores POR SETOR
+                $dadosPorSetor[$setor]['valores'][$categoria][] = $valor;
+                // Adiciona o ID do funcionário para contagem de participantes únicos POR SETOR
+                $dadosPorSetor[$setor]['participantes'][$idFuncionario] = true;
+            }
+        }
+
+        // Função auxiliar para calcular médias (evita repetição de código)
+        $calcularMedias = function ($categorias) {
+            $medias = [];
+            foreach ($categorias as $categoria => $valores) {
+                $media = count($valores) > 0 ? array_sum($valores) / count($valores) : 0;
+
+                if ($media <= 1) {
+                    $nivel = 'Leve';
+                } elseif ($media <= 2) {
+                    $nivel = 'Moderado';
+                } elseif ($media <= 3) {
+                    $nivel = 'Sério';
+                } else {
+                    $nivel = 'Severo';
+                }
+
+                $medias[] = [
+                    'categoria' => $categoria,
+                    'media' => $media,
+                    'nivel' => $nivel,
+                ];
+            }
+            return $medias;
+        };
+
+        // 3. Calcula as médias GERAIS
+        $mediasGerais = $calcularMedias($categoriasGerais);
+        $totalParticipantesGeral = count($participantesGerais);
+
+        // 4. Calcula as médias para CADA SETOR
+        $mediasPorSetor = [];
+        foreach ($dadosPorSetor as $setor => $dados) {
+            $mediasPorSetor[$setor] = [
+                'medias' => $calcularMedias($dados['valores']),
+                'totalParticipantes' => count($dados['participantes']),
+            ];
+        }
+
+    }else{
+        $mediasGerais = [];
+        $mediasPorSetor = [];
+        $totalParticipantesGeral = 0;
+    }
+
+        function porcentagem($numero, $key){
+            $porcentagem = ($numero/$key) * 100;
+
+            return round($porcentagem);
+        }
+        $empresa = Empresas::where('id', $id)
+        ->with('setores')
+        ->with('populacao')
+        ->with('introducao')
+        ->with('equipe')
+        ->with('objetivos')
+        ->with('disposicao')
+        ->with('mapeamento')
+        ->with('planodeacao')
+        ->with('responsaveis')
+        ->with('area')
+        ->with('rodape')
+        ->with('cabecalho')
+        ->first();
+
+
+    
+        return view('dashboardarpn',
         [   
             'empresa' => $empresa, 
             'mediasGerais' => $mediasGerais,
@@ -785,6 +1050,38 @@ class EmpresaController extends Controller
         $empresa->save(); 
 
         return redirect()->route('infoempresa', ['id' => $empresa->id]);
+    }
+
+    public function updempresaarp(Request $request){
+
+        $empresa = Empresas::where('id', $request->id)->first();
+        $empresa->nome = $request->nome;
+        $empresa->titulo = $request->titulo;
+        $empresa->cnpj = $request->cnpj;
+        $empresa->telefone = $request->telefone;
+        $empresa->responsavel =	$request->responsavel;
+        $empresa->num_funcionarios = $request->num_funcionarios;
+        $empresa->setor	= $request->setor;
+        $empresa->rua = $request->rua;
+        $empresa->cidade = $request->cidade;
+        $empresa->numero = $request->num;
+        $empresa->estado = $request->uf;
+        $empresa->bairro = $request->bairro;
+        $empresa->cep = $request->cep;
+        $empresa->inscricao_estadual = $request->inscricao_estadual;
+        $empresa->periodo_inspecao = $request->periodo_inspecao;
+        $empresa->grau_de_risco = $request->grau_de_risco;
+        if(isset($request->file)){
+            $photoname = $request->file->getClientOriginalName();
+            $empresa->photo = $photoname;
+            $image = $request->file('file');
+            $destinationPath = public_path('fotos-empresas/');
+            $image->move($destinationPath, $photoname);
+        
+           }
+        $empresa->save(); 
+
+        return redirect()->route('infoempresaarp', ['id' => $empresa->id]);
     }
     
     public function alteraordem(Request $request){
