@@ -33,7 +33,9 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
+        if (Auth::user()->power == 11) {
+            return redirect()->route('show-empresasarp');
+        }
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

@@ -69,10 +69,13 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return redirect()->route('home'); 
 });
+
+
 //*Formulário de ARP
 Route::get('/formulario/arp/{id}', [ArpController::class, 'formArp'])->name('form-arp');
 Route::post('/formulario/cad/respostas/arp', [ArpController::class, 'cadForm'])->name('cad-form-arp');
 Route::get('/formulario/enviado/arp', [ArpController::class, 'formArpEnviado'])->name('form-arp-enviado');
+Route::get('/arp/login', [ArpController::class, 'login'])->name('arp-login');
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
@@ -108,7 +111,8 @@ Route::middleware(['auth', 'power:11'])->group(function () {
     Route::get('/arp/info/empresa/{id}', [EmpresaController::class, 'infoempresaarp'])->name('infoempresaarp'); 
     Route::post('/arp/update/empresa', [EmpresaController::class, 'updempresaarp'])->name('updempresaarp');
     Route::get('/arp/info/dashboard/empresa/{id}', [EmpresaController::class, 'dashboardarpn'])->name('dashboardempresaarpn'); 
-    
+    Route::get('/arp/imprime/dashboard/empresa/{id}', [EmpresaController::class, 'dashboardarpnimprime'])->name('dashboardempresaarpnimprime'); 
+
 
 
 });

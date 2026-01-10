@@ -41,7 +41,7 @@
           </div>
           <div>
             <a class="navbar-brand brand-logo" href="#">
-              <img src="{{ url('assets_arp/images/logo.svg') }}" alt="logo">
+              <img src="{{ url('avalia.one.png') }}" alt="logo" style="width: 200px; height:130px">
             </a>
             <a class="navbar-brand brand-logo-mini" href="#">
               <img src="{{ url('assets_arp/images/logo-mini.svg') }}" alt="logo">
@@ -53,14 +53,26 @@
           <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
               <h1 class="welcome-text">Olá, <span class="text-black fw-bold">{{ Auth::user()->name ?? 'Usuário' }}</span></h1>
-              <h3 class="welcome-sub-text">Bem-vindo ao painel de gerenciamento.</h3>
+              <h3 class="welcome-sub-text">Bem-vindo ao painel de gerenciamento de ARP.</h3>
             </li>
           </ul>
           
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
+          @if(isset($v))
+          <h2 class="text-lg font-medium">
+            Lista de Empresas Cadastradas
+        </h2>
+        <br>&emsp;
+            <a href="{{ route('formempresaarp') }}" class="btn btn-primary shadow-md">
+                <i data-feather="plus" class="w-4 h-4 mr-2"></i> Adicionar Empresa
+            </a>
+            @endif
         </div>
+
+          </div>
+      </div>
       </nav>
       
       <div class="container-fluid page-body-wrapper">
@@ -75,7 +87,7 @@
               </a>
             </li>
       
-            @if(Config::get('app.explode_path.2') == 'empresa')
+            {{-- @if(Config::get('app.explode_path.2') == 'empresa')
             <li class="nav-item nav-category">Navegação Interna</li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#menu-empresa" aria-expanded="false" aria-controls="menu-empresa">
@@ -126,7 +138,7 @@
                 </ul>
               </div>
             </li>
-            @endif
+            @endif --}}
       
             <li class="nav-item nav-category">Gerenciamento</li>
       
@@ -137,12 +149,7 @@
               </a>
             </li>
       
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('show-identidade') }}">
-                <i class="menu-icon mdi mdi-palette-advanced"></i>
-                <span class="menu-title">Identidade Visual</span>
-              </a>
-            </li>
+        
       
             @if (Auth::user()->power == 1)
             <li class="nav-item">
@@ -153,19 +160,7 @@
             </li>
             @endif
       
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('show-textos') }}">
-                <i class="menu-icon mdi mdi-format-text"></i>
-                <span class="menu-title">Textos Padrão</span>
-              </a>
-            </li>
-      
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('show-lista-recomendacoes') }}">
-                <i class="menu-icon mdi mdi-playlist-check"></i>
-                <span class="menu-title">Listas</span>
-              </a>
-            </li>
+           
       
             <li class="nav-item nav-category">Conta</li>
       

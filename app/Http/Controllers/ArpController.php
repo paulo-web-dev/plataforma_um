@@ -13,7 +13,13 @@ use App\Models\TextosPadroesArp;
 
 class ArpController extends Controller
 {
-     
+    public function login(){
+
+       
+        return view('loginarp', [
+        
+        ]); 
+    }
     public function formArp($id){
 
         $empresa = Empresas::where('id', $id)->first();

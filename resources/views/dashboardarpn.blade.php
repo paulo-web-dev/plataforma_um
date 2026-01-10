@@ -27,10 +27,10 @@
                     Gerar Link ARP
                 </a>
         
-                <button onclick="window.print()" class="btn btn-danger btn-sm d-flex align-items-center gap-1">
+                <a href="{{route('dashboardempresaarpnimprime', ['id' => $empresa->id] )}}" class="btn btn-danger btn-sm d-flex align-items-center gap-1">
                     <i class="mdi mdi-printer"></i>
                     Imprimir Relatório
-                </button>
+                </a>
             </div>
         
         </div>
@@ -139,7 +139,50 @@
   
     ];
 @endphp
+@php
+            $totalLeve = 0; $totalMod = 0; $totalSerio = 0; $totalSevero = 0;
+            foreach($mediasGerais as $m) {
+                if($m['nivel'] == 'Leve') $totalLeve++;
+                elseif($m['nivel'] == 'Moderado') $totalMod++;
+                elseif($m['nivel'] == 'Sério') $totalSerio++;
+                else $totalSevero++;
+            }
+        @endphp
 
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card border-0 border-bottom border-success border-3 shadow-sm">
+            <div class="card-body text-center p-3">
+                <h4 class="text-success mb-1 fw-bold">{{ $totalLeve }}</h4>
+                <p class="text-muted mb-0 small uppercase">Severidade Leve</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 border-bottom border-warning border-3 shadow-sm">
+            <div class="card-body text-center p-3">
+                <h4 class="text-warning mb-1 fw-bold">{{ $totalMod }}</h4>
+                <p class="text-muted mb-0 small uppercase">Severidade Moderada</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 border-bottom border-3 shadow-sm" style="border-color: #f97316 !important;">
+            <div class="card-body text-center p-3">
+                <h4 style="color: #f97316;" class="mb-1 fw-bold">{{ $totalSerio }}</h4>
+                <p class="text-muted mb-0 small uppercase">Severidade Séria</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 border-bottom border-danger border-3 shadow-sm">
+            <div class="card-body text-center p-3">
+                <h4 class="text-danger mb-1 fw-bold">{{ $totalSevero }}</h4>
+                <p class="text-muted mb-0 small uppercase">Severidade Severa</p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row mt-4">
     <div class="col-12 grid-margin">
         <div class="card">
