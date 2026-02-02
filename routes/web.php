@@ -50,6 +50,9 @@ use App\Http\Controllers\RodapeController;
 use App\Http\Controllers\KimController;
 use App\Http\Controllers\ConclusaoSubsetorController;
 use App\Http\Controllers\ArpController;
+use App\Http\Controllers\ArpAreaController;
+use App\Http\Controllers\ArpSubSetoresController;
+use App\Http\Controllers\ArpSetoresController;
 use App\Http\Controllers\DiscController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -113,7 +116,32 @@ Route::middleware(['auth', 'power:11'])->group(function () {
     Route::get('/arp/info/dashboard/empresa/{id}', [EmpresaController::class, 'dashboardarpn'])->name('dashboardempresaarpn'); 
     Route::get('/arp/imprime/dashboard/empresa/{id}', [EmpresaController::class, 'dashboardarpnimprime'])->name('dashboardempresaarpnimprime'); 
 
+//ROTAS REFERENTES A ÁREAS ARP
+    Route::get('/areas', [ArpAreaController::class, 'show'])->name('show-areas');
+    Route::get('/arp/form/areas/{idempresa}', [ArpAreaController::class, 'formAreas'])->name('form-areas-arp');
+    Route::get('/arp/info/areas/{id}', [ArpAreaController::class, 'infoAreas'])->name('info-areas-arp'); 
+    Route::get('/arp/delete/areas/{id}', [ArpAreaController::class, 'delete'])->name('delete-areas-arp'); 
+    Route::post('/arp/cadastrar/areas', [ArpAreaController::class, 'cadAreas'])->name('cad-areas-arp');
+    Route::post('/arp/pdate/areas', [ArpAreaController::class, 'updAreas'])->name('upd-areas-arp');
 
+    //Rotas Pèrtinentes ao subsetores da ARP
+        Route::get('/arp/subsetores', [ArpSubSetoresController::class, 'show'])->name('show-subsetor-arp');
+        Route::get('/arp/form/subsetores/{idsetor}', [ArpSubSetoresController::class, 'formSubSetores'])->name('form-subsetores-arp');
+        Route::get('/arp/info/subsetor/{id}', [ArpSubSetoresController::class, 'infoSubSetores'])->name('info-subsetor-arp'); 
+        Route::get('/arp/duplicar/subsetor/{id}', [ArpSubSetoresController::class, 'duplicarSubSetores'])->name('duplicar-subsetor-arp'); 
+        Route::get('/arp/delete/subsetor/{id}', [ArpSubSetoresController::class, 'delete'])->name('delete-subsetor-arp'); 
+        Route::post('/arp/cadastrar/subsetor', [ArpSubSetoresController::class, 'cadSubSetor'])->name('cad-subsetor-arp');
+        Route::post('/arp/update/subsetor', [ArpSubSetoresController::class, 'updSubSetor'])->name('upd-subsetor-arp');
+
+
+            
+    //Rotas Pertitentes aos setores ARP
+        Route::get('/arp/setores', [ArpSetoresController::class, 'show'])->name('show-setores-arp');
+        Route::get('/arp/form/setores/{idempresa}', [ArpSetoresController::class, 'formSetores'])->name('form-setores-arp');
+        Route::get('/arp/info/setor/{id}', [ArpSetoresController::class, 'infoSetores'])->name('info-setor-arp'); 
+        Route::get('/arp/delete/setor/{id}', [ArpSetoresController::class, 'delete'])->name('delete-setor-arp');
+        Route::post('/arp/cadastrar/setor', [ArpSetoresController::class, 'cadSetor'])->name('cad-setor-arp');
+        Route::post('/arp/update/setor', [ArpSetoresController::class, 'updSetor'])->name('upd-setor-arp');
 
 });
 
@@ -476,6 +504,7 @@ Route::get('/plano/{plano}', [InstitucionalController::class, 'plano'])->name('p
 Route::get('/disc', [DiscController::class, 'index'])->name('disc.index');
 Route::post('/disc', [DiscController::class, 'store'])->name('disc.store');
 Route::get('/disc/resultado/{id}', [DiscController::class, 'result'])->name('disc.result');
+Route::get('/disc/documento/resultado/{id}', [DiscController::class, 'resultDocumento'])->name('disc.resultDocumento');
 
 
 require __DIR__.'/auth.php';

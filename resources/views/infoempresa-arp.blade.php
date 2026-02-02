@@ -131,6 +131,51 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-4">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 class="card-title mb-0">Lista de Áreas</h4>
+                                <a href="{{ route('form-areas-arp', ['idempresa' => $empresa->id]) }}" class="btn btn-primary btn-sm">
+                                    <i class="mdi mdi-plus me-1"></i> Cadastrar Área
+                                </a>
+                            </div>
+            
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Área</th>
+                                            <th class="text-center">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($empresa->area as $area) 
+                                            <tr>
+                                                <td>{{$area->id}}</td>
+                                                <td>{{$area->nome}}</td>
+                                                <td class="text-center">
+                                                    <a href="{{ route('info-areas-arp', ['id' => $area->id]) }}" 
+                                                       class="btn btn-outline-primary btn-sm">
+                                                        <i class="mdi mdi-lead-pencil me-1"></i> Editar
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach 
+                                        @if($area->setores->isEmpty())
+                                            <tr>
+                                                <td colspan="3" class="text-center text-muted">Nenhum setor cadastrado para esta área.</td>
+                                            </tr>
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @if(!empty($mediasGerais))
 
 {{-- Dicionário de Sugestões (Mantido conforme seu original) --}}
