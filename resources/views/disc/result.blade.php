@@ -43,7 +43,7 @@
         </div>
         
         <div class="text-center mt-5">
-            <a href="{{ route('disc.index') }}" class="btn btn-outline-primary">Nova Avaliação</a>
+            <a href="{{ route('disc.resultDocumento') }}" class="btn btn-outline-primary">Imprimir Resultado</a>
         </div>
     </div>
 
