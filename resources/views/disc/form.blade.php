@@ -113,7 +113,7 @@
                            class="form-control"
                            name="nome"
                            id="nome"
-                           value="Usuário Teste DISC"
+                           value=""
                            required>
                     <label for="nome">Nome Completo</label>
                 </div>
@@ -125,7 +125,7 @@
                            class="form-control"
                            name="email"
                            id="email"
-                           value="teste@unyflex.com.br"
+                           value=""
                            required>
                     <label for="email">E-mail</label>
                 </div>
@@ -170,7 +170,7 @@
                            name="respostas[{{ $pergunta->id }}][{{ $alt->id }}]"
                            id="p{{ $pergunta->id }}_a{{ $alt->id }}_v{{ $i }}"
                            value="{{ $i }}"
-                           {{ ($index + 1 == $i) ? 'checked' : '' }}
+                          
                            required>
 
                     <label for="p{{ $pergunta->id }}_a{{ $alt->id }}_v{{ $i }}"

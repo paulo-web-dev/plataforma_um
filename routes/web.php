@@ -505,6 +505,7 @@ Route::get('/disc', [DiscController::class, 'index'])->name('disc.index');
 Route::post('/disc', [DiscController::class, 'store'])->name('disc.store');
 Route::get('/disc/resultado/{id}', [DiscController::class, 'result'])->name('disc.result');
 Route::get('/disc/documento/resultado/{id}', [DiscController::class, 'resultDocumento'])->name('disc.resultDocumento');
+Route::get('/disc/documento/premium/resultado/{id}', [DiscController::class, 'resultDocumentoPremium'])->name('disc.resultDocumentoPremium');
 
 
 require __DIR__.'/auth.php';

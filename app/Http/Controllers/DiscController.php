@@ -12,7 +12,13 @@ class DiscController extends Controller
 {
     public function index()
     {
-        $perguntas = DiscPergunta::with('alternativas')->get();
+        $perguntas = DiscPergunta::with('alternativas')
+        ->get()
+        ->map(function ($pergunta) {
+            $pergunta->alternativas = $pergunta->alternativas->shuffle();
+            return $pergunta;
+        });
+        
         return view('disc.form', compact('perguntas'));
     }
 
@@ -65,13 +71,19 @@ class DiscController extends Controller
         $percentages = [];
     
         foreach ($scores as $key => $val) {
-            $maxPontos =25 * 4; // ex: 25 respostas * 4 = 100
+            // Nota: Se a quantidade de perguntas por letra variar, você pode 
+            // querer usar ($counts[$key] * 4) em vez de um valor fixo como (25 * 4)
+            $maxPontos = 25 * 4; 
             $percentages[$key] = $maxPontos > 0
                 ? round(($val / $maxPontos) * 100, 1)
                 : 0;
         }
+
+        // NOVO: Descobrir o perfil dominante (a letra com a maior porcentagem/pontuação)
+        $perfilDominante = array_keys($percentages, max($percentages))[0];
     
-        return view('disc.result', compact('funcionario', 'scores', 'percentages', 'counts'));
+        // NOVO: Adicionado $perfilDominante ao compact()
+        return view('disc.result', compact('funcionario', 'scores', 'percentages', 'counts', 'perfilDominante'));
     }
 
     public function resultDocumento($id)
@@ -109,6 +121,43 @@ class DiscController extends Controller
         );
         
         return view('disc.resultdoc', compact('funcionario', 'scores', 'percentages', 'counts', 'perfilDominante'));
+    }
+
+    public function resultDocumentoPremium($id)
+    {
+        $funcionario = FuncionarioQuestionarioArp::with('respostas.alternativa')->findOrFail($id);
+    
+        // Inicializar
+        $scores = ['D' => 0, 'I' => 0, 'S' => 0, 'C' => 0];
+        $counts = ['D' => 0, 'I' => 0, 'S' => 0, 'C' => 0];
+    
+        foreach ($funcionario->respostas as $resposta) {
+            $dimensao = $resposta->alternativa->dimensao; // D, I, S, C
+            $rank = $resposta->valor_escolhido; // 1 a 4
+    
+            // Peso inverso
+            $peso = 5 - $rank; // 1->4 | 2->3 | 3->2 | 4->1
+    
+            if (isset($scores[$dimensao])) {
+                $scores[$dimensao] += $peso;
+                $counts[$dimensao]++; // conta quantas perguntas aquela letra teve
+            }
+        }
+       
+        // Calcular percentuais por dimensão (independentes)
+        $percentages = [];
+    
+        foreach ($scores as $key => $val) {
+            $maxPontos =25 * 4; // ex: 25 respostas * 4 = 100
+            $percentages[$key] = $maxPontos > 0
+                ? round(($val / $maxPontos) * 100, 1)
+                : 0;
+        }
+        $perfilDominante = array_key_first(
+            collect($percentages)->sortDesc()->toArray()
+        );
+        
+        return view('disc.resultdocpremium', compact('funcionario', 'scores', 'percentages', 'counts', 'perfilDominante'));
     }
        
 }
