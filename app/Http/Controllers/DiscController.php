@@ -83,7 +83,7 @@ class DiscController extends Controller
         $perfilDominante = array_keys($percentages, max($percentages))[0];
     
         // NOVO: Adicionado $perfilDominante ao compact()
-        return view('disc.result', compact('funcionario', 'scores', 'percentages', 'counts', 'perfilDominante'));
+        return view('disc.result', compact('funcionario', 'scores', 'percentages', 'counts', 'perfilDominante', 'id'));
     }
 
     public function resultDocumento($id)

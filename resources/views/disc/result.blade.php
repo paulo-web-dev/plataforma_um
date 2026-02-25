@@ -43,7 +43,7 @@
         </div>
         
         <div class="text-center mt-5">
-            <a href="{{ route('disc.resultDocumento') }}" class="btn btn-outline-primary">Imprimir Resultado</a>
+            <a href="{{ route('disc.resultDocumento', ['id' => $id]) }}" class="btn btn-outline-primary">Imprimir Resultado</a>
         </div>
     </div>
 
