@@ -71,14 +71,14 @@ class DiscController extends Controller
         $percentages = [];
     
         foreach ($scores as $key => $val) {
-            // Nota: Se a quantidade de perguntas por letra variar, você pode 
-            // querer usar ($counts[$key] * 4) em vez de um valor fixo como (25 * 4)
-            $maxPontos = 25 * 4; 
+
+            $maxPontos = $counts[$key] * 4; // máximo possível para aquela dimensão
+        
             $percentages[$key] = $maxPontos > 0
                 ? round(($val / $maxPontos) * 100, 1)
-                : 0;
+                : 0;   
         }
-
+ 
         // NOVO: Descobrir o perfil dominante (a letra com a maior porcentagem/pontuação)
         $perfilDominante = array_keys($percentages, max($percentages))[0];
     
