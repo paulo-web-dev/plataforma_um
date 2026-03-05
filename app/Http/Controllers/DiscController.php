@@ -69,13 +69,12 @@ class DiscController extends Controller
        
         // Calcular percentuais por dimensão (independentes)
         $percentages = [];
-    
         foreach ($scores as $key => $val) {
 
             $maxPontos = $counts[$key] * 4; // máximo possível para aquela dimensão
         
             $percentages[$key] = $maxPontos > 0
-                ? round(($val / $maxPontos) * 100, 1)
+                ? round(($val / $maxPontos) * 100)
                 : 0;   
         }
  
