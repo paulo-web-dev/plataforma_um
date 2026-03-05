@@ -110,10 +110,12 @@ class DiscController extends Controller
         $percentages = [];
     
         foreach ($scores as $key => $val) {
-            $maxPontos =25 * 4; // ex: 25 respostas * 4 = 100
+
+            $maxPontos = $counts[$key] * 4; // máximo possível para aquela dimensão
+        
             $percentages[$key] = $maxPontos > 0
-                ? round(($val / $maxPontos) * 100, 1)
-                : 0;
+                ? round(($val / $maxPontos) * 100)
+                : 0;   
         }
         $perfilDominante = array_key_first(
             collect($percentages)->sortDesc()->toArray()
@@ -147,10 +149,12 @@ class DiscController extends Controller
         $percentages = [];
     
         foreach ($scores as $key => $val) {
-            $maxPontos =25 * 4; // ex: 25 respostas * 4 = 100
+
+            $maxPontos = $counts[$key] * 4; // máximo possível para aquela dimensão
+        
             $percentages[$key] = $maxPontos > 0
-                ? round(($val / $maxPontos) * 100, 1)
-                : 0;
+                ? round(($val / $maxPontos) * 100)
+                : 0;   
         }
         $perfilDominante = array_key_first(
             collect($percentages)->sortDesc()->toArray()
