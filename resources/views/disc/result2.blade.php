@@ -29,9 +29,7 @@
                         A equipe de RH entrará em contato caso seja necessário.
                     </p>
 
-                    <div class="mt-4">
-                        <a href="/" class="btn btn-primary px-4 py-2">Voltar ao Início</a>
-                    </div>
+                   
                 </div>
             </div>
             <p class="text-center mt-4 text-muted small">&copy; {{ date('Y') }} - Departamento de Recursos Humanos</p>
