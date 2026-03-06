@@ -501,9 +501,12 @@ Route::get('/index', [InstitucionalController::class, 'index'])->name('index');
 Route::get('/plano/{plano}', [InstitucionalController::class, 'plano'])->name('plano');
 
 //Rotas Referentes ao DISC 
+Route::get('/disc2', [DiscController::class, 'index2'])->name('disc.index2');
 Route::get('/disc', [DiscController::class, 'index'])->name('disc.index');
 Route::post('/disc', [DiscController::class, 'store'])->name('disc.store');
+Route::post('/disc2', [DiscController::class, 'store2'])->name('disc.store2');
 Route::get('/disc/resultado/{id}', [DiscController::class, 'result'])->name('disc.result');
+Route::get('/disc/resultado2/{id}', [DiscController::class, 'result2'])->name('disc.result2');
 Route::get('/disc/documento/resultado/{id}', [DiscController::class, 'resultDocumento'])->name('disc.resultDocumento');
 Route::get('/disc/documento/premium/resultado/{id}', [DiscController::class, 'resultDocumentoPremium'])->name('disc.resultDocumentoPremium');
 
