@@ -1248,11 +1248,11 @@ if(strlen($parte) > 50){
             <p class="text-center" style="font-weight: bold; font-size:22px; color:#fff;margin-top:5px">FOTOS</p>
          </div>
          <div class="imagem-container">
-            @foreach ($subsetor->fotosatividade as $foto)
+            @foreach ($subsetor->fotosatividade->take(4) as $foto)
             <div class="imagem">
-               <img src="/fotos-atividades/{{$foto->photo}}" alt="Imagem" style=" max-height: 250px ;">
+                <img src="/fotos-atividades/{{$foto->photo}}" alt="Imagem" style="max-height: 250px;">
             </div>
-            @endforeach
+        @endforeach
             @if (isset($subsetor->descricaoFotos))
                  <p>{{$subsetor->descricaoFotos->descricao}}</p>
             @else
