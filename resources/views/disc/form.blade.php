@@ -85,6 +85,21 @@
             padding: 10px 0;
             border-bottom: 1px solid #ddd;
         }
+
+        /* Novas classes para o passo a passo */
+        .form-step {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -101,8 +116,7 @@
 <form action="{{ route('disc.store') }}" method="POST" id="discForm">
 @csrf
 
-<!-- DADOS -->
-<div class="card mb-5 border-0 shadow-sm">
+<div class="form-step card mb-5 border-0 shadow-sm active">
     <div class="card-body p-4">
         <h5 class="text-primary mb-4">🏠 Dados do Colaborador</h5>
 
@@ -134,17 +148,16 @@
     </div>
 </div>
 
-<div class="sticky-legend text-center mb-4">
+<div class="sticky-legend text-center mb-4" id="legendBar" style="display: none;">
     <span class="badge bg-success me-2">1</span> MAIS me descreve
     <span class="mx-3 text-muted">|</span>
     <span class="badge bg-danger me-2">4</span> MENOS me descreve
 </div>
 
-<!-- PERGUNTAS -->
 @foreach($perguntas as $pergunta)
-<div class="question-card p-4">
+<div class="form-step question-card p-4">
 
-    <div class="question-number">Questão {{ $pergunta->numero }}</div>
+    <div class="question-number">Questão {{ $pergunta->numero }} de {{ count($perguntas) }}</div>
 
     <div class="table-responsive">
         <table class="table table-borderless table-matrix">
@@ -170,7 +183,6 @@
                            name="respostas[{{ $pergunta->id }}][{{ $alt->id }}]"
                            id="p{{ $pergunta->id }}_a{{ $alt->id }}_v{{ $i }}"
                            value="{{ $i }}"
-                          
                            required>
 
                     <label for="p{{ $pergunta->id }}_a{{ $alt->id }}_v{{ $i }}"
@@ -187,8 +199,18 @@
 </div>
 @endforeach
 
-<div class="d-grid col-md-6 mx-auto mt-5">
-    <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold">
+<div class="d-flex justify-content-between mt-4 col-md-8 mx-auto">
+    <button type="button" class="btn btn-outline-secondary px-4 fw-bold" id="btnPrev" style="display: none;">
+        ⬅ Anterior
+    </button>
+    
+    <button type="button" class="btn btn-primary px-5 fw-bold ms-auto" id="btnNext">
+        Próximo ➡
+    </button>
+</div>
+
+<div class="d-grid col-md-6 mx-auto mt-4" id="submitContainer" style="display: none;">
+    <button type="submit" class="btn btn-success btn-lg rounded-pill fw-bold">
         📊 Processar Resultado
     </button>
 </div>
@@ -199,9 +221,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
+    // --- LÓGICA DE EXCLUSIVIDADE DAS RESPOSTAS (MATRIZ) ---
     document.querySelectorAll('.matrix-option').forEach(radio => {
         radio.addEventListener('change', function () {
-
             const row = this.closest('.alternativa-row');
             const questionId = row.dataset.questionId;
             const value = this.value;
@@ -215,6 +237,76 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     });
+
+    // --- LÓGICA DO PASSO A PASSO (WIZARD) ---
+    const steps = document.querySelectorAll('.form-step');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    const submitContainer = document.getElementById('submitContainer');
+    const legendBar = document.getElementById('legendBar');
+    let currentStep = 0;
+
+    function showStep(index) {
+        // Mostra apenas o passo ativo
+        steps.forEach((step, i) => {
+            step.classList.toggle('active', i === index);
+        });
+
+        // Controle da barra de legenda (ocultar na tela de dados iniciais)
+        if (index === 0) {
+            legendBar.style.display = 'none';
+        } else {
+            legendBar.style.display = 'block';
+        }
+
+        // Controle dos botões
+        btnPrev.style.display = index === 0 ? 'none' : 'block';
+
+        if (index === steps.length - 1) {
+            // Último passo
+            btnNext.style.display = 'none';
+            submitContainer.style.display = 'block';
+        } else {
+            // Passos intermediários
+            btnNext.style.display = 'block';
+            submitContainer.style.display = 'none';
+        }
+        
+        // Rola a tela suavemente para o topo do form para a pessoa ler a pergunta
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateCurrentStep() {
+        const currentStepEl = steps[currentStep];
+        // Pega todos os inputs obrigatórios do passo atual
+        const inputs = currentStepEl.querySelectorAll('input[required]');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                input.reportValidity(); // Mostra a mensagem nativa do navegador ("Preencha este campo")
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    btnNext.addEventListener('click', () => {
+        // Valida se o usuário preencheu o que era obrigatório antes de passar
+        if (validateCurrentStep()) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    });
+
+    btnPrev.addEventListener('click', () => {
+        currentStep--;
+        showStep(currentStep);
+    });
+
+    // Inicializa mostrando o primeiro passo
+    showStep(currentStep);
 
 });
 </script>
