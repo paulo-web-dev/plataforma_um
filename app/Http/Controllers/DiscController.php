@@ -89,20 +89,26 @@ class DiscController extends Controller
         // Inicializar
         $scores = ['D' => 0, 'I' => 0, 'S' => 0, 'C' => 0];
         $counts = ['D' => 0, 'I' => 0, 'S' => 0, 'C' => 0];
-    
         foreach ($funcionario->respostas as $resposta) {
             $dimensao = $resposta->alternativa->dimensao; // D, I, S, C
             $rank = $resposta->valor_escolhido; // 1 a 4
-    
-            // Peso inverso
-            $peso = 5 - $rank; // 1->4 | 2->3 | 3->2 | 4->1
-    
+        
+            // Novo mapeamento de pesos
+            $mapaPesos = [
+                1 => 4.0,
+                2 => 2.5,
+                3 => 1.5,
+                4 => 0.5
+            ];
+        
+            // Busca o peso no array baseado na escolha (se não achar por algum erro, assume 0)
+            $peso = $mapaPesos[$rank] ?? 0;
+        
             if (isset($scores[$dimensao])) {
                 $scores[$dimensao] += $peso;
                 $counts[$dimensao]++; // conta quantas perguntas aquela letra teve
             }
         }
-       
         // Calcular percentuais por dimensão (independentes)
         $percentages = [];
         foreach ($scores as $key => $val) {
@@ -132,16 +138,23 @@ class DiscController extends Controller
         foreach ($funcionario->respostas as $resposta) {
             $dimensao = $resposta->alternativa->dimensao; // D, I, S, C
             $rank = $resposta->valor_escolhido; // 1 a 4
-    
-            // Peso inverso
-            $peso = 5 - $rank; // 1->4 | 2->3 | 3->2 | 4->1
-    
+        
+            // Novo mapeamento de pesos
+            $mapaPesos = [
+                1 => 4.0,
+                2 => 2.5,
+                3 => 1.5,
+                4 => 0.5
+            ];
+        
+            // Busca o peso no array baseado na escolha (se não achar por algum erro, assume 0)
+            $peso = $mapaPesos[$rank] ?? 0;
+        
             if (isset($scores[$dimensao])) {
                 $scores[$dimensao] += $peso;
                 $counts[$dimensao]++; // conta quantas perguntas aquela letra teve
             }
         }
-       
         // Calcular percentuais por dimensão (independentes)
         $percentages = [];
         foreach ($scores as $key => $val) {
@@ -171,10 +184,18 @@ class DiscController extends Controller
         foreach ($funcionario->respostas as $resposta) {
             $dimensao = $resposta->alternativa->dimensao; // D, I, S, C
             $rank = $resposta->valor_escolhido; // 1 a 4
-    
-            // Peso inverso
-            $peso = 5 - $rank; // 1->4 | 2->3 | 3->2 | 4->1
-    
+        
+            // Novo mapeamento de pesos
+            $mapaPesos = [
+                1 => 4.0,
+                2 => 2.5,
+                3 => 1.5,
+                4 => 0.5
+            ];
+        
+            // Busca o peso no array baseado na escolha (se não achar por algum erro, assume 0)
+            $peso = $mapaPesos[$rank] ?? 0;
+        
             if (isset($scores[$dimensao])) {
                 $scores[$dimensao] += $peso;
                 $counts[$dimensao]++; // conta quantas perguntas aquela letra teve
@@ -206,20 +227,26 @@ class DiscController extends Controller
         // Inicializar
         $scores = ['D' => 0, 'I' => 0, 'S' => 0, 'C' => 0];
         $counts = ['D' => 0, 'I' => 0, 'S' => 0, 'C' => 0];
-    
         foreach ($funcionario->respostas as $resposta) {
             $dimensao = $resposta->alternativa->dimensao; // D, I, S, C
             $rank = $resposta->valor_escolhido; // 1 a 4
-    
-            // Peso inverso
-            $peso = 5 - $rank; // 1->4 | 2->3 | 3->2 | 4->1
-    
+        
+            // Novo mapeamento de pesos
+            $mapaPesos = [
+                1 => 4.0,
+                2 => 2.5,
+                3 => 1.5,
+                4 => 0.5
+            ];
+        
+            // Busca o peso no array baseado na escolha (se não achar por algum erro, assume 0)
+            $peso = $mapaPesos[$rank] ?? 0;
+        
             if (isset($scores[$dimensao])) {
                 $scores[$dimensao] += $peso;
                 $counts[$dimensao]++; // conta quantas perguntas aquela letra teve
             }
         }
-       
         // Calcular percentuais por dimensão (independentes)
         $percentages = [];
     
