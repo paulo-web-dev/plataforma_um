@@ -147,11 +147,18 @@
         </div>
     </div>
 </div>
+<div class="sticky-legend text-center mb-4" id="legendBar" style="display:none; font-size:12px; line-height:1.3;">
+    
+    <div style="margin-bottom:6px;">
+        Ordene as alternativas de “1” a “4” na ordem que melhor descreve o seu comportamento.
+        Digite 1 para a alternativa que <strong>MAIS TE DESCREVE</strong>, e digite 4 para a alternativa que 
+        <strong>MENOS TE DESCREVE</strong>, continue ordenando as quatro alternativas.
+    </div>
 
-<div class="sticky-legend text-center mb-4" id="legendBar" style="display: none;">
     <span class="badge bg-success me-2">1</span> MAIS me descreve
     <span class="mx-3 text-muted">|</span>
     <span class="badge bg-danger me-2">4</span> MENOS me descreve
+
 </div>
 
 @foreach($perguntas as $pergunta)
@@ -162,13 +169,7 @@
     <div class="table-responsive">
         <table class="table table-borderless table-matrix">
             <thead>
-            <tr>
-                <th class="text-start">Frase</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-            </tr>
+         
             </thead>
             <tbody>
 

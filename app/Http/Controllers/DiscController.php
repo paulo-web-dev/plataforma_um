@@ -20,8 +20,8 @@ class DiscController extends Controller
         });
         
         return view('disc.form', compact('perguntas'));
-    }
-
+    } 
+ 
     public function index2()
     {
         $perguntas = DiscPergunta::with('alternativas')
