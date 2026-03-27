@@ -10,7 +10,7 @@
     <div class="container py-5">
         <div class="text-center mb-5">
             <h1>Resultado do Perfil DISC</h1>
-            <h3 class="text-muted">{{ $funcionario->nome }} - {{ $funcionario->funcao }}</h3>
+            <h3 class="text-muted">{{ $funcionario->nome }} - {{ $perfilDominante }}</h3>
         </div>
 
         <div class="row justify-content-center">
@@ -41,10 +41,22 @@
                 <strong>Conformidade</strong>
             </div>
         </div>
-        
-        <div class="text-center mt-5">
-            <a href="{{ route('disc.resultDocumento', ['id' => $id]) }}" class="btn btn-outline-primary">Imprimir Resultado</a>
+
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-8 text-center">
+                <hr class="my-4">
+                <p class="lead text-secondary">
+                    Obrigado por preencher o teste de perfil comportamental!
+                </p>
+                <p>
+                    Recebemos suas respostas com sucesso. Fique atento, pois <strong>logo alguém de nossa equipe entrará em contato</strong> para apresentar e discutir o seu relatório detalhado.
+                </p>
+            </div>
         </div>
+        
+        {{-- <div class="text-center mt-4">
+            <a href="{{ route('disc.resultDocumento', ['id' => $id]) }}" class="btn btn-outline-primary">Imprimir Resultado</a>
+        </div> --}}
     </div>
 
     <script>
