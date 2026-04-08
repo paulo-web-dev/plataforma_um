@@ -164,10 +164,10 @@
 @foreach($perguntas as $pergunta)
 <div class="form-step question-card p-4">
 
-    <div class="question-number">Questão {{ $pergunta->numero }} de {{ count($perguntas) }}</div>
-<span><b>{{$pergunta->pergunta}}</b></span>
+    <div class="question-number">Questão {{ $pergunta->numero }} de {{ count($perguntas) }} </div>
+    <span><b>{{$pergunta->frase}}</b></span>
     <div class="table-responsive">  
-        {{$pergunta}}
+        <span><b>{{$pergunta->frase}}</b></span>    
         <table class="table table-borderless table-matrix">
             <thead>
             
