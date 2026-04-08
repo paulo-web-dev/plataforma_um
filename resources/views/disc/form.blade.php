@@ -166,8 +166,7 @@
 
     <div class="question-number">Questão {{ $pergunta->numero }} de {{ count($perguntas) }} </div>
     <span><b>{{$pergunta->frase}}</b></span>
-    <div class="table-responsive">  
-        <span><b>{{$pergunta->frase}}</b></span>    
+    <div class="table-responsive">    
         <table class="table table-borderless table-matrix">
             <thead>
             
