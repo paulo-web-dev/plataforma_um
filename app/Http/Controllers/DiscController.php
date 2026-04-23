@@ -22,6 +22,17 @@ class DiscController extends Controller
         return view('disc.form', compact('perguntas'));
     } 
  
+    public function resultadosDisc()
+    {
+        $funcionarios = FuncionarioQuestionarioArp::whereNull('setor')
+        ->whereNull('funcao')
+        ->get();
+
+      
+             
+        return view('disc.resultadosDisc', compact('funcionarios'));
+    } 
+
     public function index2()
     {
         $perguntas = DiscPergunta::with('alternativas')
