@@ -26,6 +26,7 @@ class DiscController extends Controller
     {
         $funcionarios = FuncionarioQuestionarioArp::whereNull('setor')
         ->whereNull('funcao')
+        -orderBy('id', 'DESC')
         ->get();
 
       
