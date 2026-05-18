@@ -23,10 +23,10 @@ use Auth;
 use Illuminate\Support\Facades\Validator;
 class EmpresaController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     public function ajustamapeamento(){
         
         $id = 28;
@@ -682,7 +682,11 @@ class EmpresaController extends Controller
         ]); 
     } 
 
-    
+    public function infodashboardarpt(){
+        
+        return view('infodashboardarpt'); 
+    } 
+
     public function dashboardarp($id){
         
 

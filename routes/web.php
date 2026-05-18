@@ -96,6 +96,8 @@ Route::get('/ajusta/mapeamento', [EmpresaController::class, 'ajustamapeamento'])
 Route::get('/form/empresa', [EmpresaController::class, 'formempresa'])->name('formempresa');
 Route::get('/info/empresa/{id}', [EmpresaController::class, 'infoempresa'])->name('infoempresa'); 
 Route::get('/info/dashboard/{id}', [EmpresaController::class, 'infodashboard'])->name('infodashboard'); 
+Route::get('/info/dashboardarpt', [EmpresaController::class, 'infodashboardarpt'])->name('infodashboardarpt'); 
+
 Route::get('/info/dashboard/empresa/{id}', [EmpresaController::class, 'dashboard'])->name('dashboardempresa'); 
 Route::get('/info/imprime/dashboard/empresa/{id}', [EmpresaController::class, 'imprimedashboard'])->name('imprimedashboardempresa'); 
 Route::get('/info/dashboardarp/empresa/{id}', [EmpresaController::class, 'dashboardarp'])->name('dashboardempresaarp'); 
