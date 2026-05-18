@@ -38,7 +38,7 @@
             </div>
             <div class="col-3">
                 <h2 class="text-info">{{ $percentages['C'] }}%</h2>
-                <strong>Conformidade</strong>
+                <strong>Conformidade</strong> 
             </div>
         </div>
 
@@ -54,9 +54,9 @@
             </div>
         </div>
         
-        {{-- <div class="text-center mt-4">
+        <div class="text-center mt-4">
             <a href="{{ route('disc.resultDocumento', ['id' => $id]) }}" class="btn btn-outline-primary">Imprimir Resultado</a>
-        </div> --}}
+        </div> 
     </div>
 
     <script>
