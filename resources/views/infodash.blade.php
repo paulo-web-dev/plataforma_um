@@ -271,7 +271,7 @@ $planosPorViab = collect([
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">POSTO</th>
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">POSTURA</th>
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">SOBRECARGA</th>
-                                        <th class="px-4 py-2 text-left text-gray-400 font-medium">EXIGÊNCIA</th>
+                                        {{-- <th class="px-4 py-2 text-left text-gray-400 font-medium">EXIGÊNCIA</th> --}}
                                         <th class="px-4 py-2 text-center text-gray-400 font-medium">CLASSIFICAÇÃO</th>
                                     </tr></thead>
                                     <tbody class="divide-y divide-gray-50">
@@ -283,7 +283,7 @@ $planosPorViab = collect([
                                             {{-- <td class="px-4 py-2 text-gray-500">{{ Str::limit($m->funcao, 45) }}</td> --}}
                                             <td class="px-4 py-2 text-gray-500">{{ $m->postura }}</td>
                                             <td class="px-4 py-2 text-gray-500">{{ $m->sobrecarga }}</td>
-                                            <td class="px-4 py-2 text-gray-500">{{ $m->exigencia }}</td>
+                                            {{-- <td class="px-4 py-2 text-gray-500">{{ $m->exigencia }}</td> --}}
                                             <td class="px-4 py-2 text-center">
                                                 <span class="pill border {{ $badgeCls($m->classificacao ?? '') }}">{{ $m->classificacao }}</span>
                                             </td>
