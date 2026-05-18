@@ -806,7 +806,6 @@ class EmpresaController extends Controller
         $arp = ResultadoRespostaArp::where('id_empresa', $id)
         ->with('pergunta.categoria.categoria', 'resposta', 'funcionario')
         ->get();
-
     if ($arp->isNotEmpty()) {
         $categoriasGerais = [];
         $dadosPorSetor = [];

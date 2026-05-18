@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARP Insights — Dashboard Psicossocial | MetalTec Indústria</title>
+  <title>ARP Insights — Dashboard Psicossocial | Demo Jundiaí</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -103,9 +103,9 @@
     </div>
     <div class="flex flex-wrap justify-between items-start gap-4">
       <div>
-        <h1 class="text-3xl font-bold mb-2">MetalTec Indústria e Comércio Ltda.</h1>
+        <h1 class="text-3xl font-bold mb-2">Demo Jundiaí.</h1>
         <div class="flex flex-wrap gap-4 text-sm text-white/80 mb-2">
-          <span><i class="fa-regular fa-building mr-1"></i> CNPJ 12.345.678/0001-99</span>
+          <span><i class="fa-regular fa-building mr-1"></i> CNPJ 0000000/0001-XX</span>
           <span><i class="fa-regular fa-user mr-1"></i> Psicóloga Responsável: Dra. Renata Vaz</span>
           <span><i class="fa-regular fa-calendar mr-1"></i> Janeiro a Maio / 2025</span>
         </div>

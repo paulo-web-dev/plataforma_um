@@ -44,8 +44,20 @@
         $porPostura    = $mapeamentos->groupBy('postura');
         $porSobrecarga = $mapeamentos->groupBy('sobrecarga');
         $porExigencia  = $mapeamentos->groupBy('exigencia');
-        $planosPorViab = $empresa->planodeacao->groupBy('viabilidade');
-        $planosPorArea = $empresa->planodeacao->groupBy('area');
+        $planosPorViab = $empresa->planodeacao->groupBy(function($p) {
+    $v = strtolower(trim($p->viabilidade ?? ''));
+    if (str_contains($v, 'curto') || str_contains($v, 'imedia'))  return 'Curto Prazo';
+    if (str_contains($v, 'médio') || str_contains($v, 'medio'))   return 'Médio Prazo';
+    if (str_contains($v, 'anual') || str_contains($v, 'anua')
+     || str_contains($v, 'longo') || str_contains($v, 'estudo'))  return 'Anual';
+    return 'Anual'; // fallback
+});
+// Garante a ordem fixa
+$planosPorViab = collect([
+    'Curto Prazo' => $planosPorViab->get('Curto Prazo', collect()),
+    'Médio Prazo' => $planosPorViab->get('Médio Prazo', collect()),
+    'Anual'       => $planosPorViab->get('Anual',       collect()),
+])->filter(fn($v) => $v->count() > 0);        $planosPorArea = $empresa->planodeacao->groupBy('area');
 
         $badgeCls = fn(string $cls): string =>
             (str_contains(strtolower($cls), 'alto') || str_contains(strtolower($cls), 'crít'))
@@ -257,7 +269,6 @@
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">ÁREA</th>
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">SETOR</th>
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">POSTO</th>
-                                        <th class="px-4 py-2 text-left text-gray-400 font-medium">FUNÇÃO</th>
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">POSTURA</th>
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">SOBRECARGA</th>
                                         <th class="px-4 py-2 text-left text-gray-400 font-medium">EXIGÊNCIA</th>
@@ -269,7 +280,7 @@
                                             <td class="px-4 py-2 text-gray-500">{{ $m->area }}</td>
                                             <td class="px-4 py-2 text-gray-600">{{ $m->setor }}</td>
                                             <td class="px-4 py-2 font-medium text-gray-800">{{ $m->posto_trabalho }}</td>
-                                            <td class="px-4 py-2 text-gray-500">{{ Str::limit($m->funcao, 45) }}</td>
+                                            {{-- <td class="px-4 py-2 text-gray-500">{{ Str::limit($m->funcao, 45) }}</td> --}}
                                             <td class="px-4 py-2 text-gray-500">{{ $m->postura }}</td>
                                             <td class="px-4 py-2 text-gray-500">{{ $m->sobrecarga }}</td>
                                             <td class="px-4 py-2 text-gray-500">{{ $m->exigencia }}</td>
@@ -686,10 +697,11 @@
             </div>
             <div class="flex gap-2 flex-wrap">
                 @foreach($planosPorViab as $viab => $pItens)
-                @php $vc = str_contains(strtolower($viab ?? ''),'imediata') ? 'bg-red-100 text-red-600'
-                         : (str_contains(strtolower($viab ?? ''),'curto') ? 'bg-yellow-100 text-yellow-700'
-                         : (str_contains(strtolower($viab ?? ''),'médio') ? 'bg-blue-100 text-blue-600'
-                         : 'bg-green-100 text-green-700')); @endphp
+                @php$vc = match($viab) {
+                    'Curto Prazo' => 'bg-red-100 text-red-600',
+                    'Médio Prazo' => 'bg-yellow-100 text-yellow-700',
+                    default       => 'bg-green-100 text-green-700',
+                }; @endphp
                 <span class="text-xs px-2 py-1 rounded-lg font-medium {{ $vc }}">{{ $viab }}: {{ $pItens->count() }}</span>
                 @endforeach
             </div>
@@ -698,14 +710,16 @@
             @forelse($planosPorViab as $viab => $pItens)
             @php
                 $vk = 'pv-'.Str::slug($viab ?? 'nd');
-                $vBrd = str_contains(strtolower($viab ?? ''),'imediata') ? 'border-red-200'
-                      : (str_contains(strtolower($viab ?? ''),'curto') ? 'border-yellow-200'
-                      : (str_contains(strtolower($viab ?? ''),'médio') ? 'border-blue-200'
-                      : 'border-green-200'));
-                $vHdr = str_contains(strtolower($viab ?? ''),'imediata') ? 'bg-red-50'
-                      : (str_contains(strtolower($viab ?? ''),'curto') ? 'bg-yellow-50'
-                      : (str_contains(strtolower($viab ?? ''),'médio') ? 'bg-blue-50'
-                      : 'bg-green-50'));
+                $vBrd = match($viab) {
+    'Curto Prazo' => 'border-red-200',
+    'Médio Prazo' => 'border-yellow-200',
+    default       => 'border-green-200',
+};
+$vHdr = match($viab) {
+    'Curto Prazo' => 'bg-red-50',
+    'Médio Prazo' => 'bg-yellow-50',
+    default       => 'bg-green-50',
+};
             @endphp
             <div class="border {{ $vBrd }} rounded-xl overflow-hidden">
                 <div class="dd-trigger flex items-center gap-4 px-4 py-3 {{ $vHdr }} hover:brightness-95 transition"
