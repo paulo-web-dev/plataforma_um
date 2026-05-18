@@ -697,7 +697,7 @@ $planosPorViab = collect([
             </div>
             <div class="flex gap-2 flex-wrap">
                 @foreach($planosPorViab as $viab => $pItens)
-                @php$vc = match($viab) {
+                @php $vc = match($viab) {
                     'Curto Prazo' => 'bg-red-100 text-red-600',
                     'Médio Prazo' => 'bg-yellow-100 text-yellow-700',
                     default       => 'bg-green-100 text-green-700',
