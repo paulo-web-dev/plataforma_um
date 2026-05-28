@@ -47,7 +47,7 @@
 <body>
     <div class="container">
         <div class="form-container">
-            <h2 class="text-center mb-4">QUESTIONÁRIO ERGONÔMICO - {{$empresa->nome}}
+            <h2 class="text-center mb-4">Avaliação dos Fatores de Riscos NR01 - {{$empresa->nome}}
             </h2>
             <p>No Questionário abaixo, você encontrará uma série de questões referentes às situações relacionadas ao trabalho. Para responder selecione uma das respostas que melhor represente sua opinião. <br>
 

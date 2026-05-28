@@ -108,9 +108,11 @@ Route::post('/update/empresa', [EmpresaController::class, 'updempresa'])->name('
 Route::post('/alteracao/ordem/setor', [EmpresaController::class, 'alteraordem'])->name('alteraordem-setor');
 Route::post('/alteracao/mapeamento', [EmpresaController::class, 'alteramapeamento'])->name('alteraordem-setor');
 Route::post('/alteracao/plano', [EmpresaController::class, 'alteraplano'])->name('alteraordem-plano');
-
+Route::get('/empresa/{id}/arp/dashboard',  [ArpDashboardController::class, 'dashboard'])->name('arp.dashboard');
+Route::get('/empresa/{id}/arp/dados-json', [ArpDashboardController::class, 'dadosJson'])->name('arp.dados-json');
 //Rotas Referentes a empresas ARP
 Route::middleware(['auth', 'power:11'])->group(function () {
+    
     Route::get('/arp/empresas', [EmpresaController::class, 'showarp'])->name('show-empresasarp');
     Route::get('/arp/form/empresa', [EmpresaController::class, 'formempresaarp'])->name('formempresaarp');
     Route::post('/arp/cadastrar/empresa', [EmpresaController::class, 'cadempresaarp'])->name('cadempresaarp');
